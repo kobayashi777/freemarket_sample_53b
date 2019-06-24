@@ -1,11 +1,12 @@
 // ページ上部ロゴマーク
 .auth-header{
-  height: 142px;
-  padding-top: 45.5px;
+  height: 128px;
   &__log{//ロゴマークの位置指定
-    width: 211px;
+    width: 193px;
+    line-height: 49px;
     margin: 0 auto;
     &--link{//ロゴマーク位置微調整
+      margin-top: 41px;
       margin-right: 8px;
     }
     &:hover{
