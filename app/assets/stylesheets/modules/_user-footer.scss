@@ -1,8 +1,8 @@
 // ページ下部ロゴマーク・利用規約など
 .auth-footer{
-  height: 245px;
-  width: 500px;
-  padding: 45px 0;
+  height: 220px;
+  width: 456px;
+  padding: 39px 0 40px;
   margin: 0 auto;
   position: absolute;
   right: 0;
@@ -12,7 +12,7 @@
   text-align: center;
   &__list{//プライバシーポリシーなどのリスト
     font-family: "YuGothic";
-    font-size: 13.5px;
+    font-size: 12px;
     display: flex;
     text-align: center;
     list-style: none;
@@ -29,7 +29,7 @@
       &--margin{//メルカリ利用規約と特定商取引に関する表記指定
         color: rgb(51,51,51);
         text-decoration: none;
-        margin-left: 17px;
+        margin-left: 16px;
         &:hover{
           opacity: 0.8;
           text-decoration: underline;
@@ -38,16 +38,18 @@
     }
   }
   &__logo{//フッターロゴ
-    width: 90px;
-    height: 73px;
-    margin: 45px 205px 5px;
+    width: 80px;
+    height: 65px;
+    margin: 41px 188px 0;
     display: block;
+    margin-bottom: 2px;
     &:hover{
       opacity: 0.8;
     }
   }
   &__copyright{//フッターコピーライト
-    font-size: 14.5px;
+    font-size: 13px;
     font-family: "Source Sans Pro";
+    color: rgb(51,51,51);
   }
 }
