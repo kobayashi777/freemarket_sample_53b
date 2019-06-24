@@ -1,0 +1,129 @@
+//ログインページ
+
+// ボタン
+.btn-default{
+  height: 50px;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  background-color: rgb(238, 238, 238);
+  color: black;
+  font-family: "YuGothic";
+  font-weight: 400;
+  position: relative;
+}
+// Facebookボタン
+.btn-facebook{
+  padding: 0;
+  margin-top: 16px;
+  color: white;
+  background-color: #385185;
+  font-family: "Source Sans Pro","YuGothic";
+}
+// Googleボタン
+.btn-google{
+  padding: 0;
+  margin-top: 16px;
+  background-color: #fff;
+  border: 1px solid #979797;
+  font-family: "Source Sans Pro","YuGothic";
+  color: rgb(51,51,51)
+}
+
+.btn-new-account{
+  margin-top: 4px;
+  line-height: 40px;
+  height: 42px;
+  color: #fff;
+  background-color: #0099F1;
+  border: 1px solid #0099e8;
+}
+
+.btn-login{
+  background-color: #ea352d;
+  color: #fff;
+  margin: 24px 0 37px;
+  padding: 0;
+}
+
+.btn-margin-delete{
+  margin-top: 0;
+}
+
+.login-container{
+  min-height: 100vh;
+  width: 100vw;
+  padding-bottom: 220px;
+  background-color: #f5f5f5;
+  position: relative;
+}
+.login-main{
+  height: 731px;
+  &__panel{
+    width: 456px;
+    height: 100%;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+}
+
+.no-account{
+  height: 144px;
+  padding: 37px 64px;
+  font-size: 14px;
+  text-align: center;
+  font-family: "YuGothic";
+  color: rgb(51, 51, 51);
+}
+
+.sns-login{
+  padding: 32px 64px;
+  border-top: 1px solid #eee;
+  width: 456px;
+  height: 181px;
+}
+
+.login-form-inner{
+  width: 456px;
+  height: 406px;
+  padding: 24px 64px 32px;
+}
+
+.robot{
+  height: 78px;
+  width: 328px;
+  background-color: aliceblue;
+}
+
+.form-default{
+  width: 328px;
+  height: 48px;
+  font-family: "Source Sans Pro","YuGothic";
+  color: #333;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px 16px 8px;
+  &:focus{
+    outline: none;
+    border: 1px solid #0099e8;
+  }
+}
+.form-margin{
+  margin-top: 24px;
+}
+
+.forgot-password{
+  color: #0099e8;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: "YuGothic";
+  vertical-align: top;
+  &:hover{
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+}

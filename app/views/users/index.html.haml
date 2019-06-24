@@ -3,7 +3,23 @@
   .login-main
     .login-main__panel
       .no-account
+        .p アカウントをお持ちでない方はこちら
+        = link_to "#", class: "btn-default btn-new-account" do
+          新規会員登録
       .sns-login
-      .form
-        .mail-login
+        = button_tag '#', class: 'btn-default btn-facebook btn-margin-delete' do
+          %i.fab.fa-facebook-square
+          Facebookでログイン
+        = button_tag '#', class: 'btn-default btn-google' do
+          %i.fab.fa-google
+          Googleでログイン
+      = form_with do |f|
+        .login-form-inner
+          = f.email_field :email, class: 'form-default', placeholder: 'メールアドレス'
+          = f.password_field :password, class: 'form-default form-margin', placeholder: 'パスワード'
+          .robot.form-margin
+          = button_tag '#', class: 'btn-default btn-login' do
+            ログイン
+          = link_to '#', class: 'forgot-password' do
+            パスワードをお忘れの方
   = render 'user-footer'
