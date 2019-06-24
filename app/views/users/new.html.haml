@@ -1,7 +1,5 @@
 .auth-container
-  %header.auth-header
-    .auth-header__log
-      = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696", alt: "mercari", class: 'auth-header__log--link')
+  = render 'user-header'
   %main.auth-main
     %section.auth-main__wrapper
       .auth-main__wrapper--title 新規会員登録
@@ -16,18 +14,4 @@
           = button_tag '#', class: 'btn-default btn-google' do
             %i.fab.fa-google
             Googleで登録
-  %footer.auth-footer
-    %nav
-      %ul.auth-footer__list
-        %li.auth-footer__list--individual
-          = link_to '#', class: 'auth-footer__list--individual' do
-            プライバシーポリシー
-        %li
-          = link_to '#', class: 'auth-footer__list--individual--margin' do
-            メルカリ利用規約
-        %li
-          = link_to '#', class: 'auth-footer__list--individual--margin' do
-            特定商取引に関する表記
-    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1881812696", alt: "mercari", width: '90', height: '73'), "#", class: 'auth-footer__logo'
-    %p
-      %small.auth-footer__copyright © 2019 Mercari
+  = render 'user-footer'
