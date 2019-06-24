@@ -14,11 +14,15 @@
   cursor: pointer;
   display: block;
   text-decoration: none;
-  background-color: rgb(238, 238, 238);
   color: black;
   font-family: "YuGothic";
   font-weight: 400;
   position: relative;
+}
+
+.btn-mail{
+  background-color: #ea352d;
+  color: #fff;
 }
 // Facebookボタン
 .btn-facebook{
@@ -44,7 +48,7 @@
   left: 16.5px;
   top: 29%;
   font-size: 19.5px;
-  color: #ccc;
+  color: #fff;
 }
 //Facebookアイコン
 .fa-facebook-square{
