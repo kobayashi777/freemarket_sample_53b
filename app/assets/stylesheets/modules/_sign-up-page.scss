@@ -15,7 +15,7 @@
   text-decoration: none;
   background-color: rgb(238, 238, 238);
   color: black;
-  line-height: 55px;
+  line-height: 55.5px;
   font-family: "YuGothic";
   font-weight: 400;
   position: relative;
@@ -136,6 +136,8 @@
     text-align: center;
     list-style: none;
     justify-content: center;
+    vertical-align: top;
+    line-height: 1;
     &--individual{//プライバシーポリシー指定
       color: rgb(51,51,51);
       text-decoration: none;
@@ -146,7 +148,7 @@
       &--margin{//メルカリ利用規約と特定商取引に関する表記指定
         color: rgb(51,51,51);
         text-decoration: none;
-        margin-left: 16px;
+        margin-left: 17px;
         &:hover{
           opacity: 0.8;
           text-decoration: underline;
@@ -157,14 +159,14 @@
   &__logo{//フッターロゴ
     width: 90px;
     height: 73px;
-    margin: 40px 205px 5px;
+    margin: 45px 205px 5px;
     display: block;
     &:hover{
       opacity: 0.8;
     }
   }
   &__copyright{//フッターコピーライト
-    font-size: 15px;
+    font-size: 14.5px;
     font-family: "Source Sans Pro";
   }
 }
