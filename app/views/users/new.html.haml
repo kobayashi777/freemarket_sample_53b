@@ -8,14 +8,17 @@
       .auth-main__wrapper--box
         .auth-main__wrapper--box--inner
           = link_to '#', class: 'btn-default btn-mail' do
+            %i.far.fa-envelope
             メールアドレスで登録
           = button_tag '#', class: 'btn-default btn-facebook' do
+            %i.fab.fa-facebook-square
             Facebookで登録
           = button_tag '#', class: 'btn-default btn-google' do
+            %i.fab.fa-google
             Googleで登録
   %footer.auth-footer
     %nav
-      %ul.clearfix.auth-footer__list
+      %ul.auth-footer__list
         %li.auth-footer__list--individual
           = link_to '#', class: 'auth-footer__list--individual' do
             プライバシーポリシー
