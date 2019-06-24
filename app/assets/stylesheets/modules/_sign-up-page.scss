@@ -1,0 +1,150 @@
+// 新規登録画面
+
+*{
+  box-sizing: border-box;
+}
+// ボタン
+.btn-default{
+  height: 55.5px;
+  width: 100%;
+  line-height: 55.5px;
+  font-size: 15.5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  background-color: rgb(238, 238, 238);
+  color: black;
+  line-height: 55px;
+  font-family: "YuGothic";
+  font-weight: 400;
+}// FIXME FacebookとGoogleの文字が1pxくらい下にずれる
+.btn-facebook{
+  margin-top: 18px;
+  color: white;
+  background-color: #385185;
+  font-family: "Source Sans Pro","YuGothic";
+}
+.btn-google{
+  margin-top: 18px;
+  background-color: #fff;
+  border: 1px solid #979797;
+  font-family: "Source Sans Pro","YuGothic";
+  color: rgb(51,51,51)
+}
+
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+// 全体を囲むコンテナ
+.auth-container{
+  min-height: 100vh;
+  width: 100vw;
+  padding-bottom: 245px;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+// ページ上部ロゴマーク
+.auth-header{
+  height: 142px;
+  padding-top: 45.5px;
+  &__log{
+    width: 211px;
+    margin: 0 auto;
+    &--link{
+      margin-right: 8px;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
+// 登録方法の選択
+.auth-main{
+  height: 452px;
+  &__wrapper{
+    margin: 0 auto;
+    height: 100%;
+    width: 780px;
+    text-align: center;
+    background-color: #fff;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    &--title{
+      padding: 32px 16px;
+      font-size: 24.5px;
+      font-weight: 700;
+      line-height: 43.5px;
+      height: 24%;
+      color: rgb(51, 51, 51);
+      border-bottom: solid 1px rgb(245, 245, 245);
+    }
+    &--box{
+      height: 182px;
+      width: 572px;
+      padding: 72px;
+      margin: 0 auto;
+      &--inner{
+        height: 182px;
+        width: 355px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// ページ下部ロゴマーク・利用規約など
+.auth-footer{
+  height: 245px;
+  width: 500px;
+  padding: 45px 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  &__list{
+    font-family: "YuGothic";
+    font-size: 13.5px;
+    display: flex;
+    text-align: center;
+    list-style: none;
+    justify-content: center;
+    &--individual{
+      color: rgb(51,51,51);
+      text-decoration: none;
+      &:hover{
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+      &--margin{
+        color: rgb(51,51,51);
+        text-decoration: none;
+        margin-left: 16px;
+        &:hover{
+          opacity: 0.8;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &__logo{
+    width: 90px;
+    height: 73px;
+    margin: 40px 205px 5px;
+    display: block;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  &__copyright{
+    font-size: 15px;
+    font-family: "Source Sans Pro";
+  }
+}
