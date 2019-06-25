@@ -1,0 +1,189 @@
+.signup-first{
+  width: 100vw;
+  height: 2004px;
+  padding-bottom: 220px;
+  background-color: #f5f5f5;
+  position: relative;
+}
+.first-main{
+height: 1656px;
+  &__wrapper{
+    width: 700px;
+    height: 1656px;
+    background-color: #fff;
+    margin: 0 auto;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    &--title{
+      text-align: center;
+      padding: 32px 16px;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 33px;
+      height: 97px;
+      color: rgb(51, 51, 51);
+    }
+    &--box{
+      width: 700px;
+      height: 1559px;
+      padding: 40px 16px;
+      border-top: solid 1px rgb(245, 245, 245);
+      &--top{
+        width: 320px;
+        height: 1127px;
+        margin: 0 auto 40px;
+      }
+      &--bottom{
+        width: 320px;
+        height: 311px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.form-margin{
+  margin-top: 24px;
+}
+
+.robot{
+  height: 78px;
+  width: 328px;
+  text-align: left;
+}
+
+.user-policy{
+  font-size: 14px;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: rgb(51, 51, 51);
+  margin-top: 40px;
+  text-align: center;
+  &__link{
+    text-decoration: none;
+    color: #0099e8;
+    margin-left: -3px;
+    margin-right: -3px;
+    &:hover{
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+  }
+}
+
+.btn-next{
+  background-color: #ea352d;
+  color: #fff;
+  margin: 40px 0 40px;
+  padding: 0;
+}
+
+.text-right{
+  text-align: right !important;
+}
+
+.fa-chevron-right{
+  font-size: 15.7px;
+  width: 8.59px;
+  line-height: 1;
+  margin-left: -4px;
+  vertical-align: middle;
+}
+
+.form-group{
+  width: 320px;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  margin-top: 40px;
+  color: rgb(51, 51, 51);
+}
+.form-label{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.form-require{
+  background-color: rgb(234, 53, 45);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  margin-left: 8px;
+  padding: 2px 4px;
+  line-height: 12px;
+}
+
+.form-min{
+  width: 100% !important;
+  margin-top: 2px;
+}
+
+.user-check{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.single-text{
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.form-info-text{
+  color: #888;
+  display: block;
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 8px;
+}
+
+.birthday-select-wrapper{
+  font-size: 14px;
+  line-height: 14px;
+  &__box{
+    width: 76px;
+    margin-top: 2px;
+    display: inline-block;
+    position: relative;
+  }
+}
+
+.select-default{
+  background: 0;
+  padding: 0 10px;
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &:focus{
+    outline: none;
+    border: 1px solid #0099e8;
+  }
+  &::-ms-expand{
+    display: none;
+  }
+}
+
+.select-detail{
+  display: absolute;
+  margin: 2px;
+}
+
+.fa-chevron-down{
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 15px;
+  color: #888;
+  font-size: 18px;
+}

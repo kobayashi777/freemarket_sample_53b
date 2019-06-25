@@ -1,0 +1,88 @@
+:css
+  li:nth-child(1).progress-list {
+    color: red;
+    font-weight: 600;
+  }
+  li:nth-child(1) .progress-status{
+    background-color: red;
+  }
+.signup-first
+  = render 'sign-up-header'
+  .first-main
+    %section.first-main__wrapper
+      .first-main__wrapper--title 会員情報入力
+      = form_with class: 'first-main__wrapper--box' do |f|
+        .first-main__wrapper--box--top
+          .form-group.margin-delete
+            = f.label 'ニックネーム', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :nickname, class: 'form-default form-min', placeholder: '例) メルカリ太郎'
+          .form-group
+            = f.label 'メールアドレス', class: 'form-label'
+            %span.form-require 必須
+            = f.email_field :email, class: 'form-default form-min', placeholder: 'PC・携帯どちらでも可'
+          .form-group
+            = f.label 'パスワード', class: 'form-label'
+            %span.form-require 必須
+            = f.password_field :password, class: 'form-default form-min', placeholder: '6文字以上'
+          .form-group
+            = f.label 'パスワード (確認)', class: 'form-label'
+            %span.form-require 必須
+            = f.password_field :password_confirmation, class: 'form-default form-min', placeholder: '6文字以上'
+          .form-group
+            %h3.text-left.user-check 本人確認
+            %p.single-text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            = f.label '姓 (全角)', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :last_name, class: 'form-default form-min', placeholder: '例) 山田'
+          .form-group
+            = f.label '名 (全角)', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :first_name, class: 'form-default form-min', placeholder: '例) 彩'
+          .form-group
+            = f.label '姓カナ (全角)', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :last_name_kana, class: 'form-default form-min', placeholder: '例) ヤマダ'
+          .form-group
+            = f.label '名カナ (全角)', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :first_name_kana, class: 'form-default form-min', placeholder: '例) アヤ'
+          .form-group
+            = f.label '生年月日', class: 'form-label'
+            %span.form-require 必須
+            .birthday-select-wrapper
+              .birthday-select-wrapper__box
+                %select.select-default
+                  %option --
+                = icon 'fas', 'chevron-down'
+              %span.select-detail 年
+              .birthday-select-wrapper__box
+                %select.select-default
+                  %option --
+                = icon 'fas', 'chevron-down'
+              %span.select-detail 月
+              .birthday-select-wrapper__box
+                %select.select-default
+                  %option --
+                = icon 'fas', 'chevron-down'
+              %span.select-detail 日
+          %p.form-info-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .first-main__wrapper--box--bottom
+          .robot.form-margin
+            = image_tag 'temporary_reCAPTCHA.png', size: '304x78'
+          .user-policy 
+            %p
+              「次へ進む」のボタンを押すことにより、
+              = link_to "#", class: 'user-policy__link', target: '_blank' do
+                利用規約
+              に同意したものとみなします
+            = button_tag '#', class: 'btn-default btn-next' do
+              次へ進む
+            .text-right
+              = link_to '#', class: 'forgot-password' do
+                本人情報の登録について
+                = icon 'fas', 'chevron-right'
+  = render 'user-footer'
