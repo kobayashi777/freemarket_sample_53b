@@ -1,0 +1,194 @@
+
+#wrapper{
+  min-width:500px;
+}
+.header{
+  height:100px;
+  width:100%;
+  background-color:white;
+  color:red;
+}
+.header-inner{
+  height:92px;
+  width:1020px;
+  margin: 0 auto;
+  background-color:white;
+  position: relative;
+}
+.header-top{
+  height:40px;
+  display:flex;
+}
+.logo{
+  width:140px;
+  height:40px;
+ 
+}
+
+.form{
+  // min-width:418px;
+  width:990px;
+  height:40px;
+  margin-left:40px;
+  position: relative;
+  }
+  #form{
+    position: relative;
+  }
+.image-label{
+  // width:50px;
+  margin: 0 0 0 auto;
+  border: 1px solid #ccc;
+  border-radius:5px;
+  position:absolute;
+  right:5px;
+  top:4px;
+  
+}
+.search{
+  background-color:#f5f5f5;
+  width:800px;
+  height:38px;
+  padding:0 10px; 
+  border-radius:5px;
+  outline:0;
+  background:rgb(245, 241, 241);
+  font-size: 16px;
+  border: solid 1px;
+  margin-top:5px;
+  border-color:gray;
+}
+.submit{
+  // color:white;
+}
+.fas.fa-search.fa-lg{
+  width:40px;
+  height:41px;
+  font-size:15px;
+  background-color:#666;
+  color:white;
+  margin: 0 0 0 auto;
+  border: solid 1px;
+  outline: none;
+  border-radius:5px;
+}
+
+.header-bottom{
+  height:44px;
+  display:flex;
+  &__left{
+    width:330px;
+    height:44px;
+    display:flex;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  }
+  &__right{
+    width:521px;
+    height:44px;
+    display:flex;
+    margin-left:auto;
+    margin-top:9px;
+    color:black;
+    font-size:14px;
+    font:sans-serif;
+    justify-content: center;
+    align-items: center;
+    &__text{
+      color:black;
+      font-size:13px;
+      font:sans-serif;
+      float:right;
+      margin-left:5px;
+    }
+  }
+}
+
+.category{
+  width:520px;
+  display:flex;
+  margin-top:20px;
+}
+.category__icon{
+  color:red;
+  margin-top:3px;
+}
+.category__search{
+  font-weight: bold;
+  font-size:14px;
+  color:black;
+  margin:2px 0 0 5px;
+}
+.brand{
+  width:520px;
+  display:flex;
+  margin-top:20px;
+  margin-left:20px;
+}
+.brand__icon{
+  color:red;
+}
+.brand__search{
+  font-weight: bold;
+  font-size:14px;
+  color:black;
+  margin:2px 0 0 5px;
+}
+
+.liked-item{
+  width:113px;
+}
+.far.fa-heart.fa-lg{
+  color:gray;
+}
+.notification-list{
+  width:83px;
+  margin: 0 0 0 auto;
+}
+.far.fa-bell.fa-lg{
+  color:gray;
+}
+.todo-list{
+  width:130px;
+  margin: 0 0 0 auto;
+}
+.fas.fa-check.fa-lg{
+  color:gray;
+}
+.my-page{
+  width:120px;
+  margin: 0 0 0 auto;
+}
+.my-page__link{
+  width:100%;
+  display:flex;
+  text-decoration: none;
+}
+.my-page__text{
+  margin-left:10px;
+  margin-top:5px;
+}
+.hooter-top{
+  background-color:black;
+}
+.hooter-image{
+  width: 100%;
+  height: auto;
+  margin-bottom:0;
+}
+.hooter-top-inner{
+  // overflow: hidden;
+  position: relative;
+  // display: none;
+  width: 750px;
+  height: 260px;
+  margin: 0 auto;
+  color: #fff;
+  float:right;
+}
+.hooter-bottom{
+  height:370px;
+  width:100%;
+  background-color:black;
+  color:red;
+  margin-top:0;
+}
