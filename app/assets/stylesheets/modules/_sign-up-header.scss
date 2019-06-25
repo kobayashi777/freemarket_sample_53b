@@ -1,0 +1,99 @@
+// ページ上部ロゴマーク
+.signup-header{
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  &__log{//ロゴマークの位置指定
+    width: 193px;
+    line-height: 49px;
+    margin-right: 4px;
+    &--link{//ロゴマーク位置微調整
+      margin-top: 41px;
+      margin-right: 8px;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  &__nav{
+    // width: 552px;
+    height: 72px;
+    padding: 36px 0 0 44px;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 0;
+    text-align: center;
+    margin-left: -1px;
+  }
+}
+
+.progress-list{
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 40px;
+  color: #888;
+  font-family: "YuGothic";
+  position: relative;
+  z-index: 1;
+}
+
+.size0{
+  letter-spacing: -0.4em;
+  margin: 0;
+  list-style-position: outside;
+}
+
+.size1{
+  width: 60px;
+}
+.size2{
+  width: 72px;
+}
+.size3{
+  width: 96px;
+}
+
+.progress-status{
+  width: 12px;
+  height: 12px;
+  margin: 6px auto 0;
+  background: #ccc;
+  border-radius: 50%;
+  line-height: 12px;
+  &:after{
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+  }
+  &:before{
+    right: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+  }
+}
+
+li:nth-of-type(1) .progress-status:before{
+  content: none;
+}
+
+li:nth-of-type(5) .progress-status:after{
+  content: none;
+}
+
+.margin-delete{
+  margin: 0 !important;
+}
+
