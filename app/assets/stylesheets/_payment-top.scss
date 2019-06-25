@@ -68,15 +68,33 @@
       line-height: 4px;
       text-align: center;
       cursor: pointer;
-
     }
 
+    .arrow{
+      float: right;
+      color: lightskyblue;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 4px;
+      border: none;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    .fa-credit-card:before {
+      font-family: FontAwesome;
+      content: "\f09d";
+      margin-right: 10px;
+  }
+
     .payment__not-regist{
-      font-weight: normal;
+      font-weight: bold;
       float: right;
       color: lightskyblue;
     }
 
-    .i{
+    .fa-angle-right:before {
+      font-family: FontAwesome;
+      content: "\f105";
+  }
 
-    }

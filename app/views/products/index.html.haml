@@ -1,1 +1,16 @@
-%p おはよう
+.main
+  .payment
+    %h3.payment__head クレジットカード情報入力
+    .input
+      .input__title
+        %p カード番号
+        %p.must 必須
+        %input.input__title--number{"data-input-type" => "card", :maxlength => "19", :placeholder => "半角数字のみ", :type => "text", :value => ""}/
+      .input__date
+        %p 有効期限
+      .input__cord
+        %p セキュリティコード
+        %input.input__title--number{"data-input-type" => "card", :maxlength => "4", :placeholder => "カード背面4桁もしくは3桁の番号", :type => "text", :value => ""}/
+
+      .input__add
+        %button.btn{:type => "submit"} 追加する 
