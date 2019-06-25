@@ -1,0 +1,48 @@
+:css
+  li:nth-child(2).progress-list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+2) .progress-status{
+    background-color: #ea352d;
+  }
+  li:nth-child(1) .progress-status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(2) .progress-status:before{
+    background-color: #ea352d;
+  }
+.signup-second-check
+  = render '/users/sign-up-header'
+  .second-main-check
+    %section.second-main-check__wrapper-top
+      .second-main-check__wrapper-top--title 電話番号認証
+      = form_with class: 'second-main-check__wrapper-top--box' do |f|
+        .second-main-check__wrapper-top--box--inner
+          .form-group.margin-delete
+            = f.label '認証番号', class: 'form-label'
+            = f.phone_field :phone, class: 'form-default form-min', placeholder: '認証番号を入力'
+          %p.single-text SMSで届いた認証番号を入力してください
+          = button_tag '#', class: 'btn-default btn-next margin-bottom-delete' do
+            認証して完了
+    %section.second-main-check__wrapper-middle
+      .second-main-check__wrapper-middle--box
+        .second-main-check__wrapper-middle--box--inner
+          .form-group.margin-delete
+            %label.form-label-large 30秒たっても認証番号が届かない方へ
+          %p.single-text-close 電話で認証番号を聞くこともできます。
+          = button_tag '#', class: 'btn-default btn-next margin-bottom-delete' do
+            電話で認証番号を聞く（通話無料）
+    %section.second-main-check__wrapper-bottom
+      .second-main-check__wrapper-bottom--box
+        .second-main-check__wrapper-bottom--box--inner
+          .form-group.margin-delete
+            %label.form-label-large 認証番号を再送することもできます。もう一度電話番号を入力してください。
+          = link_to "#", class: 'single-text-close user-policy__link', target: '_blank' do
+            電話番号を再度入力する
+          %p.single-text-close.second-main-check__wrapper-bottom--box--inner--caution
+            ※SMSが届かない場合は
+            = link_to "#", class: 'user-policy__link', target: '_blank' do
+              SMS受信設定
+            を確認して、もう一度電話番号を入力してください。
+  = render '/users/user-footer'
