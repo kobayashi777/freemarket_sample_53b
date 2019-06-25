@@ -1,6 +1,7 @@
 
-#wrapper{
+wrapper{
   min-width:500px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 .header{
   height:100px;
@@ -168,27 +169,175 @@
   margin-top:5px;
 }
 .hooter-top{
-  background-color:black;
-}
-.hooter-image{
   width: 100%;
-  height: auto;
-  margin-bottom:0;
+  height: 260px;
+  background-image: url("/hooter-background-image.png");
+  background-size:cover;
 }
 .hooter-top-inner{
   // overflow: hidden;
-  position: relative;
+  // position: relative;
   // display: none;
   width: 750px;
-  height: 260px;
+  height: 100%;
   margin: 0 auto;
   color: #fff;
-  float:right;
+  // background-color: aqua;
+  display:flex;
 }
+.hooter-top-inner__right{
+  width: 420px;
+  height: 160px;
+  // background-color: red;
+  margin-top:50px;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  #h2{
+    font-size: 24px;
+    line-height: 1.4;
+ 
+  }
+  #p{
+    margin: 10px 0 0;
+    font-size: 35px;
+  }
+}
+.hooter-top-inner__right-icon{
+  width: 420px;
+  height: 68px;
+  margin-top:2px;
+  display:flex;
+  // background-color: aqua;
+}
+.hooter-top-inner__right-icon-left{
+  border-radius:10px;
+  width: 68px;
+  height: 68px;
+}
+.hooter-top-inner__right-app{
+  width: 282px;
+  height: 68px;
+  margin-left:24px;
+}
+.hooter-top-inner__right-app_icon-left{
+  border-radius:7px;
+  margin-top:13px;
+}
+.hooter-top-inner__right-app_icon-right{
+  border-radius:7px;
+  margin-top:13px;
+  margin-left:10px;
+}
+.hooter-top-inner__left{
+  width: 300px;
+  height: 260px;
+  // background-color: white;
+  margin-left:30px;
+  background-image: url("//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2334484240");
+  background-size:cover;
+}
+
+
 .hooter-bottom{
   height:370px;
   width:100%;
-  background-color:black;
-  color:red;
+  background: #212121;
   margin-top:0;
+}
+.hooter-main{
+  height:298px;
+  width: 1020px;
+  margin: 0 auto;
+  display:flex;
+  background: #212121;
+  color: #fff;
+  h2{
+    font-size: 16px;
+    font-weight: 100;
+    opacity: .7;
+  }
+  li{
+    font-size: 12px;
+    margin: 14px 0 0;
+    opacity: .7;
+  }
+  a{
+    text-decoration: none;
+    color: #fff;
+    line-height: 3px;
+    // opacity: .7;
+  }
+ 
+  .footer-title{
+    height:22px;
+    width: 388px;
+  }
+  .footer-item{
+    height:162px;
+    width: 388px;
+    display:flex;
+  }
+}
+.footer-cell-inner__left{
+  padding-right:20px;
+}
+.footer-cell{
+  padding:20px 20px 0 0;
+  margin-right:20px;
+  // width: 20%;
+  text-decoration: none;
+}
+.footer-cell_help{
+  margin-right:40px;
+}
+.footer-cell_width{
+  width: 388px;
+  margin-right:40px;
+}
+.sns-icon{
+  margin-top:30px;
+}
+.sns-icon-logo{
+}
+.fab.fa-facebook-square.fa-2x{
+  margin-left:20px;
+}
+.hooter-sub{
+  height:33px;
+  width: 1020px;
+  margin: 30px auto 20px;
+  display:flex;
+}
+.hooter-sub__left-image{
+  height:33px;
+  width:124px;
+}
+.hooter-sub__right{
+  width: 896px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  margin: 8px 0 0;
+}
+.footer-button{
+  bottom: 32px;
+  right: 32px;
+  height:160px;
+  width:160px;
+  background: #ea352d;
+  position: fixed;
+  border-radius: 50%;
+  text-decoration: none;
+}
+.footer-button__text{
+  height:22px;
+  width:160px;
+  margin: 24px 0 0;
+  font-size: 22px;
+  color:white;
+  text-align: center;
+}
+.fas.fa-camera.fa-4x{
+  margin-top:10px;
+  margin-left:48px;
+  color:white;
 }
