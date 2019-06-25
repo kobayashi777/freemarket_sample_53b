@@ -1,0 +1,60 @@
+:css
+  li:nth-child(3).progress-list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+3) .progress-status{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+1):nth-child(-n+2) .progress-status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+2):nth-child(-n+3) .progress-status:before{
+    background-color: #ea352d;
+  }
+.signup-third
+  = render '/users/sign-up-header'
+  .third-main
+    %section.third-main__wrapper
+      .third-main__wrapper--title 発送元・お届け先住所入力
+      = form_with class: 'third-main__wrapper--box' do |f|
+        .third-main__wrapper--box--inner
+          .form-group.margin-delete
+            = f.label '名前', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :last_name, class: 'form-default form-min', placeholder: '例) 山田'
+            = f.text_field :first_name, class: 'form-default form-min margin-top-8', placeholder: '例) 彩'
+          .form-group
+            = f.label 'お名前カナ', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :last_name_kana, class: 'form-default form-min', placeholder: '例) ヤマダ'
+            = f.text_field :first_name_kana, class: 'form-default form-min margin-top-8', placeholder: '例) アヤ'
+          .form-group
+            = f.label '郵便番号', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :adress_number, class: 'form-default form-min', placeholder: '例) 123-4567'
+          .form-group
+            = f.label '都道府県', class: 'form-label'
+            %span.form-require 必須
+            .prefecture-select-wrapper
+              .prefecture-select-wrapper__box
+                = f.select :prefecture, ["北海道"], {}, {class: 'select-default'}
+                = icon 'fas', 'chevron-down'
+          .form-group
+            = f.label '市区町村', class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :adress_ku, class: 'form-default form-min', placeholder: '例) 横浜市緑区'
+          .form-group
+            = f.label '番地', class: 'form-label'
+            %span.form-require 必須
+            = f.password_field :password_confirmation, class: 'form-default form-min', placeholder: '例) 青山1-1-1'
+          .form-group
+            = f.label '建物名', class: 'form-label'
+            %span.form-require.form-option 任意
+            = f.text_field :building_name, class: 'form-default form-min', placeholder: '例) 柳ビル103'
+          .form-group
+            = f.label '電話', class: 'form-label'
+            %span.form-require.form-option 任意
+            = f.phone_field :phone, class: 'form-default form-min', placeholder: '09012345678'
+          = f.submit '次へ進む', class: 'btn-default btn-next'
+  = render '/users/user-footer'
