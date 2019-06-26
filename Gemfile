@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+ENV['NOKOGIRI_USE_SYSTEM_LIBRARIES'] = 'YES'
+gem 'nokogiri'
 ruby '2.5.1'
 
 
