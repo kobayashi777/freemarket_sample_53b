@@ -1,30 +1,58 @@
-.top_photo
-  = image_tag "/2019-06-23 16.17.15.png", size: "1400x390"
 .main
-  .item
-    ピックアップカテゴリー
-    レディース 新着アイテム
-  .item-photo
-  .item
-    メンズ 新着アイテム
-  .item-photo
-  .item
-    ベビー・キッズ 新着アイテム
-  .item-photo
-  .item
-    コスメ・香水・美容 新着アイテム
-  .item-photo
-  .item
-    ピックアップブランド
-    シャネル 新着アイテム
-  .item-photo
-  .item
-    ルイ ヴィトン 新着アイテム
-  .item-photo
-  .item
-    シュプリーム 新着アイテム
-  .item-photo
-  .item
-    ナイキ 新着アイテム
-  .item-photo
+  .top_photo
+    = image_tag "/2019-06-23 16.17.15.png", size: "1400x390"
+  .pick-up
+    .pick-up-category
+      .pickup-head
+        ピックアップカテゴリー
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            レディース 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            メンズ 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            ベビー・キッズ 新着アイテム
+        =render partial: 'products/box-contents'
+        
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            コスメ・香水・美容 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .pickup-head
+        ピックアップブランド
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            シャネル 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            ルイ ヴィトン 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            シュプリーム 新着アイテム
+        =render partial: 'products/box-contents'
+        
+      .item-container
+        %h3.text-center
+          %a{ href:'', class:"text-center__inner"}
+            ナイキ 新着アイテム
+        =render partial: 'products/box-contents'
+
     

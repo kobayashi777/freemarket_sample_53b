@@ -147,22 +147,42 @@ wrapper{
 .liked-item{
   width:113px;
 }
+.header-bottom__right__text{
+  font-weight: lighter !important;
+}
 .far.fa-heart.fa-lg{
   color:gray;
+}
+.far.fa-heart.fa-lg:hover{
+  color:skyblue;
+}
+.header-bottom__right__text:hover{
+  color:skyblue;
 }
 .notification-list{
   width:83px;
   margin: 0 0 0 auto;
 }
+.notification-list:hover{
+  color:skyblue;
+}
 .far.fa-bell.fa-lg{
   color:gray;
+}
+.far.fa-bell.fa-lg:hover{
+  color:skyblue;
 }
 .todo-list{
   width:130px;
   margin: 0 0 0 auto;
+  color:gray;
+ 
 }
 .fas.fa-check.fa-lg{
   color:gray;
+}
+.fas.fa-check.fa-lg:hover{
+  color:skyblue;
 }
 .my-page{
   width:120px;
