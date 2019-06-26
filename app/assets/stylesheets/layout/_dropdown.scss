@@ -1,0 +1,82 @@
+.gnav{
+  height:60px;
+}
+.gnav li a{
+
+}
+.gnav:hover li a{
+  height: 2rem;
+  overflow: visible;
+}
+.gnav li a{
+  position: relative;
+  top:19px;
+  display: block;
+  width: 224px;
+  text-decoration: none;
+  line-height: 15px;
+  list-style-type : none;
+  margin: 0;
+  padding: 0;
+  color:#333;
+  background:white;
+  height: 0;
+  overflow: hidden;
+}
+.gnav > li:hover > a{
+  color:white;
+  background-color: red;
+}
+
+.gnav ul li a:hover{
+  color:black;
+  background-color: gray;
+}
+.gnav > li:hover > a:after{
+  display: block;
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 5px;
+  width: 0px;
+  height: 0px;
+  // margin-top: -8px;
+}
+.gnav ul{
+  display: none;
+  position: absolute;
+  top: -40px;
+  left:220px;
+  width: 224px;
+  height: 600px;
+  background: white;
+  margin-top:100px;
+}
+.gnav li:hover ul{
+  display: block;
+}
+.gnav ul ul{
+  display: none;
+  position: absolute;
+  top: -105px;
+  left:220px;
+  width: 224px;
+  height: 600px;
+  background: red;
+  height: 0;
+  overflow: hidden;
+}
+.gnav li a:hover ul{
+  display: block;
+}
+// .gnav ul{
+
+// }
+.gnav ul li{
+  width: 224px;
+  background-color: #e47911;
+}
+
+.gnav ul li a{
+  padding: 8px 15px;
+}

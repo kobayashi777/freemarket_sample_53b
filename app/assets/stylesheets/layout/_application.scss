@@ -78,7 +78,8 @@ wrapper{
   height:44px;
   display:flex;
   &__left{
-    width:330px;
+    position: absolute;
+    width:400px;
     height:44px;
     display:flex;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
@@ -105,7 +106,7 @@ wrapper{
 }
 
 .category{
-  width:520px;
+  width:150px;
   display:flex;
   margin-top:20px;
 }
@@ -119,11 +120,16 @@ wrapper{
   color:black;
   margin:2px 0 0 5px;
 }
+.category__search:hover {
+  color:skyblue;
+}
 .brand{
+  position: relative;
+  right:50px;
   width:520px;
   display:flex;
   margin-top:20px;
-  margin-left:20px;
+  // margin-left:20px;
 }
 .brand__icon{
   color:red;
@@ -133,6 +139,9 @@ wrapper{
   font-size:14px;
   color:black;
   margin:2px 0 0 5px;
+}
+.brand__search:hover {
+  color:skyblue;
 }
 
 .liked-item{
