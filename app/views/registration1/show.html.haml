@@ -1,0 +1,48 @@
+:css
+  li:nth-child(2).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+2) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+  li:nth-child(1) .signup-header__nav--status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(2) .signup-header__nav--status:before{
+    background-color: #ea352d;
+  }
+.signup-second-check
+  = render 'shared/sign-up-header'
+  .second-main-check
+    %section.second-check-wrapper-top
+      .second-check-wrapper-top__title 電話番号認証
+      = form_with class: 'second-check-wrapper-top__box' do |f|
+        .second-check-wrapper-top__box--inner
+          .second-check-wrapper-top__form
+            = f.label '認証番号', class: 'second-check-wrapper-top__form--label'
+            = f.phone_field :phone, class: 'second-check-wrapper-top__form--input', placeholder: '認証番号を入力'
+          %p.second-check-wrapper-top__form--info SMSで届いた認証番号を入力してください
+          = button_tag '#', class: 'second-check-wrapper-top__form--btn' do
+            認証して完了
+    %section.second-check-wrapper-middle
+      .second-check-wrapper-middle__box
+        .second-check-wrapper-middle__box--inner
+          .second-check-wrapper-middle__form
+            %label.second-check-wrapper-middle__form--label-large 30秒たっても認証番号が届かない方へ
+          %p.second-check-wrapper-middle__form--info 電話で認証番号を聞くこともできます。
+          = button_tag '#', class: 'second-check-wrapper-middle__form--btn' do
+            電話で認証番号を聞く（通話無料）
+    %section.second-check-wrapper-bottom
+      .second-check-wrapper-bottom__box
+        .second-check-wrapper-bottom__box--inner
+          .second-check-wrapper-bottom__form
+            %label.second-check-wrapper-bottom__form--label-large 認証番号を再送することもできます。もう一度電話番号を入力してください。
+          = link_to "#", class: 'second-check-wrapper-bottom__form--repeat', target: '_blank' do
+            電話番号を再度入力する
+          %p.second-check-wrapper-bottom__box--caution
+            ※SMSが届かない場合は
+            = link_to "#", class: 'second-check-wrapper-bottom__form--setting user-policy__link', target: '_blank' do
+              SMS受信設定
+            を確認して、もう一度電話番号を入力してください。
+  = render 'shared/user-footer'

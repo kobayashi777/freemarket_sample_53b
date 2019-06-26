@@ -1,0 +1,87 @@
+:css
+  li:nth-child(1).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(1) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+.signup-first
+  = render 'shared/sign-up-header'
+  .first-main
+    %section.first-main__wrapper
+      .first-main__title 会員情報入力
+      = form_with class: 'first-main__box' do |f|
+        .first-main__box--top
+          .first-main__form--top
+            = f.label 'ニックネーム', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.text_field :nickname, class: 'first-main__form--input', placeholder: '例) メルカリ太郎'
+          .first-main__form
+            = f.label 'メールアドレス', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.email_field :email, class: 'first-main__form--input', placeholder: 'PC・携帯どちらでも可'
+          .first-main__form
+            = f.label 'パスワード', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.password_field :password, class: 'first-main__form--input', placeholder: '6文字以上'
+          .first-main__form
+            = f.label 'パスワード (確認)', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.password_field :password_confirmation, class: 'first-main__form--input', placeholder: '6文字以上'
+          .first-main__form
+            %h3.first-main__form--user-check 本人確認
+            %p.first-main__form--single-text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .first-main__form
+            = f.label '姓 (全角)', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.text_field :last_name, class: 'first-main__form--input', placeholder: '例) 山田'
+          .first-main__form
+            = f.label '名 (全角)', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.text_field :first_name, class: 'first-main__form--input', placeholder: '例) 彩'
+          .first-main__form
+            = f.label '姓カナ (全角)', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.text_field :last_name_kana, class: 'first-main__form--input', placeholder: '例) ヤマダ'
+          .first-main__form
+            = f.label '名カナ (全角)', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            = f.text_field :first_name_kana, class: 'first-main__form--input', placeholder: '例) アヤ'
+          .first-main__form
+            = f.label '生年月日', class: 'first-main__form--label'
+            %span.first-main__form--require 必須
+            .first-main__select-wrapper
+              .first-main__select-box
+                %select.first-main__select-box--input
+                  %option --
+                = icon 'fas', 'chevron-down', class: 'first-main__select-box--arrow-down'
+              %span.first-main__select-detail 年
+              .first-main__select-box
+                %select.first-main__select-box--input
+                  %option --
+                = icon 'fas', 'chevron-down', class: 'first-main__select-box--arrow-down'
+              %span.first-main__select-detail 月
+              .first-main__select-box
+                %select.first-main__select-box--input
+                  %option --
+                = icon 'fas', 'chevron-down', class: 'first-main__select-box--arrow-down'
+              %span.first-main__select-detail 日
+          %p.first-main__form--info
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .first-main__box--bottom
+          .robot
+            = image_tag 'temporary_reCAPTCHA.png', size: '304x78'
+          .first-main__user-policy
+            %p
+              「次へ進む」のボタンを押すことにより、
+              = link_to "#", class: 'first-main__user-policy--link', target: '_blank' do
+                利用規約
+              に同意したものとみなします
+            = f.submit '次へ進む', class: 'first-main__form--btn'
+            .first-main__box--text-right
+              = link_to '#', class: 'first-main__about-registration' do
+                本人情報の登録について
+                = icon 'fas', 'chevron-right', class: 'first-main__about-registration--arrow-right'
+  = render 'shared/user-footer'

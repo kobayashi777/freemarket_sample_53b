@@ -1,4 +1,6 @@
-.signup-forth{
+//支払い方法ページ
+
+.signup-forth{//支払い方法ページ全体
   width: 100vw;
   height: 1051px;
   padding-bottom: 220px;
@@ -6,36 +8,56 @@
   position: relative;
 }
 
-.forth-main{
-  &__wrapper{
-    width: 700px;
-    height: 713px;
-    background-color: #fff;
-    margin: 0 auto;
-    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+.forth-main-wrapper{//支払いページコンテンツ
+  width: 700px;
+  height: 713px;
+  background-color: #fff;
+  margin: 0 auto;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: rgb(51, 51, 51);
+  &__title{//支払い方法の文字
+    text-align: center;
+    padding: 32px 16px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 33px;
+    height: 97px;
     color: rgb(51, 51, 51);
-    &--title{
-      text-align: center;
-      padding: 32px 16px;
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 33px;
-      height: 97px;
-      color: rgb(51, 51, 51);
-    }
-    &--box{
-      width: 700px;
+  }
+  &__box{//支払い方法登録フォーム全体
+    width: 700px;
+    height: 616px;
+    padding: 64px;
+    border-top: solid 1px rgb(245, 245, 245);
+    &--inner{//支払い方法登録フォーム枠
+      width: 320px;
       height: 616px;
-      padding: 64px;
-      border-top: solid 1px rgb(245, 245, 245);
-      &--inner{
-        width: 320px;
-        height: 616px;
-        margin: 0 auto;
-      }
+      margin: 0 auto;
     }
   }
-  &__question{
+  &__form{//支払い方法各フォーム
+    width: 320px;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    color: rgb(51, 51, 51);
+    margin-top: 40px;
+    &--top{//支払い方法フォーム一番上
+      margin-top: 0;
+    }
+    &--label{//支払い方法フォームラベル
+      @include form-label();
+    }
+    &--require{//支払い方法フォーム必須文字
+      @include form-require();
+    }
+    &--input{//支払い方法フォームインプット
+      @include form-default();
+    }
+    &--btn{//支払い方法フォーム次へボタン
+      @include btn-default();
+      margin-top: 35px;
+    }
+  }
+  &__question{//カード裏面番号注意書き
     text-align: right;
     margin-top: 8px;
     color: #0099e8;
@@ -43,7 +65,7 @@
     text-decoration: none;
     font-family: "YuGothic";
     vertical-align: top;
-    &--mark{
+    &--mark{//カード裏面番号注意書きのハテナマーク
       display: inline-block;
       width: 14px;
       height: 14px;
@@ -58,29 +80,32 @@
   }
 }
 
-.creditcard-types{
+.creditcard-types{//クレジットカードリスト
   font-size: 0;
   margin-top: 8px;
   list-style: none;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  &__image-top{
+  &__image-top{//クレジットカードVISA
     vertical-align: middle;
     display: inline-block;
   }
-  &__image-latter{
+  &__image-latter{//クレジットカードVISA以外
     vertical-align: middle;
     margin-left: 8px;
     display: inline-block;
   }
 }
 
-.validated-date-wrapper{
+.validated-date-wrapper{//有効期限入力フォーム全体
   font-size: 14px;
   line-height: 14px;
-  &__box{
-    margin-top: 8px;
+  &__box{//有効期限入力フォーム月
     position: relative;
-    &--inner{
+    &--bottom{//有効期限入力フォーム年
+      position: relative;
+      margin-top: 8px;
+    }
+    &--inner{//有効期限入力フォームインプット
       background: 0;
       padding: 0 10px;
       position: relative;
@@ -103,10 +128,17 @@
         display: none;
       }
     }
-    &--arrow{
+    &--arrow{//有効期限入力フォーム矢印
+      top: 14px;
+      right: 20px;
+      font-size: 19px;
+      width: 8.59px;
+      position: absolute;
+      color: #888;
       left: 80px;
+      position: absolute;
     }
-    &--detail{
+    &--detail{//有効期限入力フォーム月・年の文字
       margin: 0 8px;
     }
   }
