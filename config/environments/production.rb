@@ -92,4 +92,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.require_master_key = true
+  server '52.199.29.90', user: 'ec2-user', roles: %w{app db web}
 end
