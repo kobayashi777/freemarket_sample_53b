@@ -39,7 +39,7 @@
             .prefecture-select-wrapper
               .prefecture-select-wrapper__box
                 = f.select :prefecture, ["北海道"], {}, {class: 'prefecture-select-wrapper__box--select'}
-                = icon 'fas', 'chevron-down', class: 'prefecture-select-wrapper__box--arrow-down'
+                %i.fas.fa-chevron-down.prefecture-select-wrapper__box--arrow-down
           .third-main-wrapper__form
             = f.label '市区町村', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
