@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
    end
 
    def new
-    @credit = credit.new
+    @credit = Credit.new
    end
 
 end

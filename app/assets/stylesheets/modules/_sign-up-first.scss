@@ -1,142 +1,142 @@
-//会員情報入力ページ
+// //会員情報入力ページ
 
-.signup-first{//会員情報登録ページ全体
-  width: 100vw;
-  height: 2004px;
-  padding-bottom: 220px;
-  background-color: $thin_gray;
-  position: relative;
-}
-.first-main{//会員情報登録ページコンテンツ
-height: 1656px;
-  &__wrapper{//会員情報登録ページ白枠
-    width: 700px;
-    height: 1656px;
-    background-color: $white;
-    margin: 0 auto;
-    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  }
-  &__title{//会員情報入力の文字
-    text-align: center;
-    padding: 32px 16px;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 33px;
-    height: 97px;
-    color: rgb(51, 51, 51);
-  }
-  &__box{//会員情報登録フォーム全体
-    width: 700px;
-    height: 1559px;
-    padding: 40px 16px;
-    border-top: solid 1px rgb(245, 245, 245);
-    &--top{//会員情報登録ページフォーム上部
-      width: 320px;
-      height: 1127px;
-      margin: 0 auto 40px;
-    }
-    &--bottom{//会員情報登録ページフォームreCAPTCHA以降
-      width: 320px;
-      height: 311px;
-      margin: 0 auto;
-    }
-    &--text-right{//本人情報登録についての右寄せ
-      text-align: right;
-    }
-  }
-  &__form{//会員情報登録各フォーム
-    width: 320px;
-    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-    margin-top: 40px;
-    color: rgb(51, 51, 51);
-    &--top{//会員情報登録各フォーム一番上のみ
-      margin-top: 0;
-    }
-    &--input{//会員情報登録各フォームインプット
-      @include form-default();
-    }
-    &--label{//会員情報登録各フォームラベル
-      @include form-label();
-    }
-    &--require{//会員情報登録各フォーム必須文字
-      @include form-require();
-    }
-    &--btn{//会員情報登録フォーム次へボタン
-      @include btn-default();
-      margin: 40px 0 40px;
-      padding: 0;
-    }
-    &--user-check{//本人確認文字
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 16px;
-    }
-    &--single-text{//本人確認説明
-      @include single-text();
-    }
-    &--info{//注意書き
-      color: #888;
-      display: block;
-      font-size: 14px;
-      line-height: 21px;
-      margin-top: 8px;
-    }
-  }
-  &__about-registration{//本人情報登録についてリンク
-    @include link-default();
-    display: inline-block;
-    margin-right: 8.5px;
-    text-align: right;
-    position: relative;
-    &--arrow-right{//本人情報登録についてリンク矢印
-      font-size: 15.7px;
-      width: 8.59px;
-      line-height: 1;
-      margin-left: 4px;
-      position: absolute;
-      top: 3px;
-      left: 149.5px;
-    }
-  }
-  &__select-wrapper{//生年月日セレクター全体
-    font-size: 14px;
-    line-height: 14px;
-  }
-  &__select-box{//生年月日各セレクター全体
-    width: 76px;
-    display: inline-block;
-    position: relative;
-    &--input{//生年月日各セレクターインプット
-      @include select-box-default();
-    }
-    &--arrow-down{//生年月日各セレクター矢印
-      top: 14px;
-      right: 20px;
-      font-size: 19px;
-      width: 8.59px;
-      position: absolute;
-      color: #888;
-    }
-  }
-  &__select-detail{//生年月日各セレクターラベル
-    display: absolute;
-    margin: 2px;
-  }
-  &__user-policy{//利用規約説明文
-    font-size: 14px;
-    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-    color: rgb(51, 51, 51);
-    margin-top: 40px;
-    text-align: center;
-    &--link{//利用規約リンク
-      text-decoration: none;
-      color: $blue;
-      margin-left: -2.7px;
-      margin-right: -2.7px;
-      &:hover{
-        text-decoration: underline;
-        opacity: 0.8;
-      }
-    }
-  }
-}
+// .signup-first{//会員情報登録ページ全体
+//   width: 100vw;
+//   height: 2004px;
+//   padding-bottom: 220px;
+//   background-color: $thin_gray;
+//   position: relative;
+// }
+// .first-main{//会員情報登録ページコンテンツ
+// height: 1656px;
+//   &__wrapper{//会員情報登録ページ白枠
+//     width: 700px;
+//     height: 1656px;
+//     background-color: $white;
+//     margin: 0 auto;
+//     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+//   }
+//   &__title{//会員情報入力の文字
+//     text-align: center;
+//     padding: 32px 16px;
+//     font-size: 22px;
+//     font-weight: 700;
+//     line-height: 33px;
+//     height: 97px;
+//     color: rgb(51, 51, 51);
+//   }
+//   &__box{//会員情報登録フォーム全体
+//     width: 700px;
+//     height: 1559px;
+//     padding: 40px 16px;
+//     border-top: solid 1px rgb(245, 245, 245);
+//     &--top{//会員情報登録ページフォーム上部
+//       width: 320px;
+//       height: 1127px;
+//       margin: 0 auto 40px;
+//     }
+//     &--bottom{//会員情報登録ページフォームreCAPTCHA以降
+//       width: 320px;
+//       height: 311px;
+//       margin: 0 auto;
+//     }
+//     &--text-right{//本人情報登録についての右寄せ
+//       text-align: right;
+//     }
+//   }
+//   &__form{//会員情報登録各フォーム
+//     width: 320px;
+//     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+//     margin-top: 40px;
+//     color: rgb(51, 51, 51);
+//     &--top{//会員情報登録各フォーム一番上のみ
+//       margin-top: 0;
+//     }
+//     &--input{//会員情報登録各フォームインプット
+//       @include form-default();
+//     }
+//     &--label{//会員情報登録各フォームラベル
+//       @include form-label();
+//     }
+//     &--require{//会員情報登録各フォーム必須文字
+//       @include form-require();
+//     }
+//     &--btn{//会員情報登録フォーム次へボタン
+//       @include btn-default();
+//       margin: 40px 0 40px;
+//       padding: 0;
+//     }
+//     &--user-check{//本人確認文字
+//       font-size: 16px;
+//       font-weight: 600;
+//       line-height: 16px;
+//     }
+//     &--single-text{//本人確認説明
+//       @include single-text();
+//     }
+//     &--info{//注意書き
+//       color: #888;
+//       display: block;
+//       font-size: 14px;
+//       line-height: 21px;
+//       margin-top: 8px;
+//     }
+//   }
+//   &__about-registration{//本人情報登録についてリンク
+//     @include link-default();
+//     display: inline-block;
+//     margin-right: 8.5px;
+//     text-align: right;
+//     position: relative;
+//     &--arrow-right{//本人情報登録についてリンク矢印
+//       font-size: 15.7px;
+//       width: 8.59px;
+//       line-height: 1;
+//       margin-left: 4px;
+//       position: absolute;
+//       top: 3px;
+//       left: 149.5px;
+//     }
+//   }
+//   &__select-wrapper{//生年月日セレクター全体
+//     font-size: 14px;
+//     line-height: 14px;
+//   }
+//   &__select-box{//生年月日各セレクター全体
+//     width: 76px;
+//     display: inline-block;
+//     position: relative;
+//     &--input{//生年月日各セレクターインプット
+//       @include select-box-default();
+//     }
+//     &--arrow-down{//生年月日各セレクター矢印
+//       top: 14px;
+//       right: 20px;
+//       font-size: 19px;
+//       width: 8.59px;
+//       position: absolute;
+//       color: #888;
+//     }
+//   }
+//   &__select-detail{//生年月日各セレクターラベル
+//     display: absolute;
+//     margin: 2px;
+//   }
+//   &__user-policy{//利用規約説明文
+//     font-size: 14px;
+//     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+//     color: rgb(51, 51, 51);
+//     margin-top: 40px;
+//     text-align: center;
+//     &--link{//利用規約リンク
+//       text-decoration: none;
+//       color: $blue;
+//       margin-left: -2.7px;
+//       margin-right: -2.7px;
+//       &:hover{
+//         text-decoration: underline;
+//         opacity: 0.8;
+//       }
+//     }
+//   }
+// }

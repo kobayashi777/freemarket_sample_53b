@@ -13,19 +13,20 @@
   background-color: white;
   box-sizing: content-box;
   margin: 0 auto;
+  &__head{
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgb(189, 181, 181);
+    color: black;
+    font-size: 24px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 }
 
-.payment__head{
-  width: 100%;
-  height: 50px;
-  border-bottom: 2px solid rgb(189, 181, 181);
-  color: black;
-  font-size: 24px;
-  font-weight: 400;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .input{
   font-weight: bold;
