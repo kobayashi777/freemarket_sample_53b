@@ -2,6 +2,8 @@
 
 @import './mixin/*';
 
+@import "user/variables";
+
 //新規会員登録ページ
 @import './modules/sign-up-page';
 //新規会員登録ページヘッダー
