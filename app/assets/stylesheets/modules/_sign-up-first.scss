@@ -4,7 +4,7 @@
   width: 100vw;
   height: 2004px;
   padding-bottom: 220px;
-  background-color: #f5f5f5;
+  background-color: $thin_gray;
   position: relative;
 }
 .first-main{//会員情報登録ページコンテンツ
@@ -12,7 +12,7 @@ height: 1656px;
   &__wrapper{//会員情報登録ページ白枠
     width: 700px;
     height: 1656px;
-    background-color: #fff;
+    background-color: $white;
     margin: 0 auto;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   }
@@ -84,14 +84,18 @@ height: 1656px;
   }
   &__about-registration{//本人情報登録についてリンク
     @include link-default();
+    display: inline-block;
+    margin-right: 8.5px;
     text-align: right;
     position: relative;
     &--arrow-right{//本人情報登録についてリンク矢印
       font-size: 15.7px;
       width: 8.59px;
       line-height: 1;
-      margin-left: -4px;
-      vertical-align: middle;
+      margin-left: 4px;
+      position: absolute;
+      top: 3px;
+      left: 149.5px;
     }
   }
   &__select-wrapper{//生年月日セレクター全体
@@ -126,7 +130,7 @@ height: 1656px;
     text-align: center;
     &--link{//利用規約リンク
       text-decoration: none;
-      color: #0099e8;
+      color: $blue;
       margin-left: -2.7px;
       margin-right: -2.7px;
       &:hover{

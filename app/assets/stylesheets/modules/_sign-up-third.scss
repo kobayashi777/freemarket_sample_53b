@@ -4,14 +4,14 @@
   width: 100vw;
   height: 1615px;
   padding-bottom: 220px;
-  background-color: #f5f5f5;
+  background-color: $thin_gray;
   position: relative;
 }
 
 .third-main-wrapper{//発送元・お届け先住所入力ページ白枠
     width: 700px;
-    height: 1270px;
-    background-color: #fff;
+    height: 1269px;
+    background-color: $white;
     margin: 0 auto;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   &__title{//発送元・お届け先住所入力の文字
@@ -63,7 +63,7 @@
     }
     &--btn{//発送元・お届け先住所入力フォーム次へボタン
       @include btn-default();
-      margin-top: 40px;
+      margin-top: 39px;
     }
   }
 }
@@ -73,7 +73,7 @@
   line-height: 14px;
   &__box{//都道府県選択フォーム内部
     width: 318px;
-    margin-top: 2px;
+    // margin-top: 2px;
     display: inline-block;
     position: relative;
     &--select{//都道府県選択フォームインプット
