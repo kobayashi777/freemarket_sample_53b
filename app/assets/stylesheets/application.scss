@@ -1,4 +1,7 @@
+//リセットCSS YUI3導入
 @import "./reset";
+//border-box全適用
+@import './border-box';
 
 @import './mixin/*';
 
@@ -32,6 +35,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-*{
-  box-sizing: border-box;
-}
+@import "user/mixin";
+@import "user/layout";
+@import "user/edit";
+@import "user/show";
