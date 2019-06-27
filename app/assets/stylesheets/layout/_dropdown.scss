@@ -1,11 +1,9 @@
+//第一階層
 .gnav{
   height:60px;
 }
-.gnav li a{
-
-}
 .gnav:hover li a{
-  height: 2rem;
+  height: 2.5rem;
   overflow: visible;
 }
 .gnav li a{
@@ -14,7 +12,7 @@
   display: block;
   width: 224px;
   text-decoration: none;
-  line-height: 15px;
+  line-height: 30px;
   list-style-type : none;
   margin: 0;
   padding: 0;
@@ -27,56 +25,53 @@
   color:white;
   background-color: red;
 }
-
+//第二階層
 .gnav ul li a:hover{
   color:black;
   background-color: gray;
 }
-.gnav > li:hover > a:after{
+.gnav ul li :hover li{
+  height: 2.5rem;
+  overflow: visible;
+}
+.gnav li:hover ul{
   display: block;
-  position: absolute;
-  content: "";
-  top: 50%;
-  right: 5px;
-  width: 0px;
-  height: 0px;
-  // margin-top: -8px;
 }
 .gnav ul{
   display: none;
   position: absolute;
-  top: -40px;
-  left:220px;
+  top: -58px;
+  left:224px;
   width: 224px;
-  height: 600px;
+  height: 580px;
   background: white;
   margin-top:100px;
 }
+
+//第三階層
+.gnav ul li ul a:hover{
+  color:black;
+  background-color: lightgray;
+}
+.gnav ul li:hover ul{
+  height: 2.5rem;
+  overflow: visible;
+}
 .gnav li:hover ul{
   display: block;
+
 }
 .gnav ul ul{
   display: none;
   position: absolute;
   top: -105px;
-  left:220px;
-  width: 224px;
-  height: 600px;
-  background: red;
+  left:223px;
+  width: 300px;
+  // background:red;
   height: 0;
   overflow: hidden;
 }
-.gnav li a:hover ul{
-  display: block;
-}
-// .gnav ul{
-
-// }
-.gnav ul li{
-  width: 224px;
-  background-color: #e47911;
-}
-
-.gnav ul li a{
-  padding: 8px 15px;
+.gnav ul li ul{
+  // background:blue;
+  // height:600px;
 }
