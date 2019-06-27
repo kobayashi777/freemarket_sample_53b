@@ -1,0 +1,10 @@
+@mixin clearfix {
+  &:after {
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+  }
+}
+/* 原因不明ですが上記clearfix効きません */
+
