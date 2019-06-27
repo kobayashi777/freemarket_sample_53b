@@ -1,81 +1,81 @@
-// //ログインページ
+//ログインページ
 
-// .login-container{//ログインページ全体
-//   min-height: 100vh;
-//   width: 100vw;
-//   padding-bottom: 220px;
-//   background-color: $thin_gray;
-//   position: relative;
-// }
-// .login-main{//ログインページコンテンツ
-//   height: 731px;
-//   &__panel{//ログインページ白枠
-//     width: 456px;
-//     height: 100%;
-//     background-color: $white;
-//     margin: 0 auto;
-//   }
-//   &__no-account{//アカウントなしの場合
-//     height: 144px;
-//     padding: 37px 64px;
-//     font-size: 14px;
-//     text-align: center;
-//     font-family: "YuGothic";
-//     color: rgb(51, 51, 51);
-//     &--btn{//新規会員登録ボタン
-//       @include btn-default();
-//       margin-top: 4px;
-//       line-height: 40px;
-//       height: 42px;
-//       background-color: #0099F1;
-//       border: 1px solid $blue;
-//     }
-//   }
-//   &__sns{//snsでログイン
-//     padding: 32px 64px;
-//     border-top: 1px solid #eee;
-//     width: 456px;
-//     height: 181px;
-//     &--facebook-btn{//Facebookでログインボタン
-//       @include btn-facebook();
-//       margin-top: 0;
-//     }
-//     &--facebook-icon{//Facebookアイコン
-//       @include facebook-icon();
-//     }
-//     &--google-btn{//Googleでログインボタン
-//       @include btn-google();
-//     }
-//     &--google-icon{//Googleアイコン
-//       @include google-icon();
-//     }
-//   }
-//   &__form{//メールアドレスでログイン
-//     width: 456px;
-//     height: 406px;
-//     padding: 24px 64px 32px;
-//     &--email{//メールアドレス入力フォーム
-//       @include form-default();
-//     }
-//     &--password{//パスワード入力フォーム
-//       @include form-default();
-//       margin-top: 24px;
-//     }
-//     &--btn{//ログインボタン
-//       @include btn-default();
-//       margin: 24px 0 37px;
-//       padding: 0;
-//     }
-//   }
-//   &__forgot-password{//パスワードをお忘れの方
-//     @include link-default();
-//     text-align: left;
-//     display: inline-block;
-//   }
-// }
+.login-container{//ログインページ全体
+  min-height: 100vh;
+  width: 100vw;
+  padding-bottom: 220px;
+  background-color: $thin_gray;
+  position: relative;
+}
+.login-main{//ログインページコンテンツ
+  height: 731px;
+  &__panel{//ログインページ白枠
+    width: 456px;
+    height: 100%;
+    background-color: $white;
+    margin: 0 auto;
+  }
+  &__no-account{//アカウントなしの場合
+    height: 144px;
+    padding: 37px 64px;
+    font-size: 14px;
+    text-align: center;
+    font-family: "YuGothic";
+    color: rgb(51, 51, 51);
+    &--btn{//新規会員登録ボタン
+      @include btn-default();
+      margin-top: 4px;
+      line-height: 40px;
+      height: 42px;
+      background-color: #0099F1;
+      border: 1px solid $blue;
+    }
+  }
+  &__sns{//snsでログイン
+    padding: 32px 64px;
+    border-top: 1px solid #eee;
+    width: 456px;
+    height: 181px;
+    &--facebook-btn{//Facebookでログインボタン
+      @include btn-facebook();
+      margin-top: 0;
+    }
+    &--facebook-icon{//Facebookアイコン
+      @include facebook-icon();
+    }
+    &--google-btn{//Googleでログインボタン
+      @include btn-google();
+    }
+    &--google-icon{//Googleアイコン
+      @include google-icon();
+    }
+  }
+  &__form{//メールアドレスでログイン
+    width: 456px;
+    height: 406px;
+    padding: 24px 64px 32px;
+    &--email{//メールアドレス入力フォーム
+      @include form-default();
+    }
+    &--password{//パスワード入力フォーム
+      @include form-default();
+      margin-top: 24px;
+    }
+    &--btn{//ログインボタン
+      @include btn-default();
+      margin: 24px 0 37px;
+      padding: 0;
+    }
+  }
+  &__forgot-password{//パスワードをお忘れの方
+    @include link-default();
+    text-align: left;
+    display: inline-block;
+  }
+}
 
-// .robot{//仮置き・reCAPTCHA
-//   height: 78px;
-//   width: 328px;
-//   margin-top: 24px;
-// }
+.robot{//仮置き・reCAPTCHA
+  height: 78px;
+  width: 328px;
+  margin-top: 24px;
+}

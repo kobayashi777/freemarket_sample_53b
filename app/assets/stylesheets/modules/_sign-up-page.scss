@@ -1,57 +1,57 @@
-// // 新規登録画面
+// 新規登録画面
 
-// .auth-container{// 全体を囲むコンテナ
-//   min-height: 100vh;
-//   width: 100vw;
-//   padding-bottom: 220px;
-//   background-color: $thin_gray;
-//   position: relative;
-// }
+.auth-container{// 全体を囲むコンテナ
+  min-height: 100vh;
+  width: 100vw;
+  padding-bottom: 220px;
+  background-color: $thin_gray;
+  position: relative;
+}
 
-// .auth-main{// 登録方法の選択
-//   height: 408px;
-//   margin: 0 auto;
-//   height: 100%;
-//   width: 700px;
-//   text-align: center;
-//   background-color: $white;
-//   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-//   &__title{//新規会員登録の文字
-//     padding: 32px 16px;
-//     font-size: 22px;
-//     font-weight: 700;
-//     line-height: 33px;
-//     height: 97px;
-//     color: rgb(51, 51, 51);
-//   }
-//   &__box{//ボタン全ての位置指定
-//     border-top: solid 1px rgb(245, 245, 245);
-//     height: 311px;
-//     width: 572px;
-//     padding: 64px;
-//     margin: 0 auto;
-//   }
-//   &__inner{//上記位置指定内での位置調整
-//     height: 182px;
-//     width: 320px;
-//     margin: 0 auto;
-//     &--mail-btn{//メールアドレスでの登録ボタン
-//       @include btn-default();
-//     }
-//     &--facebook-btn{//Facebookでの登録ボタン
-//       @include btn-facebook();
-//     }
-//     &--google-btn{//Googleでの登録ボタン
-//       @include btn-google();
-//     }
-//     &--mailer-icon{//メールアイコンの位置調整
-//       @include mailer-icon();
-//     }
-//     &--facebook-icon{//Facebookアイコンの位置調整
-//       @include facebook-icon();
-//     }
-//     &--google-icon{//Googleアイコンの位置調整
-//       @include google-icon();
-//     }
-//   }
-// }
+.auth-main{// 登録方法の選択
+  height: 408px;
+  margin: 0 auto;
+  height: 100%;
+  width: 700px;
+  text-align: center;
+  background-color: $white;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__title{//新規会員登録の文字
+    padding: 32px 16px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 33px;
+    height: 97px;
+    color: rgb(51, 51, 51);
+  }
+  &__box{//ボタン全ての位置指定
+    border-top: solid 1px rgb(245, 245, 245);
+    height: 311px;
+    width: 572px;
+    padding: 64px;
+    margin: 0 auto;
+  }
+  &__inner{//上記位置指定内での位置調整
+    height: 182px;
+    width: 320px;
+    margin: 0 auto;
+    &--mail-btn{//メールアドレスでの登録ボタン
+      @include btn-default();
+    }
+    &--facebook-btn{//Facebookでの登録ボタン
+      @include btn-facebook();
+    }
+    &--google-btn{//Googleでの登録ボタン
+      @include btn-google();
+    }
+    &--mailer-icon{//メールアイコンの位置調整
+      @include mailer-icon();
+    }
+    &--facebook-icon{//Facebookアイコンの位置調整
+      @include facebook-icon();
+    }
+    &--google-icon{//Googleアイコンの位置調整
+      @include google-icon();
+    }
+  }
+}

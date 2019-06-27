@@ -1,99 +1,99 @@
-// //会員登録時のヘッダー
+//会員登録時のヘッダー
 
-// .signup-header{// ページ上部ロゴマーク
-//   height: 128px;
-//   display: flex;
-//   justify-content: center;
-//   &__log{//ロゴマークの位置指定
-//     width: 193px;
-//     line-height: 49px;
-//     margin-right: 4px;
-//     &--link{//ロゴマーク位置微調整
-//       margin-top: 41px;
-//       margin-right: 8px;
-//     }
-//     &:hover{
-//       opacity: 0.8;
-//     }
-//   }
-//   &__nav{//進捗バー全体の位置調整
-//     height: 72px;
-//     padding: 36px 0 0 44px;
-//     text-align: center;
-//     vertical-align: top;
-//     display: inline-block;
-//     font-size: 0;
-//     text-align: center;
-//     margin-left: -1px;
-//     &--lists{//進捗バーリスト全体
-//       letter-spacing: -0.4em;
-//       margin: 0;
-//       list-style-position: outside;
-//     }
-//     &--list{//進捗バー文字情報
-//       display: inline-block;
-//       font-size: 12px;
-//       margin-right: 40px;
-//       color: #888;
-//       font-family: "YuGothic";
-//       position: relative;
-//       z-index: 1;
-//     }
-//     &--status{//進捗バー丸
-//       width: 12px;
-//       height: 12px;
-//       margin: 6px auto 0;
-//       background: $gray;
-//       border-radius: 50%;
-//       line-height: 12px;
-//       &:after{//進捗バー前方ライン
-//         left: 50%;
-//         position: absolute;
-//         bottom: 5px;
-//         z-index: -1;
-//         display: block;
-//         content: '';
-//         width: 100%;
-//         height: 2px;
-//         background: $gray;
-//       }
-//       &:before{//進捗バー後方ライン
-//         right: 50%;
-//         position: absolute;
-//         bottom: 5px;
-//         z-index: -1;
-//         display: block;
-//         content: '';
-//         width: 100%;
-//         height: 2px;
-//         background: $gray;
-//       }
-//     }
-//   }
-// }
+.signup-header{// ページ上部ロゴマーク
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  &__log{//ロゴマークの位置指定
+    width: 193px;
+    line-height: 49px;
+    margin-right: 4px;
+    &--link{//ロゴマーク位置微調整
+      margin-top: 41px;
+      margin-right: 8px;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  &__nav{//進捗バー全体の位置調整
+    height: 72px;
+    padding: 36px 0 0 44px;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 0;
+    text-align: center;
+    margin-left: -1px;
+    &--lists{//進捗バーリスト全体
+      letter-spacing: -0.4em;
+      margin: 0;
+      list-style-position: outside;
+    }
+    &--list{//進捗バー文字情報
+      display: inline-block;
+      font-size: 12px;
+      margin-right: 40px;
+      color: #888;
+      font-family: "YuGothic";
+      position: relative;
+      z-index: 1;
+    }
+    &--status{//進捗バー丸
+      width: 12px;
+      height: 12px;
+      margin: 6px auto 0;
+      background: $gray;
+      border-radius: 50%;
+      line-height: 12px;
+      &:after{//進捗バー前方ライン
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: $gray;
+      }
+      &:before{//進捗バー後方ライン
+        right: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: $gray;
+      }
+    }
+  }
+}
 
-// .user-info-text{//会員情報・支払い方法テキスト
-//   width: 60px;
-// }
+.user-info-text{//会員情報・支払い方法テキスト
+  width: 60px;
+}
 
-// .phone-confirmation-text{//電話番号認証テキスト
-//   width: 72px;
-// }
+.phone-confirmation-text{//電話番号認証テキスト
+  width: 72px;
+}
 
-// .adress-text{//お届け先住所入力テキスト
-//   width: 96px;
-// }
+.adress-text{//お届け先住所入力テキスト
+  width: 96px;
+}
 
-// .done-text{//完了テキスト
-//   width: 60px;
-//   margin: 0;
-// }
+.done-text{//完了テキスト
+  width: 60px;
+  margin: 0;
+}
 
 
-// li:nth-of-type(1) .signup-header__nav--status:before{//一番目の丸の後方ラインの削除
-//   content: none;
-// }
+li:nth-of-type(1) .signup-header__nav--status:before{//一番目の丸の後方ラインの削除
+  content: none;
+}
 
-// li:nth-of-type(5) .signup-header__nav--status:after{//5番目の丸の前方ラインの削除
-//   content: none;
-// }
+li:nth-of-type(5) .signup-header__nav--status:after{//5番目の丸の前方ラインの削除
+  content: none;
+}

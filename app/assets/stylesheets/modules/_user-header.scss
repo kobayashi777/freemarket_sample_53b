@@ -1,17 +1,17 @@
-// //ヘッダー簡易
+//ヘッダー簡易
 
-// .auth-header{// ページ上部ロゴマーク
-//   height: 128px;
-//   &__log{//ロゴマークの位置指定
-//     width: 193px;
-//     line-height: 49px;
-//     margin: 0 auto;
-//     &--link{//ロゴマーク位置微調整
-//       margin-top: 41px;
-//       margin-right: 8px;
-//     }
-//     &:hover{
-//       opacity: 0.8;
-//     }
-//   }
-// }
+.auth-header{// ページ上部ロゴマーク
+  height: 128px;
+  &__log{//ロゴマークの位置指定
+    width: 193px;
+    line-height: 49px;
+    margin: 0 auto;
+    &--link{//ロゴマーク位置微調整
+      margin-top: 41px;
+      margin-right: 8px;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}

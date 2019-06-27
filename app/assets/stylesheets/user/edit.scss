@@ -1,83 +1,83 @@
-// .wrapper {
-//   width: 100%;
-//   padding: 24px 0 40px;
-//   margin: 0 auto 0;
-//   height: 100%;
-//   background: $thin_gray;
-// }
+.wrapper {
+  width: 100%;
+  padding: 24px 0 40px;
+  margin: 0 auto 0;
+  height: 100%;
+  background: $thin_gray;
+}
 
-//   .profile-container {
-//     margin: 0 auto;
-//     background-color: $white;
-//     width: 700px;
-//     border-style: solid;
-//     border-width: 0;
-//     float: right;
-//     h2.container__profile {
-//       font-size: 24px;
-//       padding: 8px 24px;
-//       border-bottom: 1px solid $thin_gray;
-//       line-height: 1.4;
-//       text-align: center;
-//       margin: 0;
-//       font-weight: bold;
-//       font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-//     }
-//     .edit_form {
-//       block-size: cover;
-//       font-size: 0;
-//       text-align: center;
+  .profile-container {
+    margin: 0 auto;
+    background-color: $white;
+    width: 700px;
+    border-style: solid;
+    border-width: 0;
+    float: right;
+    h2.container__profile {
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid $thin_gray;
+      line-height: 1.4;
+      text-align: center;
+      margin: 0;
+      font-weight: bold;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    }
+    .edit_form {
+      block-size: cover;
+      font-size: 0;
+      text-align: center;
       
-//       .container__name {
-//         // height: 60px;
-//         padding: 72px 16px 24px;
-//         border: 1px solid black;
-//         background-image: url("RED19515A006_TP_V4.jpg");
-//         background-repeat: no-repeat;
-//         display: flex;
+      .container__name {
+        // height: 60px;
+        padding: 72px 16px 24px;
+        border: 1px solid black;
+        background-image: url("RED19515A006_TP_V4.jpg");
+        background-repeat: no-repeat;
+        display: flex;
        
-//       }
-//         .image-tag {
-//           width: 60px;
-//           height: 60px;
-//           border-radius: 50%;
-//           margin-left:200px;
-//         }
-//         .edit_name {
-//           height: 48px;
-//           margin:6px 0 0 8px;
-//           padding: 10px 16px 8px;
-//           border: 1px solid $gray;
-//           border-radius: 4px;
-//           line-height: 1.5;
-//           font-size: 16px;
-//           width: 220px;
-//         }
-//       .container__text {
-//         padding: 40px 16px;
-//         .introduce {
-//           display: block;
-//           width: 100%;
-//           height: 216px;
-//           border: 1px solid $gray;
-//           font-size: 16px;
-//           line-height: 1.5;
-//         }
-//         .container__bottun {
-//           width: 100%;
-//           margin: 16px 0 0;
-//           .change-profile-form__action-btn {
-//             width: 100%;
-//             line-height: 46px;
-//             background: $red;
-//             border: 1px solid $red;
-//             font-size: 14px;
-//             color: $white;
-//             text-align: center;
-//             cursor: pointer;
-//             transition: all ease-out .3s;
-//           }
-//         }
-//       }
-//     } 
-//   }
+      }
+        .image-tag {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-left:200px;
+        }
+        .edit_name {
+          height: 48px;
+          margin:6px 0 0 8px;
+          padding: 10px 16px 8px;
+          border: 1px solid $gray;
+          border-radius: 4px;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 220px;
+        }
+      .container__text {
+        padding: 40px 16px;
+        .introduce {
+          display: block;
+          width: 100%;
+          height: 216px;
+          border: 1px solid $gray;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+        .container__bottun {
+          width: 100%;
+          margin: 16px 0 0;
+          .change-profile-form__action-btn {
+            width: 100%;
+            line-height: 46px;
+            background: $red;
+            border: 1px solid $red;
+            font-size: 14px;
+            color: $white;
+            text-align: center;
+            cursor: pointer;
+            transition: all ease-out .3s;
+          }
+        }
+      }
+    } 
+  }
