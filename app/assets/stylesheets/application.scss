@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 @import "layout/_application";
 @import "layout/_dropdown";
 @import "products/_index";

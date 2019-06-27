@@ -70,8 +70,8 @@ padding:40px 0;
   background-color: white;
 }
 .items-box_body{
-  height: 90px;
-  padding: 16px;
+  height:110px;
+  padding: 20px 16px ;
   background-color:white;
 }
 .items-box-name{
@@ -82,7 +82,7 @@ padding:40px 0;
   line-height: 1.5;
   word-break: break-word;
   white-space: normal;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
 }
 .items-box-num{
@@ -91,12 +91,15 @@ padding:40px 0;
   display: flex;
 }
 .items-box-price{
-  font-size: 17px;
+  font-size: 15px;
 }
 .items-box-icon{
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   color: #333;
+}
+.far.fa-heart{
+  color:gray;
 }
 .items-box-tax{
   font-size: 10px;
