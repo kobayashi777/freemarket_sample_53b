@@ -18,7 +18,7 @@
           = f.email_field :email, class: 'login-main__form--email', placeholder: 'メールアドレス'
           = f.password_field :password, class: 'login-main__form--password', placeholder: 'パスワード'
           .robot
-            = image_tag 'temporary_reCAPTCHA.png', size: '304x78'
+            = image_tag '/images/temporary_reCAPTCHA.png', size: '304x78'
           = button_tag '#', class: 'login-main__form--btn' do
             ログイン
           = link_to '#', class: 'login-main__forgot-password' do
