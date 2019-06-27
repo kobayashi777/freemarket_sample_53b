@@ -1,0 +1,26 @@
+.login-container
+  = render 'shared/user-header'
+  .login-main
+    .login-main__panel
+      .login-main__no-account
+        .p アカウントをお持ちでない方はこちら
+        = link_to "#", class: "login-main__no-account--btn" do
+          新規会員登録
+      .login-main__sns
+        = button_tag '#', class: 'login-main__sns--facebook-btn' do
+          %i.fab.fa-facebook-square.login-main__sns--facebook-icon
+          Facebookでログイン
+        = button_tag '#', class: 'login-main__sns--google-btn' do
+          %i.fab.fa-google.login-main__sns--google-icon
+          Googleでログイン
+      = form_with do |f|
+        .login-main__form
+          = f.email_field :email, class: 'login-main__form--email', placeholder: 'メールアドレス'
+          = f.password_field :password, class: 'login-main__form--password', placeholder: 'パスワード'
+          .robot
+            = image_tag 'temporary_reCAPTCHA.png', size: '304x78'
+          = button_tag '#', class: 'login-main__form--btn' do
+            ログイン
+          = link_to '#', class: 'login-main__forgot-password' do
+            パスワードをお忘れの方
+  = render 'shared/user-footer'

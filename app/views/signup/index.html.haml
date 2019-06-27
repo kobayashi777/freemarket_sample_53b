@@ -1,0 +1,16 @@
+.auth-container
+  = render 'shared/user-header'
+  %section.auth-main
+    .auth-main__title 新規会員登録
+    .auth-main__box
+      .auth-main__inner
+        = link_to '#', class: 'auth-main__inner--mail-btn' do
+          %i.far.fa-envelope.auth-main__inner--mailer-icon
+          メールアドレスで登録
+        = button_tag '#', class: 'auth-main__inner--facebook-btn' do
+          %i.fab.fa-facebook-square.auth-main__inner--facebook-icon
+          Facebookで登録
+        = button_tag '#', class: 'auth-main__inner--google-btn' do
+          %i.fab.fa-google.auth-main__inner--google-icon
+          Googleで登録
+  = render 'shared/user-footer'
