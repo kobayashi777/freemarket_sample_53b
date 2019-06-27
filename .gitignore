@@ -25,4 +25,12 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-vendor/bundle
+
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+.DS_Store
+*.lock
+vendor

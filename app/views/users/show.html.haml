@@ -1,0 +1,55 @@
+.wrapper2.clearfix
+
+  -#= render '左側'
+
+  .user-info-container
+    %section.container
+      %h2.container__head 本人情報の登録
+      = form_with model: @user, class: "container__body" do |f|
+        -#@user.each do |user|
+        %div
+          %p お客様の本人情報をご登録ください。
+          %p 登録されたおなまえ・生年月日を変更する場合、本人確認の提出が必要になります。 
+          = link_to root_path , class: 'link-right' do
+            %span 本人確認書類のアップデートについて
+            %i.fa.fa-chevron-right
+        .container__body--group
+          %label お名前
+          %p @user.name_kannji
+        .container__body--group
+          %label お名前カナ
+          %p @user.name_kana
+        .container__body--group
+          %label 生年月日
+          %p @user.birthday
+        .container__body--group
+          %label{for: "zip_code"} 郵便番号
+          %span.form-arbitrary 任意
+          %input{type: "text", value_name: "zip_code", placeholder: "例)1234567", class: "input_default", kl_vkbd_parsed: "true"}
+        .container__body--group
+          %label{for: "prefecture"} 都道府県
+          %span.form-arbitrary 任意
+          .group-select_wrap
+            %select{name: "prefecture", class: "select-default"}
+              %option{value: '--'} --
+            %i.fa.fa-chevron-down.arrow-bottom
+        .container__body--group
+          %label{for: "city"} 市区町村
+          %span.form-arbitrary 任意
+          %input{type: "text", value_name: "city", placeholder: "例) 横浜市緑区", class: "input_default", kl_vkbd_parsed: "true"}
+        .container__body--group
+          %label{for: "address1_label"} 番地
+          %span.form-arbitrary 任意
+          %input{type: "text", value_name: "address1", placeholder: "例) 青山1-1-1", class: "input_default", kl_vkbd_parsed: "true"}
+        .container__body--group
+          %label{for: "address2_label"} 建物名
+          %span.form-arbitrary 任意
+          %input{type: "text", value_name: "address2", placeholder: "例) 柳ビル103", class: "input_default", kl_vkbd_parsed: "true"}
+  
+        = f.submit '登録する', class: 'btn-defualt btn-red' do
+          .btn-defualt
+  
+        .container__footer--text-right
+          = link_to root_path , class: 'link-right2' do
+            %span 本人確認の登録について
+            %i.fa.fa-chevron-right

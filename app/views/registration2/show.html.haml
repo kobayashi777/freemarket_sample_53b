@@ -1,0 +1,26 @@
+:css
+  li:nth-child(5).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+5) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+1):nth-child(-n+4) .signup-header__nav--status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+2):nth-child(-n+5) .signup-header__nav--status:before{
+    background-color: #ea352d;
+  }
+.signup-fifth
+  = render 'shared/sign-up-header'
+  %section.fifth-main
+    .fifth-main__title 会員登録完了
+    .fifth-main__top
+      .fifth-main__inner
+        %span.fifth-main__inner--text ありがとうございます。
+        %br 会員登録が完了しました。
+        = button_tag '#', class: 'fifth-main__inner--btn' do
+          メルカリをはじめる
+    = image_tag '/images/sign-up-fifth-image.png', class: 'fifth-main__image'
+  = render 'shared/user-footer'
