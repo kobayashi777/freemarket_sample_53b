@@ -8,17 +8,17 @@ wrapper{
   width:100%;
   background-color:white;
   color:red;
-}
-.header-inner{
-  height:92px;
-  width:1020px;
-  margin: 0 auto;
-  background-color:white;
-  position: relative;
-}
-.header-top{
-  height:40px;
-  display:flex;
+  &-inner{
+    height:92px;
+    width:1020px;
+    margin: 0 auto;
+    background-color:white;
+    position: relative;
+  }
+  &-top{
+    height:40px;
+    display:flex;
+  }
 }
 .logo{
   width:140px;
@@ -27,7 +27,6 @@ wrapper{
 }
 
 .form{
-  // min-width:418px;
   width:990px;
   height:40px;
   margin-left:40px;
@@ -37,9 +36,7 @@ wrapper{
     position: relative;
   }
 .image-label{
-  // width:50px;
   margin: 0 0 0 auto;
-  // border: 1px solid #ccc;
   border-radius:5px;
   position:absolute;
   right:5px;
@@ -58,9 +55,6 @@ wrapper{
   border: solid 1px;
   margin-top:5px;
   border-color:gray;
-}
-.submit{
-  // color:white;
 }
 .fas.fa-search.fa-lg{
   width:40px;
@@ -109,19 +103,20 @@ wrapper{
   width:150px;
   display:flex;
   margin-top:20px;
+  &__icon{
+    color:red;
+    margin-top:3px;
+  }
+  &__search{
+    font-weight: bold;
+    font-size:14px;
+    color:black;
+    margin:2px 0 0 5px;
+  
+  &:hover {
+    color:skyblue;
+  }
 }
-.category__icon{
-  color:red;
-  margin-top:3px;
-}
-.category__search{
-  font-weight: bold;
-  font-size:14px;
-  color:black;
-  margin:2px 0 0 5px;
-}
-.category__search:hover {
-  color:skyblue;
 }
 .brand{
   position: relative;
@@ -130,19 +125,21 @@ wrapper{
   display:flex;
   margin-top:20px;
   // margin-left:20px;
+
+  &__icon{
+    color:red;
+  }
+  &__search{
+    font-weight: bold;
+    font-size:14px;
+    color:black;
+    margin:2px 0 0 5px;
+    &:hover {
+      color:skyblue;
+    }
+  }
 }
-.brand__icon{
-  color:red;
-}
-.brand__search{
-  font-weight: bold;
-  font-size:14px;
-  color:black;
-  margin:2px 0 0 5px;
-}
-.brand__search:hover {
-  color:skyblue;
-}
+
 
 .liked-item{
   width:113px;
@@ -205,100 +202,100 @@ wrapper{
   height: 260px;
   background-image: url("/hooter-background-image.png");
   background-size:cover;
-}
-.hooter-top-inner{
-  // overflow: hidden;
-  // position: relative;
-  // display: none;
-  width: 750px;
-  height: 100%;
-  margin: 0 auto;
-  color: #fff;
-  // background-color: aqua;
-  display:flex;
-}
-.hooter-top-inner__right{
-  width: 420px;
-  height: 160px;
-  // background-color: red;
-  margin-top:50px;
-  text-shadow: 0 0 5px rgba(0,0,0,0.4);
-  #h2{
-    font-size: 24px;
-    line-height: 1.4;
- 
-  }
-  #p{
-    margin: 10px 0 0;
-    font-size: 35px;
-  }
-}
-.hooter-top-inner__right-icon{
-  width: 420px;
-  height: 68px;
-  margin-top:2px;
-  display:flex;
-  // background-color: aqua;
-}
-.hooter-top-inner__right-icon-left{
-  border-radius:10px;
-  width: 68px;
-  height: 68px;
-}
-.hooter-top-inner__right-app{
-  width: 282px;
-  height: 68px;
-  margin-left:24px;
-}
-.hooter-top-inner__right-app_icon-left{
-  border-radius:7px;
-  margin-top:13px;
-}
-.hooter-top-inner__right-app_icon-right{
-  border-radius:7px;
-  margin-top:13px;
-  margin-left:10px;
-}
-.hooter-top-inner__left{
-  width: 300px;
-  height: 260px;
-  // background-color: white;
-  margin-left:30px;
-  background-image: url("//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2334484240");
-  background-size:cover;
-}
-
-
-.hooter-bottom{
-  height:370px;
-  width:100%;
-  background: #212121;
-  margin-top:0;
-}
-.hooter-main{
-  height:298px;
-  width: 1020px;
-  margin: 0 auto;
-  display:flex;
-  background: #212121;
-  color: #fff;
-  h2{
-    font-size: 16px;
-    font-weight: 100;
-    opacity: .7;
-  }
-  li{
-    font-size: 12px;
-    margin: 14px 0 0;
-    opacity: .7;
-  }
-  a{
-    text-decoration: none;
+  &-inner{
+    // overflow: hidden;
+    // position: relative;
+    // display: none;
+    width: 750px;
+    height: 100%;
+    margin: 0 auto;
     color: #fff;
-    line-height: 3px;
-    // opacity: .7;
+    // background-color: aqua;
+    display:flex;
+  
+    &__right{
+      width: 420px;
+      height: 160px;
+      // background-color: red;
+      margin-top:50px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      #h2{
+        font-size: 24px;
+        line-height: 1.4;
+     
+      }
+      #p{
+        margin: 10px 0 0;
+        font-size: 35px;
+      }
+    }
   }
- 
+  .hooter-top-inner__right-icon{
+    width: 420px;
+    height: 68px;
+    margin-top:2px;
+    display:flex;
+  
+  &-left{
+    border-radius:10px;
+    width: 68px;
+    height: 68px;
+  }
+}
+  .hooter-top-inner__right-app{
+    width: 282px;
+    height: 68px;
+    margin-left:24px;
+  
+  &_icon-left{
+    border-radius:7px;
+    margin-top:13px;
+  }
+  &_icon-right{
+    border-radius:7px;
+    margin-top:13px;
+    margin-left:10px;
+  }
+}
+  .hooter-top-inner__left{
+    width: 300px;
+    height: 260px;
+    margin-left:30px;
+    background-image: url("//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2334484240");
+    background-size:cover;
+    }
+  }
+
+
+  .hooter-bottom{
+    height:370px;
+    width:100%;
+    background: #212121;
+    margin-top:0;
+  }
+  .hooter-main{
+    height:298px;
+    width: 1020px;
+    margin: 0 auto;
+    display:flex;
+    background: #212121;
+    color: #fff;
+    h2{
+      font-size: 16px;
+      font-weight: 100;
+      opacity: .7;
+    }
+    li{
+      font-size: 12px;
+      margin: 14px 0 0;
+      opacity: .7;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+      line-height: 3px;
+    }
+}
   .footer-title{
     height:22px;
     width: 388px;
@@ -308,7 +305,7 @@ wrapper{
     width: 388px;
     display:flex;
   }
-}
+
 .footer-cell-inner__left{
   padding-right:20px;
 }
@@ -317,13 +314,14 @@ wrapper{
   margin-right:20px;
   // width: 20%;
   text-decoration: none;
-}
-.footer-cell_help{
-  margin-right:40px;
-}
-.footer-cell_width{
-  width: 388px;
-  margin-right:40px;
+
+  &_help{
+    margin-right:40px;
+  }
+  &_width{
+    width: 388px;
+    margin-right:40px;
+  }
 }
 .sns-icon{
   margin-top:30px;
@@ -338,17 +336,18 @@ wrapper{
   width: 1020px;
   margin: 30px auto 20px;
   display:flex;
-}
-.hooter-sub__left-image{
-  height:33px;
-  width:124px;
-}
-.hooter-sub__right{
-  width: 896px;
-  font-size: 12px;
-  color: #fff;
-  text-align: center;
-  margin: 8px 0 0;
+
+  &__left-image{
+    height:33px;
+    width:124px;
+  }
+  &__right{
+    width: 896px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    margin: 8px 0 0;
+  }
 }
 .footer-button{
   bottom: 32px;
@@ -359,14 +358,14 @@ wrapper{
   position: fixed;
   border-radius: 50%;
   text-decoration: none;
-}
-.footer-button__text{
-  height:22px;
-  width:160px;
-  margin: 24px 0 0;
-  font-size: 22px;
-  color:white;
-  text-align: center;
+  &__text{
+    height:22px;
+    width:160px;
+    margin: 24px 0 0;
+    font-size: 22px;
+    color:white;
+    text-align: center;
+  }
 }
 .fas.fa-camera.fa-4x{
   margin-top:10px;
