@@ -1,63 +1,56 @@
-.main
-  .payment
-    %h3.payment__head クレジットカード情報入力
-    .input
-      .input__title
-        %span カード番号
-        %span.input__title--must 必須
-      %input.input__title--form{"data-input-type": "card", maxlength: "19", placeholder: "半角数字のみ", type: "text", value: ""}/
-      %span.image
-        = image_tag "visa.svg", size: "49x20"
-        = image_tag "master-card.svg", size: "34x20"
-        = image_tag "saison-card.svg", size: "49x20"
-        = image_tag "jcb.svg", size: "32x20"
-        = image_tag "american_express.svg", size: "21x20"
-        = image_tag "dinersclub.svg", size: "32x20"
-        = image_tag "discover.svg", size: "32x20"
+.toppage_main
+  .top_photo
+    = image_tag "/2019-06-23 16.17.15.png",class:"toppage_photo"
+  .pick-up
+    .pick-up-category
+      .pickup-head
+        ピックアップカテゴリー
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            レディース 新着アイテム
+        =render partial: 'products/box-contents'
 
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            メンズ 新着アイテム
+        =render partial: 'products/box-contents'
 
-      .input__date
-        %span 有効期限
-        %span.input__title--must 必須
-        .pulldown
-          %div
-            %select.pulldown__detail{name: "month" }
-              %option{value: "1"} 01
-              %option{value: "2"} 02
-              %option{value: "3"} 03
-              %option{value: "4"} 04
-              %option{value: "5"} 05
-              %option{value: "6"} 06
-              %option{value: "7"} 07
-              %option{value: "8"} 08
-              %option{value: "9"} 09
-              %option{value: "10"} 10
-              %option{value: "11"} 11
-              %option{value: "12"} 12 
-            %span 月
-          %div
-            %select.pulldown__detail{name: "year"}
-              %option{value: "2019"} 19
-              %option{value: "2020"} 20
-              %option{value: "2021"} 21
-              %option{value: "2022"} 22
-              %option{value: "2023"} 23
-              %option{value: "2024"} 24
-              %option{value: "2025"} 25
-              %option{value: "2026"} 26
-              %option{value: "2027"} 27
-              %option{value: "2028"} 28
-              %option{value: "2029"} 29
-            %span 年
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            ベビー・キッズ 新着アイテム
+        =render partial: 'products/box-contents'
+        
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            コスメ・香水・美容 新着アイテム
+        =render partial: 'products/box-contents'
 
+      .pickup-head
+        ピックアップブランド
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            シャネル 新着アイテム
+        =render partial: 'products/box-contents'
 
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            ルイ ヴィトン 新着アイテム
+        =render partial: 'products/box-contents'
 
-      .input__cord
-        %span セキュリティコード
-        %span.input__title--must 必須
-      %input.input__cord--form{"data-input-type": "card", maxlength: "4", placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
-      .back-question
-        %i.fas.fa-question-circle 
-        %span カード番号の裏面とは?
-      .input__add
-        %button.input__add--btn{type: "submit"} 追加する
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            シュプリーム 新着アイテム
+        =render partial: 'products/box-contents'
+        
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            ナイキ 新着アイテム
+        =render partial: 'products/box-contents'
