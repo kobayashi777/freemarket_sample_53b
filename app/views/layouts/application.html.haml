@@ -10,4 +10,49 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css')
   %body
-    = yield
+    %wrapper
+      .header
+        .header-inner
+          %ul.header-top
+            %li.logo
+              = link_to image_tag "/2019-06-23 17.04.26.png", size: "150x50", href:"/products"
+            %li.form
+              = form_with id: "form", url:'/#', method: :get do |f|
+                = f.text_field :search, class: "search", placeholder: ' 何かお探しですか？'
+                .image-label#sbtn
+                  =f.label  class: "submit" do
+                    = f.button "", class:"fas fa-search fa-lg", value: "&#xf002;"
+                      
+          .header-bottom
+            .header-bottom__left
+              =render partial: 'layouts/dropdown'
+              .brand
+                .brand__icon
+                  %i.fas.fa-tag.fa-spin
+                .brand__search
+                  ブランドから探す
+            %ul.header-bottom__right
+              %li.liked-item
+                = link_to "/" do
+                  %i.far.fa-heart.fa-lg
+                    .header-bottom__right__text
+                      いいね！一覧
+              %li.notification-list
+                = link_to "/" do
+                  %i.far.fa-bell.fa-lg
+                    .header-bottom__right__text
+                      お知らせ
+              %li.todo-list
+                = link_to "/" do
+                  %i.fas.fa-check.fa-lg
+                    .header-bottom__right__text
+                      やることリスト
+              %li.my-page
+                = link_to "/", class: "my-page__link" do
+                  = image_tag "/member_photo_noimage_thumb.png", size: "30x30"
+                  .my-page__text
+                    .header-bottom__right__text
+                      マイページ
+      = yield
+      =render partial: 'layouts/footer'
+      =render partial: 'layouts/footer-button'
