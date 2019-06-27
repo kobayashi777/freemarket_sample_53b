@@ -1,0 +1,48 @@
+//会員登録完了ページ
+
+.signup-fifth{//会員登録完了ページ全体
+  width: 100vw;
+  height: 963px;
+  padding-bottom: 220px;
+  background-color: $thin_gray;
+  position: relative;
+}
+
+.fifth-main{//会員登録完了ページ
+  width: 700px;
+  height: 615px;
+  background-color: $white;
+  margin: 0 auto;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: rgb(51, 51, 51);
+  &__title{//会員登録完了の文字
+    text-align: center;
+    padding: 32px 16px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 33px;
+    height: 97px;
+    color: rgb(51, 51, 51);
+  }
+  &__top{//会員登録完了の文字以降、画像までの全体
+    width: 700px;
+    height: 268px;
+    padding: 64px;
+    border-top: solid 1px rgb(245, 245, 245);
+  }
+  &__inner{//会員登録完了の文字以降、画像までの枠
+    width: 320px;
+    height: 204px;
+    margin: 0 auto;
+    text-align: center;
+    &--btn{//はじめるボタン
+      @include btn-default();
+      font-size: 16px;
+      margin: 40px 0 40px;
+    }
+  }
+  &__image{//下部画像
+    height: 250px;
+    width: 700px;
+  }
+}
