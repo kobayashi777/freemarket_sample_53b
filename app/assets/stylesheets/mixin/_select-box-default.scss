@@ -1,0 +1,23 @@
+@mixin select-box-default(){
+  background: 0;
+  padding: 0 10px;
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  border: 1px solid $gray;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &:focus{
+    outline: none;
+    border: 1px solid $blue;
+  }
+  &::-ms-expand{
+    display: none;
+  }
+}
