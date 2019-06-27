@@ -1,0 +1,48 @@
+.a
+
+  .content
+    .content-header
+      %h 購入内容の確認    
+    %div.content__main
+      .content__main--item
+      %span.content__main--item-image
+        = image_tag src="/assets/m37585938822_1.jpeg", size: "64x64"
+      %p.content__main--item-name adidas アディダス Tシャツ
+
+
+    .payment-information-first
+      .payment-information-first__upper
+        %span.payment-information-first__upper--item-price ¥680
+        %span.payment-information-first__upper--item-shipping 送料込み
+      %button.payment-information-first__upper--point{:type => "submit"} ポイントはありません
+
+      .payment-information-second
+        %ul.payment-information-second__middle--payment_amount 支払い金額
+        %ul.payment-information-second__middle--payment_price ¥680
+      %button.payment-information-second__middle--payment_decide{:type => "submit"} 購入する
+
+    .users-address-information
+      .address-confirmation
+        %p.address-confirmation__delivery 配送先
+        .address-confirmation__delivery--detail 
+          %p.post-number 〒000-0000
+          %p.address-detail 千葉県流山市松ヶ丘111-11
+          %p.name-detail 田中太朗
+        %button.address-confirmation__change{:type => "submit" }
+          %a 変更する
+          %i.fas.fa-angle-right
+
+
+    .users-payment-information
+      .payment-confirmation
+        %p.payment-confirmation__title 支払い方法
+        .payment-confirmation__detail
+          %p.payment-confirmation__detail--number ****************1234
+          %p.payment-confirmation__detail--date 01 / 01
+          %span.payment-confirmation__detail--image
+            = image_tag src="/assets/visa.svg", size: "49x15"
+        %button.payment-confirmation__detail--change
+          %a 変更する
+          %i.fas.fa-angle-right
+
+
