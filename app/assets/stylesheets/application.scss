@@ -31,10 +31,6 @@
 //ログインページ
 @import './modules/sign-in-page';
 
-//FontAwsome5使用
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 @import "user/mixin";
 @import "user/layout";
 @import "user/edit";
