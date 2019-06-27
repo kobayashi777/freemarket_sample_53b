@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -18,10 +21,20 @@
   //border-box全適用
  @import './border-box';
 
- @import './mixin/*';
+@import './mixin/*';
 
- @import "user/variables";
- 
+@import "user/variables";
+@import './_variables.scss';
+
+@import "user/mixin";
+@import "user/layout";
+@import "user/edit";
+@import "user/show";
+@import "reset";
+@import "_buy-confirmation";
+*{
+  box-sizing: border-box;
+}
  //新規会員登録ページ
  @import './modules/sign-up-page';
  //新規会員登録ページヘッダー
@@ -52,3 +65,9 @@
  @import "user/show";
  @import "layout/_application";
  @import "products/_index";
+ @import "./users-show";
+ @import "./payment-top";
+ @import "./payment-input";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+ 
