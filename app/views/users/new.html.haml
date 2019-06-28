@@ -1,3 +1,11 @@
-.user-logout-backgroundcolor
-  .user-logout-main
-    %button.user-logout-main__btn{type: "submit"} ログアウト
+.user-logout-header
+  = render "layouts/header"
+.user-logout-sidebar
+  = render "mypage/mypage-sidemenu"
+.user-logout-main
+  %button.user-logout-main__btn{type: "submit"} ログアウト
+.user-footer-button
+  = render "layouts/footer-button"
+.user-logout-footer
+  = render "layouts/footer"
+
