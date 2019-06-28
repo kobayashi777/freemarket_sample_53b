@@ -1,4 +1,4 @@
-*{
+ *{
   box-sizing: border-box;
 }
 /*
@@ -67,5 +67,8 @@
  @import "./payment-top";
  @import "./payment-input";
  @import "./layout/_dropdown";
+ @import "mypage/mypage";
+ @import "mypage/mypage-sidemenu";
 
- 
+
+
