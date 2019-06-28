@@ -29,7 +29,7 @@
       text-align: center;
       
       .container__name {
-        height: 60px;
+        // height: 60px;
         padding: 72px 16px 24px;
         border: 1px solid black;
         background-image: url("RED19515A006_TP_V4.jpg");
@@ -44,13 +44,14 @@
           margin-left:200px;
         }
         .edit_name {
-          height: 80%;
-          margin:8px 0 0 8px;
-          padding: 0 16px 0;
+          height: 48px;
+          margin:6px 0 0 8px;
+          padding: 10px 16px 8px;
           border: 1px solid $gray;
           border-radius: 4px;
           line-height: 1.5;
           font-size: 16px;
+          width: 220px;
         }
       .container__text {
         padding: 40px 16px;

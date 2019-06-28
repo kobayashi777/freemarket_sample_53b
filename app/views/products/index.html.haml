@@ -1,1 +1,59 @@
-%p おはよう
+=render partial: 'layouts/header'
+.toppage_main
+  .top_photo
+    = image_tag "/2019-06-23 16.17.15.png",class:"toppage_photo"
+  .pick-up
+    .pick-up-category
+      .pickup-head
+        ピックアップカテゴリー
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            レディース 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            メンズ 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            ベビー・キッズ 新着アイテム
+        =render partial: 'products/box-contents'
+        
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            コスメ・香水・美容 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .pickup-head
+        ピックアップブランド
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            シャネル 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            ルイ ヴィトン 新着アイテム
+        =render partial: 'products/box-contents'
+
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            シュプリーム 新着アイテム
+        =render partial: 'products/box-contents'
+        
+      .item-container
+        %h3.text-center
+          = link_to '#', class:"text-center__inner" do
+            ナイキ 新着アイテム
+        =render partial: 'products/box-contents'
+=render partial: 'layouts/footer'
+=render partial: 'layouts/footer-button'

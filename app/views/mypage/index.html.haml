@@ -1,0 +1,66 @@
+.body
+  .wrapper
+    .mypage-wrapper
+      .my-page-right-content
+        .my-page-right-content__top
+          .my-page-right-content__top__content
+            = image_tag "/images/member_photo_noimage_thumb.png"
+            %p.username username
+            %span 評価
+            %span.num 0
+            %span 出品数
+            %span.num 0
+        .my-page-right-content__tabs.group
+          .tab
+            お知らせ
+          .tab-li
+            やることリスト
+        %ul.my-page-right-content__main
+          %li.my-page-right-content__main__column
+            = image_tag "/images/mercari_profile.png"
+            .message
+              .message__text 事務局から個別メッセージ「ログイン通知」
+              %i.far.fa-clock
+              %span.message__text-time 2時間前
+            %i.fas.fa-angle-right
+          %li.my-page-right-content__main__column
+            = image_tag "/images/mercari_profile.png"
+            .message
+              .message__text 明日、5%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+              %i.far.fa-clock
+              %span.message__text-time 2時間前
+            %i.fas.fa-angle-right
+          %li.my-page-right-content__main__column
+            = image_tag "/images/mercari_profile.png"
+            .message
+              .message__text 事務局から個別メッセージ「ログイン通知」
+              %i.far.fa-clock
+              %span.message__text-time 2時間前
+            %i.fas.fa-angle-right
+          %li.my-page-right-content__main__column
+            = image_tag "/images/mercari_profile.png"
+            .message
+              .message__text 事務局から個別メッセージ「ログイン通知」
+              %i.far.fa-clock
+              %span.message__text-time 2 日前
+            %i.fas.fa-angle-right
+          %li.my-page-right-content__main__column
+            = image_tag "/images/mercari_profile.png"
+            .message
+              .message__text 《まもなく終了》メルカリ6周年感謝祭キャンペーン開催中！
+              %i.far.fa-clock
+              %span.message__text-time 4 日前
+            %i.fas.fa-angle-right
+          .my-page-right-content__main__button
+            =link_to "一覧を見る", "#"
+      .my-page-right-content__bottom
+        .my-page-right-content__bottom__title
+          購入した商品
+        .my-page-right-content__bottom__tabs.group
+          .tab
+            取引中
+          .tab-li
+            過去の取引
+        .my-page-right-content__bottom__main
+          %p 取引中の商品はありません
+    = render "mypage/mypage-sidemenu"

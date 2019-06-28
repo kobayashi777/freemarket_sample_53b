@@ -1,9 +1,71 @@
-@import "reset";
+ *{
+  box-sizing: border-box;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+  //リセットCSS YUI3導入
+ @import "./reset";
+  //border-box全適用
+ @import './border-box';
+
+@import './mixin/*';
+
+@import "user/variables";
 @import "user/mixin";
-@import "user/_variables";
 @import "user/layout";
 @import "user/edit";
 @import "user/show";
 @import "products/show";
 @import "products/_index";
 @import "font-awesome";
+@import "reset";
+@import "_buy-confirmation";
+ //新規会員登録ページ
+ @import './modules/sign-up-page';
+ //新規会員登録ページヘッダー
+ @import './modules/user-header';
+ //新規会員登録ページフッター
+ @import './modules/user-footer';
+ //会員登録情報入力ページヘッダー
+ @import './modules/sign-up-header';
+ //会員情報登録ページ
+ @import './modules/sign-up-first';
+ //新規登録電話番号の確認
+ @import './modules/sign-up-second';
+ //SMS認証
+ @import './modules/sign-up-second-check';
+ //発送元。お届け先住所入力
+ @import './modules/sign-up-third';
+ //支払い方法
+ @import './modules/sign-up-forth';
+ //新規登録完了画面
+ @import './modules/sign-up-fifth';
+ 
+ //ログインページ
+ @import './modules/sign-in-page';
+ 
+ @import "user/mixin";
+ @import "user/layout";
+ @import "user/edit";
+ @import "user/show";
+ @import "layout/_application";
+ @import "./products/_index";
+ @import "./users-show";
+ @import "./payment-top";
+ @import "./payment-input";
+ @import "./layout/_dropdown";
+ @import "mypage/mypage";
+ @import "mypage/mypage-sidemenu";

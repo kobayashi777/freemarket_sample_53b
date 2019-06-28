@@ -1,0 +1,19 @@
+@mixin btn-facebook(){
+  outline: none;
+  height: 50px;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+  position: relative;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  padding: 0;
+  color: white;
+  margin-top: 16px;
+  background-color: #385185;
+}
