@@ -265,8 +265,6 @@
     background-size:cover;
     }
   }
-
-
   .hooter-bottom{
     height:370px;
     width:100%;
@@ -283,7 +281,6 @@
     h2{
       font-size: 16px;
       font-weight: 100;
-      opacity: .7;
     }
     li{
       font-size: 12px;
@@ -312,7 +309,6 @@
 .footer-cell{
   padding:20px 20px 0 0;
   margin-right:20px;
-  // width: 20%;
   text-decoration: none;
 
   &_help{
@@ -322,6 +318,9 @@
     width: 388px;
     margin-right:40px;
   }
+}
+.footer-mercari{
+  
 }
 .sns-icon{
   margin-top:30px;

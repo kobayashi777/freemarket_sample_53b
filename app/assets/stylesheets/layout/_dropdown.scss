@@ -6,6 +6,7 @@
 .gnav:hover li a{
   height: 2.5rem;
   overflow: visible;
+  z-index:10;
 }
 .gnav li a{
   position: relative;
@@ -25,6 +26,7 @@
 .gnav > li:hover > a{
   color:white;
   background-color: red;
+  
 }
 //第二階層
 .gnav ul li a:hover{
