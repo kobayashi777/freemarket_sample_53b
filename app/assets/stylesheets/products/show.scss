@@ -1,6 +1,6 @@
 .wrapper3 {
   background: #f5f5f5;
-  padding: 40px 0 0;
+  //padding: 40px 0 0;
 
   .item-container1 {
     margin: 40px auto 0;
@@ -175,6 +175,7 @@
     width: 700px;
     .item-others--seller {
       overflow: hidden;
+      display: flexbox;
       .item-others--seller_name {
         font-size: 22px;
         line-height: 1.4;
@@ -205,30 +206,30 @@
     }
     .item-others--product {
       overflow: hidden;
-      // .item-others--product__category-name {
-      //   font-size: 22px;
-      //   line-height: 1.4;
-      //   color: $blue;
-      //   &:hover {
-      //     cursor: pointer;
-      //     text-decoration: underline;
-      //   }
-      // }
-      // .item-others--product__content-product-box {
-      //   margin: 0 0 20px;
-      //   width: 220px;
-      //   border: 1px solid gray;
-      //   .item-others--product-box--figure {
-      //     height: 220px;
-      //     overflow: hidden;
-      //     position: relative;
-      //     border-bottom: 1px dashed gray;
-      //   }
-      //   .item-others-product-box--name {
-      //     height: 110px;
-      //     padding: 16px;
-      //   }
-      // }  以前のcssです。今は products/_index.scss を使用しています。何かの時にこれを残しておきます。 
+      .item-others--product__category-name {
+        font-size: 22px;
+        line-height: 1.4;
+        color: $blue;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+      .item-others--product__content-product-box {
+        margin: 0 0 20px;
+        width: 220px;
+        border: 1px solid gray;
+        .item-others--product-box--figure {
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+          border-bottom: 1px dashed gray;
+        }
+        .item-others-product-box--name {
+          height: 110px;
+          padding: 16px;
+        }
+      }
     }
   }
 }
