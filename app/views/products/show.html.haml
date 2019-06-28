@@ -1,1 +1,91 @@
-%p あ
+.wrapper3
+  %section.item-container 
+    %h1.item-container__item-name brabrabra
+    .item-container__item-content 
+      .content--photo
+        .content--photo-up photo up
+        .content--photo-down photo down
+      %table.content--detail-table
+        %tbody.table
+          %tr.table--section
+            %th.table--section-left 出品者
+            %th.table--section-right aikon several
+          %tr.table--section
+            %th.table--section-left カテゴリー
+            %th.table--section-right kate
+          %tr.table--section
+            %th.table--section-left ブランド
+            %th.table--section-right speeddemon
+          %tr.table--section
+            %th.table--section-left 商品状態
+            %th.table--section-right Ghost Rider
+          %tr.table--section
+            %th.table--section-left 配送料負担
+            %th.table--section-right いくら出す？
+          %tr.table--section
+            %th.table--section-left 配送方法
+            %th.table--section-right 浮游(形状が崩れる可能性があります),瞬間移動(目的地に届くとは限りません)
+          %tr.table--section
+            %th.table--section-left 配送元
+            %th.table--section-right 何処からと届くとお思いで？
+          %tr.table--section
+            %th.table--section-left 配送日目安
+            %th.table--section-right 無視します
+    .item-container__item-price
+      %span.item-container__item-price-bold  $1000
+      %span.item-container__item-price-tax (税込)
+      %span.item-container__item-price-shipping-fee 送料込み
+    .item-container__item-buy-btn 購入画面に進む
+    .item-container__item-description 
+      %p.item-description-inner
+        This is description area//
+        This is description area//
+        This is description area//
+        This is description area//
+        This is description area//
+        This is description area//
+    .item-container__item-other-btn.clearfix
+      .link_btn_left
+        %button.item-other-btn-left いいね！
+        -#= link_to 'いいね', root_path, class: 'item-other-btn-left'
+      .link_btn_right
+        %i.fa.fa-lock
+        = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
+  .item-comment-area
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+  %ul.item-nav.clearfix
+    other product link section
+    %li.item-nav__link-prev
+      = link_to '< Preview product', root_path, class: 'item-nav__link-prev-right'
+    %li.item-nav__link-next
+      = link_to 'Next product >', root_path, class: 'item-nav__link-next-left'
+  .sns
+    %ul.sns--aikon
+      %i.fa.fa-facebook-square
+      %i.fa.fa-twitter-square
+      %i.fa.fa-pinterest
+  .item-others
+    %section.item-others--seller
+      %h2.item-others-seller-name 出品者のその他の商品
+      .item-others--seller_product
+        %section.item-others--seller_product_box
+          %figure.item-others--seller_product_box--figure This is photo area
+          .item-others-seller_product-box--name aaaa-oh $600
+        %section.item-others--seller_product_box
+          %figure.item-others--seller_product_box--figure This is photo area
+          .item-others-seller_product_box--name aaaa-oh $600
+        %section.item-others--seller_product_box
+          %figure.item-others--seller_product_box--figure This is photo area
+          .item-others-seller_product_box--name aaaa-oh $600
+    %section.item-others--product
+      %h2.item-others--product__category-name 同カテゴリーその他の商品
+      .item-others--product__content
+        %section.item-others--product__content-product-box
+          %figure.item-others--product__content-product-box__figure photo area
+          .item-others--product-box__name ＄4532
