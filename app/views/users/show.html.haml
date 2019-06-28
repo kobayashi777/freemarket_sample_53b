@@ -1,7 +1,7 @@
+= render 'layouts/header'
+
 .wrapper2.clearfix
-
-  -#= render '左側'
-
+  = render 'mypage/mypage-sidemenu'
   .user-info-container
     %section.container
       %h2.container__head 本人情報の登録
@@ -53,3 +53,5 @@
           = link_to root_path , class: 'link-right2' do
             %span 本人確認の登録について
             %i.fa.fa-chevron-right
+
+= render 'layouts/footer'
