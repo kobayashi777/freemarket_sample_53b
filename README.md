@@ -33,12 +33,13 @@
 ### Association
 - has_many :users_photos
 - has_many :products
-- has_many :credits, through: :users_credits
+- has_many :credits
 ***
-## creaidts table
+## credits table
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|references|foreign_key: true|
 |card_number|integer|null: false|
 |validated_date_month|integer|null: false, default: 0|
 |validated_date_year|integer|null: false, default: 0|
@@ -46,18 +47,7 @@
 |created_at|timestamp|null: false|
 
 ### Association
-- has_many :users, through: :users_credits, dependent::destroy
-***
-## users_credits table
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|credit_id|references|foreign_key: true|
-
-### Association
 - belongs_to :user
-- belongs_to :credit
 ***
 ## products table
 
