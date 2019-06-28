@@ -2,23 +2,23 @@
   background: #f5f5f5;
   padding: 40px 0 0;
 
-  .item-container {
+  .item-container1 {
     margin: 40px auto 0;
     padding: 24px 40px 40px;
     background: #fff;
     width: 700px;
     box-sizing: border-box;
     text-align: center;
-    .item-container__item-name {
+    .item-container1__item-name {
       font-size: 24px;
       
       word-wrap: break-word;
       line-height: 1.4;
     }
-    .item-container__item-content {
+    .item-container1__item-content {
       margin: 16px 0 0;
-      box-sizing: border-box;
-      display: inline-block;
+      //box-sizing: border-box;
+      //display: inline-block;
       .content--photo {
         float: left;
         width: 300px;
@@ -35,10 +35,9 @@
         }
       }
       .content--detail-table {
-        //float: right;
+        float: right;
         width: 300px; //100% before
         height: 375px; //420px before
-        margin: 0 auto;
         border-collapse: collapse;
         border: 1px solid #f5f5f5;
         .table {
@@ -48,7 +47,7 @@
             .table--section-left {
               width: 39%;
               padding: 8px;
-              text-align: left;
+              //text-align: left;
               font-weight: 400;
               background: #fafafa;
               border: 1px solid #f5f5f5;
@@ -66,7 +65,7 @@
         }
       }
     }
-    .item-container__item-price {
+    .item-container1__item-price {
       margin: 24px 0 0;
       display: block;
       font-size: 36px;
@@ -75,18 +74,18 @@
       line-height: 14px;
       text-align: center;
       text-size-adjust: 100%;
-      .item-container__item-price-bold {
+      .item-container1__item-price-bold {
         margin: 0 16px 0 0;
       }
-      .item-container__item-price-tax {
+      .item-container1__item-price-tax {
         font-size: 10px;
       }
-      .item-container__item-price-shipping-fee {
+      .item-container1__item-price-shipping-fee {
         font-size: 16px;
         display: inline-block;
       }
     }
-    .item-container__item-buy-btn {
+    .item-container1__item-buy-btn {
       margin: 16px 0 24px;
       height: 60px;
       line-height: 60px;
@@ -96,7 +95,7 @@
       text-align: center;
       font-weight: 600;
     }
-    .item-container__item-description {
+    .item-container1__item-description {
       padding: 32px 0 0;
       line-height: 1.5;
       font-size: 18px;
@@ -105,16 +104,18 @@
         text-align: left;
       }
     }
-    .item-container__item-other-btn {
+    .item-container1__item-other-btn {
       margin: 16px 0 0;
-      .item-other-btn-left {
+      .link_btn_left {
         float: left;
         margin: 8px 0 0;
-        color: $blue;
-        border-radius: 10px;
-        background: #f5f5f5;
-        &:hover {
-          cursor: pointer;
+        .item-other-btn-left {
+          color: $blue;
+          border-radius: 10px;
+          background: #f5f5f5;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
       .link_btn_right {
@@ -130,7 +131,7 @@
   }
   
   .item-comment-area {
-    width: 700px;  //ほんとは700pxで大きさが同じになる 以下同
+    width: 700px;
     margin: 8px auto;
     text-align: center;
     background: #fff;
@@ -139,11 +140,12 @@
   .item-nav {
     margin: 24px auto 0;
     width: 700px;
+    text-decoration: none;
     .item-nav__link-prev {
       width: 45%;
       float: left;
       position: relative;
-      text-align: left;
+      //text-align: left;
       color: $blue;
       &:hover {
         cursor: pointer;

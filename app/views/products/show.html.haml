@@ -1,7 +1,7 @@
 .wrapper3
-  %section.item-container 
-    %h1.item-container__item-name brabrabra
-    .item-container__item-content 
+  %section.item-container1
+    %h1.item-container1__item-name brabrabra
+    .item-container1__item-content.clearfix
       .content--photo
         .content--photo-up photo up
         .content--photo-down photo down
@@ -21,22 +21,22 @@
             %th.table--section-right Ghost Rider
           %tr.table--section
             %th.table--section-left 配送料負担
-            %th.table--section-right いくら出す？
+            %th.table--section-right いくら出します？
           %tr.table--section
             %th.table--section-left 配送方法
             %th.table--section-right 浮游(形状が崩れる可能性があります),瞬間移動(目的地に届くとは限りません)
           %tr.table--section
             %th.table--section-left 配送元
-            %th.table--section-right 何処からと届くとお思いで？
+            %th.table--section-right ちょっと何言ってるか分からないです
           %tr.table--section
             %th.table--section-left 配送日目安
-            %th.table--section-right 無視します
-    .item-container__item-price
-      %span.item-container__item-price-bold  $1000
-      %span.item-container__item-price-tax (税込)
-      %span.item-container__item-price-shipping-fee 送料込み
-    .item-container__item-buy-btn 購入画面に進む
-    .item-container__item-description 
+            %th.table--section-right n次元でお願いします
+    .item-container1__item-price
+      %span.item-container1__item-price-bold  $1000
+      %span.item-container1__item-price-tax (税込)
+      %span.item-container1__item-price-shipping-fee 送料込み
+    .item-container1__item-buy-btn 購入画面に進む
+    .item-container1__item-description 
       %p.item-description-inner
         This is description area//
         This is description area//
@@ -44,7 +44,7 @@
         This is description area//
         This is description area//
         This is description area//
-    .item-container__item-other-btn.clearfix
+    .item-container1__item-other-btn.clearfix
       .link_btn_left
         %button.item-other-btn-left いいね！
         -#= link_to 'いいね', root_path, class: 'item-other-btn-left'
@@ -60,11 +60,10 @@
     In here,communicate each other.//
     In here,communicate each other.//
   %ul.item-nav.clearfix
-    other product link section
-    %li.item-nav__link-prev
-      = link_to '< Preview product', root_path, class: 'item-nav__link-prev-right'
-    %li.item-nav__link-next
-      = link_to 'Next product >', root_path, class: 'item-nav__link-next-left'
+    %li.item-nav__link
+      = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
+      = link_to 'Next product >', root_path, class: 'item-nav__link-next'
+      -#%li.item-nav__link-next
   .sns
     %ul.sns--aikon
       %i.fa.fa-facebook-square
@@ -74,18 +73,38 @@
     %section.item-others--seller
       %h2.item-others-seller-name 出品者のその他の商品
       .item-others--seller_product
-        %section.item-others--seller_product_box
-          %figure.item-others--seller_product_box--figure This is photo area
-          .item-others-seller_product-box--name aaaa-oh $600
-        %section.item-others--seller_product_box
-          %figure.item-others--seller_product_box--figure This is photo area
-          .item-others-seller_product_box--name aaaa-oh $600
-        %section.item-others--seller_product_box
-          %figure.item-others--seller_product_box--figure This is photo area
-          .item-others-seller_product_box--name aaaa-oh $600
+        .items-box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            .items-box-tax
+              (税込)
     %section.item-others--product
       %h2.item-others--product__category-name 同カテゴリーその他の商品
       .item-others--product__content
-        %section.item-others--product__content-product-box
-          %figure.item-others--product__content-product-box__figure photo area
-          .item-others--product-box__name ＄4532
+        .items-box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            .items-box-tax
+              (税込)
+
+        -# %section.item-others--product__content-product-box
+        -#   %figure.item-others--product__content-product-box__figure photo area
+        -#   .item-others--product-box__name ＄4532
