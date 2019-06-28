@@ -99,11 +99,11 @@
 ### Association
 - belongs_to :user
 ***
-## productss_photos table
+## products_photos table
 
 |Column|Type|Options|
 |------|----|-------|
-|products_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 |photo|references|foreign_key: true|
 |created_at|timestamp|null: false|
 |updates_at|timestamp|null: false|
@@ -127,6 +127,16 @@
 |------|----|-------|
 |name|text|null: false, index: true|
 |path|integer|--|
+
+### Association
+- has_many :products
+***
+## brands table
+
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false, index: true|
+|category_id|references|foreign_key: true|
 
 ### Association
 - has_many :products
