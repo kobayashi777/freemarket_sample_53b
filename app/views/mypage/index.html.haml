@@ -1,4 +1,5 @@
 .body
+  =render partial: 'layouts/header'
   .wrapper
     .mypage-wrapper
       .my-page-right-content
@@ -63,4 +64,5 @@
             過去の取引
         .my-page-right-content__bottom__main
           %p 取引中の商品はありません
-    = render "mypage/mypage-sidemenu"
+    = render partial: "mypage/mypage-sidemenu"
+  = render partial: 'layouts/footer'
