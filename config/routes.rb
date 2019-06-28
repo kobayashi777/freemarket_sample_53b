@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :signup, only: :index
   resources :registration1, only: [:index, :show, :new]
   resources :registration2, only: [:index, :show, :new]
+  resources :mypage, only: :index
 end
