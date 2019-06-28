@@ -47,7 +47,6 @@
     .item-container1__item-other-btn.clearfix
       .link_btn_left
         %button.item-other-btn-left いいね！
-        -#= link_to 'いいね', root_path, class: 'item-other-btn-left'
       .link_btn_right
         %i.fa.fa-lock
         = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
@@ -63,7 +62,6 @@
     %li.item-nav__link
       = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
       = link_to 'Next product >', root_path, class: 'item-nav__link-next'
-      -#%li.item-nav__link-next
   .sns
     %ul.sns--aikon
       %i.fa.fa-facebook-square
@@ -104,7 +102,3 @@
                 8
             .items-box-tax
               (税込)
-
-        -# %section.item-others--product__content-product-box
-        -#   %figure.item-others--product__content-product-box__figure photo area
-        -#   .item-others--product-box__name ＄4532
