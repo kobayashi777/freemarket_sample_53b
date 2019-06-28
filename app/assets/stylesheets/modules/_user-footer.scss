@@ -1,0 +1,56 @@
+//フッター簡易
+
+.auth-footer{// ページ下部ロゴマーク・利用規約など
+  height: 220px;
+  width: 456px;
+  padding: 39px 0 40px;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  &__list{//プライバシーポリシーなどのリスト
+    font-family: "YuGothic";
+    font-size: 12px;
+    display: flex;
+    text-align: center;
+    list-style: none;
+    justify-content: center;
+    vertical-align: top;
+    line-height: 1;
+    &--individual{//プライバシーポリシー指定
+      color: rgb(51,51,51);
+      text-decoration: none;
+      &:hover{
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+      &--margin{//メルカリ利用規約と特定商取引に関する表記指定
+        color: rgb(51,51,51);
+        text-decoration: none;
+        margin-left: 16px;
+        &:hover{
+          opacity: 0.8;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &__logo{//フッターロゴ
+    width: 80px;
+    height: 65px;
+    margin: 41px 188px 0;
+    display: block;
+    margin-bottom: 2px;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  &__copyright{//フッターコピーライト
+    font-size: 13px;
+    font-family: "Source Sans Pro";
+    color: rgb(51,51,51);
+  }
+}
