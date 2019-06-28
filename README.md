@@ -46,7 +46,7 @@
 |created_at|timestamp|null: false|
 
 ### Association
-- has_many :users, through: :users_credits
+- has_many :users, through: :users_credits, dependent::destroy
 ***
 ## users_credits table
 
@@ -81,7 +81,7 @@
 |updated_at|timestamp|null: false|
 
 ### Association
-- has_many :products_photos
+- has_many :products_photos, dependent::destroy
 - belongs_to :user
 - belongs_to :brand
 - belongs_to :category
