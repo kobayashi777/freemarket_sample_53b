@@ -1,16 +1,104 @@
-.main
-  .payment
-    %h2.payment__head 支払い方法
-    .payment__inner
-      %section
-        .payment__inner--content
-          %h3.inner-sub-head クレジットカード一覧
-      .payment__add--btn
-      %button.btn{type: "submit" } 
-        %i.far.fa-credit-card クレジットカードを追加する
-      %ul.line
-      .payment__not-regist
-      %button.arrow{type: "submit" }
-        %a 支払い方法について
-        %i.fas.fa-angle-right
-
+.wrapper3
+  %section.item-container1
+    %h1.item-container1__item-name brabrabra
+    .item-container1__item-content.clearfix
+      .content--photo
+        .content--photo-up photo up
+        .content--photo-down photo down
+      %table.content--detail-table
+        %tbody.table
+          %tr.table--section
+            %th.table--section-left 出品者
+            %th.table--section-right aikon several
+          %tr.table--section
+            %th.table--section-left カテゴリー
+            %th.table--section-right kate
+          %tr.table--section
+            %th.table--section-left ブランド
+            %th.table--section-right speeddemon
+          %tr.table--section
+            %th.table--section-left 商品状態
+            %th.table--section-right Ghost Rider
+          %tr.table--section
+            %th.table--section-left 配送料負担
+            %th.table--section-right いくら出します？
+          %tr.table--section
+            %th.table--section-left 配送方法
+            %th.table--section-right 浮游(形状が崩れる可能性があります),瞬間移動(目的地に届くとは限りません)
+          %tr.table--section
+            %th.table--section-left 配送元
+            %th.table--section-right ちょっと何言ってるか分からないです
+          %tr.table--section
+            %th.table--section-left 配送日目安
+            %th.table--section-right n次元でお願いします
+    .item-container1__item-price
+      %span.item-container1__item-price-bold  $1000
+      %span.item-container1__item-price-tax (税込)
+      %span.item-container1__item-price-shipping-fee 送料込み
+    .item-container1__item-buy-btn 購入画面に進む
+    .item-container1__item-description 
+      %p.item-description-inner
+        This is description area//
+        This is description area//
+        This is description area//
+        This is description area//
+        This is description area//
+        This is description area//
+    .item-container1__item-other-btn.clearfix
+      .link_btn_left
+        %button.item-other-btn-left いいね！
+      .link_btn_right
+        %i.fa.fa-lock
+        = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
+  .item-comment-area
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+    In here,communicate each other.//
+  %ul.item-nav.clearfix
+    %li.item-nav__link
+      = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
+      = link_to 'Next product >', root_path, class: 'item-nav__link-next'
+  .sns
+    %ul.sns--aikon
+      %i.fa.fa-facebook-square
+      %i.fa.fa-twitter-square
+      %i.fa.fa-pinterest
+  .item-others
+    %section.item-others--seller
+      %h2.item-others-seller-name 出品者のその他の商品
+      .item-others--seller_product
+        .items-box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            .items-box-tax
+              (税込)
+    %section.item-others--product
+      %h2.item-others--product__category-name 同カテゴリーその他の商品
+      .item-others--product__content
+        .items-box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            .items-box-tax
+              (税込)
