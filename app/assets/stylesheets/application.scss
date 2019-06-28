@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "config/reset";
+ @import "mypage/mypage";
+ @import "mypage/mypage-sidemenu";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';

@@ -1,0 +1,405 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+.wrapper{
+  margin-left: 210px;
+  width: 1020px;
+  background-color:#f5f5f5;
+  padding: 40px 0 40px;
+}
+  .mypage-wrapper {
+    background-color:  #f5f5f5;
+    float: right;
+  }
+    .my-page-right-content{
+      background-color: white;
+      width:700px;
+      color: black;
+    
+      &__top{
+        width: 100%;
+        padding: 35px 0;
+        background-image: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?22406409);
+        background-size: cover;
+    
+        &__content{
+          width:300px;
+          margin: 0 auto;
+          text-align: center;
+          font-size: 14px;
+    
+          .username{
+            margin: 8px 0 8px;
+          }
+          .num{
+            margin: 0 5px;
+            font-weight: 600;
+          }
+          img{
+            width: 20%;
+            height:20%;
+            border-radius: 50%;
+          }
+        }
+      }
+    
+      &__tabs{
+        text-align: center;
+        font-weight: bold;
+        .tab{
+          width:50%;
+          padding: 20px 0;
+          float:left;
+          background-color:white;
+          border-top: 2px solid #ea352d;
+        }
+        .tab-li{
+          width:50%;
+          padding: 20px 0;
+          float:left;
+          background-color:#eee;
+        }
+      }
+    
+      .my-page-right-content__main{
+        font-size: 14px;
+        &__column{
+          padding: 16px;
+          border-bottom:.5px solid #eee;
+          position: relative;
+          z-index:0;
+          img{
+            width:50px;
+            height:50px;
+            display:inline-block;
+            vertical-align: middle;
+          }
+          .message{
+          display:inline-block;
+          vertical-align: middle;
+          margin-left:10px;
+          }
+          .message__text-time{
+            display:inline-block;
+            color: #888;
+          }
+          .far.fa-clock{
+            display:inline-block;
+            margin-right:10px;
+            color: #888;
+          }
+          .fas.fa-angle-right {
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            color: black;
+          }
+    
+        }
+        &__button{
+          padding:20px 15px;
+          a{
+            width:100%;
+            display: block;
+            text-decoration: none;
+            background-color: #eee;
+            color: black;
+            padding:15px 0;
+            text-align: center;
+          }
+        }
+      }
+    }
+    
+  .my-page-right-content__bottom{
+    margin-top:50px;
+    background-color: white;
+  
+    &__title{
+      background-color: #f9f9f9;
+      padding: 20px;
+      font-weight: bold;
+    }
+    
+    &__tabs{
+      @extend .my-page-right-content__tabs;
+    
+       .tab{
+        width:50%;
+        padding: 20px 0;
+        float:left;
+        background-color: white;
+        border-top: 2px solid #ea352d;
+        }
+        .tab-li{
+          width:50%;
+          padding: 20px 0;
+          float:left;
+          background-color:#eee;
+        }
+    }
+      &__main{
+        text-align: center;
+        padding: 160px 0 60px;
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        background-image: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?61790013);
+        img{
+          width:100%;
+          height:100px;
+          padding: 35px 0;
+        }
+          
+    
+        p{
+          color: #ccc;
+          margin-top: 10px;
+        }
+      }
+    }
+    
+    .active{
+      border-top: 2px solid red;
+      background-color: white !important;
+    }
+    
+    
+    .group:before,
+    .group:after {
+      content: "";
+      display: table;
+    }
+    
+    .group:after {
+      clear: both;
+    }
+    
+    .group {
+      zoom: 1;
+    }
+
+
+
+
+
+
+    .l-cotainer {
+      background-color:  #f5f5f5;
+      margin: 40px auto 0;
+      width: 1020px;
+      .l-content {
+        float: right;
+        margin: 0 auto;
+        width: 700px;
+        justify-content: space-between;
+        &__profile {
+          height: 200px;
+          background-color: white;
+          position: relative;
+          &__link {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.8rem;
+            &__block {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              .icon {
+                display: flex;
+                justify-content: center;
+              }
+              p {
+                margin: 8px 0 0;
+                font-weight: bold;
+                text-align: center;
+              }
+              ul {
+                display: flex;
+                li:last-child {
+                margin-left: 16px;
+              }//ul
+            }
+          }
+        }//&__block 
+
+        &__tabs {
+          background-color: #fff;
+          &__mypage{
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            border: 0;
+            background: #eee;
+            font-size: 0;
+            &__item {
+              width: 50%;
+              border-top: 2px solid red;
+              background-color: white;
+              color: black;
+              &:hover { opacity: 0.7 }
+              width: 350px;
+              height: 70px;
+              line-height: 70px;
+              font-size: 22px;
+              text-align: center;
+              color: #565656;
+              display: block;
+              text-align: center;
+              font-weight: bold;
+              float: left;
+            }
+          &__content {
+            display: none;
+            clear: both;
+            &__no-list {
+              background-color: white;
+              clear: both;
+              padding: 45px 0;
+              &__icon {
+                display: flex;
+                justify-content: center;
+              }
+              &__message {
+                color: #ccc;
+                font-weight: bold;
+                margin-top: 35px;
+                text-align: center
+              }
+            }
+            
+              &__lists {
+                &__list {
+                  padding: 16px;
+                  background-color: white;
+                  position: relative;
+                  border-bottom: 1px solid #eee;
+                  &__path {
+                    text-decoration: none;
+                    display: flex;
+                    padding: 16px 0 16px 16px;
+                    color: black;
+                    &_text {
+                      text-decoration: none;
+                      background-color: red;
+                      color: white;
+                      font-size: 0.8rem;
+                      padding: 2px 6px;
+                      margin:0px 0px 5px 14px;
+                      border-radius: 2px;
+                    }
+                    .icon {
+                      margin-right: 16px;
+                    }
+                    .nortification {
+                      &__content {
+                        font-size: 0.9rem;
+                      }
+                      &__time {
+                        &__clock-icon {
+                          font-size: 1.1rem;
+                          color: #ddd;
+                        }
+                        span {
+                          font-size: 0.9rem;
+                          color: #ddd;
+                        }
+                      }
+                      &__trade {
+                        &__during {
+                          background-color: red;
+                          color: white;
+                          font-size: 0.8rem;
+                          padding: 2px 6px;
+                          border-radius: 2px;
+                        }
+                        &__already {
+                          background-color: gray;
+                          color: white;
+                          font-size: 0.8rem;
+                          padding: 2px 6px;
+                          border-radius: 2px;
+                        }
+                      }
+                    }
+                  
+                    &__arrow-right {
+                      font-weight: bold;
+                      font-size: 1.5rem;
+                      position: absolute;
+                      right: 16px;
+                      top: 50%;
+                      transform: translate(0, -50%);
+                    }
+                    &__show-list {
+                      display: block;
+                      height: 56px;
+                      margin: 0 auto;
+                      background: #eee;
+                      color: #333;
+                      line-height: 56px;
+                      text-align: center;
+                    }
+                  }
+                }
+              }
+            }
+
+            
+          }
+        }
+        &__bottom-space {
+          background-color: rgb(131, 47, 47);
+          height: 72px;
+          font-weight: bold;
+          line-height: 72px;
+          padding: 0 16px;
+          margin-top: 60px;
+        }
+      
+        &__bottom-tabs {
+            display: none;
+          &__item {
+            border-top: 2px solid red;
+            background-color: white;
+            color: black;
+            &:hover { opacity: 0.7 }
+            width: 350px;
+            height: 70px;
+            background-color: #d9d9d9;
+            line-height: 70px;
+            font-size: 16px;
+            text-align: center;
+            color: #565656;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            float: left;
+          }//&__item
+          &__content {
+            display: none;
+            clear: both;
+          }//&__content
+        }//
+        .show-list {
+          background-color: #eee;
+          width: 100%;
+          text-align: center;
+          margin-right: 16px;
+          padding: 16px 0;
+          font-size: 14px;
+          &:hover { opacity: 0.7 }
+        }//.show-list
+      }
+    }/* l-cotainer */
+  }
