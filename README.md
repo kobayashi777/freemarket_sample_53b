@@ -26,10 +26,6 @@
 |address_block|string|null: false|
 |address_building|string|--|
 |address_phone_number|integer|--|
-|card_number|integer|null: false|
-|validated_date_month|integer|null: false, default: 0|
-|validated_date_year|integer|null: false, default: 0|
-|security_code|integer|null: false|
 |registration_date|timestamp|null: false|
 |introduce|text|null: false|
 
@@ -37,6 +33,31 @@
 ### Association
 - has_many :users_photos
 - has_many :products
+- has_many :credits, through: :users_credits
+***
+## creaidts table
+
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null: false|
+|validated_date_month|integer|null: false, default: 0|
+|validated_date_year|integer|null: false, default: 0|
+|security_code|integer|null: false|
+|created_at|timestamp|null: false|
+
+### Association
+- has_many :users, through: :users_credits
+***
+## users_credits table
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|credit_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :credit
 ***
 ## products table
 
@@ -57,7 +78,7 @@
 |delivery_method|integer|null: false, default: 0|
 |trading_state|integer|null: false, default: 0|
 |created_at|timestamp|null: false|
-|updates_at|timestamp|null: false|
+|updated_at|timestamp|null: false|
 
 ### Association
 - has_many :products_photos
@@ -109,15 +130,4 @@
 
 ### Association
 - has_many :products
-***
-## brands table
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, index: true|
-|category_id|references|foreign_key: true|
-
-### Association
-- has_many :products
-- belongs_to :category
 ***
