@@ -1,0 +1,33 @@
+:css
+  li:nth-child(2).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+2) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+  li:nth-child(1) .signup-header__nav--status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(2) .signup-header__nav--status:before{
+    background-color: #ea352d;
+  }
+.signup-second
+  = render 'shared/sign-up-header'
+  .second-main
+    %section.second-wrapper
+      .second-wrapper__title 電話番号の確認
+      = form_with class: 'second-wrapper__box' do |f|
+        .second-wrapper__box--inner
+          .second-wrapper__form
+            = f.label '携帯電話の番号', class: 'second-wrapper__form--label'
+            = f.phone_field :phone, class: 'second-wrapper__form--input', placeholder: '携帯電話の番号を入力'
+          %p.second-wrapper__form--info 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          = button_tag '#', class: 'second-wrapper__form--btn' do
+            SMSを送信する
+          %p.second-wrapper__form--caution ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .second-wrapper__form--text-right
+            = link_to '#', class: 'second-wrapper__reason-phone' do
+              電話番号の確認が必要な理由
+              %i.fas.fa-chevron-right.second-wrapper__reason-phone--arrow-right
+  = render 'shared/user-footer'
