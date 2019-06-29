@@ -3,7 +3,7 @@
     .header-inner
       %ul.header-top
         %li.logo
-          = link_to image_tag "/2019-06-23 17.04.26.png", size: "150x50", href:"/products"
+          = link_to image_tag "/images/2019-06-23 17.04.26.png", size: "150x50", href:"/products"
         %li.form
           = form_with id: "form", url:'/#', method: :get do |f|
             = f.text_field :search, class: "search", placeholder: ' 何かお探しですか？'
@@ -37,7 +37,7 @@
                   やることリスト
           %li.my-page
             = link_to "/", class: "my-page__link" do
-              = image_tag "/member_photo_noimage_thumb.png", size: "30x30"
+              = image_tag "/images/member_photo_noimage_thumb_circle.png", size: "30x30"
               .my-page__text
                 .header-bottom__right__text
                   マイページ
