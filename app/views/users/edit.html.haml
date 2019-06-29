@@ -1,4 +1,5 @@
 = render 'layouts/header'
+
 .wrapper1.clearfix
   = render 'mypage/mypage-sidemenu'
   .profile-container
@@ -12,5 +13,6 @@
         = f.text_area :profile__text, class: "introduce", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
         .container__bottun
           = f.submit "変更する", class: 'change-profile-form__action-btn'
+          
 = render 'layouts/footer'
 = render 'layouts/footer-button'

@@ -1,12 +1,13 @@
-.clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
+// .clearfix:after {
+//   content: ".";
+//   display: block;
+//   height: 0;
+//   clear: both;
+//   visibility: hidden;
+// }      @mixin効くようになったのでレガシーとして残す。急遽@mixin使えなくなった時に残す。
 
 .wrapper2 {
+  @include clearfix;
   width: 100%;
   height: 100%;
   margin: 0 auto 0;
@@ -29,7 +30,7 @@
       padding: 64px;
       border: 1px solid $thin_gray;
       font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-      //font-weight: 400;
+      //font-weight: 400; 何かの時のために記録。
       %div {
         display: none;
         p {
@@ -111,7 +112,7 @@
             // position: relative;
             // .fa.fa-chevron-down {
             //   z-index: 2;
-            // }
+            // }  変更の際、参考記録として残す。
           
         }
       }

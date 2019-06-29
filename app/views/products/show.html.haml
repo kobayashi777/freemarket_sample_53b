@@ -1,11 +1,13 @@
+/* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
+
 .wrapper3
   = render 'layouts/header'
   %section.item-container1
     %h1.item-container1__item-name brabrabra
-    .item-container1__item-content.clearfix
+    .item-container1__item-content
       .content--photo
-        .content--photo-up photo up
-        .content--photo-down photo down
+        .content--photo_up photo up
+        .content--photo_down photo down
       %table.content--detail-table
         %tbody.table
           %tr.table--section
@@ -22,7 +24,7 @@
             %th.table--section-right Ghost Rider
           %tr.table--section
             %th.table--section-left 配送料負担
-            %th.table--section-right いくら出します？
+            %th.table--section-right how much
           %tr.table--section
             %th.table--section-left 配送方法
             %th.table--section-right 浮游(形状が崩れる可能性があります),瞬間移動(目的地に届くとは限りません)
@@ -31,7 +33,7 @@
             %th.table--section-right ちょっと何言ってるか分からないです
           %tr.table--section
             %th.table--section-left 配送日目安
-            %th.table--section-right n次元でお願いします
+            %th.table--section-right てやんでい
     .item-container1__item-price
       %span.item-container1__item-price-bold  $1000
       %span.item-container1__item-price-tax (税込)
@@ -84,8 +86,8 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            -# .items-box-tax
-            -#   (税込)
+            -# .items-box-tax   本番では税は非表示 以下同じ箇所も同様
+            -#   (税込)           何かの時に記録として残す
         .item-others--seller_product_box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
@@ -158,5 +160,5 @@
                 %i.far.fa-heart
                 8
             -# .items-box-tax
-            -#   (税込)
+            -#   (税込)     
 = render 'layouts/footer'
