@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
-  resources :products, only: [:index, :show, :new]
+  resources :products, only: [:index, :show, :new, :edit, :destroy]
   resources :users, only: [:index, :show, :new, :edit]
   resources :login, only: :index
   resources :signup, only: :index

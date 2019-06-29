@@ -14,11 +14,7 @@
       .header-bottom
         .header-bottom__left
           =render partial: 'layouts/dropdown'
-          .brand
-            .brand__icon
-              %i.fas.fa-tag.fa-spin
-            .brand__search
-              ブランドから探す
+          =render partial: 'layouts/brand'
         %ul.header-bottom__right
           %li.liked-item
             = link_to "/" do

@@ -20,7 +20,7 @@
  @import "./reset";
   //border-box全適用
  @import './border-box';
-
+ @import "./colors/colors";
 @import './mixin/*';
 
 @import "user/variables";
@@ -66,5 +66,7 @@
  @import "./payment-top";
  @import "./payment-input";
  @import "./layout/_dropdown";
+ @import "./layout/_brand";
  @import "mypage/mypage";
  @import "mypage/mypage-sidemenu";
+ 
