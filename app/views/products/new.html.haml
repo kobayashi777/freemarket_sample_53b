@@ -12,8 +12,10 @@
         = f.label '商品画像', class: 'sell-upload-form__label'
         %span.sell-upload-form--require 必須
         .sell-upload-form__subtext 最大10枚までアップロードできます
-        -# FIXME: ↓file_fieldで実装？担当者に任せます！参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
+        -# FIXME: ↓file_fieldで実装？ドラッグ&ドロップ担当者に任せます！ｶﾞﾝﾊﾞﾚ!!o(｀・д・´)oｶﾞﾝﾊﾞﾚ!!！
+        -# 参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
         = f.file_field class: 'sell-upload-form__drag-box'
+
 
       -# 商品名・商品説明
       .sell-product-entry-form
@@ -24,26 +26,49 @@
         .sell-product-description
           = f.label '商品の説明', class: 'sell-product-description__label'
           %span.sell-product-description--require 必須
+          -# TODO:placeholderが折り返しで表示されるように要改修
           = f.text_field :product_description, class: 'sell-product-description__form', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
-      .sell-product-detail__entry-form
-        = f.label '商品',       class: 'sell-product-detail__entry-form__title'
-        = f.label 'カテゴリー', class: 'sell-product-detail__entry-form__category-label'
-        = f.label '商品の詳細', class: 'sell-product-detail__entry-form__product-status'
 
+      -# 商品の詳細セレクトボックスフォーム
+      .sell-product-detail-form
+        .sell-product-detail-form-title 商品の詳細
+        .sell-product-detail-form-category
+        = f.label 'カテゴリー', class: 'sell-product-detail-form__category--label'
+        %span.sell-product-detail-form__category--require 必須
+        .select-wrapper
+          .select-wrapper__box
+            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
+            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+
+        .sell-product-detail-form-category
+        = f.label '商品の状態', class: 'sell-product-detail-form__category--label'
+        %span.sell-product-detail-form__category--require 必須
+        .select-wrapper
+          .select-wrapper__box
+            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
+            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+
+      -# 商品の配送について
       .sell-product-delivery__entry-form
-        .sell-product-delivery__entry-form__label 配送料の負担
-        .sell-product-delivery__entry-form__select-box
         .sell-product-delivery__entry-form__label 発送元の地域
-        .sell-product-delivery__entry-form__select-box
+        .select-wrapper
+          .select-wrapper__box
+            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
+            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
         .sell-product-delivery__entry-form__label 発送までの日数
-        .sell-product-delivery__entry-form__select-box 
+        .select-wrapper
+          .select-wrapper__box
+            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
+            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
 
+      -# 取引価格＆利益計算
       .sell-product-price__entry-form
         .sell-product-price__entry-form__label 価格
         .sell-product-price__entry-form__label 販売手数料
         .sell-product-price__entry-form__label 販売利益
 
+      -# 送信＆注意書き
       .sell-product__submit-box
         .sell-product__submit-box__text 禁止されている出品、行為を必ずご確認ください。
         .sell-product__submit-box__textまたブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
