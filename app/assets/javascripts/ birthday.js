@@ -23,7 +23,6 @@ $(function(){
     }
   }
   var d = 0;
-  // $(function(){
     //1900年～2019年まで表示
     for (var i = 2019; i >= 1900; i--) {
       $('#year').append('<option value="' + i + '">' + i + '</option>');
@@ -42,5 +41,4 @@ $(function(){
     //年か月が変わるごとに日数を計算
     $('#year').change(calcDays);
     $('#month').change(calcDays);
-  // });
 });
