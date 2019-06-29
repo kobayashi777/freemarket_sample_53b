@@ -115,8 +115,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|size|text|null: false, index: true|
-|path|integer|--|
+|size|string|null: false, index: true|
+|path|string|--|
 
 ### Association
 - has_many :products
@@ -125,8 +125,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false, index: true|
-|path|integer|--|
+|name|string|null: false, index: true|
+|path|string|--|
 
 ### Association
 - has_many :products
@@ -135,7 +135,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false, index: true|
+|name|string|null: false, index: true|
 |category_id|references|foreign_key: true|
 
 ### Association
