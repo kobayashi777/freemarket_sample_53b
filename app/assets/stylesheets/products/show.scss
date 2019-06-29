@@ -1,17 +1,15 @@
 .wrapper3 {
-  background: #f5f5f5;
-  //padding: 40px 0 0;
-
+  background: $thin_gray;
+  //padding: 40px 0 0;  以前使用していたが使わなくなった 不具合発生可能性を考え残す
   .item-container1 {
     margin: 40px auto 0;
     padding: 24px 40px 40px;
-    background: #fff;
+    background: $white;
     width: 700px;
     box-sizing: border-box;
     text-align: center;
     .item-container1__item-name {
       font-size: 24px;
-      
       word-wrap: break-word;
       line-height: 1.4;
     }
@@ -23,7 +21,7 @@
         min-height: 375px;
         position: relative;
         margin: 0 auto;
-        background: $thin_gray;
+        background: #fafafa;
         .content--photo-up {
           height: 300px;
         }
