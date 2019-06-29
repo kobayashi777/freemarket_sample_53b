@@ -175,10 +175,11 @@
     width: 700px;
     .item-others--seller {
       overflow: hidden;
-      display: flexbox;
+      //display: inline;
       .item-others--seller_name {
         font-size: 22px;
         line-height: 1.4;
+        font-weight: bold;
         color: $blue;
         margin: 24px 0 8px;
         &:hover {
@@ -186,28 +187,38 @@
           text-decoration: underline;
         }
       }
-      .item-others--seller_product_box {
-        margin: 0 20px 20px 0;
-        width: 220px;
-        border: 1px solid gray;
-        display: inline-block;
-        .item-others--seller_product_box--figure {
-          height: 220px;
-          overflow: hidden;
-          position: relative;
-          border-bottom: 1px dashed gray;
-        }
-        .item-others-seller_product_box--name {
-          height: 110px;
-          padding: 16px;
-          background: #fff;
+      .item-others--seller_product{
+        //display: inline-block;
+        width: 700px;
+        padding: 0;
+        .item-others--seller_product_box {
+          margin: 0 13px 20px 0;
+          width: 220px;
+          height: 330px;
+          border: 1px solid gray;
+          float: left;
+          //display: inline;
+          .item-others--seller_product_box--figure {
+            height: 220px;
+            width: 220px;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px dashed gray;
+          }
+          .item-others-seller_product_box--name {
+            height: 110px;
+            padding: 16px;
+            background: #fff;
+          }
         }
       }
     }
     .item-others--product {
       overflow: hidden;
       .item-others--product__category-name {
+        margin: 24px 0 8px;
         font-size: 22px;
+        font-weight: bold;
         line-height: 1.4;
         color: $blue;
         &:hover {
@@ -216,9 +227,10 @@
         }
       }
       .item-others--product__content-product-box {
-        margin: 0 0 20px;
+        margin: 0 13px 20px 0;
         width: 220px;
         border: 1px solid gray;
+        float: left;
         .item-others--product-box--figure {
           height: 220px;
           overflow: hidden;

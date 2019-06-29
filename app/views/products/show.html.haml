@@ -71,8 +71,8 @@
   .item-others
     %section.item-others--seller
       %h2.item-others--seller_name 出品者のその他の商品
-      .item-others--seller_product
-        .items-box
+      .item-others--seller_product.clearfix
+        .item-others--seller_product_box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -84,9 +84,9 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
-        .items-box
+            -# .items-box-tax
+            -#   (税込)
+        .item-others--seller_product_box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -98,9 +98,9 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
-        .items-box
+            -# .items-box-tax
+            -#   (税込)
+        .item-others--seller_product_box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -112,12 +112,12 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
+            -# .items-box-tax
+            -#   (税込)
     %section.item-others--product
       %h2.item-others--product__category-name 同カテゴリーその他の商品
       .item-others--product__content
-        .items-box
+        .item-others--product__content-product-box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -129,9 +129,9 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
-        .items-box
+            -# .items-box-tax
+            -#   (税込)
+        .item-others--product__content-product-box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -143,9 +143,9 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
-        .items-box
+            -# .items-box-tax
+            -#   (税込)
+        .item-others--product__content-product-box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -157,6 +157,6 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
+            -# .items-box-tax
+            -#   (税込)
 = render 'layouts/footer'
