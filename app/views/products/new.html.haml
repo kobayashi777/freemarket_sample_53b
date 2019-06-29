@@ -1,26 +1,35 @@
 -# FIXME: BEM記法の見直し
 .sell-wrapper
-  .sell-header
-    .sell-header__logo メルカリ
+  -# TODO:ヘッダー仮置き
+  = render './shared/sign-up-header'
 
   .sell-main-contents
-    .sell-inner-contents
+    = form_with class: 'sell-inner-contents' do |f|
       .sell-inner-contents__title 商品の情報を入力
-      .sell-upload-form
-        .sell-upload-form__label 出品画像
-        .sell-upload-form__subtext 最大10枚までアップロードできます
-        .sell-upload-form__drag-box
 
+      -# 商品画像提出
+      .sell-upload-form
+        = f.label '商品画像', class: 'sell-upload-form__label'
+        %span.sell-upload-form--require 必須
+        .sell-upload-form__subtext 最大10枚までアップロードできます
+        -# FIXME: ↓file_fieldで実装？担当者に任せます！参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
+        = f.file_field class: 'sell-upload-form__drag-box'
+
+      -# 商品名・商品説明
       .sell-product-entry-form
-        .sell-product-name__label 商品名
-        .sell-product-name__entry-form
-        .sell-product-description__label 商品の説明
-        .sell-product-description__entry-form
+        .sell-product-name
+          = f.label "商品名", class: 'sell-product-name__label'
+          %span.sell-product-name--require 必須
+          = f.text_field :product_name, class: 'sell-product-name__form', placeholder: '商品名（必須 40文字まで)'
+        .sell-product-description
+          = f.label '商品の説明', class: 'sell-product-description__label'
+          %span.sell-product-description--require 必須
+          = f.text_field :product_description, class: 'sell-product-description__form', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
       .sell-product-detail__entry-form
-        .sell-product-detail__entry-form__title 商品の詳細
-        .sell-product-detail__entry-form__category-label カテゴリー
-        .sell-product-detail__entry-form__product-status 商品の詳細
+        = f.label '商品',       class: 'sell-product-detail__entry-form__title'
+        = f.label 'カテゴリー', class: 'sell-product-detail__entry-form__category-label'
+        = f.label '商品の詳細', class: 'sell-product-detail__entry-form__product-status'
 
       .sell-product-delivery__entry-form
         .sell-product-delivery__entry-form__label 配送料の負担
@@ -42,4 +51,5 @@
         .sell-product__submit-box__list-btn 出品する
         .sell-product__submit-box--return-btn 戻る
 
-  .sell-footer
+  = render './shared/user-footer'
+  
