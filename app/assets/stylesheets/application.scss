@@ -22,7 +22,7 @@
  @import "./colors/colors";
 @import './mixin/*';
 
-@import "user/variables";
+@import "variables";
 @import "user/mixin";
 @import "user/layout";
 @import "user/edit";
@@ -61,7 +61,7 @@
  @import "user/show";
  @import "layout/_application";
  @import "./products/_index";
- @import "./users-show";
+ @import "./logout";
  @import "./payment-top";
  @import "./payment-input";
  @import "./layout/_dropdown";

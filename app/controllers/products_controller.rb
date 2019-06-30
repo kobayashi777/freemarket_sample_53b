@@ -9,15 +9,14 @@ class ProductsController < ApplicationController
    end
 
    def new
- 
+
    end
 
    def edit
-      
+
    end
 
    def destroy
 
    end
-
-   end
+end

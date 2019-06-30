@@ -1,21 +1,20 @@
 .wrapper3 {
-  background: #f5f5f5;
-  padding: 40px 0 0;
-
+  background: $thin_gray;
+  //padding: 40px 0 0;  以前使用していたが使わなくなった 不具合発生可能性を考え残す
   .item-container1 {
     margin: 40px auto 0;
     padding: 24px 40px 40px;
-    background: #fff;
+    background: $white;
     width: 700px;
     box-sizing: border-box;
     text-align: center;
     .item-container1__item-name {
       font-size: 24px;
-      
       word-wrap: break-word;
       line-height: 1.4;
     }
     .item-container1__item-content {
+      @include clearfix;
       margin: 16px 0 0;
       .content--photo {
         float: left;
@@ -23,13 +22,13 @@
         min-height: 375px;
         position: relative;
         margin: 0 auto;
-        background: $thin_gray;
-        .content--photo-up {
+        background: $much_thin_gray;
+        .content--photo_up {
           height: 300px;
         }
-        .content--photo-down {
+        .content--photo_down {
           height: 75px;
-          border-top: 1px dashed gray;
+          border-top: 1px dashed gray;  /* これは境界確認用の設定です */
         }
       }
       .content--detail-table {
@@ -37,23 +36,23 @@
         width: 300px; //100% before
         height: 375px; //420px before
         border-collapse: collapse;
-        border: 1px solid #f5f5f5;
+        border: 1px solid $thin_gray;
         .table {
           .table--section {
             .table--section-left {
               width: 39%;
               padding: 8px;
               font-weight: 400;
-              background: #fafafa;
-              border: 1px solid #f5f5f5;
+              background: $much_thin_gray;
+              border: 1px solid $thin_gray;
             }
             .table--section-right {
               width: 61%;
               padding: 8px;
               text-align: left;
               flex-wrap: 400;
-              background: #fff;
-              border: 1px solid #f5f5f5;
+              background: $white;
+              border: 1px solid $thin_gray;
               border-collapse: collapse;
             }
           }
@@ -85,10 +84,14 @@
       height: 60px;
       line-height: 60px;
       display: block;
-      background: #ea352d;
-      color: #fff;
+      background: $red;
+      color: $white;
       text-align: center;
       font-weight: 600;
+      font-size: 24px;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .item-container1__item-description {
       padding: 32px 0 0;
@@ -100,6 +103,7 @@
       }
     }
     .item-container1__item-other-btn {
+      @include clearfix;
       margin: 16px 0 0;
       .link_btn_left {
         float: left;
@@ -107,7 +111,7 @@
         .item-other-btn-left {
           color: $blue;
           border-radius: 10px;
-          background: #f5f5f5;
+          background: $thin_gray;
           &:hover {
             cursor: pointer;
           }
@@ -115,7 +119,7 @@
       }
       .link_btn_right {
         float: right;
-        margin: 8px 0 0;
+        margin: 8px 0 0;    /* ここでの text-decoration: none; 効かず。 */
         .item-other-btn-right {
           margin: 1px 0 0 8px;
           display: inline;
@@ -129,10 +133,11 @@
     width: 700px;
     margin: 8px auto;
     text-align: center;
-    background: #fff;
+    background: $white;
   }
   
   .item-nav {
+    @include clearfix;
     margin: 24px auto 0;
     width: 700px;
     text-decoration: none;
@@ -163,7 +168,7 @@
     margin: 24px auto;
     padding: 60px 0 24px;
     width: 700px;
-    background: #fff;
+    background: $white;
     text-align: center;
     .sns--aikon {
       font-size: 3em
@@ -178,6 +183,7 @@
       .item-others--seller_name {
         font-size: 22px;
         line-height: 1.4;
+        font-weight: bold;
         color: $blue;
         margin: 24px 0 8px;
         &:hover {
@@ -185,50 +191,61 @@
           text-decoration: underline;
         }
       }
-      .item-others--seller_product_box {
-        margin: 0 20px 20px 0;
-        width: 220px;
-        border: 1px solid gray;
-        display: inline-block;
-        .item-others--seller_product_box--figure {
-          height: 220px;
-          overflow: hidden;
-          position: relative;
-          border-bottom: 1px dashed gray;
-        }
-        .item-others-seller_product_box--name {
-          height: 110px;
-          padding: 16px;
-          background: #fff;
+      .item-others--seller_product{
+        //display: inline-block;  効果なしであることを記録するため記す
+        width: 700px;
+        padding: 0;
+        .item-others--seller_product_box {
+          margin: 0 13px 20px 0;
+          width: 220px;
+          height: 330px;
+          border: 1px solid gray; /* これは境界確認用の設定です */
+          float: left;
+          //display: inline;  効果なしであることを記録するため記す
+          .item-others--seller_product_box--figure {
+            height: 220px;
+            width: 220px;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px dashed gray; /* これは境界確認用の設定です */
+          }
+          .item-others-seller_product_box--name {
+            height: 110px;
+            padding: 16px;
+            background: $white;
+          }
         }
       }
     }
     .item-others--product {
       overflow: hidden;
-      // .item-others--product__category-name {
-      //   font-size: 22px;
-      //   line-height: 1.4;
-      //   color: $blue;
-      //   &:hover {
-      //     cursor: pointer;
-      //     text-decoration: underline;
-      //   }
-      // }
-      // .item-others--product__content-product-box {
-      //   margin: 0 0 20px;
-      //   width: 220px;
-      //   border: 1px solid gray;
-      //   .item-others--product-box--figure {
-      //     height: 220px;
-      //     overflow: hidden;
-      //     position: relative;
-      //     border-bottom: 1px dashed gray;
-      //   }
-      //   .item-others-product-box--name {
-      //     height: 110px;
-      //     padding: 16px;
-      //   }
-      // }  以前のcssです。今は products/_index.scss を使用しています。何かの時にこれを残しておきます。 
+      .item-others--product__category-name {
+        margin: 24px 0 8px;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 1.4;
+        color: $blue;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+      .item-others--product__content-product-box {
+        margin: 0 13px 20px 0;
+        width: 220px;
+        border: 1px solid gray; /* これは境界確認用の設定です */
+        float: left;
+        .item-others--product-box--figure {
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+          border-bottom: 1px dashed gray; /* これは境界確認用の設定です */
+        }
+        .item-others-product-box--name {
+          height: 110px;
+          padding: 16px;
+        }
+      }
     }
   }
 }
