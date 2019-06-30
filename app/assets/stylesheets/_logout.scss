@@ -3,11 +3,18 @@
   width: 100vw;
   background-color:rgb(156, 154, 154);
 }
+.user-logout-sidebar{
+  position: relative;
+  padding: 49px 0 40px 80px;
+}
 .user-logout-main{
+  position: absolute;
+  top: 150px;
+  left: 420px;
   display: flex;
   margin: auto;
   min-height: 100px; 
-  width: 400px;
+  width: 700px;
   background-color:white;
   padding: 64px;
   &__btn{

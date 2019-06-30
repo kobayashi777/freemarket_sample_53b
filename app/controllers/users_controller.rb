@@ -14,6 +14,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def credit
+  def create
   end
 end

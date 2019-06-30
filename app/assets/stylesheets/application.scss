@@ -1,3 +1,4 @@
+ //border-box全適用
  *{
   box-sizing: border-box;
 }
@@ -18,12 +19,10 @@
  */
   //リセットCSS YUI3導入
  @import "./reset";
-  //border-box全適用
- @import './border-box';
-
+ @import "./colors/colors";
 @import './mixin/*';
 
-@import "user/variables";
+@import "variables";
 @import "user/mixin";
 @import "user/layout";
 @import "user/edit";
@@ -62,17 +61,14 @@
  @import "user/layout";
  @import "user/edit";
  @import "user/show";
- 
-
- @import "./products/new";
- @import "./products/index";
-
- @import "./users-show";
-
+ @import "layout/_application";
+ @import "./products/_index";
+ @import "./logout";
  @import "./payment-top";
  @import "./payment-input";
- @import "./layout/dropdown";
-
-
+ @import "./layout/_dropdown";
+ @import "./layout/_brand";
  @import "mypage/mypage";
  @import "mypage/mypage-sidemenu";
+ @import "./layout/header-right-icon";
+ 

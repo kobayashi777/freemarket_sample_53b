@@ -76,6 +76,7 @@
     width:400px;
     height:44px;
     display:flex;
+    z-index: 1;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   }
   &__right{
@@ -283,7 +284,6 @@
     h2{
       font-size: 16px;
       font-weight: 100;
-      opacity: .7;
     }
     li{
       font-size: 12px;
@@ -310,19 +310,23 @@
   padding-right:20px;
 }
 .footer-cell{
-  padding:20px 20px 0 0;
-  margin-right:20px;
-  // width: 20%;
+  padding:20px 0 0 0;
+  // margin-right:20px;
   text-decoration: none;
-
-  &_help{
-    margin-right:40px;
+  &_mercari{
+    width:172px;
   }
-  &_width{
-    width: 388px;
-    margin-right:40px;
+  &_help{
+    min-width:232px;
+  }
+  &_privacy{
+    width: 428px;
+  }
+  &_country{
+    width: 68px;
   }
 }
+
 .sns-icon{
   margin-top:30px;
 }
@@ -354,7 +358,7 @@
   right: 32px;
   height:160px;
   width:160px;
-  background: #ea352d;
+  background:$hover-color;
   position: fixed;
   border-radius: 50%;
   text-decoration: none;

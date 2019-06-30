@@ -1,8 +1,9 @@
 .l-side {
-  background-color: #f5f5f5; 
+  background-color: #f5f5f5;
+  float: left;
+  z-index: 0;
   &__list {
     width: 280px;
- 
     &__link-li {
       &:hover { background-color: #eee; }
       background-color: #eee;
