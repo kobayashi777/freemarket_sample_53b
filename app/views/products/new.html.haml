@@ -1,80 +1,142 @@
 -# FIXME: BEM記法の見直し
-.sell-wrapper
+.listing-wrapper
   -# TODO:ヘッダー仮置き
   = render './shared/sign-up-header'
 
-  .sell-main-contents
-    = form_with class: 'sell-inner-contents' do |f|
-      .sell-inner-contents__title 商品の情報を入力
+  .listing-main-contents
+    = form_with class: 'listing-inner-contents' do |f|
+      .listing-inner-contents__title 商品の情報を入力
 
       -# 商品画像提出
-      .sell-upload-form
-        = f.label '商品画像', class: 'sell-upload-form__label'
-        %span.sell-upload-form--require 必須
-        .sell-upload-form__subtext 最大10枚までアップロードできます
+      .listing-upload
+        = f.label '出品画像', class: 'listing-upload__label'
+        %span.listing-upload--require 必須
+        .listing-upload__subtext 最大10枚までアップロードできます
         -# FIXME: ↓file_fieldで実装？ドラッグ&ドロップ担当者に任せます！ｶﾞﾝﾊﾞﾚ!!o(｀・д・´)oｶﾞﾝﾊﾞﾚ!!！
         -# 参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
-        = f.file_field class: 'sell-upload-form__drag-box'
+        = f.file_field class: 'listing-upload__drag-box'
 
 
       -# 商品名・商品説明
-      .sell-product-entry-form
-        .sell-product-name
-          = f.label "商品名", class: 'sell-product-name__label'
-          %span.sell-product-name--require 必須
-          = f.text_field :product_name, class: 'sell-product-name__form', placeholder: '商品名（必須 40文字まで)'
-        .sell-product-description
-          = f.label '商品の説明', class: 'sell-product-description__label'
-          %span.sell-product-description--require 必須
+      .listing-product-entry-form
+        .listing-product-name
+          = f.label "商品名", class: 'listing-product-name__label'
+          %span.listing-product-name--require 必須
+          = f.text_field :product_name, class: 'listing-product-name__form', placeholder: '商品名（必須 40文字まで)'
+        .listing-product-description
+          = f.label '商品の説明', class: 'listing-product-description__label'
+          %span.listing-product-description--require 必須
           -# TODO:placeholderが折り返しで表示されるように要改修
-          = f.text_field :product_description, class: 'sell-product-description__form', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = f.text_field :product_description, class: 'listing-product-description__form', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
 
       -# 商品の詳細セレクトボックスフォーム
-      .sell-product-detail-form
-        .sell-product-detail-form-title 商品の詳細
-        .sell-product-detail-form-category
-        = f.label 'カテゴリー', class: 'sell-product-detail-form__category--label'
-        %span.sell-product-detail-form__category--require 必須
-        .select-wrapper
-          .select-wrapper__box
-            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
-            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+      .listing-product-detail-form
+        .listing-product-detail-form__title 商品の詳細
+        .listing-product-detail-form__category
+          = f.label 'カテゴリー', class: 'listing-product-detail-form__category--label'
+          %span.listing-product-detail-form__category--require 必須
+          .select-wrapper
+            .select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
 
-        .sell-product-detail-form-category
-        = f.label '商品の状態', class: 'sell-product-detail-form__category--label'
-        %span.sell-product-detail-form__category--require 必須
-        .select-wrapper
-          .select-wrapper__box
-            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
-            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+        .listing-product-detail-form__status
+          = f.label '商品の状態', class: 'listing-product-detail-form__category--label'
+          %span.listing-product-detail-form__category--require 必須
+          .select-wrapper
+            .select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+
+
 
       -# 商品の配送について
-      .sell-product-delivery__entry-form
-        .sell-product-delivery__entry-form__label 発送元の地域
-        .select-wrapper
-          .select-wrapper__box
-            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
-            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
-        .sell-product-delivery__entry-form__label 発送までの日数
-        .select-wrapper
-          .select-wrapper__box
-            = f.select :prefecture, ["北海道"], {}, {class: 'select-wrapper__box--select'}
-            %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+      .listing-product-delivery__entry-form
+        .listing-product-delivery__entry-form__title 配送について
+        = link_to '#', class: 'listing-product-help' do
+          ?
+
+        .listing-product-delivery__entry-form__inner
+          .listing-product-delivery__entry-form__inner__label 配送料の負担
+          %span.listing-product-delivery__entry-form__inner--require 必須
+          .select-wrapper
+            .select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+
+        
+        .listing-product-delivery__entry-form__inner
+          .listing-product-delivery__entry-form__inner__label 配送の方法
+          %span.listing-product-delivery__entry-form__inner--require 必須
+          .select-wrapper
+            .select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+
+        .listing-product-delivery__entry-form__inner
+          .listing-product-delivery__entry-form__inner__label 配送元の地域
+          %span.listing-product-delivery__entry-form__inner--require 必須
+          .select-wrapper
+            .select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+
+        .listing-product-delivery__entry-form__inner
+          .listing-product-delivery__entry-form__inner__label 配送までの日数
+          %span.listing-product-delivery__entry-form__inner--require 必須
+          .select-wrapper
+            .select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.select-wrapper__box--arrow-down
+
+        
 
       -# 取引価格＆利益計算
-      .sell-product-price__entry-form
-        .sell-product-price__entry-form__label 価格
-        .sell-product-price__entry-form__label 販売手数料
-        .sell-product-price__entry-form__label 販売利益
+      .listing-product-price__entry-form
+        .listing-product-price__entry-form__title 販売価格(300〜9,999,999)
+        = link_to '#', class: 'listing-product-help' do
+          ?
+        .price-form-box
+          .form-right-justified
+            .form-right-justified--left
+              = f.label "価格", class: 'form-right-justified--left__label'
+              %span.form-right-justified--left--require 必須
+            .form-right-justified__box 
+              %p.form-right-justified__box--react-text ￥
+              = f.text_field :price, class: 'form-right-justified__box__entry', placeholder: '例） 300'
+
+          .form-right-justified-sub
+            = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
+            .form-right-justified-sub__fee -
+
+          .form-right-justified-main
+            = f.label "販売利益", class: 'form-right-justified-main__label'
+            .form-right-justified-main__revenue -
 
       -# 送信＆注意書き
-      .sell-product__submit-box
-        .sell-product__submit-box__text 禁止されている出品、行為を必ずご確認ください。
-        .sell-product__submit-box__textまたブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
-        .sell-product__submit-box__text また、出品をもちまして加盟店規約に同意したことになります。
-        .sell-product__submit-box__list-btn 出品する
-        .sell-product__submit-box--return-btn 戻る
+      .listing-product-submit-box
+        %p.listing-product-submit-box__text 
+          = link_to '#', class:'subtext-link' do
+            禁止されている出品
+          、
+          =link_to '#', class:'subtext-link' do
+            行為
+          を必ずご確認ください。
+        %p.listing-product-submit-box__text
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to '#', class:'subtext-link' do
+            偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+        %p.listing-product-submit-box__text
+          また、出品をもちまして
+          = link_to '#', class:'subtext-link' do
+            加盟店規約
+          に同意したことになります。
+        = button_tag '#', class: 'listing-product-submit-box__send-btn' do
+          出品する
+        = button_tag '#', class: 'listing-product-submit-box__return-btn' do
+          もどる
 
   = render './shared/user-footer'
   
