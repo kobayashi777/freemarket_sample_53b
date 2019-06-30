@@ -1,7 +1,4 @@
- //border-box全適用
- *{
-  box-sizing: border-box;
-}
+@import "./custom-reset";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -17,9 +14,10 @@
  *= require_tree .
  *= require_self
  */
-  //リセットCSS YUI3導入
- @import "./reset";
- @import "./colors/colors";
+ //リセットCSS YUI3導入
+
+@import "./reset";
+@import "./colors/colors";
 @import './mixin/*';
 
 @import "variables";
@@ -69,4 +67,6 @@
  @import "mypage/mypage";
  @import "mypage/mypage-sidemenu";
  @import "./layout/header-right-icon";
+ 
+
  
