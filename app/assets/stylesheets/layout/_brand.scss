@@ -1,0 +1,30 @@
+// 第一階層
+.gnav-brand{
+  height:60px;
+  width: 224px;
+}
+.gnav-brand:hover li a{
+  height: 2.5rem;
+  overflow: visible;
+}
+.gnav-brand li a{
+  position: relative;
+  right:60px;
+  top:17px;
+  display: block;
+  width: 224px;
+  text-decoration: none;
+  line-height: 30px;
+  list-style-type : none;
+  margin: 0;
+  padding-left: 10px;
+  color:#333;
+  background:white;
+  height: 0;
+  overflow: hidden;
+}
+// $hover-color:#ea352d;
+.gnav-brand > li:hover > a{
+  color:white;
+  background-color: $hover-color;
+}

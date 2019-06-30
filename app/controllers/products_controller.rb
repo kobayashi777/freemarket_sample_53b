@@ -9,7 +9,14 @@ class ProductsController < ApplicationController
    end
 
    def new
-#   @credit = Credit.new
-   end
 
    end
+
+   def edit
+
+   end
+
+   def destroy
+
+   end
+end
