@@ -9,8 +9,8 @@
 .sign-up-button__red{
   width:112px;
   height:32px;
-  background-color:$hover-color;
-  border: 1px solid $hover-color;
+  background-color:$red;
+  border: 1px solid $red;
   
   margin: 0 8px 0 10px;
   font-size:14px;
@@ -57,8 +57,8 @@
 .sign-in-button__red{
   width:70px;
   height:32px;
-  background: $hover-color;
-  border: 1px solid $hover-color;
+  background: $red;
+  border: 1px solid $red;
   border-radius: 4px;
   text-align: center;
   // padding: 0 5px;
