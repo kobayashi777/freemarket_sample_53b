@@ -3,7 +3,7 @@
 .user-logout-sidebar
   = render "mypage/mypage-sidemenu"
 .user-logout-main
-  %button.user-logout-main__btn{type: "submit"} ログアウト
+  = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user-logout-main__btn'
 .user-footer-button
   = render "layouts/footer-button"
 .user-logout-footer
