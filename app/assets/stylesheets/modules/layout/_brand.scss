@@ -1,7 +1,7 @@
 // 第一階層
 .gnav-brand{
   height:60px;
-  width: 224px;
+  width: 90px;
 }
 .gnav-brand:hover li a{
   height: 2.5rem;
@@ -23,8 +23,7 @@
   height: 0;
   overflow: hidden;
 }
-// $hover-color:#ea352d;
 .gnav-brand > li:hover > a{
   color:white;
-  background-color: $hover-color;
+  background-color: $red;
 }
