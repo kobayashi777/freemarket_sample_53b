@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :edit, :create]
 
   resources :login, only: :index
-  resources :signup, only: :index
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4'
+      get 'step5'
+    end
+  end
   resources :registration1, only: [:index, :show, :new]
   resources :registration2, only: [:index, :show, :new]
   resources :mypage, only: :index
