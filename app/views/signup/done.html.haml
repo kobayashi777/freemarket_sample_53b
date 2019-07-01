@@ -20,7 +20,6 @@
       .fifth-main__inner
         %span.fifth-main__inner--text ありがとうございます。
         %br 会員登録が完了しました。
-        = button_tag '#', class: 'fifth-main__inner--btn' do
-          メルカリをはじめる
+        = link_to 'メルカリをはじめる', mypage_index_path, class: 'fifth-main__inner--btn'
     = image_tag '/images/sign-up-fifth-image.png', class: 'fifth-main__image'
   = render 'shared/user-footer'
