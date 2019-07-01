@@ -6,8 +6,6 @@
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false|
-|password_confirmation|string|null: false|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
@@ -26,14 +24,16 @@
 |address_block|string|null: false|
 |address_building|string|--|
 |address_phone_number|integer|--|
-|registration_date|timestamp|null: false|
-|introduce|text|null: false|
-
+|introduce|text|--|
+|encrypted_password|string|null: false, defalut: ""|
+|reset_password_token|string|--|
+|reset_password_sent_at|datetime|--|
+|remember_created_at|datetime|--|
 
 ### Association
 - has_many :users_photos
 - has_many :products
-- has_many :credits, through: :users_credits
+- has_one :credit
 ***
 ## creaidts table
 
@@ -46,7 +46,7 @@
 |created_at|timestamp|null: false|
 
 ### Association
-- has_many :users, through: :users_credits, dependent::destroy
+- belongs_to :user, optional: true
 ***
 ## users_credits table
 
@@ -65,9 +65,9 @@
 |------|----|-------|
 |product_name|string|null: false, index: true|
 |product_introduction|text|null: false|
-|category_id|references|foreign_key: true|
-|product_size_id|references|foreign_key: true|
-|brand_id|references|foreign_key: true|
+|category_id|integer|foreign_key: true|
+|product_size_id|integer|foreign_key: true|
+|brand_id|integer|foreign_key: true|
 |product_status|integer|null: false, default: 0|
 |delivery_charge|integer|null: false, default: 0|
 |delivery_area|integer|null: false, default: 0|
@@ -126,7 +126,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|path|string|--|
+|ancestory|string|index: true|
 
 ### Association
 - has_many :products
