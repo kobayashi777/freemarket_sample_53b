@@ -1,0 +1,65 @@
+:css
+  li:nth-child(4).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+4) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+1):nth-child(-n+3) .signup-header__nav--status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+2):nth-child(-n+4) .signup-header__nav--status:before{
+    background-color: #ea352d;
+  }
+.signup-forth
+  = render 'shared/sign-up-header'
+  .forth-main
+    %section.forth-main-wrapper
+      .forth-main-wrapper__title 支払い方法
+      = form_for @user, url: signup_index_path, method: :post, html: {class: 'forth-main-wrapper__box'} do |f|
+        .forth-main-wrapper__box--inner
+          .forth-main-wrapper__form--top
+            = f.label 'カード番号', class: 'forth-main-wrapper__form--label'
+            %span.forth-main-wrapper__form--require 必須
+            = f.fields_for :credit do |c|
+              = c.text_field :card_number, class: 'forth-main-wrapper__form--input', placeholder: '半角数字のみ'
+              %ul.creditcard-types
+                %li.creditcard-types__image-top
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1905591235', width: '49', height: '20'
+                %li.creditcard-types__image-latter
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1905591235', width: '34', height: '20'
+                %li.creditcard-types__image-latter
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1905591235', width: '30', height: '20'
+                %li.creditcard-types__image-latter
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1905591235', width: '32', height: '20'
+                %li.creditcard-types__image-latter
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1905591235', width: '21', height: '20'
+                %li.creditcard-types__image-latter
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1905591235', width: '32', height: '20'
+                %li.creditcard-types__image-latter
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1905591235', width: '32', height: '20'
+          .forth-main-wrapper__form
+            = f.label '有効期限', class: 'forth-main-wrapper__form--label'
+            %span.forth-main-wrapper__form--require 必須
+            .validated-date-wrapper
+              .validated-date-wrapper__box
+                = f.fields_for :credit do |c|
+                  = c.select :validated_date_year, Credit.validated_date_years.keys, {}, {class: 'validated-date-wrapper__box--inner'}
+                  %i.fas.fa-chevron-down.validated-date-wrapper__box--arrow
+                  %span.validated-date-wrapper__box--detail 月
+              .validated-date-wrapper__box--bottom
+                = f.fields_for :credit do |c|
+                  = c.select :validated_date_month, Credit.validated_date_months.keys, {}, {class: 'validated-date-wrapper__box--inner'}
+                  %i.fas.fa-chevron-down.validated-date-wrapper__box--arrow
+                  %span.validated-date-wrapper__box--detail 年
+          .forth-main-wrapper__form
+          = f.fields_for :credit do |c|
+            = f.label 'セキュリティコード', class: 'forth-main-wrapper__form--label'
+            %span.forth-main-wrapper__form--require 必須
+            = c.text_field :security_code, class: 'forth-main-wrapper__form--input', placeholder: 'カード背面4桁もしくは3桁の番号'
+          .forth-main-wrapper__question
+            %span.forth-main-wrapper__question--mark ?
+            カード裏面の番号とは？
+          = f.submit '次へ進む', class: 'forth-main-wrapper__form--btn'
+  = render 'shared/user-footer'
