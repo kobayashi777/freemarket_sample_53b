@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   resources :login, only: :index
   resources :signup do
     collection do
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4'
-      get 'step5'
+      get 'registration'
+      get 'phone'
+      get 'address'
+      get 'credit'
+      get 'done'
     end
   end
   resources :registration1, only: [:index, :show, :new]

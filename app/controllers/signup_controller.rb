@@ -2,13 +2,13 @@ class SignupController < ApplicationController
   def index # 新規会員登録方法画面
   end
 
-  def step1 # 会員情報登録画面
+  def registration # 会員情報登録画面
     @user = User.new # 新規インスタンス作成
   end
 
 
-  def step2 # 電話番号の登録画面
-    # step1で入力した値をsessionに保存
+  def phone # 電話番号の登録画面
+    # registrationで入力した値をsessionに保存
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -23,14 +23,14 @@ class SignupController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
 
-  def step3 # 発送元・お届け先登録画面
-    # step2で入力した値をsessionに保存
+  def address # 発送元・お届け先登録画面
+    # phoneで入力した値をsessionに保存
     session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
   end
   
-  def step4 # 支払い方法登録画面
-    # step3で入力した値をsessionに保存
+  def credit # 支払い方法登録画面
+    # addressで入力した値をsessionに保存
     session[:address_last_name] = user_params[:address_last_name]
     session[:address_first_name] = user_params[:address_first_name]
     session[:address_last_name_kana] = user_params[:address_last_name_kana]
@@ -72,9 +72,9 @@ class SignupController < ApplicationController
     )
     @user.build_credit(user_params[:credit_attributes]) # creditsテーブルのインスタンス作成
     if @user.save
-      redirect_to step5_signup_index_path
+      redirect_to done_signup_index_path
     else
-      render '/signup/step1'
+      render '/signup/registration'
     end
   end
 

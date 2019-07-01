@@ -11,7 +11,7 @@
   .first-main
     %section.first-main__wrapper
       .first-main__title 会員情報入力
-      = form_for @user, url: step2_signup_index_path, method: :get, html: {class: 'first-main__box'} do |f|
+      = form_for @user, url: phone_signup_index_path, method: :get, html: {class: 'first-main__box'} do |f|
         .first-main__box--top
           .first-main__form--top
             = f.label 'ニックネーム', class: 'first-main__form--label'

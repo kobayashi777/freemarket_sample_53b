@@ -17,7 +17,7 @@
   .second-main
     %section.second-wrapper
       .second-wrapper__title 電話番号の確認
-      = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'second-wrapper__box'} do |f|
+      = form_for @user, url: address_signup_index_path, method: :get, html: {class: 'second-wrapper__box'} do |f|
         .second-wrapper__box--inner
           .second-wrapper__form
             = f.label '携帯電話の番号', class: 'second-wrapper__form--label'
