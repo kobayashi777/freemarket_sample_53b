@@ -31,6 +31,7 @@
 
 //products
 @import "products/show";
+@import "products/new";
 @import "products/index";
 
 @import "_buy-confirmation";
@@ -56,7 +57,7 @@
  //新規登録完了画面
  @import './modules/sign-up/sign-up-fifth';
  //ログインページ
- @import "layout/application";
+ @import "./modules/layout/application";
  
  @import './modules/sign-in-page';
 
@@ -66,6 +67,3 @@
  @import "./logout";
  @import "./payment-top";
  @import "./payment-input";
- 
-
- 

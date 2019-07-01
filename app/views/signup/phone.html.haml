@@ -17,14 +17,13 @@
   .second-main
     %section.second-wrapper
       .second-wrapper__title 電話番号の確認
-      = form_with class: 'second-wrapper__box' do |f|
+      = form_for @user, url: address_signup_index_path, method: :get, html: {class: 'second-wrapper__box'} do |f|
         .second-wrapper__box--inner
           .second-wrapper__form
             = f.label '携帯電話の番号', class: 'second-wrapper__form--label'
-            = f.phone_field :phone, class: 'second-wrapper__form--input', placeholder: '携帯電話の番号を入力'
+            = f.phone_field :phone_number, class: 'second-wrapper__form--input', placeholder: '携帯電話の番号を入力'
           %p.second-wrapper__form--info 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-          = button_tag '#', class: 'second-wrapper__form--btn' do
-            SMSを送信する
+          = f.submit 'SMSを送信する', class: 'second-wrapper__form--btn'
           %p.second-wrapper__form--caution ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .second-wrapper__form--text-right
             = link_to '#', class: 'second-wrapper__reason-phone' do
