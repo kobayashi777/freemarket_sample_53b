@@ -4,9 +4,6 @@ class SignupController < ApplicationController
 
   def step1 # 会員情報登録画面
     @user = User.new # 新規インスタンス作成
-    session[:birthdate_year] = "--" #生年月日の年、初期値設定
-    session[:birthdate_month] = "--" #生年月日の月、初期値設定
-    session[:birthdate_day] = "--" #生年月日の日、初期値設定
   end
 
 
