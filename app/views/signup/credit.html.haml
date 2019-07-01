@@ -45,12 +45,12 @@
             .validated-date-wrapper
               .validated-date-wrapper__box
                 = f.fields_for :credit do |c|
-                  = c.select :validated_date_year, Credit.validated_date_years.keys, {}, {class: 'validated-date-wrapper__box--inner'}
+                  = c.select :validated_date_month, Credit.validated_date_months.keys, {}, {class: 'validated-date-wrapper__box--inner'}
                   %i.fas.fa-chevron-down.validated-date-wrapper__box--arrow
                   %span.validated-date-wrapper__box--detail 月
               .validated-date-wrapper__box--bottom
                 = f.fields_for :credit do |c|
-                  = c.select :validated_date_month, Credit.validated_date_months.keys, {}, {class: 'validated-date-wrapper__box--inner'}
+                  = c.select :validated_date_year, Credit.validated_date_years.keys, {}, {class: 'validated-date-wrapper__box--inner'}
                   %i.fas.fa-chevron-down.validated-date-wrapper__box--arrow
                   %span.validated-date-wrapper__box--detail 年
           .forth-main-wrapper__form
