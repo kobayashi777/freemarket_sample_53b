@@ -14,30 +14,8 @@
       .header-bottom
         .header-bottom__left
           =render partial: 'layouts/dropdown'
-          .brand
-            .brand__icon
-              %i.fas.fa-tag.fa-spin
-            .brand__search
-              ブランドから探す
-        %ul.header-bottom__right
-          %li.liked-item
-            = link_to "/" do
-              %i.far.fa-heart.fa-lg
-                .header-bottom__right__text
-                  いいね！一覧
-          %li.notification-list
-            = link_to "/" do
-              %i.far.fa-bell.fa-lg
-                .header-bottom__right__text
-                  お知らせ
-          %li.todo-list
-            = link_to "/" do
-              %i.fas.fa-check.fa-lg
-                .header-bottom__right__text
-                  やることリスト
-          %li.my-page
-            = link_to "/", class: "my-page__link" do
-              = image_tag "/images/member_photo_noimage_thumb_circle.png", size: "30x30"
-              .my-page__text
-                .header-bottom__right__text
-                  マイページ
+          =render partial: 'layouts/brand'
+        =render partial: 'layouts/header-bottom-right-mypage'
+        -# =render partial: 'layouts/header-bottom-right-newpage'
+        -# =render partial: 'layouts/header-bottom-right-otherpage'
+

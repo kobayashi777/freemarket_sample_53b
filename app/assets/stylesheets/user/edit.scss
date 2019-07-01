@@ -1,6 +1,7 @@
-.wrapper {
+.wrapper1 {
+  @include clearfix;
   width: 100%;
-  padding: 24px 0 40px;
+  padding: 40px 210px 40px;
   margin: 0 auto 0;
   height: 100%;
   background: $thin_gray;
