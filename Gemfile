@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# 本番環境エラーのため追記
 ENV['NOKOGIRI_USE_SYSTEM_LIBRARIES'] = 'YES'
 gem 'nokogiri'
-
 ruby '2.5.1'
+
 
 gem 'rails', '~> 5.2.3'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
@@ -37,14 +36,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  # エラー画面整形用
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'uniform_notifier', '~> 1.11'
-
-  # n+1対策用
-  gem 'bullet'
 end
 
 group :test do
