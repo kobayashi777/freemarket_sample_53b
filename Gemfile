@@ -62,6 +62,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'jquery-rails' 
 gem 'jquery-ui-rails'
+gem 'ancestry'
 gem 'gretel'
 gem 'devise'
 
