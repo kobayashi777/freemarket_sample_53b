@@ -2,7 +2,6 @@
 
 .signup-third{//発送元・お届け先住所入力ページ全体
   width: 100vw;
-  height: 1615px;
   padding-bottom: 220px;
   background-color: $thin_gray;
   position: relative;
@@ -10,7 +9,6 @@
 
 .third-main-wrapper{//発送元・お届け先住所入力ページ白枠
     width: 700px;
-    height: 1269px;
     background-color: $white;
     margin: 0 auto;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -25,12 +23,10 @@
   }
   &__box{//発送元・お届け先住所入力フォーム全体
     width: 700px;
-    height: 1158px;
     padding: 65px 16px 50px;
     border-top: solid 1px rgb(245, 245, 245);
     &--inner{//発送元・お届け先住所入力フォーム内部
       width: 320px;
-      height: 1043px;
       margin: 0 auto;
     }
   }
@@ -73,7 +69,6 @@
   line-height: 14px;
   &__box{//都道府県選択フォーム内部
     width: 318px;
-    // margin-top: 2px;
     display: inline-block;
     position: relative;
     &--select{//都道府県選択フォームインプット
