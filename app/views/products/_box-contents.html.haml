@@ -1,7 +1,8 @@
 .box-contents
   .items-box
     .items-box_photo
-      = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+      = link_to "/products/show" do
+        = image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", size: "210x200"
     .items-box_body
       %h3.items-box-name
         ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
