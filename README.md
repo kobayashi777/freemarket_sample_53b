@@ -13,7 +13,7 @@
 |birthdate_year|integer|null: false|
 |birthdate_month|integer|null: false|
 |birthdate_day|integer|null: false|
-|phone_number|integer|null: false, unique: true|
+|phone_number|integer|null: false, unique: true, limit: 8|
 |address_last_name|string|null: false|
 |address_first_name|string|null: false|
 |address_last_name_kana|string|null: false|
@@ -39,7 +39,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false|
+|card_number|integer|null: false, limit: 8|
 |validated_date_month|integer|null: false, default: 0|
 |validated_date_year|integer|null: false, default: 0|
 |security_code|integer|null: false|
@@ -65,9 +65,9 @@
 |------|----|-------|
 |product_name|string|null: false, index: true|
 |product_introduction|text|null: false|
-|category_id|integer|foreign_key: true|
-|product_size_id|integer|foreign_key: true|
-|brand_id|integer|foreign_key: true|
+|category_id|integer|foreign_key: true, limit: 8|
+|product_size_id|integer|foreign_key: true, limit: 8|
+|brand_id|integer|foreign_key: true, limit: 8|
 |product_status|integer|null: false, default: 0|
 |delivery_charge|integer|null: false, default: 0|
 |delivery_area|integer|null: false, default: 0|
