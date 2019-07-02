@@ -1,2 +1,3 @@
 .breadcrumbs
-  = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
+  .breadcrumbs_size
+    = breadcrumbs pretext: "", separator:  " #{content_tag(:i, '', class:'fas fa-chevron-right my-small')} ", class: "breadcrumbs-list"

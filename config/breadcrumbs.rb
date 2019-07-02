@@ -2,9 +2,9 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :issues do
-  link "All issues"
-  parent :root
+crumb :mypage do
+  link "マイページ"
+  parent :root, mypage_index_path
 end
 
 # crumb :projects do
