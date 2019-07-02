@@ -1,4 +1,5 @@
-.a
+.buy-confirmation-all
+  = render "shared/user-header" 
 
   .content
     .content-header
@@ -6,7 +7,7 @@
     %div.content__main
       .content__main--item
       %span.content__main--item-image
-        = image_tag "/assets/m37585938822_1.jpeg", size: "64x64"
+        = image_tag '/images/m37585938822_1.jpg', size: "64x64"
       %p.content__main--item-name adidas アディダス Tシャツ
 
 
@@ -40,9 +41,9 @@
           %p.payment-confirmation__detail--number ****************1234
           %p.payment-confirmation__detail--date 01 / 01
           %span.payment-confirmation__detail--image
-          = image_tag "visa.svg", size: "49x15"
+          = image_tag "/images/visa.svg", size: "49x15"
         %button.payment-confirmation__detail--change
           %a 変更する
           %i.fas.fa-angle-right
 
-
+  = render "shared/user-footer"
