@@ -83,5 +83,11 @@
             = f.label '電話', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--option 任意
             = f.phone_field :address_phone_number, class: 'third-main-wrapper__form--input', placeholder: '09012345678'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if errors = @user.errors.full_messages_for(:address_phone_number)
+                  %ul
+                    - errors.each do |error|
+                      %li.has_error_text=error
           = f.submit '次へ進む', class: 'third-main-wrapper__form--btn'
   = render 'shared/user-footer'

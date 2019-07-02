@@ -9,6 +9,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       user: "ユーザー"
+      credit: "クレジット"
     attributes:
       user:
         nickname: "ニックネーム"
@@ -23,9 +24,7 @@ ja:
         address_number: "郵便番号"
         address_name: "市区町村"
         address_block: "番地"
-    models:
-      credit: "クレジット"
-    attributes:
+        address_phone_number: "電話番号"
       credit:
         card_number: "カード番号"
         security_code: "セキュリティコード"

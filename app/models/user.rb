@@ -39,4 +39,5 @@ class User < ApplicationRecord
   validates :address_number, presence: true, format: { with: VALID_ADDRESS_NUMBER_REGEX }
   validates :address_name, presence: true
   validates :address_block, presence: true
+  validates :address_phone_number, allow_blank: true, format: { with: VALID_PHONE_REGEX }
 end

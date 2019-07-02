@@ -130,34 +130,36 @@ private
       address_first_name_kana: "DD", 
       address_number: "000-0000", 
       address_name: "EE", 
-      address_block: "FF"
-    )
-    render '/signup/registration' unless @user.valid?
-  end
-
-  def save_to_session_before_address
-    # phoneで入力した値をsessionに保存
-    session[:phone_number] = user_params[:phone_number]
-    @user = User.new(
-      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      last_name: session[:last_name], 
-      first_name: session[:first_name], 
-      last_name_kana: session[:last_name_kana], 
-      first_name_kana: session[:first_name_kana], 
-      birthdate_year: session[:birthdate_year], 
-      birthdate_month: session[:birthdate_month], 
-      birthdate_day: session[:birthdate_day],
-      phone_number: session[:phone_number],
-      address_last_name: "AA", 
-      address_first_name: "BB", 
-      address_last_name_kana: "CC", 
-      address_first_name_kana: "DD", 
-      address_number: "000-0000", 
-      address_name: "EE", 
-      address_block: "FF"
+      address_block: "FF",
+      address_phone_number: 12345678901
+      )
+      render '/signup/registration' unless @user.valid?
+    end
+    
+    def save_to_session_before_address
+      # phoneで入力した値をsessionに保存
+      session[:phone_number] = user_params[:phone_number]
+      @user = User.new(
+        nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
+        email: session[:email],
+        password: session[:password],
+        password_confirmation: session[:password_confirmation],
+        last_name: session[:last_name], 
+        first_name: session[:first_name], 
+        last_name_kana: session[:last_name_kana], 
+        first_name_kana: session[:first_name_kana], 
+        birthdate_year: session[:birthdate_year], 
+        birthdate_month: session[:birthdate_month], 
+        birthdate_day: session[:birthdate_day],
+        phone_number: session[:phone_number],
+        address_last_name: "AA", 
+        address_first_name: "BB", 
+        address_last_name_kana: "CC", 
+        address_first_name_kana: "DD", 
+        address_number: "000-0000", 
+        address_name: "EE", 
+        address_block: "FF",
+        address_phone_number: 12345678901
     )
     render '/signup/phone' unless @user.valid?
   end
@@ -228,7 +230,6 @@ private
       address_phone_number: session[:address_phone_number]
     )
     @user.build_credit(user_params[:credit_attributes])
-    binding.pry
     render '/signup/credit' unless @user.valid?
   end
 end
