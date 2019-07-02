@@ -66,3 +66,4 @@ gem 'ancestry'
 gem 'gretel'
 gem 'devise'
 
+gem "aws-sdk-s3", require: false
