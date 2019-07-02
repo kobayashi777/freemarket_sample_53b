@@ -24,6 +24,11 @@
             %span.forth-main-wrapper__form--require 必須
             = f.fields_for :credit do |c|
               = c.text_field :card_number, class: 'forth-main-wrapper__form--input', placeholder: '半角数字のみ'
+              - if @user.errors.any?
+                - unless @user.valid?
+                  - if errors = @user.credit.errors.full_messages_for(:card_number)
+                    %ul
+                      %li.has_error_text=errors[0]
               %ul.creditcard-types
                 %li.creditcard-types__image-top
                   = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1905591235', width: '49', height: '20'
@@ -58,6 +63,11 @@
             = f.label 'セキュリティコード', class: 'forth-main-wrapper__form--label'
             %span.forth-main-wrapper__form--require 必須
             = c.text_field :security_code, class: 'forth-main-wrapper__form--input', placeholder: 'カード背面4桁もしくは3桁の番号'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if errors = @user.credit.errors.full_messages_for(:security_code)
+                  %ul
+                    %li.has_error_text=errors[0]
           .forth-main-wrapper__question
             %span.forth-main-wrapper__question--mark ?
             カード裏面の番号とは？

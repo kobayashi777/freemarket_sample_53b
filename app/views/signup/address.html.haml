@@ -24,15 +24,30 @@
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_last_name, class: 'third-main-wrapper__form--input', placeholder: '例) 山田'
             = f.text_field :address_first_name, class: 'third-main-wrapper__form--input-margin', placeholder: '例) 彩'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if @user.errors.full_messages_for(:address_last_name) != [] || @user.errors.full_messages_for(:address_first_name) != []
+                  %ul
+                    %li.has_error_text 名前を入力してください    
           .third-main-wrapper__form
             = f.label 'お名前カナ', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_last_name_kana, class: 'third-main-wrapper__form--input', placeholder: '例) ヤマダ'
             = f.text_field :address_first_name_kana, class: 'third-main-wrapper__form--input-margin', placeholder: '例) アヤ'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if @user.errors.full_messages_for(:address_last_name_kana) != [] || @user.errors.full_messages_for(:address_first_name_kana) != []
+                  %ul
+                    %li.has_error_text 名前カナを入力してください    
           .third-main-wrapper__form
             = f.label '郵便番号', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_number, class: 'third-main-wrapper__form--input', placeholder: '例) 123-4567'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if errors = @user.errors.full_messages_for(:address_number)
+                  %ul
+                    %li.has_error_text=errors[0]
           .third-main-wrapper__form
             = f.label '都道府県', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
@@ -44,10 +59,22 @@
             = f.label '市区町村', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_name, class: 'third-main-wrapper__form--input', placeholder: '例) 横浜市緑区'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if errors = @user.errors.full_messages_for(:address_name)
+                  %ul
+                    - errors.each do |error|
+                      %li.has_error_text=error
           .third-main-wrapper__form
             = f.label '番地', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_block, class: 'third-main-wrapper__form--input', placeholder: '例) 青山1-1-1'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if errors = @user.errors.full_messages_for(:address_block)
+                  %ul
+                    - errors.each do |error|
+                      %li.has_error_text=error
           .third-main-wrapper__form
             = f.label '建物名', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--option 任意
