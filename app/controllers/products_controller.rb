@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
    end
 
    def new
+
+   end
+
+   def create
+   
    end
 
    def edit
@@ -17,5 +22,10 @@ class ProductsController < ApplicationController
 
    def destroy
 
+   end
+
+   private
+   def poduct_params
+      params.require(:product).permit(:name)
    end
 end
