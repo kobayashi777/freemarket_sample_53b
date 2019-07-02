@@ -1,9 +1,9 @@
 //仮で背景色を指定
-.a{
-  background-color: rgb(189, 181, 181);
+.buy-confirmation-header{
+  background-color: rgb(245, 245, 245);
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  // overflow: auto;
 }
 
 // mixin
@@ -36,7 +36,7 @@
 
 
 .content{
-  margin: 10px 110px 10px;
+  margin: 0 auto;
   background-color: white;
   padding:0;
   height: 740px;
@@ -214,10 +214,17 @@
   }
 }
 
+.buy-confirmation-footer{
+  padding-top: 50px;
+  // position: absolute !important; //relative; 
+}
 
-
-
-
+.buy-confirmation-all{
+  padding-bottom: 220px;
+  width:100vw;
+  position: relative;
+  
+}
 
 
 
