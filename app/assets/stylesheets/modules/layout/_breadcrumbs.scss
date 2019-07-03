@@ -1,5 +1,34 @@
 .breadcrumbs{
   width:100%;
-  height:30px;
+  height:48px;
   background-color: $red;
+  position: relative;
+  border-top: 1px solid #eee;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  &_size{
+    margin: 0 106px;
+  }
+}
+
+.breadcrumbs-list{
+  padding: 16px 0;
+  white-space: normal;
+  color: #333;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.breadcrumbs-list a{
+  color: #333;
+}
+.breadcrumbs-list :last-child{
+  font-weight: 600;
+}
+.my-small{
+ text-align: center;
+ margin: 0 8px;
+ font-size: 11px;
+ color: #888;
 }
