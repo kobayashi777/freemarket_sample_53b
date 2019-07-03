@@ -65,4 +65,5 @@ gem 'jquery-ui-rails'
 gem 'ancestry'
 gem 'gretel'
 gem 'devise'
+gem 'payjp'
 
