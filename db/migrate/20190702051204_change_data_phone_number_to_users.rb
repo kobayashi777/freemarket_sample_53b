@@ -1,5 +1,6 @@
 class ChangeDataPhoneNumberToUsers < ActiveRecord::Migration[5.2]
-  def change
-    change_column :users, :phone_number, :integer, null: false, unique: true, limit: 8
+  def up
+    change_column :users, :phone_number, :integer, null: false, limit: 8
+    add_index :users, :phone_number, unique: true
   end
 end
