@@ -20,7 +20,8 @@
       .payment-information-second
         %ul.payment-information-second__middle--payment_amount 支払い金額
         %ul.payment-information-second__middle--payment_price ¥680
-      %button.payment-information-second__middle--payment_decide{type: "submit"} 購入する
+      = link_to "/mypage/show" do
+        .payment-information-second__middle--payment_decide 購入する
 
     .users-address-information
       .address-confirmation
