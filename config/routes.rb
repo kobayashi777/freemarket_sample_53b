@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   end
   resources :registration1, only: [:index, :show, :new]
   resources :registration2, only: [:index, :show, :new]
-  resources :mypage, only: :index
+  resources :mypage, only:[:index, :show]
 end

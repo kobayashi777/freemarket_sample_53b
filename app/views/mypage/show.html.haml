@@ -1,0 +1,68 @@
+.buy-confirmation-all
+  = render "shared/user-header" 
+
+  .wait-content
+    .content-wait
+      .content-wait_upper
+        %i.far.fa-clock.fa-2x
+        .content-wait_upper_text
+          発送をお待ちください
+      .content-wait_bottom
+        出品者からの発送通知をお待ちください
+    .wait-content-header
+      %h 購入が完了しました
+    .content__main_box
+      .content__main_wait
+        .content__main_wait--item
+          = image_tag '/images/m37585938822_1.jpg', size: "200x200", class:"content__main_wait--item-image"
+          .content__main_wait--item-name 
+            adidas アディダス Tシャツ
+
+
+    .wait-payment
+      .wait-payment__upper
+        .wait-payment__upper--item-price ¥680
+        .wait-payment__upper--item-shipping 送料込み
+
+    .users-address-information
+      .address-confirmation
+        %p.address-confirmation__delivery 配送先
+        .address-confirmation__delivery--detail 
+          %p.post-number 〒000-0000
+          %p.address-detail 千葉県流山市松ヶ丘111-11
+          %p.name-detail 田中太朗
+
+
+    .users-payment-border
+      .users-payment-information
+        .payment-confirmation
+          %p.payment-confirmation__title 支払い方法
+          .payment-confirmation__detail
+            %p.payment-confirmation__detail--number ****************1234
+            %p.payment-confirmation__detail--date 01 / 01
+            %span.payment-confirmation__detail--image
+            = image_tag "/images/visa.svg", size: "49x15"
+
+    .wait-evaluation
+      .wait-evaluation-contents
+        .wait-evaluation-contents__title
+          発送通知後の流れ
+        .wait-evaluation-contents__icon
+          %i.fas.fa-star
+          %i.fas.fa-laugh
+          %i.fas.fa-meh
+          %i.fas.fa-frown
+          %i.fas.fa-star
+
+        .wait-evaluation-contents__text
+          商品を受け取ったら
+          %br
+          出品者の評価をしましょう。
+          %br
+          購入代金が出品者に振り込まれます。
+          %br
+          評価後に取引は完了です。
+        = link_to "マイページへもどる","/mypage",class:"wait-evaluation-contents__return"
+        
+
+  = render "shared/user-footer"
