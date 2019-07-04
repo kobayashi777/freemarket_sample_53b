@@ -1,0 +1,75 @@
+//電話番号確認
+
+.signup-second{//電話番号の確認ページ全体
+  width: 100vw;
+  height: 900px;
+  padding-bottom: 220px;
+  background-color: $thin_gray;
+  position: relative;
+}
+
+.second-wrapper{//電話番号の確認ページコンテンツ
+  width: 700px;
+  background-color: $white;
+  margin: 0 auto;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: rgb(51, 51, 51);
+  &__title{//電話番号の確認文字
+    text-align: center;
+    padding: 8px 24px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    border-bottom: solid 1px rgb(245, 245, 245);
+  }
+  &__box{//電話番号の確認フォーム全体
+    width: 700px;
+    padding: 64px;
+    border-top: solid 1px rgb(245, 245, 245);
+    &--inner{//電話番号の確認フォーム内部
+      width: 320px;
+      margin: 0 auto;
+    }
+  }
+  &__form{//電話番号の確認フォーム
+    width: 320px;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    color: rgb(51, 51, 51);
+    &--label{//電話番号の確認フォームラベル
+      @include form-label();
+    }
+    &--input{//電話番号の確認フォームインプット
+      @include form-default();
+    }
+    &--info{//電話番号の確認フォームインプット下情報
+      @include single-text();
+    }
+    &--btn{//電話番号の確認フォーム送信ボタン
+      @include btn-default();
+      margin-top: 40px;
+    }
+    &--caution{//電話番号の確認フォーム注意書き
+      @include single-text();
+    }
+    &--text-right{//電話番号の確認フォームリンク全体
+      text-align: right;
+      margin-top: 37px;
+      position: relative;
+    }
+  }
+  &__reason-phone{//電話番号の確認フォームリンク
+    @include link-default();
+    display: inline-block;
+    margin-right: 8.5px;
+    &--arrow-right{//電話番号の確認フォームリンク矢印
+      margin-left: -3.5px;
+      margin-right: -0.5px;
+      font-size: 16px;
+      line-height: 16px;
+      position: absolute;
+      top: 2px;
+      right: -0.5px;
+    }
+  }
+} 
+

@@ -1,6 +1,9 @@
 .body
   =render partial: 'layouts/header'
+  - breadcrumb :mypage
+  =render partial: 'layouts/bread-crumbs'
   .wrapper
+    = render partial: "mypage/mypage-sidemenu"
     .mypage-wrapper
       .my-page-right-content
         .my-page-right-content__top
@@ -64,5 +67,5 @@
             過去の取引
         .my-page-right-content__bottom__main
           %p 取引中の商品はありません
-    = render partial: "mypage/mypage-sidemenu"
+   
   = render partial: 'layouts/footer'

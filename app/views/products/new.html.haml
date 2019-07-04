@@ -1,24 +1,142 @@
-.user-credit-header
-  = render "layouts/header"
-.user-credit-sidebar
-  = render "mypage/mypage-sidemenu"
-  .payment-all
-    %h2.payment-all__head 支払い方法
-    .payment-all__inner
-      %section
-        .payment-all__inner--content
-          %h3.inner-sub-head クレジットカード一覧
-      .payment-all__add--btn
-      %button.btn{type: "submit" } 
-        %i.far.fa-credit-card 
-        %p.button-text クレジットカードを追加する
-      %ul.line
-      .payment-all__not-regist
-      %button.arrow{type: "submit" }
-        %a 支払い方法について
-        %i.fas.fa-angle-right
-.user-credit-footer-button
-  = render "layouts/footer-button"
-.user-credit-footer
-  = render "layouts/footer"
+
+-# FIXME: BEM記法の見直し
+.listing-wrapper
+  = render './shared/user-header'
+
+  = form_with class: 'listing-inner-contents' do |f|
+    .listing-inner-contents__title 商品の情報を入力
+
+    -# 商品画像提出
+    .listing-upload
+      = f.label '出品画像', class: 'listing-upload__label'
+      %span.listing-upload--require 必須
+      .listing-upload__subtext 最大10枚までアップロードできます
+      -# FIXME: ↓file_fieldで実装？ドラッグ&ドロップ担当者に任せます！ｶﾞﾝﾊﾞﾚ!!o(｀・д・´)oｶﾞﾝﾊﾞﾚ!!！
+      -# 参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
+      = f.file_field class: 'listing-upload__drag-box'
+
+    
+    -# 商品名・商品説明
+    .listing-content.clearfix
+      .listing-product-name
+        = f.label "商品名", class: 'listing-default__label'
+        %span.listing-default--require 必須
+        = f.text_field :product_name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)'
+
+      .listing-product-description
+        = f.label '商品の説明', class: 'listing-default__label'
+        %span.listing-default--require 必須
+        -# TODO:placeholderが折り返しで表示されるように要改修
+        = f.text_area :product_description, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+    -# 商品の詳細セレクトボックスフォーム
+    .listing-content.clearfix
+      .listing-sub-head 商品の詳細
+      .listing-form-box
+        .listing-product-detail__category
+          = f.label 'カテゴリー', class: 'listing-default__label'
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
+        .listing-product-status
+          = f.label '商品の状態', class: 'listing-default__label'
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
+
+
+    -# 商品の配送について
+    .listing-content.clearfix
+      .listing-sub-head 配送について
+      = link_to '#', class: 'listing-product-help' do
+        ?
+      .listing-form-box
+        .listing-product-delivery-charge-burden
+          = f.label '配送料の負担', class: 'listing-default__label' 
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        
+        .listing-product-delivery-method
+          = f.label '配送の方法', class: 'listing-default__label' 
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
+        .listing-product-regional-original-delivery
+          .listing-default__label 配送元の地域
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
+        .listing-product-days-up-to-delivery
+          .listing-default__label 配送までの日数
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
+      
+
+    -# 取引価格＆利益計算
+    .listing-content.clearfix
+      .listing-sub-head 販売価格(300〜9,999,999)
+      = link_to '#', class: 'listing-product-help' do
+        ?
+      .listing-form-box
+      
+        .form-right-justified
+          .form-right-justified--left
+            = f.label "価格", class: 'form-right-justified--left__label'
+            %span.listing-default--require--price 必須
+          .form-right-justified__box 
+            %p.form-right-justified__box--react-text ￥
+            = f.text_field :price, class: 'form-right-justified__box__entry', placeholder: '例） 300'
+
+        .form-right-justified-sub
+          = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
+          .form-right-justified-sub__fee -
+
+        .form-right-justified-main
+          = f.label "販売利益", class: 'form-right-justified-main__label'
+          .form-right-justified-main__revenue -
+
+    -# 送信＆注意書き
+    .listing-content.clearfix
+      %p.listing-product-submit-box__text 
+        = link_to '#', class:'subtext-link' do
+          禁止されている出品
+        、
+        =link_to '#', class:'subtext-link' do
+          行為
+        を必ずご確認ください。
+      %p.listing-product-submit-box__text
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        = link_to '#', class:'subtext-link' do
+          偽ブランドの販売
+        は犯罪であり処罰される可能性があります。
+      %p.listing-product-submit-box__text
+        また、出品をもちまして
+        = link_to '#', class:'subtext-link' do
+          加盟店規約
+        に同意したことになります。
+      = button_tag '#', class: 'listing-product-submit-box__send-btn' do
+        出品する
+      = button_tag '#', class: 'listing-product-submit-box__return-btn' do
+        もどる
+
+  = render './shared/user-footer'
 

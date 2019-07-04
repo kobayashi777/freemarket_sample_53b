@@ -1,0 +1,102 @@
+.header-right-icon{
+  width:216px;
+  height:34px;
+  margin: 12px 0 0 auto;
+  display:flex;
+}//.header-right-icon
+
+//newpage用
+.sign-up-button__red{
+  width:112px;
+  height:32px;
+  background-color:$red;
+  border: 1px solid $red;
+  
+  margin: 0 8px 0 10px;
+  font-size:14px;
+  border-radius: 4px;
+  &__text{
+    padding-top:5px;
+    text-align: center;
+    &__button{
+      color:white;
+      text-decoration: none;
+    }//&__button
+  }//&__text
+}//.sign-up-button__red
+.sign-in-button__blue{
+  width:70px;
+  height:32px;
+  background: #fff;
+  border: 1px solid #0099e8;
+  border-radius: 4px;
+  text-align: center;
+  // padding: 0 5px;
+  font-size:14px;
+  margin-left:8px;
+  &__text{
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align: center;
+    &:hover {
+      color:white;
+      background-color: #0099e8;
+    }
+    &__button{
+      color: #0099e8;
+      text-decoration: none;
+      &:hover {
+        color:white;
+        background-color: #0099e8;
+      }
+    }
+  }//&__text
+}//.sign-up-button__blue
+
+//otherpage用
+.sign-in-button__red{
+  width:70px;
+  height:32px;
+  background: $red;
+  border: 1px solid $red;
+  border-radius: 4px;
+  text-align: center;
+  // padding: 0 5px;
+  font-size:14px;
+  margin-left:8px;
+  &__text{
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align: center;
+    &__button{
+      color: white;
+      text-decoration: none;
+    }
+  }//&__text
+}//.sign-up-button__blue
+.sign-up-button__blue{
+  width:112px;
+  height:32px;
+  background-color:#fff;
+  border: 1px solid #0099e8;
+  margin: 0 8px 0 10px;
+  font-size:14px;
+  border-radius: 4px;
+  &__text{
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align: center;
+        &:hover {
+      color:white;
+      background-color: #0099e8;
+    }
+    &__button{
+      color:#0099e8;
+      text-decoration: none;
+           &:hover {
+        color:white;
+        background-color: #0099e8;
+      }//&:hover
+    }//&__button
+  }//&__text
+}//.sign-up-button__red

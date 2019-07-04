@@ -1,4 +1,5 @@
 %script{src: 'product_show_photo', type: 'text/html'}
+
 /* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
 
 .wrapper3
@@ -64,6 +65,7 @@
             -#.photo_down
             = image_tag('m37585938822_1.jpg', height: '60px', width: '60px')
             //# class: 'content--photo-down'# alt: '',  %ul
+
       %table.content--detail-table
         %tbody.table
           %tr.table--section
@@ -90,6 +92,7 @@
           %tr.table--section
             %th.table--section-left 配送日目安
             %th.table--section-right てやんでい
+
     .item-container1__item-price
       %span.item-container1__item-price-bold  $1000
       %span.item-container1__item-price-tax (税込)
@@ -220,6 +223,5 @@
                 %i.far.fa-heart
                 8
             -# .items-box-tax
-            -#   (税込)
 
 = render 'layouts/footer'

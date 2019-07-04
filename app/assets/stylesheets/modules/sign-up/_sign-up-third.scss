@@ -1,0 +1,86 @@
+//発送元・お届け先住所入力ページ
+
+.signup-third{//発送元・お届け先住所入力ページ全体
+  width: 100vw;
+  padding-bottom: 220px;
+  background-color: $thin_gray;
+  position: relative;
+}
+
+.third-main-wrapper{//発送元・お届け先住所入力ページ白枠
+    width: 700px;
+    background-color: $white;
+    margin: 0 auto;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__title{//発送元・お届け先住所入力の文字
+    text-align: center;
+    padding: 32px 16px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 33px;
+    height: 97px;
+    color: rgb(51, 51, 51);
+  }
+  &__box{//発送元・お届け先住所入力フォーム全体
+    width: 700px;
+    padding: 65px 16px 50px;
+    border-top: solid 1px rgb(245, 245, 245);
+    &--inner{//発送元・お届け先住所入力フォーム内部
+      width: 320px;
+      margin: 0 auto;
+    }
+  }
+  &__form-top{//発送元・お届け先住所入力フォーム一番上
+    width: 320px;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    color: rgb(51, 51, 51);
+  }
+  &__form{//発送元・お届け先住所入力フォーム一番上以外
+    margin-top: 40px;
+    width: 320px;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    color: rgb(51, 51, 51);
+    &--label{//発送元・お届け先住所入力フォームラベル
+      @include form-label();
+    }
+    &--input{//発送元・お届け先住所入力フォームインプット
+      @include form-default();
+    }
+    &--input-margin{//発送元・お届け先住所入力フォームインプットfirst-name
+      @include form-default();
+      margin-top: 8px;
+    }
+    &--require{//発送元・お届け先住所入力フォーム必須文字
+      @include form-require();
+    }
+    &--option{//発送元・お届け先住所入力フォーム任意文字
+      @include form-require();
+      background-color: #d6d6d6;
+    }
+    &--btn{//発送元・お届け先住所入力フォーム次へボタン
+      @include btn-default();
+      margin-top: 39px;
+    }
+  }
+}
+
+.prefecture-select-wrapper{//都道府県選択フォーム全体
+  font-size: 14px;
+  line-height: 14px;
+  &__box{//都道府県選択フォーム内部
+    width: 318px;
+    display: inline-block;
+    position: relative;
+    &--select{//都道府県選択フォームインプット
+      @include select-box-default();
+    }
+    &--arrow-down{//都道府県選択フォーム矢印
+      top: 14px;
+      right: 20px;
+      font-size: 19px;
+      width: 8.59px;
+      position: absolute;
+      color: #888;
+    }
+  }
+}

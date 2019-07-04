@@ -1,0 +1,134 @@
+.wait-content{
+  margin: 0 auto;
+  background-color: white;
+  padding:0;
+  // height: 1200px;
+  width: 700px;
+  &-header{
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 1.5;
+    padding: 16px;
+    border-bottom: 1px solid #f5f5f5;
+  }
+}
+.content-wait{
+  height:110px;
+  text-align: center;
+  position: relative;
+  padding: 24px 8px;
+  background: #fff6de;
+  text-align: center;
+  vertical-align:top;
+  
+  &_upper{
+    color: #ea352d;
+    width:200px;
+    font-size:16px;
+    line-height: 15px;
+    font-weight: 900;
+    display: flex;
+    margin:0 auto;
+    &_text{
+      margin-top:10px;
+      padding-left:3px;
+    }
+
+  }
+  &_bottom{
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+.content__main_box{
+  border-bottom: 1px solid #f5f5f5;
+}
+.content__main_wait{
+  max-width: 320px;
+  margin: 0 auto;
+  margin-top: 30px;
+  
+  &--item{
+    text-align: center;
+    &-image{
+      margin: 0 auto;
+    }
+    &-name{
+      text-align: center;
+    }
+  }
+}
+.wait-payment{
+  height:110px;
+  width:100%;
+  border-bottom: 1px solid #f5f5f5;
+  &__upper{
+    display: flex;
+    width:150px;
+    margin:0 auto;
+    padding-top:40px;
+    text-align: center;
+    &--item-price{
+      font-size: 21px;
+      font-weight: bold;
+    }
+    &--item-shipping{
+      font-size: 14px;
+      padding-top: 4px;
+      font-weight: normal;
+      margin-left: 15px;
+    }
+  }
+}
+.users-payment-border{
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+.wait-evaluation{
+  height:230px;
+  width:100%;
+  &-contents{
+    text-align: center;
+    font-size:15px;
+    margin-top:30px;
+    &__title{
+      font-weight:900;
+    }
+    &__icon{
+      margin:0 auto;
+      margin-top:20px;
+      display: flex;
+      height:40px;
+      width:110px;
+    }
+    &__text{
+      margin-bottom:10px;
+    }
+    &__return{
+      color: $blue;
+      font-weight: bold;
+    }
+  }
+}
+.fas.fa-star{
+color:yellow;
+font-size: 0.8em;
+margin: 0 3px;
+}
+.fas.fa-laugh{
+color: #ea352d;
+font-size: 1.2em;
+margin: 0 3px;
+}
+.fas.fa-meh{
+color: orange;
+font-size: 1.2em;
+margin: 0 3px;
+}
+.fas.fa-frown{
+color: $blue;
+font-size: 1.2em;
+margin: 0 3px;
+}

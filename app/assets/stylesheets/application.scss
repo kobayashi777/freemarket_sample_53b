@@ -1,6 +1,4 @@
- *{
-  box-sizing: border-box;
-}
+@import "./custom-reset";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -16,55 +14,58 @@
  *= require_tree .
  *= require_self
  */
-  //リセットCSS YUI3導入
- @import "./reset";
-  //border-box全適用
- @import './border-box';
+ //リセットCSS YUI3導入
 
+@import "./reset";
 @import './mixin/*';
+@import "variables";
 
-@import "user/variables";
+//マイページ
+@import './modules/mypage/*';
+
+//ユーザー
 @import "user/mixin";
 @import "user/layout";
 @import "user/edit";
 @import "user/show";
+
+//products
 @import "products/show";
-@import "products/_index";
-@import "reset";
+@import "products/new";
+@import "products/index";
+
 @import "_buy-confirmation";
+
  //新規会員登録ページ
- @import './modules/sign-up-page';
+ @import './modules/sign-up/sign-up-page';
  //新規会員登録ページヘッダー
  @import './modules/user-header';
  //新規会員登録ページフッター
  @import './modules/user-footer';
  //会員登録情報入力ページヘッダー
- @import './modules/sign-up-header';
+ @import './modules/sign-up/sign-up-header';
+ //新規会員登録エラーメッセージ
+ @import './modules/sign-up/sign_up_error_text';
  //会員情報登録ページ
- @import './modules/sign-up-first';
+ @import './modules/sign-up/sign-up-first';
  //新規登録電話番号の確認
- @import './modules/sign-up-second';
+ @import './modules/sign-up/sign-up-second';
  //SMS認証
- @import './modules/sign-up-second-check';
+ @import './modules/sign-up/sign-up-second-check';
  //発送元。お届け先住所入力
- @import './modules/sign-up-third';
+ @import './modules/sign-up/sign-up-third';
  //支払い方法
- @import './modules/sign-up-forth';
+ @import './modules/sign-up/sign-up-forth';
  //新規登録完了画面
- @import './modules/sign-up-fifth';
- 
+ @import './modules/sign-up/sign-up-fifth';
  //ログインページ
- @import './modules/sign-in-page';
+ @import "./modules/layout/application";
  
- @import "user/mixin";
- @import "user/layout";
- @import "user/edit";
- @import "user/show";
- @import "layout/_application";
- @import "./products/_index";
+ @import './modules/sign-in-page';
+
+ //レイアウト
+ @import "./modules/layout/*";
+ 
  @import "./logout";
  @import "./payment-top";
  @import "./payment-input";
- @import "./layout/_dropdown";
- @import "mypage/mypage";
- @import "mypage/mypage-sidemenu";
