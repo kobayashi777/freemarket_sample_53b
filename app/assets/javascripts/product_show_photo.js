@@ -125,13 +125,14 @@ $(function() {
 
   $('.content-photo-down__piece').mouseover(function(){
 
-    var ind = $('li').index(this);
+    var ind = $('.content--photo-down').children('li').index(this);
+    var ind2 =$('.content--photo-up').children('li').index;
 
-    if (ind != ind%10) {   /* この左の条件分岐必要ないと思われるが何かの為に残しておく */
-      if (ind%10 <= ind) {
-        $('.content--photo-up').stop().animate({left: -(ind%10)*300}, 500)
+    if (ind != ind2/*%10*/) {   /* この左の条件分岐必要ないと思われるが何かの為に残しておく */
+      if (ind2/*%10*/ <= ind) {
+        $('.content--photo-up').stop().animate({left: -(ind/*%10*/)*300}, 500)
       } else {
-        $('.content--photo-up').stop().animate({left: (ind%10)*300}, 500)
+        $('.content--photo-up').stop().animate({left: (ind/*%10*/)*300}, 500)
       }
     };
   });
