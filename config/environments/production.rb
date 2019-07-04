@@ -11,8 +11,6 @@ Rails.application.configure do
 
   config.assets.compile = false
 
-  config.active_storage.service = :local
-
   config.log_level = :debug
 
   config.log_tags = [ :request_id ]
@@ -33,4 +31,6 @@ Rails.application.configure do
 
   config.active_record.dump_schema_after_migration = false
   config.require_master_key = true
+
+  config.active_storage.service = :amazon
 end
