@@ -2,6 +2,9 @@
 /* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
 
 .wrapper3
+
+  = render 'layouts/header'
+
   %section.item-container1
     %h1.item-container1__item-name bruhbruhbruh
     .item-container1__item-content.clearfix
@@ -28,7 +31,7 @@
             = image_tag('RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
           %li.photo-up-piece
             = image_tag('m37585938822_1.jpg', height: '300px', width: '300px')
-             
+
         %ul.content--photo-down
           %li.content-photo-down__piece
             -#.photo_down
@@ -91,8 +94,8 @@
       %span.item-container1__item-price-bold  $1000
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee 送料込み
-    .item-container1__item-buy-btn 購入画面に進む
-    .item-container1__item-description 
+    = link_to " 購入画面に進む","/users",  class:"item-container1__item-buy-btn"
+    .item-container1__item-description
       %p.item-description-inner
         This is description area//
         This is description area//
@@ -106,6 +109,7 @@
       .link_btn_right
         %i.fa.fa-lock
         = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
+
   .item-comment-area
     In here,communicate each other.//
     In here,communicate each other.//
@@ -120,14 +124,15 @@
       = link_to 'Next product >', root_path, class: 'item-nav__link-next'
   .sns
     %ul.sns--aikon
-      %i.fa.fa-facebook-square
-      %i.fa.fa-twitter-square
-      %i.fa.fa-pinterest
+      %i.fab.fa-facebook-square
+      %i.fab.fa-twitter-square
+      %i.fab.fa-pinterest
   .item-others
     %section.item-others--seller
-      %h2.item-others-seller-name 出品者のその他の商品
-      .item-others--seller_product
-        .items-box
+      %h2.item-others--seller_name 出品者のその他の商品
+      .item-others--seller_product.clearfix
+
+        .item-others--seller_product_box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -139,12 +144,42 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
+            -# .items-box-tax   本番では税は非表示 以下同じ箇所も同様
+            -#   (税込)           何かの時に記録として残す
+        .item-others--seller_product_box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            -# .items-box-tax
+            -#   (税込)
+        .item-others--seller_product_box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            -# .items-box-tax
+            -#   (税込)
+
     %section.item-others--product
       %h2.item-others--product__category-name 同カテゴリーその他の商品
       .item-others--product__content
-        .items-box
+
+        .item-others--product__content-product-box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
@@ -156,5 +191,35 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            .items-box-tax
-              (税込)
+            -# .items-box-tax
+            -#   (税込)
+        .item-others--product__content-product-box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            -# .items-box-tax
+            -#   (税込)
+        .item-others--product__content-product-box
+          .items-box_photo
+            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
+          .items-box_body
+            %h3.items-box-name
+              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+            .items-box-num
+              .items-box-price
+                ￥6,000
+              .items-box-icon
+                %i.far.fa-heart
+                8
+            -# .items-box-tax
+            -#   (税込)
+
+= render 'layouts/footer'
