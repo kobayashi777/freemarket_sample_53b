@@ -26,40 +26,22 @@
             = f.label 'ニックネーム', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :nickname, class: 'first-main__form--input', placeholder: '例) メルカリ太郎'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:nickname)
-                  %ul
-                    - errors.each do |error|
-                      %li.has_error_text=error
+            = render partial: 'error-messages', locals: {user: @user, column: "nickname"}
           .first-main__form
             = f.label 'メールアドレス', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.email_field :email, class: 'first-main__form--input', placeholder: 'PC・携帯どちらでも可'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:email)
-                  %ul
-                    %li.has_error_text=errors[0]
+            = render partial: 'error-message', locals: {user: @user, column: "email"}
           .first-main__form
             = f.label 'パスワード', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.password_field :password, class: 'first-main__form--input', placeholder: '6文字以上'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:password)
-                  %ul
-                    - errors.each do |error|
-                      %li.has_error_text=error
+            = render partial: 'error-messages', locals: {user: @user, column: "password"}
           .first-main__form
             = f.label 'パスワード (確認)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.password_field :password_confirmation, class: 'first-main__form--input', placeholder: '6文字以上'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:password_confirmation)
-                  %ul
-                    %li.has_error_text=errors[0]
+            = render partial: 'error-message', locals: {user: @user, column: "password_confirmation"}
           .first-main__form
             %h3.first-main__form--user-check 本人確認
             %p.first-main__form--single-text
@@ -68,42 +50,22 @@
             = f.label '姓 (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :last_name, class: 'first-main__form--input', placeholder: '例) 山田'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:last_name)
-                  %ul
-                    - errors.each do |error|
-                      %li.has_error_text=error
+            = render partial: 'error-messages', locals: {user: @user, column: "last_name"}
           .first-main__form
             = f.label '名 (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :first_name, class: 'first-main__form--input', placeholder: '例) 彩'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:first_name)
-                  %ul
-                    - errors.each do |error|
-                      %li.has_error_text=error
+            = render partial: 'error-messages', locals: {user: @user, column: "first_name"}
           .first-main__form
             = f.label '姓カナ (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :last_name_kana, class: 'first-main__form--input', placeholder: '例) ヤマダ'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:last_name_kana)
-                  %ul
-                    - errors.each do |error|
-                      %li.has_error_text=error
+            = render partial: 'error-messages', locals: {user: @user, column: "last_name_kana"}
           .first-main__form
             = f.label '名カナ (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :first_name_kana, class: 'first-main__form--input', placeholder: '例) アヤ'
-            - if @user.errors.any?
-              - unless @user.valid?
-                - if errors = @user.errors.full_messages_for(:first_name_kana)
-                  %ul
-                    - errors.each do |error|
-                      %li.has_error_text=error
+            = render partial: 'error-messages', locals: {user: @user, column: "first_name_kana"}
           .first-main__form
             = f.label '生年月日', class: 'first-main__form--label'
             %span.first-main__form--require 必須
