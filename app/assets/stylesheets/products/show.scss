@@ -20,22 +20,47 @@
       .content--photo {
         float: left;
         width: 300px;
-        min-height: 375px;
-        position: relative;
+        min-height: 380px;
+        overflow: hidden;  /* ここに書くことで隠れる 遷移確認の為一時コメアウト */
         margin: 0 auto;
         background: $thin_gray;
         .content--photo-up {
+          @include clearfix;
           height: 300px;
+          width: 3000px;
+          //overflow: hidden;   /* ここにこれらを書いても写真は隠れない 記録として残す */
+          position: relative;
+          .photo-up-piece {
+            float:left;
+            height: 300px;
+            width:300px;
+            //overflow: hidden;   /* ここにこれらを書いても写真は隠れない
+            //display: flex;          記録として残す */
+          }
         }
         .content--photo-down {
-          height: 75px;
-          border-top: 1px dashed gray;
+          @include clearfix;
+          height: 120px;
+          border-collapse: collapse;
+          overflow: hidden;
+          .content-photo-down__piece {
+            height: 60px;
+            width: 60px;
+            float: left;
+            border-collapse: collapse;
+            cursor: pointer;
+          }
+          .content--photo-down__piece.activ {
+            filter:alpha(opacity=100)!important;
+            -moz-opacity: 1!important;
+            opacity: 1!important;
+          }
         }
       }
       .content--detail-table {
         float: right;
         width: 300px; //100% before
-        height: 375px; //420px before
+        height: 420px; //420px before
         border-collapse: collapse;
         border: 1px solid #f5f5f5;
         .table {
@@ -84,6 +109,7 @@
       margin: 16px 0 24px;
       height: 60px;
       line-height: 60px;
+      font-size: 24px;
       display: block;
       background: #ea352d;
       color: #fff;
