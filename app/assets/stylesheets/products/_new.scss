@@ -130,6 +130,9 @@ $sub-text-color: #333;
   line-height: 14px;
   &__added{
     margin-top: 8px;
+    &--size{
+      margin: 0;
+    }
   }
   &__box{
     width: 100%;
@@ -157,6 +160,9 @@ $sub-text-color: #333;
   &-delivery-method{margin-top: 40px;}
   &-regional-original-delivery{margin-top: 40px;}
   &-days-up-to-delivery{margin-top: 40px;}
+  &-detail__size{
+    margin-top: 40px;
+  }
 }
 
 // 利益計算フォーム
