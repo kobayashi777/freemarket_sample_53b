@@ -22,6 +22,7 @@
           .second-wrapper__form
             = f.label '携帯電話の番号', class: 'second-wrapper__form--label'
             = f.phone_field :phone_number, class: 'second-wrapper__form--input', placeholder: '携帯電話の番号を入力'
+            = render partial: 'error-message', locals: {user: @user, column: "phone_number"}
           %p.second-wrapper__form--info 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           = f.submit 'SMSを送信する', class: 'second-wrapper__form--btn'
           %p.second-wrapper__form--caution ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。

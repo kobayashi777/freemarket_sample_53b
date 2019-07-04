@@ -3,7 +3,6 @@
 .signup-second{//電話番号の確認ページ全体
   width: 100vw;
   height: 900px;
-  // height: 862px;
   padding-bottom: 220px;
   background-color: $thin_gray;
   position: relative;
@@ -11,7 +10,6 @@
 
 .second-wrapper{//電話番号の確認ページコンテンツ
   width: 700px;
-  height: 514px;
   background-color: $white;
   margin: 0 auto;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -26,12 +24,10 @@
   }
   &__box{//電話番号の確認フォーム全体
     width: 700px;
-    height: 464px;
     padding: 64px;
     border-top: solid 1px rgb(245, 245, 245);
     &--inner{//電話番号の確認フォーム内部
       width: 320px;
-      height: 464px;
       margin: 0 auto;
     }
   }
