@@ -1,6 +1,6 @@
 .user-credit-sidebar{
   position: relative;
-  padding: 49px 0 80px 80px;
+  padding: 9px 0 80px 80px;
 }
 
 .payment-all{
@@ -9,8 +9,8 @@
   background-color: white;
   margin: 0 auto;
   position: absolute;
-  top: 51px;
-  left: 420px;
+  top: 148px;
+  left: 480px;
 
 &__head{
   width: 100%;
@@ -46,7 +46,7 @@
     line-height: inherit;
     color: white;
     font-size: 16px;
-    padding-right: 5px;
+    padding-right: 10px;
   }
   .button-text{
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
@@ -58,12 +58,6 @@
   }
 
 }
-
-
-
-
-
-
     .btn{
       justify-content: center;
       display: flex;
@@ -88,6 +82,7 @@
       line-height: 4px;
       border: none;
       margin-top: 30px;
+      position: relative;
       cursor: pointer;
     }
 
@@ -99,3 +94,19 @@
     }
 
 
+    .user-credit-footer-button{
+      width:100%;
+    }
+    .user-credit-footer{
+      width:100%;
+      display: flow-root;
+      padding-top: 30px;
+    }
+
+    // 支払い方法についての右の＞
+    .payment-right{
+      position: absolute;
+      color: #0098E8 !important;
+      position: unset !important;
+      font-size: 17px;
+    }
