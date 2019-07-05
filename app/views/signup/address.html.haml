@@ -24,15 +24,26 @@
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_last_name, class: 'third-main-wrapper__form--input', placeholder: '例) 山田'
             = f.text_field :address_first_name, class: 'third-main-wrapper__form--input-margin', placeholder: '例) 彩'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if @user.errors.full_messages_for(:address_last_name) != [] || @user.errors.full_messages_for(:address_first_name) != []
+                  %ul
+                    %li.has_error_text 名前を入力してください    
           .third-main-wrapper__form
             = f.label 'お名前カナ', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_last_name_kana, class: 'third-main-wrapper__form--input', placeholder: '例) ヤマダ'
             = f.text_field :address_first_name_kana, class: 'third-main-wrapper__form--input-margin', placeholder: '例) アヤ'
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if @user.errors.full_messages_for(:address_last_name_kana) != [] || @user.errors.full_messages_for(:address_first_name_kana) != []
+                  %ul
+                    %li.has_error_text 名前カナを入力してください    
           .third-main-wrapper__form
             = f.label '郵便番号', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_number, class: 'third-main-wrapper__form--input', placeholder: '例) 123-4567'
+            = render partial: 'error-message', locals: {user: @user, column: "address_number"}
           .third-main-wrapper__form
             = f.label '都道府県', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
@@ -44,10 +55,12 @@
             = f.label '市区町村', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_name, class: 'third-main-wrapper__form--input', placeholder: '例) 横浜市緑区'
+            = render partial: 'error-messages', locals: {user: @user, column: "address_name"}
           .third-main-wrapper__form
             = f.label '番地', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--require 必須
             = f.text_field :address_block, class: 'third-main-wrapper__form--input', placeholder: '例) 青山1-1-1'
+            = render partial: 'error-message', locals: {user: @user, column: "address_block"}
           .third-main-wrapper__form
             = f.label '建物名', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--option 任意
@@ -56,5 +69,6 @@
             = f.label '電話', class: 'third-main-wrapper__form--label'
             %span.third-main-wrapper__form--option 任意
             = f.phone_field :address_phone_number, class: 'third-main-wrapper__form--input', placeholder: '09012345678'
+            = render partial: 'error-message', locals: {user: @user, column: "address_phone_number"}
           = f.submit '次へ進む', class: 'third-main-wrapper__form--btn'
   = render 'shared/user-footer'

@@ -3,5 +3,5 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :brand
   belongs_to :category
-  belongs_to :product_size
+  belongs_to :products_size
 end
