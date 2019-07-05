@@ -37,7 +37,7 @@ $(function(){
                             </div>`;
     $('.listing-product-detail__category').append(grandchildSelectHtml);
   }
-  // サイズの表示作成
+  // サイズ・ブランド入力欄の表示作成
   function appendSizeBox(insertHTML){
     var sizeSelectHtml = '';
     sizeSelectHtml = `<div class="listing-product-detail__size" id= 'size_wrapper'>
@@ -63,7 +63,7 @@ $(function(){
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
-    if (parentCategory != "---"){ //親カテゴリーが初期値出ないことを確認
+    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
