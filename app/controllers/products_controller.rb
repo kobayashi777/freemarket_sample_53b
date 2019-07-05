@@ -12,4 +12,7 @@ class ProductsController < ApplicationController
 #   @credit = Credit.new
    end
 
+   def edit
+   end
+   
    end
