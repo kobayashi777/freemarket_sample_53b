@@ -38,9 +38,8 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              = f.select :prefecture, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須

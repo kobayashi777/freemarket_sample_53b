@@ -37,6 +37,7 @@
             //display: flex;          記録として残す */
           }
         }
+      }
         .content--photo-down {
           @include clearfix;
           height: 120px;
@@ -54,7 +55,7 @@
             -moz-opacity: 1!important;
             opacity: 1!important;
           }
-      }
+        }
       .content--detail-table {
         float: right;
         width: 300px; //100% before
@@ -196,7 +197,7 @@
     background: $white;
     text-align: center;
     .sns--aikon {
-      font-size: 3em
+      font-size: 3em;
     }
   }
   
