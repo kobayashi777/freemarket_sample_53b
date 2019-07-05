@@ -6,6 +6,15 @@
   li:nth-child(1) .signup-header__nav--status{
     background-color: #ea352d;
   }
+:javascript
+  $(function() {
+    var year = $('#year').attr("value");
+    var month = $('#month').attr("value");
+    var day = $('#day').attr("value");
+    $("#year option[value="+ year +"]").prop('selected', true);
+    $("#month option[value="+ month +"]").prop('selected', true);
+    $("#day option[value="+ day +"]").prop('selected', true);
+  })
 .signup-first
   = render 'shared/sign-up-header'
   .first-main
@@ -17,18 +26,22 @@
             = f.label 'ニックネーム', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :nickname, class: 'first-main__form--input', placeholder: '例) メルカリ太郎'
+            = render partial: 'error-messages', locals: {user: @user, column: "nickname"}
           .first-main__form
             = f.label 'メールアドレス', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.email_field :email, class: 'first-main__form--input', placeholder: 'PC・携帯どちらでも可'
+            = render partial: 'error-message', locals: {user: @user, column: "email"}
           .first-main__form
             = f.label 'パスワード', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.password_field :password, class: 'first-main__form--input', placeholder: '6文字以上'
+            = render partial: 'error-messages', locals: {user: @user, column: "password"}
           .first-main__form
             = f.label 'パスワード (確認)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.password_field :password_confirmation, class: 'first-main__form--input', placeholder: '6文字以上'
+            = render partial: 'error-message', locals: {user: @user, column: "password_confirmation"}
           .first-main__form
             %h3.first-main__form--user-check 本人確認
             %p.first-main__form--single-text
@@ -37,37 +50,46 @@
             = f.label '姓 (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :last_name, class: 'first-main__form--input', placeholder: '例) 山田'
+            = render partial: 'error-messages', locals: {user: @user, column: "last_name"}
           .first-main__form
             = f.label '名 (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :first_name, class: 'first-main__form--input', placeholder: '例) 彩'
+            = render partial: 'error-messages', locals: {user: @user, column: "first_name"}
           .first-main__form
             = f.label '姓カナ (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :last_name_kana, class: 'first-main__form--input', placeholder: '例) ヤマダ'
+            = render partial: 'error-messages', locals: {user: @user, column: "last_name_kana"}
           .first-main__form
             = f.label '名カナ (全角)', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             = f.text_field :first_name_kana, class: 'first-main__form--input', placeholder: '例) アヤ'
+            = render partial: 'error-messages', locals: {user: @user, column: "first_name_kana"}
           .first-main__form
             = f.label '生年月日', class: 'first-main__form--label'
             %span.first-main__form--require 必須
             .first-main__select-wrapper
               .first-main__select-box
-                = f.select :birthdate_year, nil, {}, {class: 'first-main__select-box--input', id: 'year'} do
+                = f.select :birthdate_year, nil, {}, {class: 'first-main__select-box--input', id: 'year', value: "#{session[:birthdate_year]}"} do
                   %option.first-main__select-box--input --
                 %i.fas.fa-chevron-down.first-main__select-box--arrow-down
               %span.first-main__select-detail 年
               .first-main__select-box
-                = f.select :birthdate_month, nil, {}, {class: 'first-main__select-box--input', id: 'month'} do
+                = f.select :birthdate_month, nil, {}, {class: 'first-main__select-box--input', id: 'month', value: "#{session[:birthdate_month]}"} do
                   %option.first-main__select-box--input --
                 %i.fas.fa-chevron-down.first-main__select-box--arrow-down
               %span.first-main__select-detail 月
               .first-main__select-box
-                = f.select :birthdate_day, nil, {}, {class: 'first-main__select-box--input', id: 'day'} do
+                = f.select :birthdate_day, nil, {}, {class: 'first-main__select-box--input', id: 'day', value: "#{session[:birthdate_day]}"} do
                   %option.first-main__select-box--input --
                 %i.fas.fa-chevron-down.first-main__select-box--arrow-down
               %span.first-main__select-detail 日
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if @user.errors.full_messages_for(:birthdate_year) != [] || @user.errors.full_messages_for(:birthdate_month) != []|| @user.errors.full_messages_for(:birthdate_day) != []
+                  %ul
+                    %li.has_error_text 生年月日を入力してください                
           %p.first-main__form--info
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .first-main__box--bottom

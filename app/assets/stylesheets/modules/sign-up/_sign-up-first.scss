@@ -2,16 +2,13 @@
 
 .signup-first{//会員情報登録ページ全体
   width: 100vw;
-  height: 2004px;
   padding-bottom: 220px;
   background-color: $thin_gray;
   position: relative;
 }
 .first-main{//会員情報登録ページコンテンツ
-height: 1656px;
   &__wrapper{//会員情報登録ページ白枠
     width: 700px;
-    height: 1656px;
     background-color: $white;
     margin: 0 auto;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -27,12 +24,10 @@ height: 1656px;
   }
   &__box{//会員情報登録フォーム全体
     width: 700px;
-    height: 1559px;
     padding: 40px 16px;
     border-top: solid 1px rgb(245, 245, 245);
     &--top{//会員情報登録ページフォーム上部
       width: 320px;
-      height: 1127px;
       margin: 0 auto 40px;
     }
     &--bottom{//会員情報登録ページフォームreCAPTCHA以降

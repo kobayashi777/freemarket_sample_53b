@@ -24,7 +24,6 @@
         background: $thin_gray;
         .content--photo-up {
           @include clearfix;
-          background: $much_thin_gray;
           height: 300px;
           width: 3000px;
           //overflow: hidden;   /* ここにこれらを書いても写真は隠れない 記録として残す */
@@ -54,6 +53,7 @@
             -moz-opacity: 1!important;
             opacity: 1!important;
           }
+        }
       }
       .content--detail-table {
         float: right;
@@ -122,7 +122,7 @@
       padding: 32px 0 0;
       line-height: 1.5;
       font-size: 18px;
-      
+
       .item-description-inner {
         text-align: left;
       }
@@ -153,14 +153,14 @@
       }
     }
   }
-  
+
   .item-comment-area {
     width: 700px;
     margin: 8px auto;
     text-align: center;
     background: $white;
   }
-  
+
   .item-nav {
     @include clearfix;
     margin: 24px auto 0;
@@ -188,7 +188,7 @@
       }
     }
   }
-  
+
   .sns {
     margin: 24px auto;
     padding: 60px 0 24px;
@@ -199,7 +199,7 @@
       font-size: 3em
     }
   }
-  
+
   .item-others {
     margin: 0 auto;
     width: 700px;
