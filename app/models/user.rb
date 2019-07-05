@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # 都道府県
   enum address_prefecture: {
   北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
   茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
@@ -14,6 +16,33 @@ class User < ApplicationRecord
   福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
   
+  # アソシエーション
   has_one :credit
   accepts_nested_attributes_for :credit
+
+  # バリデーション
+  VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_PHONE_REGEX =                 /\A\d{10}$|^\d{11}\z/
+  VALID_ADDRESS_NUMBER_REGEX =        /\A[0-9]{3}-[0-9]{4}\z/
+  validates :nickname,                presence: true, length: {maximum: 20}
+  validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :password,                presence: true, length: {minimum: 6, maximum: 128}
+  validates :password_confirmation,   presence: true, length: {minimum: 6, maximum: 128}
+  validates :last_name,               presence: true
+  validates :first_name,              presence: true
+  validates :last_name_kana,          presence: true
+  validates :first_name_kana,         presence: true
+  validates :birthdate_year,          numericality: true
+  validates :birthdate_month,         numericality: true
+  validates :birthdate_day,           numericality: true
+  validates :phone_number,            presence: true, uniqueness: true, format: { with: VALID_PHONE_REGEX }
+  validates :address_last_name,       presence: true
+  validates :address_first_name,      presence: true
+  validates :address_last_name_kana,  presence: true
+  validates :address_first_name_kana, presence: true
+  validates :address_number,          presence: true, format: { with: VALID_ADDRESS_NUMBER_REGEX }
+  validates :address_prefecture,      presence: true
+  validates :address_name,            presence: true
+  validates :address_block,           presence: true
+  validates :address_phone_number,    allow_blank: true, format: { with: VALID_PHONE_REGEX }
 end

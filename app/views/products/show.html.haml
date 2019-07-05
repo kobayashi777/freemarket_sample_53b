@@ -1,3 +1,5 @@
+%script{src: 'product_show_photo', type: 'text/html'}
+
 /* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
 
 .wrapper3
@@ -5,8 +7,8 @@
   = render 'layouts/header'
 
   %section.item-container1
-    %h1.item-container1__item-name brabrabra
-    .item-container1__item-content
+    %h1.item-container1__item-name bruhbruhbruh
+    .item-container1__item-content.clearfix
       .content--photo
         .content--photo_up photo up
         .content--photo_down photo down
@@ -82,10 +84,10 @@
             %th.table--section-right Ghost Rider
           %tr.table--section
             %th.table--section-left 配送料負担
-            %th.table--section-right how much
+            %th.table--section-right how much will you pay
           %tr.table--section
             %th.table--section-left 配送方法
-            %th.table--section-right 浮游(形状が崩れる可能性があります),瞬間移動(目的地に届くとは限りません)
+            %th.table--section-right Aaaaa-Oh
           %tr.table--section
             %th.table--section-left 配送元
             %th.table--section-right ちょっと何言ってるか分からないです
@@ -97,8 +99,8 @@
       %span.item-container1__item-price-bold  $1000
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee 送料込み
-    .item-container1__item-buy-btn 購入画面に進む
-    .item-container1__item-description 
+    = link_to " 購入画面に進む","/users",  class:"item-container1__item-buy-btn"
+    .item-container1__item-description
       %p.item-description-inner
         This is description area//
         This is description area//
@@ -223,6 +225,5 @@
                 %i.far.fa-heart
                 8
             -# .items-box-tax
-            -#   (税込)     
-            
+
 = render 'layouts/footer'
