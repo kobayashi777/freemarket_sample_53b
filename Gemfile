@@ -70,3 +70,4 @@ gem 'devise'
 gem 'payjp'
 
 gem "aws-sdk-s3", require: false
+gem 'mini_magick'

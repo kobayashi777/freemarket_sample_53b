@@ -1,3 +1,4 @@
 class ProductsSize < ApplicationRecord
-  has_many :products
+  # FIXME:テスト用コメントアウト
+  # has_many :products
 end
