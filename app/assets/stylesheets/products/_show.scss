@@ -37,7 +37,6 @@
             //display: flex;          記録として残す */
           }
         }
-      }
         .content--photo-down {
           @include clearfix;
           height: 120px;
@@ -56,6 +55,7 @@
             opacity: 1!important;
           }
         }
+      }
       .content--detail-table {
         float: right;
         width: 300px; //100% before
