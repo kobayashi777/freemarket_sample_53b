@@ -1,10 +1,6 @@
 class ProductsController < ApplicationController
    # before_action: authenticate_user!
    def index
-   end
-
-   def show
-   def index
       @products = Product.all
    end
 

@@ -13,12 +13,12 @@
       %p.listing-upload__subtext 最大10枚までアップロードできます
       -# FIXME: ↓file_fieldで実装？ドラッグ&ドロップ担当者に任せます！ｶﾞﾝﾊﾞﾚ!!o(｀・д・´)oｶﾞﾝﾊﾞﾚ!!！
       -# 参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
-      .listing-upload__drag-box{mouseover: "$('#photo_upload').click()"}
+      .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
         .listing-upload__drag-box--inner-text
           ドラッグ＆ドロップ
           %br
           またはクリックしてファイルをアップロード
-      = f.file_field :photos, multiple: true, id: 'photo_upload'
+      = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
 
     -# 商品名・商品説明
     .listing-content.clearfix
@@ -41,7 +41,8 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :prefecture, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+            -# FIXME:nilのため一時コメントアウト
+              -# = f.select :prefecture, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
@@ -140,4 +141,3 @@
         もどる
 
   = render './shared/user-footer'
-

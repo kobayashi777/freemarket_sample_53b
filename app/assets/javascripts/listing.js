@@ -7,7 +7,7 @@ $(function(){
   var salesProfit = Math.floor(salesDesiredPrice - salesFee);
   
   // 価格設定300円〜9,999,999円
-  if (salesDesiredPrice > 299 && salesDesiredPrice <= 9999999 ) {
+  if (salesDesiredPrice > 299 && salesDesiredPrice < 10000000 ) {
     $("#sf-tag").text("¥" + salesFee.toLocaleString('ja-JP'));
     $("#sp-tag").text("¥" + salesProfit.toLocaleString('ja-JP'));
   } else {
