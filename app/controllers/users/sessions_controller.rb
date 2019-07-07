@@ -6,8 +6,8 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     super
-    session[:flag] = "signin"
-    session[:error] = nil
+    session[:flag] = "signin" #signinページであることを示す目印
+    session[:error] = nil #エラーメッセージの初期化
   end
 
   # POST /resource/sign_in
