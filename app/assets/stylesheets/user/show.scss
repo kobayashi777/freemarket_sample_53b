@@ -6,17 +6,23 @@
 //   visibility: hidden;
 // }      @mixin効くようになったのでレガシーとして残す。急遽@mixin使えなくなった時に残す。
 
+.user-info{
+  width:100%;
+  height: 100%;
+
+}
 .wrapper2 {
   @include clearfix;
   width: 100%;
   height: 100%;
-  margin: 0 auto 0;
-  padding: 40px 210px 40px;
+
   background: $thin_gray;
+  display: flex;
 
   .user-info-container {
-    float: right;
     width: 700px;
+    margin:0 auto;
+    margin-top:40px;
     background-color: $white;
     h2 {
       padding: 8px 24px;

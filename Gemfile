@@ -30,6 +30,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -37,6 +39,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+   gem 'spring-commands-rspec'
 
   # エラー画面整形用
   gem 'better_errors'
@@ -66,4 +69,5 @@ gem 'ancestry'
 gem 'gretel'
 gem 'devise'
 gem 'payjp'
+gem 'dotenv-rails'
 

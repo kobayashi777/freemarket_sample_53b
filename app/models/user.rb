@@ -16,4 +16,5 @@ class User < ApplicationRecord
   
   has_one :credit
   accepts_nested_attributes_for :credit
+  has_many :cards
 end
