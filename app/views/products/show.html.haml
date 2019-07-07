@@ -5,51 +5,60 @@
   = render 'layouts/header'
 
   %section.item-container1
-    %h1.item-container1__item-name brabrabra
+    %h1.item-container1__item-seller_name
+      = @product.product_name
     .item-container1__item-content
       .content--photo
         .content--photo_up photo up
+        -# TODO: アクティブストレージと呼び出し方が違う為出品機能実装後に記述する
+        -# = image_tag @product.photo
         .content--photo_down photo down
       %table.content--detail-table
         %tbody.table
           %tr.table--section
             %th.table--section-left 出品者
-            %th.table--section-right aikon several
+            %th.table--section-right
+            -# TODO: userが設定されていない為、user設定後に記述する
+              -# = link_to "#{@product.user.nickname}", ""
           %tr.table--section
             %th.table--section-left カテゴリー
-            %th.table--section-right kate
+            %th.table--section-right
+              = @product.category_id
           %tr.table--section
             %th.table--section-left ブランド
-            %th.table--section-right speeddemon
+            %th.table--section-right
+              = @product.brand_id
           %tr.table--section
             %th.table--section-left 商品状態
-            %th.table--section-right Ghost Rider
+            %th.table--section-right
+              = @product.product_status
           %tr.table--section
             %th.table--section-left 配送料負担
-            %th.table--section-right how much
+            %th.table--section-right
+              = @product.delivery_charge
           %tr.table--section
             %th.table--section-left 配送方法
-            %th.table--section-right 浮游(形状が崩れる可能性があります),瞬間移動(目的地に届くとは限りません)
+            %th.table--section-right
+              = @product.delivery_method
           %tr.table--section
             %th.table--section-left 配送元
-            %th.table--section-right ちょっと何言ってるか分からないです
+            %th.table--section-right
+              = @product.delivery_area
           %tr.table--section
             %th.table--section-left 配送日目安
-            %th.table--section-right てやんでい
+            %th.table--section-right
+              = @product.delivery_days
 
     .item-container1__item-price
-      %span.item-container1__item-price-bold  $1000
+      %span.item-container1__item-price-bold
+        ¥
+        = @product.price
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee 送料込み
     .item-container1__item-buy-btn 購入画面に進む
     .item-container1__item-description 
       %p.item-description-inner
-        This is description area//
-        This is description area//
-        This is description area//
-        This is description area//
-        This is description area//
-        This is description area//
+        = @product.product_introduction
     .item-container1__item-other-btn.clearfix
       .link_btn_left
         %button.item-other-btn-left いいね！
@@ -81,44 +90,44 @@
 
         .item-others--seller_product_box
           .items-box_photo
-            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
             %h3.items-box-name
-              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+              = @product.product_name
             .items-box-num
               .items-box-price
-                ￥6,000
+                ¥
+                = @product.price
               .items-box-icon
                 %i.far.fa-heart
-                8
+                0
             -# .items-box-tax   本番では税は非表示 以下同じ箇所も同様
             -#   (税込)           何かの時に記録として残す
         .item-others--seller_product_box
           .items-box_photo
-            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
             %h3.items-box-name
-              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+              = @product.product_name
             .items-box-num
               .items-box-price
-                ￥6,000
+                ¥
+                = @product.price
               .items-box-icon
                 %i.far.fa-heart
-                8
+                0
             -# .items-box-tax
             -#   (税込)
         .item-others--seller_product_box
           .items-box_photo
-            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
             %h3.items-box-name
-              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+              = @product.product_name
             .items-box-num
               .items-box-price
-                ￥6,000
+                ¥
+                = @product.price
               .items-box-icon
                 %i.far.fa-heart
-                8
+                0
             -# .items-box-tax
             -#   (税込)
 
@@ -128,44 +137,44 @@
 
         .item-others--product__content-product-box
           .items-box_photo
-            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
             %h3.items-box-name
-              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+              = @product.product_name
             .items-box-num
               .items-box-price
-                ￥6,000
+                ¥
+                = @product.price
               .items-box-icon
                 %i.far.fa-heart
-                8
+                0
             -# .items-box-tax
             -#   (税込)
         .item-others--product__content-product-box
           .items-box_photo
-            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
             %h3.items-box-name
-              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+              = @product.product_name
             .items-box-num
               .items-box-price
-                ￥6,000
+                ¥
+                = @product.price
               .items-box-icon
                 %i.far.fa-heart
-                8
+                0
             -# .items-box-tax
             -#   (税込)
         .item-others--product__content-product-box
           .items-box_photo
-            = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
           .items-box_body
             %h3.items-box-name
-              ビンテージ 1963年製 バービー人形マテル スイス製手巻き腕時計
+              = @product.product_name
             .items-box-num
               .items-box-price
-                ￥6,000
+                ¥
+                = @product.price
               .items-box-icon
                 %i.far.fa-heart
-                8
+                0
             -# .items-box-tax
             -#   (税込)     
             
