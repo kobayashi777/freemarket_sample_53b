@@ -25,23 +25,43 @@
           .first-main__form--top
             = f.label 'ニックネーム', class: 'first-main__form--label'
             %span.first-main__form--require 必須
-            = f.text_field :nickname, class: 'first-main__form--input', placeholder: '例) メルカリ太郎'
-            = render partial: 'error-messages', locals: {user: @user, column: "nickname"}
+            - if session[:nickname] && params[:email_signup] != "yes"
+              = f.text_field :nickname, class: 'first-main__form--input', placeholder: '例) メルカリ太郎', value: "#{session[:nickname]}"
+              = render partial: 'error-messages', locals: {user: @user, column: "nickname"}
+            - else
+              = f.text_field :nickname, class: 'first-main__form--input', placeholder: '例) メルカリ太郎'
+              = render partial: 'error-messages', locals: {user: @user, column: "nickname"}
           .first-main__form
             = f.label 'メールアドレス', class: 'first-main__form--label'
             %span.first-main__form--require 必須
-            = f.email_field :email, class: 'first-main__form--input', placeholder: 'PC・携帯どちらでも可'
-            = render partial: 'error-message', locals: {user: @user, column: "email"}
-          .first-main__form
-            = f.label 'パスワード', class: 'first-main__form--label'
-            %span.first-main__form--require 必須
-            = f.password_field :password, class: 'first-main__form--input', placeholder: '6文字以上'
-            = render partial: 'error-messages', locals: {user: @user, column: "password"}
-          .first-main__form
-            = f.label 'パスワード (確認)', class: 'first-main__form--label'
-            %span.first-main__form--require 必須
-            = f.password_field :password_confirmation, class: 'first-main__form--input', placeholder: '6文字以上'
-            = render partial: 'error-message', locals: {user: @user, column: "password_confirmation"}
+            - if session[:email] && params[:email_signup] != "yes"
+              = f.email_field :email, class: 'first-main__form--input', placeholder: 'PC・携帯どちらでも可', value: "#{session[:email]}"
+              = render partial: 'error-message', locals: {user: @user, column: "email"}
+            - else
+              = f.email_field :email, class: 'first-main__form--input', placeholder: 'PC・携帯どちらでも可'
+              = render partial: 'error-message', locals: {user: @user, column: "email"}
+          - if session[:password] && params[:email_signup] != "yes"
+            .first-main__form{style: 'display: none;'}
+              = f.label 'パスワード', class: 'first-main__form--label'
+              %span.first-main__form--require 必須
+              = f.password_field :password, class: 'first-main__form--input', placeholder: '6文字以上', value: "#{session[:password]}"
+              = render partial: 'error-messages', locals: {user: @user, column: "password"}
+            .first-main__form{style: 'display: none;'}
+              = f.label 'パスワード (確認)', class: 'first-main__form--label'
+              %span.first-main__form--require 必須
+              = f.password_field :password_confirmation, class: 'first-main__form--input', placeholder: '6文字以上', value: "#{session[:password]}"
+              = render partial: 'error-message', locals: {user: @user, column: "password_confirmation"}
+          - else
+            .first-main__form
+              = f.label 'パスワード', class: 'first-main__form--label'
+              %span.first-main__form--require 必須
+              = f.password_field :password, class: 'first-main__form--input', placeholder: '6文字以上'
+              = render partial: 'error-messages', locals: {user: @user, column: "password"}
+            .first-main__form
+              = f.label 'パスワード (確認)', class: 'first-main__form--label'
+              %span.first-main__form--require 必須
+              = f.password_field :password_confirmation, class: 'first-main__form--input', placeholder: '6文字以上'
+              = render partial: 'error-message', locals: {user: @user, column: "password_confirmation"}
           .first-main__form
             %h3.first-main__form--user-check 本人確認
             %p.first-main__form--single-text

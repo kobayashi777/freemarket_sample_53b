@@ -5,6 +5,7 @@ class SignupController < ApplicationController
   before_action :save_to_session_before_done, only: :create
 
   def index # 新規会員登録方法画面
+    session[:flag] = "signup"
   end
 
   def registration # 会員情報登録画面
@@ -54,6 +55,7 @@ class SignupController < ApplicationController
       address_phone_number: session[:address_phone_number], 
     )
     @user.build_credit(user_params[:credit_attributes]) # creditsテーブルのインスタンス作成
+    @user.sns_credentials.build(provider: session[:provider], uid: session[:uid]) if session[:provider] && session[:uid]
     if @user.save
       sign_in @user
       redirect_to done_signup_index_path
