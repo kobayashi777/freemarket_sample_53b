@@ -18,6 +18,11 @@
           またはクリックしてファイルをアップロード
       = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
 
+      -# テスト
+      -if @product.photos.attached?
+        - @product.photos.each do |photo|
+          = image_tag :photo.variant(resize: "150x150")
+
     -# 商品名・商品説明
     .listing-content.clearfix
       .listing-product-name
@@ -40,7 +45,7 @@
           .listing-select-wrapper
             .listing-select-wrapper__box
             -# FIXME:nilのため一時コメントアウト
-              -# = f.select :prefecture, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              -# = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
@@ -135,6 +140,7 @@
           加盟店規約
         に同意したことになります。
       = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
+      -# TODO: 外部から直接アクセスなど前のページがなくて戻れない場合はトップに飛ぶよう分岐させる コントローラ側？
       = link_to :back, class: 'listing-product-submit-box__return-btn' do
         もどる
         

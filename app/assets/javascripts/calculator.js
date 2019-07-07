@@ -1,4 +1,4 @@
-// 利益計算機能
+// 商品購入ページのの利益計算機能
 $(function(){
   $("#price-form").keyup(function(){
 
