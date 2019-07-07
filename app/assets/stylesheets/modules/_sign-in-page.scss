@@ -8,7 +8,6 @@
   position: relative;
 }
 .login-main{//ログインページコンテンツ
-  height: 731px;
   &__panel{//ログインページ白枠
     width: 456px;
     height: 100%;
@@ -35,16 +34,17 @@
     padding: 32px 64px;
     border-top: 1px solid #eee;
     width: 456px;
-    height: 181px;
     &--facebook-btn{//Facebookでログインボタン
       @include btn-facebook();
       margin-top: 0;
+      text-align: center;
     }
     &--facebook-icon{//Facebookアイコン
       @include facebook-icon();
     }
     &--google-btn{//Googleでログインボタン
       @include btn-google();
+      text-align: center;
     }
     &--google-icon{//Googleアイコン
       @include google-icon();
@@ -52,7 +52,6 @@
   }
   &__form{//メールアドレスでログイン
     width: 456px;
-    height: 406px;
     padding: 24px 64px 32px;
     &--email{//メールアドレス入力フォーム
       @include form-default();
