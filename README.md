@@ -31,33 +31,32 @@
 |remember_created_at|datetime|--|
 
 ### Association
-- has_many :users_photos
 - has_many :products
+- has_many :sns_credentials
 - has_one :credit
 ***
-## creaidts table
+## credits table
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|integer|foreign_key: true, limit: 8|
 |card_number|integer|null: false, limit: 8|
 |validated_date_month|integer|null: false, default: 0|
 |validated_date_year|integer|null: false, default: 0|
 |security_code|integer|null: false|
-|created_at|timestamp|null: false|
 
 ### Association
 - belongs_to :user, optional: true
 ***
-## users_credits table
+## sns_credentials table
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|foreign_key: true|
-|credit_id|references|foreign_key: true|
-
+|provider|string|--|
+|uid|string|--|
+|user_id|integer|foreign_key: true, limit: 8|
 ### Association
 - belongs_to :user
-- belongs_to :credit
 ***
 ## products table
 
@@ -87,18 +86,6 @@
 - belongs_to :category
 - belongs_to :product_size
 ***
-## users_photos table
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true|
-|photo|text|null: false|
-|created_at|timestamp|null: false|
-|updates_at|timestamp|null: false|
-
-### Association
-- belongs_to :user
-***
 ## products_photos table
 
 |Column|Type|Options|
@@ -111,15 +98,29 @@
 ### Association
 - belongs_to :product
 ***
-## products_sizies table
+## products_sizes table
 
 |Column|Type|Options|
 |------|----|-------|
 |size|string|null: false, index: true|
-|path|string|--|
+|ancestry|string|--|
 
 ### Association
+- has_many :category_sizes
+- has_many :categories, through: :category_sizes
 - has_many :products
+- has_ancestry
+***
+## category_sizes table
+
+|Column|Type|Options|
+|------|----|-------|
+|category_id|integer|foreign_key: true, limit: 8|
+|products_size_id|integer|foreign_key: true, limit: 8|
+
+### Association
+- belongs_to :category
+- belongs_to :products_size
 ***
 ## categories table
 
@@ -130,6 +131,9 @@
 
 ### Association
 - has_many :products
+- has_many :category_sizes
+- has_many :products_sizes, through: :category_sizes
+- has_ancestry
 ***
 ## brands table
 
