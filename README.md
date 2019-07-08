@@ -46,7 +46,7 @@
 |security_code|integer|null: false|
 
 ### Association
-- belongs_to :user, optional: true
+- belongs_to :user
 ***
 ## sns_credentials table
 
