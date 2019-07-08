@@ -60,6 +60,16 @@ $(function(){
                       </div>`;
     $('.listing-product-detail__category').append(sizeSelectHtml);
   }
+  // ブランド入力欄のみの表示作成
+  function appendBrandBox(){
+    var sizeSelectHtml = '';
+    brandInputHtml = `<div class="listing-product-brand" id="brand_wrapper">
+                        <label class="listing-default__label" for="ブランド">ブランド</label>
+                        <span class='listing-default--option'>任意</span>
+                        <input class="listing-default__form" placeholder="例) シャネル" type="text" name="product_name" id="product_name" kl_vkbd_parsed="true">
+                      </div>`;
+    $('.listing-product-detail__category').append(brandInputHtml);
+  }
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
@@ -141,6 +151,8 @@ $(function(){
             insertHTML += appendSizeOption(size);
           });
           appendSizeBox(insertHTML);
+        } else {
+          appendBrandBox(); // 紐付くサイズがない場合には、ブランド入力欄のみ生成する
         }
       })
       .fail(function(){

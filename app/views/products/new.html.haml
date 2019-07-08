@@ -69,23 +69,16 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :delivery_charge, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+
+              = f.select :delivery_charge, Product.delivery_charges.keys, {}, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         
-        .listing-product-delivery-method
-          = f.label '配送の方法', class: 'listing-default__label' 
-          %span.listing-default--require 必須
-          .listing-select-wrapper
-            .listing-select-wrapper__box
-              = f.select :delivery_method, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
-              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-
         .listing-product-regional-original-delivery
           .listing-default__label 配送元の地域
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :delivery_area, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              = f.select :delivery_area, Product.delivery_areas, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
         .listing-product-days-up-to-delivery
@@ -93,7 +86,7 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :delivery_days, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              = f.select :delivery_days, Product.delivery_days, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
     -# 取引価格＆利益計算

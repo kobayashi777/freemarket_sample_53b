@@ -73,4 +73,10 @@ class ProductsController < ApplicationController
    def product_params
       params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: [])
    end
+
+
+   # 配送料の負担が選ばれた後のアクション
+   def get_delivery_method
+   end
+
 end

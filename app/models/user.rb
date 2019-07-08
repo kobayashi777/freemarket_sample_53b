@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,:omniauthable
 
   # 都道府県
   enum address_prefecture: {
@@ -19,6 +19,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_one :credit
   accepts_nested_attributes_for :credit
+  has_many :sns_credentials
 
   # バリデーション
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
