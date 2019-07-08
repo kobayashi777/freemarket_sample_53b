@@ -34,6 +34,7 @@
 - has_many :products
 - has_many :sns_credentials
 - has_one :credit
+- accepts_nested_attributes_for :credit
 ***
 ## credits table
 
