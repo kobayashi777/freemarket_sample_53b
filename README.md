@@ -103,7 +103,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |size|string|null: false, index: true|
-|ancestry|string|--|
+|ancestry|string|index: true|
 
 ### Association
 - has_many :category_sizes
