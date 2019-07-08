@@ -1,7 +1,7 @@
 $(function(){
-  var array1 = [ '未定','らくらくメルカリ便','ゆうメール','レターパック','普通郵便（定型、定型外）',
+  var delivery_method1 = [ '未定','らくらくメルカリ便','ゆうメール','レターパック','普通郵便（定型、定型外）',
   'クロネコヤマト','ゆうパック','クリックポスト','ゆうパケット' ]
-  var array2 = ['ゆうメール','クロネコヤマト','ゆうパック']
+  var delivery_method2 = ['ゆうメール','クロネコヤマト','ゆうパック']
 
   function appendOption(method){
     var html = `<option value="${method}">${method}</option>`;
@@ -27,11 +27,11 @@ $(function(){
         var methodBoxHtml = '';
         var insertHTML = '';
         if (delivery_parentCategory == "送料込み（出品者負担）"){
-          array1.forEach(function(method){
+          delivery_method1.forEach(function(method){
           insertHTML += appendOption(method);
           });
         }else (delivery_parentCategory == "着払い（購入者負担）");{
-            array2.forEach(function(method){
+            delivery_method2.forEach(function(method){
             insertHTML += appendOption(method);
             });
           }
@@ -50,7 +50,6 @@ $(function(){
                           </div>`;
       $('.listing-product-delivery-charge-burden').append(methodBoxHtml);
 
-        console.log(delivery_parentCategory)
       })
     }
     else {$('#delivery_method-parent').remove();}
