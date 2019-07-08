@@ -1,4 +1,6 @@
 class SignupController < ApplicationController
+  include RedirectToTop
+  before_action :redirect_to_top
   before_action :save_to_session_before_phone, only: :phone
   before_action :save_to_session_before_address, only: :address
   before_action :save_to_session_before_credit, only: :credit
