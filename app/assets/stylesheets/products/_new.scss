@@ -113,6 +113,11 @@ $sub-text-color: #333;
     }
   }
 
+  &--option {
+    @include form-require;
+    background-color: #d6d6d6;
+  }
+
   &__form {
     @include form-default;
   }
@@ -128,6 +133,12 @@ $sub-text-color: #333;
 .listing-select-wrapper{
   font-size: 14px;
   line-height: 14px;
+  &__added{
+    margin-top: 8px;
+    &--size{
+      margin: 0;
+    }
+  }
   &__box{
     width: 100%;
     // margin-top: 2px;
@@ -154,6 +165,12 @@ $sub-text-color: #333;
   &-delivery-method{margin-top: 40px;}
   &-regional-original-delivery{margin-top: 40px;}
   &-days-up-to-delivery{margin-top: 40px;}
+  &-detail__size{
+    margin-top: 40px;
+  }
+  &-brand{
+    margin-top: 40px;
+  }
 }
 
 // 利益計算フォーム

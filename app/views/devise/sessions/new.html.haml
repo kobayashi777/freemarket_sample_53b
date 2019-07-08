@@ -7,14 +7,20 @@
         = link_to signup_index_path, class: "login-main__no-account--btn" do
           新規会員登録
       .login-main__sns
-        = button_tag '#', class: 'login-main__sns--facebook-btn' do
+        = link_to user_facebook_omniauth_authorize_path, class: 'login-main__sns--facebook-btn', method: :post do
           %i.fab.fa-facebook-square.login-main__sns--facebook-icon
           Facebookでログイン
-        = button_tag '#', class: 'login-main__sns--google-btn' do
+        = link_to user_google_oauth2_omniauth_authorize_path, class: 'login-main__sns--google-btn', method: :post do
           %i.fab.fa-google.login-main__sns--google-icon
           Googleでログイン
+        - if session[:error] != nil
+          %ul
+            %li.has_error_text="#{session[:error]}"    
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login-main__form
+          - if alert
+            .has_error_text
+              = alert
           = f.email_field :email, class: 'login-main__form--email', placeholder: 'メールアドレス'
           = f.password_field :password, class: 'login-main__form--password', placeholder: 'パスワード', autocomplete: "off"
           .robot

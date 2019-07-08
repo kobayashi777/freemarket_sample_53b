@@ -55,6 +55,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'faker'
 end
 
 group :production do
@@ -71,4 +72,7 @@ gem 'gretel'
 gem 'devise'
 gem 'payjp'
 gem 'dotenv-rails'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 

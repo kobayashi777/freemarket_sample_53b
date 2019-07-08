@@ -23,13 +23,7 @@ module FreemarketSample53b
       g.test_framework false
     end
     
-    config.generators do |g|
-      g.test_framework :rspec, 
-        view_specs: false, 
-        helper_specs: false, 
-        controller_specs: false, 
-        routing_specs: false
-    end
-
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   end
 end
