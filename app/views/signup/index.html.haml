@@ -13,4 +13,7 @@
         = link_to user_google_oauth2_omniauth_authorize_path, class: 'auth-main__inner--google-btn', method: :post do
           %i.fab.fa-google.auth-main__inner--google-icon
           Googleで登録
+        - if session[:error] != nil
+          %ul
+            %li.has_error_text="#{session[:error]}"    
   = render 'shared/user-footer'

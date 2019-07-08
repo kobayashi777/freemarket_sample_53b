@@ -6,6 +6,11 @@ class SignupController < ApplicationController
 
   def index # 新規会員登録方法画面
     session[:flag] = "signup" #signupページであることを示す目印
+    if session[:error_flag] == "yes" # 認証でエラーを取得した場合
+      session[:error_flag] = nil # エラーのフラグを初期化する（エラーメッセージは残存させる）
+    else
+      session[:error] = nil # 新規会員登録方法画面がロードされた時にエラーを初期化する
+    end
   end
 
   def registration # 会員情報登録画面
