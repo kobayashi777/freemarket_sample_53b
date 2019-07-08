@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  include RedirectToTop
+  before_action :redirect_to_top, only: :new
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
