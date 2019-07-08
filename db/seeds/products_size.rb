@@ -32,7 +32,7 @@ children_array = [
 ]
 
 parent_array.each_with_index do |parent, i|
-  parent = ProductsSize.create(size: parent)
+  parent = ProductsSize.create!(size: parent)
   children_array[i].each do |child|
     parent.children.create(size: child)
   end
