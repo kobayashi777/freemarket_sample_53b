@@ -45,4 +45,9 @@ class ProductsController < ApplicationController
          end
       end
    end
+
+   # 配送料の負担が選ばれた後のアクション
+   def get_delivery_method
+   end
+
 end
