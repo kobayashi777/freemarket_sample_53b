@@ -78,7 +78,6 @@ $sub-text-color: #333;
     line-height: 162px;
 
     &--inner-text {
-
       display:inline-block;
       vertical-align: middle;
       line-height:normal;
@@ -87,10 +86,27 @@ $sub-text-color: #333;
       font-family: monospace;
     }
   }
-
   #photo_upload {
     display: none;
   }
+}
+
+// TODO:画像プレビュー用
+.pre-image-box{
+  height: 160px;
+  width: 114px;
+  background: white;
+  float:left;
+  margin: 0 0 10px 10px;
+    .pre-image-main{
+      width: 114px;
+      height: 116px;
+      
+    }
+    .pre-upload-btn{
+      
+    }
+
 }
 
 ///// フォーム大枠基本セット /////

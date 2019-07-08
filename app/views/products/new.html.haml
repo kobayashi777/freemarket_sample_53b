@@ -9,19 +9,21 @@
       = f.label '出品画像', class: 'listing-upload__label'
       %span.listing-upload--require 必須
       %p.listing-upload__subtext 最大10枚までアップロードできます
-      -# FIXME: ↓file_fieldで実装？ドラッグ&ドロップ担当者に任せます！ｶﾞﾝﾊﾞﾚ!!o(｀・д・´)oｶﾞﾝﾊﾞﾚ!!！
-      -# 参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
       .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
+        -# TODO:画像プレビュー用
+        -# .pre-image-box
+        -#   %img#img1.pre-image-main
+        -# .pre-image-box
+        -#   %img#img2.pre-image-main
+        -# .pre-image-box
+        -#   %img#img3.pre-image-main
+        
+
         .listing-upload__drag-box--inner-text
           ドラッグ＆ドロップ
           %br
           またはクリックしてファイルをアップロード
       = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
-
-      -# テスト
-      -if @product.photos.attached?
-        - @product.photos.each do |photo|
-          = image_tag :photo.variant(resize: "150x150")
 
     -# 商品名・商品説明
     .listing-content.clearfix
@@ -44,8 +46,7 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-            -# FIXME:nilのため一時コメントアウト
-              -# = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              = f.select :categories, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
@@ -94,8 +95,6 @@
             .listing-select-wrapper__box
               = f.select :delivery_days, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-
-      
 
     -# 取引価格＆利益計算
     .listing-content.clearfix
