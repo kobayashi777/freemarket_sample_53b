@@ -51,5 +51,5 @@ category_size_array = [
 ]
 
 category_size_array.each do |size_category|
-  CategorySize.create!(category_id: size_category[0], products_size_id: size_category[1])
+  CategorySize.create(category_id: size_category[0], products_size_id: size_category[1])
 end
