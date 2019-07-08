@@ -48,12 +48,6 @@ class ProductsController < ApplicationController
 
    # 配送料の負担が選ばれた後のアクション
    def get_delivery_method
-      # binding.pry
-      # method = "#{params[:parent_name]}"
-         # respond_to do |format|
-         #    format.html{ redirect_to :root }
-         #    format.json{ render json: method }
-         # end
    end
 
 end
