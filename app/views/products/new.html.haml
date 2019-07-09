@@ -35,7 +35,7 @@
       .listing-product-description
         = f.label '商品の説明', class: 'listing-default__label'
         %span.listing-default--require 必須
-        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
     -# 商品の詳細セレクトボックスフォーム
     .listing-content.clearfix
@@ -46,14 +46,16 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              -# TODO:孫要素で飛んでればいいので一旦hogeで飛ばす？
+              = f.select :hoge, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        -# TODO:商品状態
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :product_status, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              = f.select :product_status, Product.product_statuses.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
 
@@ -78,7 +80,8 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :delivery_area, Product.delivery_areas, {}, {class: 'listing-select-wrapper__box--select'}
+              -# TODO:三浦: is not a validのため.keys.to_aを追加
+              = f.select :delivery_area, Product.delivery_areas.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
         .listing-product-days-up-to-delivery
@@ -86,7 +89,8 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :delivery_days, Product.delivery_days, {}, {class: 'listing-select-wrapper__box--select'}
+              -# TODO:三浦: is not a validのため.keys.to_aを追加
+              = f.select :delivery_days, Product.delivery_days.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
     -# 取引価格＆利益計算
@@ -117,7 +121,7 @@
       %p.listing-product-submit-box__text 
         = link_to 'https://www.mercari.com/jp/help_center/getting_started/prohibited_items/', class:'subtext-link' do
           禁止されている出品
-        、
+        
         =link_to 'https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/', class:'subtext-link' do
           行為
         を必ずご確認ください。

@@ -4,6 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,:omniauthable
 
+  # アソシエーション
+  has_one :credit
+  accepts_nested_attributes_for :credit
+  has_many :sns_credentials
+  has_many :products
+
   # 都道府県
   enum address_prefecture: {
   北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -15,11 +21,6 @@ class User < ApplicationRecord
   徳島県:36,香川県:37,愛媛県:38,高知県:39,
   福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
-  
-  # アソシエーション
-  has_one :credit
-  accepts_nested_attributes_for :credit
-  has_many :sns_credentials
 
   # バリデーション
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

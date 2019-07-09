@@ -1,12 +1,12 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // サイズセレクトボックスのオプションを作成
   function appendSizeOption(size){
-    var html = `<option value="${size.size}">${size.size}</option>`;
+    var html = `<option value="${size.id}">${size.size}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -14,7 +14,7 @@ $(function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                         <div class='listing-select-wrapper__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_category" name="prefecture">
+                          <select class="listing-select-wrapper__box--select" id="child_category" name="category_id">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>
@@ -28,7 +28,7 @@ $(function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
                               <div class='listing-select-wrapper__box'>
-                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="prefecture">
+                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="category_id">
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 <select>
@@ -45,7 +45,7 @@ $(function(){
                         <span class='listing-default--require'>必須</span>
                         <div class='listing-select-wrapper__added--size'>
                           <div class='listing-select-wrapper__box'>
-                            <select class="listing-select-wrapper__box--select" id="size" name="prefecture">
+                            <select class="listing-select-wrapper__box--select" id="size" name="products_size_id">
                               <option value="---">---</option>
                               ${insertHTML}
                             <select>

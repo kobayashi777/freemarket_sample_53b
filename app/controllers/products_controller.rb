@@ -9,14 +9,14 @@ class ProductsController < ApplicationController
    end
    
    # TODO:画像投稿機能のS3設定と本番環境での分岐
-   # FIXME:他の項目でバリデーションかかっても画像だけ保存される問題
+   # FIXME:他の項目でバリデーションかかっても画像だけ保存される問題 サーバー側で自動でバッチ処理走らせる？
    def new
       @product = Product.new
-
       @category_parent_array = ["---"]
       Category.where(ancestry: nil).each do |parent|
          @category_parent_array << parent.name
       end
+      
    end
 
    def create
@@ -75,6 +75,6 @@ class ProductsController < ApplicationController
    private
    
    def product_params
-      params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: [])
+      params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(user_id: current_user.id)
    end
 end
