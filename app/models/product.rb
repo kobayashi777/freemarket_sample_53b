@@ -1,22 +1,29 @@
 class Product < ApplicationRecord
   has_many_attached :photos
-  belongs_to :user
-  belongs_to :brand
+  belongs_to :exhibitor, class_name: 'User', foreign_key: :user_id, optional: true
+  belongs_to :purchaser, class_name: 'User', foreign_key: :user_id, optional: true
+  belongs_to :brand, optional: true
   belongs_to :category
   belongs_to :products_size
 
   # バリデーション
+  # validates :product_name, length: { minimum: 1, maximum: 40 }
+  # validates :product_introduction, { minimum: 1, maximum: 1000 }
+  validates :category_id, presence: true
+  validates :product_size_id, presence: true
+  # validates :brand_id
+  validates :product_status, presence: true
+  validates :delivery_charge, presence: true
+  validates :delivery_method, presence: true
+  validates :delivery_area, presence: true
+  validates :delivery_days, presence: true
   validates :price,  numericality: {only_integer: true,
                                     greater_than_or_equal_to: 300,
-                                    less_than_or_equal_to: 9999999  }
-
+                                    less_than_or_equal_to: 9999999 }
 
   enum delivery_charge: {
   "---":0,送料込み（出品者負担）:1,着払い（購入者負担）:2
   }
-
-  
-
 
   enum delivery_area:{
   "---":0,
@@ -34,4 +41,6 @@ class Product < ApplicationRecord
   "---":0,
   "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
 },_prefix: true
+
+  enum product_status:{"新品、未使用": 1, "未使用に近い": 2, "目立った傷や汚れなし": 3, "やや傷や汚れあり": 4, "傷や汚れあり": 5, "全体的に状態が悪い": 6}
 end
