@@ -28,9 +28,17 @@
       .address-confirmation
         %p.address-confirmation__delivery 配送先
         .address-confirmation__delivery--detail 
-          %p.post-number 〒000-0000
-          %p.address-detail 千葉県流山市松ヶ丘111-11
-          %p.name-detail 田中太朗
+          %p.post-number
+            〒
+            = current_user.address_number
+          %p.address-detail
+            = current_user.address_prefecture
+            = current_user.address_name
+            = current_user.address_block
+            = current_user.address_building
+          %p.name-detail
+            = current_user.last_name
+            = current_user.first_name
 
 
     .users-payment-border
@@ -38,10 +46,15 @@
         .payment-confirmation
           %p.payment-confirmation__title 支払い方法
           .payment-confirmation__detail
-            %p.payment-confirmation__detail--number ****************1234
-            %p.payment-confirmation__detail--date 01 / 01
+            %p.payment-confirmation__detail--number
+            = "**** **** **** " + @default_card_information.last4
+            
+            %p.payment-confirmation__detail--date
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
             %span.payment-confirmation__detail--image
-            = image_tag "/images/visa.svg", size: "49x15"
+            = image_tag "/images/#{@card_src}", width: '49', height: '15', alt: @card_brand, id: "card_image"
 
     .wait-evaluation
       .wait-evaluation-contents

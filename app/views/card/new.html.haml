@@ -1,0 +1,43 @@
+.signup-forth
+  %header.signup-header
+    .signup-header__log
+      = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696", alt: "mercari", class: 'signup-header__log--link', width: '185', height: '49')
+  .forth-main
+    %section.forth-main-wrapper
+      .forth-main-wrapper__box--inner
+        .forth-main-wrapper__form--top
+          = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            .forth-main-wrapper__title 支払い方法
+            .forth-main-wrapper__form--label カード番号
+            = text_field_tag "number", "", class: "number forth-main-wrapper__form--input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+            %br
+            %ul.creditcard-types
+              %li.creditcard-types__image-top
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1905591235', width: '49', height: '20'
+              %li.creditcard-types__image-latter
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1905591235', width: '34', height: '20'
+              %li.creditcard-types__image-latter
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1905591235', width: '30', height: '20'
+              %li.creditcard-types__image-latter
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1905591235', width: '32', height: '20'
+              %li.creditcard-types__image-latter
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1905591235', width: '21', height: '20'
+              %li.creditcard-types__image-latter
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1905591235', width: '32', height: '20'
+              %li.creditcard-types__image-latter
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1905591235', width: '32', height: '20'
+            .forth-main-wrapper__form
+            .forth-main-wrapper__form--label 有効期限
+
+            = select_tag("exp_month", options_for_select([["--","0"],["01","1"], ["02","2"], ["03","3"], ["04","4"], ["05","5"], ["06","6"], ["07","7"], ["08","8"], ["09","9"], ["10","10"], ["11","11"], ["12","12"]], selected:"0"))
+            %span 月/
+
+            = select_tag("exp_year", options_for_select([["--","0"],["19","2019"], ["20","2020"], ["21","2012"], ["22","2022"], ["23","2023"], ["24","2024"], ["25","2025"], ["26","2026"], ["27","2027"], ["28","2028"], ["29","2029"]], selected:"0"))
+            %span 年
+
+            %br
+            .forth-main-wrapper__form
+              .forth-main-wrapper__form--label セキュリティコード
+              = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc", class: 'forth-main-wrapper__form--input'
+              #card_token
+              = submit_tag "追加する", id: "token_submit", class: 'forth-main-wrapper__form--btn'
