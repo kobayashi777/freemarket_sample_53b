@@ -19,6 +19,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_one :credit
   accepts_nested_attributes_for :credit
+  has_many :cards
   has_many :sns_credentials
 
   # バリデーション
