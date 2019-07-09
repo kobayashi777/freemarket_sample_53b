@@ -56,7 +56,8 @@ $(function(){
                       <div class="listing-product-brand" id="brand_wrapper">
                         <label class="listing-default__label" for="ブランド">ブランド</label>
                         <span class='listing-default--option'>任意</span>
-                        <input class="listing-default__form" placeholder="例) シャネル" type="text" name="product_name" id="product_name" kl_vkbd_parsed="true">
+                        // TODO:ブランド変更
+                        <input class="listing-default__form" placeholder="例) シャネル" type="text" name="brand">
                       </div>`;
     $('.listing-product-detail__category').append(sizeSelectHtml);
   }

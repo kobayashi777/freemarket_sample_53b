@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   has_many_attached :photos
-  belongs_to :user
-  belongs_to :brand
+  belongs_to :exhibitor, class_name: 'User', foreign_key: :user_id, optional: true
+  belongs_to :purchaser, class_name: 'User', foreign_key: :user_id, optional: true
+  belongs_to :brand, optional: true
   belongs_to :category
   belongs_to :products_size
 

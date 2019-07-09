@@ -16,15 +16,16 @@ class ProductsController < ApplicationController
       Category.where(ancestry: nil).each do |parent|
          @category_parent_array << parent.name
       end
-      
    end
 
    def create
       @product = Product.new(product_params)
-      @product.photos.attach(params[:photos])
+      # @product.photos.attach(params[:photos])
+      @product.save
       if @product.save!
          flash[:notice] = "出品が完了しました"
       end
+      
       # 必須項目が全て満たされていた場合
       # if @product.save!
       # flash[:notice] = "出品が完了しました"
@@ -75,6 +76,6 @@ class ProductsController < ApplicationController
    private
    
    def product_params
-      params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(user_id: current_user.id)
+      params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id], products_size_id: params[:products_size_id],)
    end
 end
