@@ -40,6 +40,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+   gem 'spring-commands-rspec'
 
   # エラー画面整形用
   gem 'better_errors'
@@ -70,6 +71,7 @@ gem 'ancestry'
 gem 'gretel'
 gem 'devise'
 gem 'payjp'
+gem 'dotenv-rails'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

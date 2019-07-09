@@ -40,7 +40,7 @@
             - else # メールアドレスでの登録時
               = f.email_field :email, class: 'first-main__form--input', placeholder: 'PC・携帯どちらでも可'
               = render partial: 'error-message', locals: {user: @user, column: "email"}
-          - if session[:password] && params[:email_signup] != "yes" # メールアドレスでの登録でないことを確認
+          - if session[:email_signup] != "yes" # メールアドレスでの登録でないことを確認
             .first-main__form{style: 'display: none;'}
               = f.label 'パスワード', class: 'first-main__form--label'
               %span.first-main__form--require 必須
