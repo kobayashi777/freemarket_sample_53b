@@ -3,13 +3,13 @@ class CardController < ApplicationController
   require "payjp"
 
   def new
-    # card = Card.where(user_id: current_user.id)
-    # redirect_to action: "show" if card.exists?
+    card = Card.where(user_id: current_user.id)
+    redirect_to action: "show" if card.exists?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
     
-    Payjp.api_key = "sk_test_8a22f3d6cc423679a2d3e948"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -30,7 +30,7 @@ class CardController < ApplicationController
     if card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = "sk_test_8a22f3d6cc423679a2d3e948"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end

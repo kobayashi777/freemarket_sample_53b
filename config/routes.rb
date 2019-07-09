@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'get_delivery_method'
     end
   end
-  resources :users, only: [:index, :show, :new, :edit, :create]
+  resources :users, only: [:show, :new, :edit, :create]
 
   resources :login, only: :index
   resources :signup do
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
   resources :registration1, only: [:index, :show, :new]
   resources :registration2, only: [:index, :show, :new]
-  resources :mypage, only:[:index, :show]
+  resources :mypage, only: :index
 
   resources :card, only: [:new, :show] do
     collection do

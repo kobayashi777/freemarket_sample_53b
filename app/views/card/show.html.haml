@@ -5,4 +5,4 @@
 - exp_month = @default_card_information.exp_month.to_s
 - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
 = exp_month + " / " + exp_year
-= link_to "購入画面へもどる","/purchase/index"
+= link_to "購入画面へもどる", url: signup_index_path,

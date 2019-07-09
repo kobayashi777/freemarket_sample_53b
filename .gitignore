@@ -34,4 +34,5 @@
 .DS_Store
 # *.lock
 vendor
-/.env
+.env
+
