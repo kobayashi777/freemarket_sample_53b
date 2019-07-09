@@ -7,10 +7,19 @@ class Product < ApplicationRecord
   belongs_to :products_size
 
   # バリデーション
+  # validates :product_name, length: { minimum: 1, maximum: 40 }
+  # validates :product_introduction, { minimum: 1, maximum: 1000 }
+  validates :category_id, presence: true
+  validates :product_size_id, presence: true
+  # validates :brand_id
+  validates :product_status, presence: true
+  validates :delivery_charge, presence: true
+  validates :delivery_method, presence: true
+  validates :delivery_area, presence: true
+  validates :delivery_days, presence: true
   validates :price,  numericality: {only_integer: true,
                                     greater_than_or_equal_to: 300,
-                                    less_than_or_equal_to: 9999999  }
-
+                                    less_than_or_equal_to: 9999999 }
 
   enum delivery_charge: {
   "---":0,送料込み（出品者負担）:1,着払い（購入者負担）:2

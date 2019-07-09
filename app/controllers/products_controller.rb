@@ -20,13 +20,10 @@ class ProductsController < ApplicationController
 
    def create
       @product = Product.new(product_params)
-      # @product.photos.attach(params[:photos])
       @product.save
-      if @product.save!
-         flash[:notice] = "出品が完了しました"
-      end
       
-      # 必須項目が全て満たされていた場合
+      
+      # # 必須項目が全て満たされていた場合
       # if @product.save!
       # flash[:notice] = "出品が完了しました"
       # redirect_to :root
