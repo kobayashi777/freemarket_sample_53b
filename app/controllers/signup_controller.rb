@@ -1,6 +1,6 @@
 class SignupController < ApplicationController
   include RedirectToTop
-  before_action :redirect_to_top
+  before_action :redirect_to_top, except: :done
   before_action :save_to_session_before_phone, only: :phone
   before_action :save_to_session_before_address, only: :address
   before_action :save_to_session_before_credit, only: :credit
@@ -20,6 +20,7 @@ class SignupController < ApplicationController
     session[:birthdate_year] = "--" #生年月日の年、初期値設定
     session[:birthdate_month] = "--" #生年月日の月、初期値設定
     session[:birthdate_day] = "--" #生年月日の日、初期値設定
+    session[:email_signup] = params[:email_signup]
   end
 
 
@@ -66,10 +67,14 @@ class SignupController < ApplicationController
     # sns_credentialsテーブルのインスタンス作成（メールアドレスでの登録を除く）
     @user.sns_credentials.build(provider: session[:provider], uid: session[:uid]) if session[:provider] && session[:uid]
     if @user.save
-      sign_in @user
+      session[:id] = @user.id
       redirect_to done_signup_index_path
     else
       render '/signup/registration'
+    end
+
+    def done
+      sign_in User.find(session[:id]) unless user_signed_in?
     end
   end
     

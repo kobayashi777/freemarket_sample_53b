@@ -1,21 +1,30 @@
-
--# FIXME: BEM記法の見直し
 .listing-wrapper
   = render './shared/user-header'
 
-  = form_with class: 'listing-inner-contents' do |f|
+  = form_with model: @product, class: 'listing-inner-contents' do |f|
     .listing-inner-contents__title 商品の情報を入力
 
     -# 商品画像提出
     .listing-upload
       = f.label '出品画像', class: 'listing-upload__label'
       %span.listing-upload--require 必須
-      .listing-upload__subtext 最大10枚までアップロードできます
-      -# FIXME: ↓file_fieldで実装？ドラッグ&ドロップ担当者に任せます！ｶﾞﾝﾊﾞﾚ!!o(｀・д・´)oｶﾞﾝﾊﾞﾚ!!！
-      -# 参考→https://whatsupguys.net/programming-school-dive-into-code-learning-88/
-      = f.file_field class: 'listing-upload__drag-box'
+      %p.listing-upload__subtext 最大10枚までアップロードできます
+      .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
+        -# TODO:画像プレビュー用
+        -# .pre-image-box
+        -#   %img#img1.pre-image-main
+        -# .pre-image-box
+        -#   %img#img2.pre-image-main
+        -# .pre-image-box
+        -#   %img#img3.pre-image-main
+        
 
-    
+        .listing-upload__drag-box--inner-text
+          ドラッグ＆ドロップ
+          %br
+          またはクリックしてファイルをアップロード
+      = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+
     -# 商品名・商品説明
     .listing-content.clearfix
       .listing-product-name
@@ -26,8 +35,7 @@
       .listing-product-description
         = f.label '商品の説明', class: 'listing-default__label'
         %span.listing-default--require 必須
-        -# TODO:placeholderが折り返しで表示されるように要改修
-        = f.text_area :product_description, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
     -# 商品の詳細セレクトボックスフォーム
     .listing-content.clearfix
@@ -38,14 +46,14 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :prefecture, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :prefecture, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
+              = f.select :product_status, ["---"], {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
 
@@ -61,10 +69,10 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
+
               = f.select :delivery_charge, Product.delivery_charges.keys, {}, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         
-
         .listing-product-regional-original-delivery
           .listing-default__label 配送元の地域
           %span.listing-default--require 必須
@@ -81,8 +89,6 @@
               = f.select :delivery_days, Product.delivery_days, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
-      
-
     -# 取引価格＆利益計算
     .listing-content.clearfix
       .listing-sub-head 販売価格(300〜9,999,999)
@@ -96,39 +102,38 @@
             %span.listing-default--require--price 必須
           .form-right-justified__box 
             %p.form-right-justified__box--react-text ￥
-            = f.text_field :price, class: 'form-right-justified__box__entry', placeholder: '例） 300'
+            = f.text_field :price, class: 'form-right-justified__box__entry', id: 'price-form', placeholder: '例） 300'
 
         .form-right-justified-sub
           = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
-          .form-right-justified-sub__fee -
+          #sf-tag.form-right-justified-sub__fee -
 
         .form-right-justified-main
           = f.label "販売利益", class: 'form-right-justified-main__label'
-          .form-right-justified-main__revenue -
+          #sp-tag.form-right-justified-main__revenue -
 
     -# 送信＆注意書き
     .listing-content.clearfix
       %p.listing-product-submit-box__text 
-        = link_to '#', class:'subtext-link' do
+        = link_to 'https://www.mercari.com/jp/help_center/getting_started/prohibited_items/', class:'subtext-link' do
           禁止されている出品
         、
-        =link_to '#', class:'subtext-link' do
+        =link_to 'https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/', class:'subtext-link' do
           行為
         を必ずご確認ください。
       %p.listing-product-submit-box__text
         またブランド品でシリアルナンバー等がある場合はご記載ください。
-        = link_to '#', class:'subtext-link' do
+        = link_to 'https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/', class:'subtext-link' do
           偽ブランドの販売
         は犯罪であり処罰される可能性があります。
       %p.listing-product-submit-box__text
         また、出品をもちまして
-        = link_to '#', class:'subtext-link' do
+        = link_to 'https://www.mercari.com/jp/seller_terms/', class:'subtext-link' do
           加盟店規約
         に同意したことになります。
-      = button_tag '#', class: 'listing-product-submit-box__send-btn' do
-        出品する
-      = button_tag '#', class: 'listing-product-submit-box__return-btn' do
+      = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
+      -# TODO: 外部から直接アクセスなど前のページがなくて戻れない場合はトップに飛ぶよう分岐させる コントローラ側？
+      = link_to :back, class: 'listing-product-submit-box__return-btn' do
         もどる
-
+        
   = render './shared/user-footer'
-

@@ -246,9 +246,9 @@ describe SignupController do
     end
 
     describe 'GET #done' do
-      it "redirect_to the top page" do
+      it "renders the :done template" do
         get :done
-        expect(response).to redirect_to products_path
+        expect(response).to render_template :done
       end
     end
   end
