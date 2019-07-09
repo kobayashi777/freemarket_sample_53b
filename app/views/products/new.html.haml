@@ -11,12 +11,12 @@
       %p.listing-upload__subtext 最大10枚までアップロードできます
       .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
         -# TODO:画像プレビュー用
-        .pre-image-box
-          %img#img1.pre-image-main
-        .pre-image-box
-          %img#img2.pre-image-main
-        .pre-image-box
-          %img#img3.pre-image-main
+        -# .pre-image-box
+        -#   %img#img1.pre-image-main
+        -# .pre-image-box
+        -#   %img#img2.pre-image-main
+        -# .pre-image-box
+        -#   %img#img3.pre-image-main
         
 
         .listing-upload__drag-box--inner-text
@@ -80,7 +80,6 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              -# TODO:三浦: is not a validのため.keys.to_aを追加
               = f.select :delivery_area, Product.delivery_areas.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
@@ -89,7 +88,6 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              -# TODO:三浦: is not a validのため.keys.to_aを追加
               = f.select :delivery_days, Product.delivery_days.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
@@ -135,6 +133,7 @@
         = link_to 'https://www.mercari.com/jp/seller_terms/', class:'subtext-link' do
           加盟店規約
         に同意したことになります。
+      -# TODO:出品
       = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
       -# TODO: 外部から直接アクセスなど前のページがなくて戻れない場合はトップに飛ぶよう分岐させる コントローラ側？
       = link_to :back, class: 'listing-product-submit-box__return-btn' do

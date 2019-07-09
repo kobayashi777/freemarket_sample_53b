@@ -1,3 +1,4 @@
+// TODO:turbolinksの後に動くように設定
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
