@@ -7,7 +7,8 @@
   = render 'layouts/header'
 
   %section.item-container1
-    %h1.item-container1__item-name bruhbruhbruh
+    %h1.item-container1__item-name 
+    = @product.product_name
     .item-container1__item-content.clearfix
       .content--photo
         %ul.content--photo-up
@@ -34,77 +35,85 @@
 
         %ul.content--photo-down
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
           %li.content-photo-down__piece
-            -#.photo_down
             = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-            //# class: 'content--photo-down'# alt: '',  %ul
 
       %table.content--detail-table
         %tbody.table
           %tr.table--section
-            %th.table--section-left 出品者
-            %th.table--section-right aikon several
+            %th.table--section-left 
+              出品者
+            %th.table--section-right 
+              = @product.exhibitor_id
           %tr.table--section
-            %th.table--section-left カテゴリー
-            %th.table--section-right kate
+            %th.table--section-left
+              カテゴリー
+            %th.table--section-right 
+              = @product.category.name
           %tr.table--section
-            %th.table--section-left ブランド
-            %th.table--section-right speeddemon
+            %th.table--section-left
+              ブランド
+            %th.table--section-right
+              = @product.brand.name #speeddemon 前に何があったのか確認のため残す 以下同様
           %tr.table--section
-            %th.table--section-left 商品状態
-            %th.table--section-right Ghost Rider
+            %th.table--section-left
+              商品状態
+            %th.table--section-right
+              = @product.product_status #Ghost Rider
           %tr.table--section
-            %th.table--section-left 配送料負担
-            %th.table--section-right how much will you pay
+            %th.table--section-left
+              配送料負担
+            %th.table--section-right
+              = @product.delivery_charge #how much will you pay
           %tr.table--section
-            %th.table--section-left 配送方法
-            %th.table--section-right Aaaaa-Oh
+            %th.table--section-left
+              配送方法
+            %th.table--section-right
+              = @product.delivery_method #Aaaaa-Oh
           %tr.table--section
-            %th.table--section-left 配送元
-            %th.table--section-right ちょっと何言ってるか分からないです
+            %th.table--section-left
+              配送元
+            %th.table--section-right
+              = @product.delivery_area #ちょっと何言ってるか分からないです
           %tr.table--section
-            %th.table--section-left 配送日目安
-            %th.table--section-right てやんでい
+            %th.table--section-left
+              配送日目安
+            %th.table--section-right
+              = @product.delivery_days #てやんでい
 
     .item-container1__item-price
-      %span.item-container1__item-price-bold  $1000
+      %span.item-container1__item-price-bold
+        = @product.price
       %span.item-container1__item-price-tax (税込)
-      %span.item-container1__item-price-shipping-fee 送料込み
+      %span.item-container1__item-price-shipping-fee
+        = @product.delivery_charge
     = link_to " 購入画面に進む", purchase_index_path,  class:"item-container1__item-buy-btn"
     .item-container1__item-description 
       %p.item-description-inner
-        This is description area//
-        This is description area//
-        This is description area//
-        This is description area//
-        This is description area//
-        This is description area//
+        -# This is description area//
+        -# This is description area//
+        -# This is description area//
+        -# This is description area//
+        -# This is description area//
+        -# This is description area//
+        = @product.product_introduction
     .item-container1__item-other-btn.clearfix
       .link_btn_left
         %button.item-other-btn-left いいね！
