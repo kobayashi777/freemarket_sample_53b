@@ -1,0 +1,1 @@
+Product.create(product_name: "シャツ", product_introduction:"小さめ",category_id:"4", product_size_id:"1", brand_id:"1", product_status:"5", delivery_charge:"3", delivery_area:"9", price:"1000", delivery_days:"7", exhibitor_id:"2", purchaser_id:"1", delivery_method:"6", trading_state:"6", created_at:"2018-06-10 21:07:31", updated_at:"2018-06-10 21:07:31")
