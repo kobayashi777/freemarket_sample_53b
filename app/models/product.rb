@@ -7,8 +7,8 @@ class Product < ApplicationRecord
   belongs_to :products_size
 
   # バリデーション
-  # validates :product_name, length: { minimum: 1, maximum: 40 }
-  # validates :product_introduction, { minimum: 1, maximum: 1000 }
+  validates :product_name, length: { in: 1..40 }
+  validates :product_introduction, length: { in: 1..1000 }, on: :create
   validates :category_id, presence: true
   validates :products_size_id, presence: true
   # validates :brand_id

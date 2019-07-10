@@ -1,0 +1,11 @@
+
+  - unless product.valid?
+    - if errors = product.errors.full_messages_for(column.to_sym)
+      %ul- if product.errors.any?
+        %li.has_error_text=errors[0]
+
+-# - unless user.valid?
+-#     - if errors = user.errors.full_messages_for(column.to_sym)
+-#       %ul
+-#         - errors.each do |error|
+-#           %li.has_error_text=error

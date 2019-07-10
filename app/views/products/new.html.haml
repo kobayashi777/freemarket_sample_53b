@@ -1,5 +1,7 @@
 .listing-wrapper
   = render './shared/user-header'
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
 
   = form_with model: @product, class: 'listing-inner-contents' do |f|
     .listing-inner-contents__title 商品の情報を入力
@@ -10,20 +12,14 @@
       %span.listing-upload--require 必須
       %p.listing-upload__subtext 最大10枚までアップロードできます
       .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
-        -# TODO:画像プレビュー用
-        -# .pre-image-box
-        -#   %img#img1.pre-image-main
-        -# .pre-image-box
-        -#   %img#img2.pre-image-main
-        -# .pre-image-box
-        -#   %img#img3.pre-image-main
-        
+      
 
         .listing-upload__drag-box--inner-text
           ドラッグ＆ドロップ
           %br
           またはクリックしてファイルをアップロード
       = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+      
 
     -# 商品名・商品説明
     .listing-content.clearfix
@@ -31,11 +27,17 @@
         = f.label "商品名", class: 'listing-default__label'
         %span.listing-default--require 必須
         = f.text_field :product_name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)'
+        - unless @product.valid?
+          - if @product.errors.messages[:product_name].any?
+            %span.errors= @product.errors.full_messages_for(:product_name)
 
       .listing-product-description
         = f.label '商品の説明', class: 'listing-default__label'
         %span.listing-default--require 必須
-        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field',  placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        - unless @product.valid?
+          - if @product.errors.messages[:product_introduction].any?
+            %span.errors= @product.errors.full_messages_for(:product_introduction)
 
     -# 商品の詳細セレクトボックスフォーム
     .listing-content.clearfix
@@ -49,7 +51,6 @@
               -# TODO:孫要素で飛んでればいいので一旦hogeで飛ばす？
               = f.select :hoge, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-        -# TODO:商品状態
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須
@@ -133,9 +134,7 @@
         = link_to 'https://www.mercari.com/jp/seller_terms/', class:'subtext-link' do
           加盟店規約
         に同意したことになります。
-      -# TODO:出品
       = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
-      -# TODO: 外部から直接アクセスなど前のページがなくて戻れない場合はトップに飛ぶよう分岐させる コントローラ側？
       = link_to :back, class: 'listing-product-submit-box__return-btn' do
         もどる
         
