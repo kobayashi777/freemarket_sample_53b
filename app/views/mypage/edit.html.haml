@@ -1,0 +1,23 @@
+.user-credit-header
+  = render "layouts/header"
+  .user-credit-sidebar
+    = render "mypage/mypage-sidemenu"
+.payment-all
+  %h2.payment-all__head 支払い方法
+  .payment-all__inner
+    %section
+      .payment-all__inner--content
+        %h3.inner-sub-head クレジットカード一覧
+    .payment-all__add--btn
+    %button.btn{type: "submit" } 
+      %i.far.fa-credit-card 
+      %p.button-text クレジットカードを追加する
+    %ul.line
+    .payment-all__not-regist
+    %button.arrow{type: "submit" }
+      %a 支払い方法について
+      %i.fas.fa-angle-right.payment-right
+.user-credit-footer-button
+  = render "layouts/footer-button"
+.user-credit-footer
+  = render "layouts/footer"
