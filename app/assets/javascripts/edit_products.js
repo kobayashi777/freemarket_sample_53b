@@ -3,14 +3,13 @@ $(function(){
   if (count_images == 10){
     $('.listing-upload__drag-box').hide();
   } 
-  $('.listing-upload__wrapper').on('change', function(){
-    count_images = $('.image-box').length
+  $('.image-box__bottom--delete').on('click', function(){
+    $(this).parents('.image-box').hide();
+    count_images = $('.image-box:visible').length
+    console.log(count_images)
     if (count_images < 10){
       $('.listing-upload__drag-box').show();
     }
-  })
-  $('.image-box__bottom--delete').on('click', function(){
-    $(this).parents('.image-box').hide();
   })
   $('.listing-product-submit-box__send-btn').on('click', function(e){
     e.preventDefault();
