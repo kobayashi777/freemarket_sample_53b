@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
    end
 
    def show
-    # @product = Product.find(params: product_id)
+    @product = Product.find(params: product_id)
+    binding.pry
    end
    
    # TODO:画像投稿機能のS3設定と本番環境での分岐
