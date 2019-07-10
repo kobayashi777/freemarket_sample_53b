@@ -37,7 +37,50 @@ class ProductsController < ApplicationController
    end
 
    def edit
+      @product = Product.find(params[:id])
+      @product_photos = @product.photos
+      @selected_grandchild_category = @product.category
+      @category_grandchildren_array = [{id: "---", name: "---"}]
+      Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
+        grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.name}"}
+        @category_grandchildren_array << grandchildren_hash
+      end
+      @selected_child_category = @selected_grandchild_category.parent
+      @category_children_array = [{id: "---", name: "---"}]
+      Category.find("#{@selected_child_category.id}").siblings.each do |child|
+        children_hash = {id: "#{child.id}", name: "#{child.name}"}
+        @category_children_array << children_hash
+      end
+      @selected_parent_category = @selected_child_category.parent
+      @category_parents_array = [{id: "---", name: "---"}]
+      Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+        parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+        @category_parents_array << parent_hash
+      end
+      if @selected_size = @product.products_size
+        @size_siblings_array = [{id: "---", size: "---"}]
+        ProductsSize.find("#{@selected_size.id}").siblings.each do |sibling|
+          sibling_hash = {id: "#{sibling.id}", size: "#{sibling.size}"}
+          @size_siblings_array << sibling_hash
+        end
+      else
+        @selected_size = nil
+      end
+      if @product.delivery_charge == "送料込み（出品者負担）"
+        @delivery_method_array = ['---', '未定','らくらくメルカリ便','ゆうメール','レターパック','普通郵便（定型、定型外）',
+          'クロネコヤマト','ゆうパック','クリックポスト','ゆうパケット']
+      else
+        @delivery_method_array = ['---','ゆうメール','クロネコヤマト','ゆうパック']
+      end
+      @sales_fee = "#{(@product.price.to_i*0.1).round}"
+      @sales_profit = "#{(@product.price.to_i*0.9).round}"
+    end
+  
 
+   def update
+      binding.pry
+      Product.find(params[:id]).update(product_edit_params)
+      redirect_to root_path
    end
 
    def destroy
@@ -75,6 +118,10 @@ class ProductsController < ApplicationController
    private
    
    def product_params
-      params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: [])
+      params.require(:product).permit(:product_name, :product_introduction, :category_id, :products_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id], products_size_id: params[:products_size_id],)
+   end
+
+   def product_edit_params
+      params.require(:product).permit(:product_name, :product_introduction, :category_id, :products_size_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(brand_id: Brand.find_by(name: "#{params.require(:product)[:brand]}").id)
    end
 end
