@@ -2,8 +2,6 @@
 -# FIXME: BEM記法の見直し
 .listing-wrapper
   = render './shared/user-header'
-  - @product.photos.each do |photo|
-    = image_tag photo.variant(resize: "100x100", auto_orient: true)
 
   = form_with model: @product, class: 'listing-inner-contents', id: "editForm" do |f|
     .listing-inner-contents__title 商品の情報を入力
@@ -56,15 +54,18 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id]}]}, @selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              = select_tag :category_id, options_for_select(@category_parents_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id]}]}, @selected_parent_category.name), {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              -# = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id]}]}, @selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .listing-select-wrapper__added#children_wrapper
             .listing-select-wrapper__box
-              = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+              = select_tag :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+              -# = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .listing-select-wrapper__added#grandchildren_wrapper
             .listing-select-wrapper__box
-              = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+              = select_tag :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+              -# = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           - if @selected_size
             .listing-product-detail__size#size_wrapper
@@ -72,18 +73,20 @@
               %span.listing-default--require 必須
               .listing-select-wrapper
                 .listing-select-wrapper__box
-                  = f.select :products_size_id, options_for_select(@size_siblings_array.map{|c|[c[:size], c[:id], {'data-category'=>c[:id]}]}, @selected_size.id), {}, {class: 'listing-select-wrapper__box--select', id: 'size'}
+                  = select_tag :products_size_id, options_for_select(@size_siblings_array.map{|c|[c[:size], c[:id], {'data-category'=>c[:id]}]}, @selected_size.id), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+                  -# = f.select :products_size_id, options_for_select(@size_siblings_array.map{|c|[c[:size], c[:id], {'data-category'=>c[:id]}]}, @selected_size.id), {}, {class: 'listing-select-wrapper__box--select', id: 'size'}
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           - if @product.brand
             .listing-product-detail__size#brand_wrapper
               = f.label 'ブランド', class: 'listing-default__label'
               %span.listing-default--option 任意
-              = f.text_field :brand, class: 'listing-default__form', placeholder: '例) シャネル', value: "#{@product.brand.name}"
+              %input{name: 'brand', type: 'text', class: 'listing-default__form', placeholder: '例) シャネル', value: "#{@product.brand.name}"}
+              -# = f.text_field :brand, class: 'listing-default__form', placeholder: '例) シャネル', value: "#{@product.brand.name}"
           - else
             .listing-product-detail__size#brand_wrapper
               = f.label 'ブランド', class: 'listing-default__label'
               %span.listing-default--option 任意
-              = f.text_field :brand, class: 'listing-default__form', placeholder: '例) シャネル'
+              %input{name: 'brand', type: 'text', class: 'listing-default__form', placeholder: '例) シャネル'}
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須
@@ -112,7 +115,8 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              = f.select :delivery_method, options_for_select(@delivery_method_array, @product.delivery_method), {}, {class: 'listing-select-wrapper__box--select'}
+              = select_tag :delivery_method, options_for_select(@delivery_method_array, @product.delivery_method), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+              -# = f.select :delivery_method, options_for_select(@delivery_method_array, @product.delivery_method), {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         
 
