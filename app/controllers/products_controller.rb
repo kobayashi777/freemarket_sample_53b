@@ -77,7 +77,11 @@ class ProductsController < ApplicationController
 
    def update
       binding.pry
-      Product.find(params[:id]).update(product_edit_params)
+      product = Product.find(params[:id])
+      product.update(product_edit_params)
+      params[:delete_photos].split(",").each do |id|
+         product.photos.find(id).purge
+      end
       redirect_to root_path
    end
 
@@ -120,6 +124,6 @@ class ProductsController < ApplicationController
    end
 
    def product_edit_params
-      params.require(:product).permit(:product_name, :product_introduction, :category_id, :products_size_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(brand_id: Brand.find_by(name: "#{params.require(:product)[:brand]}").id)
+      params.require(:product).permit(:product_name, :product_introduction, :category_id, :products_size_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id], products_size_id: params[:products_size_id], brand_id: Brand.find_or_create_by(name: "#{params[:brand]}", category_id: "#{params[:category_id]}").id)
    end
 end
