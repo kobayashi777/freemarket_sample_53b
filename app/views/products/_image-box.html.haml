@@ -1,6 +1,6 @@
 .image-box{data: {photo: "#{photo.id}"}} 
   .image-box__top
-    = image_tag photo.variant(resize: "116x116", auto_orient: true)
+    = image_tag photo.variant(resize: "116x116", auto_orient: true), class: "image-box__top--image"
   .image-box_bottom
     = link_to '編集', 'javascript:void(0);', class: 'image-box__bottom--edit'
     = link_to '削除', 'javascript:void(0);', class: 'image-box__bottom--delete'
