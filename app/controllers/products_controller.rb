@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-  # before_action: authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
+  before_action :check_validation, only: :create
   def index
     @products = Product.all
   end
@@ -20,7 +21,6 @@ class ProductsController < ApplicationController
     else
       error_hoge = @product.errors.full_messages
       render 'products/new'
-      binding.pry
     end
   end
 
@@ -122,6 +122,11 @@ class ProductsController < ApplicationController
   def get_delivery_method
   end
 
+  def check_validation
+    @product = Product.new(product_params)
+    render '/products/new' unless @product.valid? 
+  end
+
   private
 
   def set_category
@@ -133,7 +138,7 @@ class ProductsController < ApplicationController
 
   def product_params
     # サイズとブランド以外のハッシュを作成
-    primitive_data = params.require(:product).permit(:product_name, :product_introduction, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id])
+    primitive_data = params.require(:product).permit(:product_name, :product_introduction, :product_status, :delivery_charge, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id], delivery_method: params[:delivery_method])
     # サイズの入力欄があるものとないものとで条件分岐し、ハッシュにマージ
     if params[:products_size_id] != nil
         size_added_data = primitive_data.merge(products_size_id: "#{params[:products_size_id]}")
@@ -141,7 +146,7 @@ class ProductsController < ApplicationController
         size_added_data = primitive_data.merge(products_size_id: nil)
     end
     # ブランドの入力があるものとないものとで条件分岐し、最終系のハッシュを作成
-    if params[:brand] != ""
+    if params[:brand] != "" && params[:brand] != nil
         size_added_data.merge(brand_id: Brand.find_or_create_by(name: "#{params[:brand]}", category_id: "#{params[:category_id]}").id)
     else
         size_added_data.merge(brand_id: nil)
