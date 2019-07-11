@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   # validates :product_name, length: { minimum: 1, maximum: 40 }
   # validates :product_introduction, { minimum: 1, maximum: 1000 }
   validates :category_id, presence: true
-  validates :product_size_id, presence: true
+  validates :products_size_id, presence: true
   # validates :brand_id
   validates :product_status, presence: true
   validates :delivery_charge, presence: true

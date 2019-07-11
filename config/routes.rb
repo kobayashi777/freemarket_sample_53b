@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
 
-  resources :products, only: [:index, :show, :new, :create, :edit, :destroy] do
+  resources :products, only: [:index, :show, :new, :create, :edit] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'get_delivery_method'
     end
   end
-  resources :users, only: [:show, :new, :edit, :create]
+  resources :users, only: [:show, :new, :edit, :create, :destroy]
 
   resources :login, only: :index
   resources :signup do
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
   resources :registration1, only: [:index, :show, :new]
   resources :registration2, only: [:index, :show, :new]
-  resources :mypage, only: :index
+  resources :mypage, only: [:index, :show]
 
   resources :card, only: [:new, :show] do
     collection do

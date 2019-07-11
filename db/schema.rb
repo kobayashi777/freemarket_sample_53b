@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_042522) do
     t.bigint "brand_id"
     t.integer "product_status", default: 0, null: false
     t.integer "delivery_charge", default: 0, null: false
-    t.integer "delivery_area", default: 0, null: false, unsigned: true
+    t.integer "delivery_area", default: 0, null: false
     t.string "price", null: false
     t.integer "delivery_days", default: 0, null: false
     t.integer "delivery_method", default: 0, null: false
