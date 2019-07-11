@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
 
    def show
     @product = Product.find(params[:id])
+    #@userId = User.find(@product.exhibitor_id)
+    #binding.pry
     #binding.pry
    end
    
