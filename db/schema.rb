@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_012830) do
     t.integer "trading_state", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "exhibitor_id", null: false, unsigned: true
+    t.integer "exhibitor_id", null: false
     t.integer "purchaser_id"
     t.index ["brand_id"], name: "fk_rails_f3b4d49caa"
     t.index ["category_id"], name: "fk_rails_fb915499a4"
