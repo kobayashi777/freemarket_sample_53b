@@ -9,6 +9,7 @@ Rails.application.configure do
 
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  # TODO:
   config.assets.compile = false
 
   config.log_level = :debug
