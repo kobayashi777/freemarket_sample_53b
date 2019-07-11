@@ -20,7 +20,9 @@ class ProductsController < ApplicationController
    end
 
    def create
+      #binding.pry
       @product = Product.new(product_params)
+      binding.pry
       @product.save
       
       
@@ -74,6 +76,23 @@ class ProductsController < ApplicationController
    private
    
    def product_params
-      params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id], products_size_id: params[:products_size_id],)
+      #params.require(:product).permit(:product_name, :product_introduction, :category_id, :product_size_id, :brand_id, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id], products_size_id: params[:products_size_id],)
+      # createでbinding.pry product_paramsすると、NoMethodError: undefined method `id' for nil:NilClass
+      
+      # サイズとブランド以外のハッシュを作成
+      primitive_data = params.require(:product).permit(:product_name, :product_introduction, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id])
+      # サイズの入力欄があるものとないものとで条件分岐し、ハッシュにマージ
+      if params[:products_size_id] != nil
+         size_added_data = primitive_data.merge(products_size_id: "#{params[:products_size_id]}")
+      else
+         size_added_data = primitive_data.merge(products_size_id: nil)
+      end
+      # ブランドの入力があるものとないものとで条件分岐し、最終系のハッシュを作成
+      if params[:brand] != ""
+         size_added_data.merge(brand_id: Brand.find_or_create_by(name: "#{params[:brand]}", category_id: "#{params[:category_id]}").id)
+      else
+         size_added_data.merge(brand_id: nil)
+      end
+
    end
 end
