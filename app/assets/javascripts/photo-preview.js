@@ -15,7 +15,7 @@
 
 //   // 画像の削除機能
 // }); /* ("turbolinks:load", function() { */
-
+$(document).on('turbolinks:load', function() { 
   $(function(){
     $('#photo_upload').change(function(e){
       //ファイルオブジェクトを取得する
@@ -34,4 +34,4 @@
       reader.readAsDataURL(file);
     });
   });
-
+});

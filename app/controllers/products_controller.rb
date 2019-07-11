@@ -1,37 +1,25 @@
 class ProductsController < ApplicationController
-  # before_action: authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_category, only: [:new, :create]
+  before_action :check_validation_create, only: :create
   def index
-  @products = Product.all
+    @products = Product.all
   end
 
   def show
-  # @product = Product.find(params: product_id)
   end
   
-  # TODO:画像投稿機能のS3設定と本番環境での分岐
-  # FIXME:他の項目でバリデーションかかっても画像だけ保存される問題 サーバー側で自動でバッチ処理走らせる？
   def new
     @product = Product.new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
   end
 
   def create
-    @products = Product.new(product_params)
-    @products.save
-    
-    
-    # # 必須項目が全て満たされていた場合
-    # if @product.save!
-    # flash[:notice] = "出品が完了しました"
-    # redirect_to :root
-    # else
-    # 必須項目が不足していた場合
-    # flash[:alert] = "未入力項目があります"
-    # redirect_back(fallback_location: root_path)
-    # end
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to product_path(@product)
+    else
+      render 'products/new'
+    end
   end
 
   def edit
@@ -85,8 +73,7 @@ class ProductsController < ApplicationController
     # 販売利益の初期値
     @sales_profit = "#{(@product.price.to_i*0.9).round}"
   end
-
-
+  
   def update
     product = Product.find(params[:id])
     if product.update(product_params) # updateが成功した場合
@@ -132,19 +119,31 @@ class ProductsController < ApplicationController
   def get_delivery_method
   end
 
+  def check_validation_create
+    @product = Product.new(product_params)
+    render '/products/new' unless @product.valid? 
+  end
+
   private
+
+  def set_category
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
 
   def product_params
     # サイズとブランド以外のハッシュを作成
-    primitive_data = params.require(:product).permit(:product_name, :product_introduction, :product_status, :delivery_charge, :delivery_method, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id])
+    primitive_data = params.require(:product).permit(:product_name, :product_introduction, :product_status, :delivery_charge, :delivery_area, :delivery_days, :price, photos: []).merge(exhibitor_id: current_user.id, category_id: params[:category_id], delivery_method: params[:delivery_method])
     # サイズの入力欄があるものとないものとで条件分岐し、ハッシュにマージ
     if params[:products_size_id] != nil
-        size_added_data = primitive_data.merge(products_size_id: "#{params[:products_size_id]}")
+      size_added_data = primitive_data.merge(products_size_id: "#{params[:products_size_id]}")
     else
       size_added_data = primitive_data.merge(products_size_id: nil)
     end
     # ブランドの入力があるものとないものとで条件分岐し、最終系のハッシュを作成
-    if params[:brand] != ""
+    if params[:brand] != "" && params[:brand] != nil
       size_added_data.merge(brand_id: Brand.find_or_create_by(name: "#{params[:brand]}", category_id: "#{params[:category_id]}").id)
     else
       size_added_data.merge(brand_id: nil)

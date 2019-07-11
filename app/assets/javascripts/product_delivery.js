@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function() {
                             <span class='listing-default--require'>必須</span> 
                               <div class='listing-select-wrapper__box'>
                                 <div class='listing-select-wrapper'></div>
-                                  <select class="listing-select-wrapper__box--select" id="delivery_charge">
+                                  <select class="listing-select-wrapper__box--select" id="delivery_charge", name= "delivery_method">
                                     <option value="---">---</option>
                                     ${insertHTML}
                                   </select>
