@@ -75,7 +75,6 @@ class ProductsController < ApplicationController
     @sales_profit = "#{(@product.price.to_i*0.9).round}"
   end
   
-
   def update
     product = Product.find(params[:id])
     if product.update(product_params) # updateが成功した場合
