@@ -1,5 +1,5 @@
 .box-contents
-  - @products.order('created_at DESC').limit(4).each do |product|
+  - @products.order('created_at DESC').where(category_id:(219..377)).limit(4).each do |product|
     .items-box
       .items-box_photo
         = product.product_introduction
