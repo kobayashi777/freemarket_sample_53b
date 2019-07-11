@@ -1,9 +1,7 @@
-
--# FIXME: BEM記法の見直し
 .listing-wrapper
   = render './shared/user-header'
 
-  = form_with model: @product, class: 'listing-inner-contents', id: "editForm" do |f|
+  = form_with model: @product, class: 'listing-inner-contents', id: "productForm" do |f|
     .listing-inner-contents__title 商品の情報を入力
 
     -# 商品画像提出
@@ -16,22 +14,12 @@
           = render partial: 'products/image-box', locals: {photo: photo}
 
         .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
-          -# TODO:画像プレビュー用
-          -# .pre-image-box
-          -#   %img#img1.pre-image-main
-          -# .pre-image-box
-          -#   %img#img2.pre-image-main
-          -# .pre-image-box
-          -#   %img#img3.pre-image-main
-          
-
           .listing-upload__drag-box--inner-text
             ドラッグ＆ドロップ
             %br
             またはクリックしてファイルをアップロード
         = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
 
-    
     -# 商品名・商品説明
     .listing-content.clearfix
       .listing-product-name
@@ -42,7 +30,6 @@
       .listing-product-description
         = f.label '商品の説明', class: 'listing-default__label'
         %span.listing-default--require 必須
-        -# TODO:placeholderが折り返しで表示されるように要改修
         = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: "#{@product.product_introduction}"
 
     -# 商品の詳細セレクトボックスフォーム
@@ -55,17 +42,14 @@
           .listing-select-wrapper
             .listing-select-wrapper__box
               = select_tag :category_id, options_for_select(@category_parents_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id]}]}, @selected_parent_category.name), {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-              -# = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id]}]}, @selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .listing-select-wrapper__added#children_wrapper
             .listing-select-wrapper__box
               = select_tag :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {class: 'listing-select-wrapper__box--select', id: 'child_category'}
-              -# = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .listing-select-wrapper__added#grandchildren_wrapper
             .listing-select-wrapper__box
               = select_tag :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
-              -# = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           - if @selected_size
             .listing-product-detail__size#size_wrapper
@@ -74,14 +58,12 @@
               .listing-select-wrapper
                 .listing-select-wrapper__box
                   = select_tag :products_size_id, options_for_select(@size_siblings_array.map{|c|[c[:size], c[:id], {'data-category'=>c[:id]}]}, @selected_size.id), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
-                  -# = f.select :products_size_id, options_for_select(@size_siblings_array.map{|c|[c[:size], c[:id], {'data-category'=>c[:id]}]}, @selected_size.id), {}, {class: 'listing-select-wrapper__box--select', id: 'size'}
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           - if @product.brand
             .listing-product-detail__size#brand_wrapper
               = f.label 'ブランド', class: 'listing-default__label'
               %span.listing-default--option 任意
               %input{name: 'brand', type: 'text', class: 'listing-default__form', placeholder: '例) シャネル', value: "#{@product.brand.name}"}
-              -# = f.text_field :brand, class: 'listing-default__form', placeholder: '例) シャネル', value: "#{@product.brand.name}"
           - else
             .listing-product-detail__size#brand_wrapper
               = f.label 'ブランド', class: 'listing-default__label'
@@ -94,8 +76,6 @@
             .listing-select-wrapper__box
               = f.select :product_status, options_for_select(Product.product_statuses.keys, @product.product_status), {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-
-
 
     -# 商品の配送について
     .listing-content.clearfix
@@ -116,10 +96,8 @@
           .listing-select-wrapper
             .listing-select-wrapper__box
               = select_tag :delivery_method, options_for_select(@delivery_method_array, @product.delivery_method), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
-              -# = f.select :delivery_method, options_for_select(@delivery_method_array, @product.delivery_method), {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         
-
         .listing-product-regional-original-delivery
           .listing-default__label 配送元の地域
           %span.listing-default--require 必須
@@ -135,8 +113,6 @@
             .listing-select-wrapper__box
               = f.select :delivery_days, options_for_select(Product.delivery_days.keys, @product.delivery_days), {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-
-      
 
     -# 取引価格＆利益計算
     .listing-content.clearfix
@@ -181,8 +157,6 @@
           加盟店規約
         に同意したことになります。
       = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
-      -# = button_tag '#', class: 'listing-product-submit-box__send-btn' do
-      -#   出品する
       = button_tag '#', class: 'listing-product-submit-box__return-btn' do
         もどる
       #delete-photos
