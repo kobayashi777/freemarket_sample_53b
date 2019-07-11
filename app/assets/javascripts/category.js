@@ -67,7 +67,7 @@ $(document).on('turbolinks:load', function() {
       brandInputHtml = `<div class="listing-product-brand" id="brand_wrapper">
                           <label class="listing-default__label" for="ブランド">ブランド</label>
                           <span class='listing-default--option'>任意</span>
-                          <input class="listing-default__form" placeholder="例) シャネル" type="text" name="product_name" id="product_name" kl_vkbd_parsed="true">
+                          <input class="listing-default__form" placeholder="例) シャネル" type="text" name="brand">
                         </div>`;
       $('.listing-product-detail__category').append(brandInputHtml);
     }
@@ -76,7 +76,7 @@ $(document).on('turbolinks:load', function() {
       var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
       if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
         $.ajax({
-          url: 'get_category_children',
+          url: '/products/get_category_children',
           type: 'GET',
           data: { parent_name: parentCategory },
           dataType: 'json'
@@ -107,7 +107,7 @@ $(document).on('turbolinks:load', function() {
       var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
         $.ajax({
-          url: 'get_category_grandchildren',
+          url: '/products/get_category_grandchildren',
           type: 'GET',
           data: { child_id: childId },
           dataType: 'json'
@@ -138,7 +138,7 @@ $(document).on('turbolinks:load', function() {
       var grandchildId = $('#grandchild_category option:selected').data('category'); //選択された孫カテゴリーのidを取得
       if (grandchildId != "---"){ //孫カテゴリーが初期値でないことを確認
         $.ajax({
-          url: 'get_size',
+          url: '/products/get_size',
           type: 'GET',
           data: { grandchild_id: grandchildId },
           dataType: 'json'

@@ -3,7 +3,7 @@
   - flash.each do |key, value|
     = content_tag :div, value, class: key
 
-  = form_with model: @product, class: 'listing-inner-contents' do |f|
+  = form_with model: @product, class: 'listing-inner-contents', id: "productForm" do |f|
     .listing-inner-contents__title 商品の情報を入力
 
     -# 商品画像提出
@@ -139,5 +139,6 @@
       = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
       = link_to :back, class: 'listing-product-submit-box__return-btn' do
         もどる
+      #delete-photos
         
   = render './shared/user-footer'

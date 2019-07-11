@@ -4,13 +4,13 @@ class Product < ApplicationRecord
   belongs_to :purchaser, class_name: 'User', foreign_key: :user_id, optional: true
   belongs_to :brand, optional: true
   belongs_to :category
-  belongs_to :products_size
+  belongs_to :products_size, optional: true
 
   # バリデーション
   validates :product_name, length: { in: 1..40 }
   validates :product_introduction, length: { in: 1..1000 }, on: :create
   validates :category_id, presence: true
-  validates :products_size_id, presence: true
+  validates :products_size_id, numericality: true, allow_nil: true
   # validates :brand_id
   validates :product_status, presence: true
   validates :delivery_charge, presence: true

@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
 
       
       $.ajax({
-          url: 'get_delivery_method',
+          url: '/products/get_delivery_method',
           type: 'GET',
           data: { parent_name: delivery_parentCategory },
           dataType: 'json'
@@ -59,5 +59,4 @@ $(document).on('turbolinks:load', function() {
 
   });
 });
-
 
