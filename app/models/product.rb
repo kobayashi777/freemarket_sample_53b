@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   validates :photos, length: { in: 1..10, message: "は1枚以上10枚以下で選択してください"}
   validates :product_name, length: { in: 1..40 }
   validates :product_introduction, length: { in: 1..1000 }, on: :create
-  validates :category_id, presence: true
+  validates :category_id, numericality: {message: 'を選択してください'}
   validates :products_size_id, numericality: {message: 'を選択してください'}, allow_nil: true
   validates :product_status, presence: {
     if: proc { |d| d.product_status == nil },
