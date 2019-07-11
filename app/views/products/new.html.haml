@@ -1,7 +1,7 @@
 .listing-wrapper
   = render './shared/user-header'
 
-  = form_with model: @product, class: 'listing-inner-contents' do |f|
+  = form_with model: @product, class: 'listing-inner-contents', id: "productForm" do |f|
     .listing-inner-contents__title 商品の情報を入力
 
     -# 商品画像提出
@@ -139,5 +139,6 @@
       -# TODO: 外部から直接アクセスなど前のページがなくて戻れない場合はトップに飛ぶよう分岐させる コントローラ側？
       = link_to :back, class: 'listing-product-submit-box__return-btn' do
         もどる
+      #delete-photos
         
   = render './shared/user-footer'
