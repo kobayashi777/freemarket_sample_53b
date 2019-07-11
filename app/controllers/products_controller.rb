@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
-  before_action :check_validation, only: :create
+  before_action :check_validation_create, only: :create
   def index
     @products = Product.all
   end
@@ -121,7 +121,7 @@ class ProductsController < ApplicationController
   def get_delivery_method
   end
 
-  def check_validation
+  def check_validation_create
     @product = Product.new(product_params)
     render '/products/new' unless @product.valid? 
   end
