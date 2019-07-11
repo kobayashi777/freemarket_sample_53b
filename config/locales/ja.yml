@@ -31,11 +31,15 @@ ja:
         security_code: "セキュリティコード"
       # TODO:日本語化
       product:
-        category: "カテゴリー"
+        photos: "画像"
         product_name: "商品名"
         product_introduction: "商品説明"
-        products_size: "商品サイズ"
-        product_status: "商品ステータス"
+        category_id: "カテゴリー"
+        products_size: "サイズ"
+        product_status: "商品の状態"
+        delivery_charge: "配送料の負担"
+        delivery_area: "配送元の地域"
+        delivery_days: "配送までの日数"
         
         price: "価格"
   date:

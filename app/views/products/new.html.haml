@@ -19,6 +19,7 @@
           %br
           またはクリックしてファイルをアップロード
       = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+      = render partial: 'error-messages', locals: {product: @product, column: "photos"}
       
 
     -# 商品名・商品説明
@@ -28,18 +29,24 @@
         %span.listing-default--require 必須
         = f.text_field :product_name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)'
         -# TODO:エラー文の表示＆日本語化
-        - unless @product.valid?
-          - if @product.errors.messages[:product_name].any?
-            -# %span.errors= @product.errors.full_messages_for(:product_name)
-            %span.errors= @product.errors.full_messages
+        = render partial: 'error-messages', locals: {product: @product, column: "product_name"}
+        -# - if @product.errors.any?
+        -#   - unless @product.valid?
+        -#     - if errors = @product.errors.full_messages_for(:product_name)
+        -#       -# %span.errors= @product.errors.full_messages_for(:product_name)
+        -#       -# %span.errors= @product.errors.full_messages
+        -#       %ul
+        -#         - errors.each do |error|
+        -#           %li.has_error_text=error
 
       .listing-product-description
         = f.label '商品の説明', class: 'listing-default__label'
         %span.listing-default--require 必須
         = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field',  placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-        - unless @product.valid?
-          - if @product.errors.messages[:product_introduction].any?
-            %span.errors= @product.errors.full_messages_for(:product_introduction)
+        = render partial: 'error-messages', locals: {product: @product, column: "product_introduction"}
+        -# - unless @product.valid?
+        -#   - if @product.errors.messages[:product_introduction].any?
+        -#     %span.errors= @product.errors.full_messages_for(:product_introduction)
 
     -# 商品の詳細セレクトボックスフォーム
     .listing-content.clearfix
@@ -51,8 +58,9 @@
           .listing-select-wrapper
             .listing-select-wrapper__box
               -# TODO:孫要素で飛んでればいいので一旦hogeで飛ばす？
-              = f.select :hoge, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須
@@ -60,6 +68,7 @@
             .listing-select-wrapper__box
               = f.select :product_status, Product.product_statuses.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "product_status"}
 
 
 
@@ -77,6 +86,7 @@
 
               = f.select :delivery_charge, Product.delivery_charges.keys, {}, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "delivery_charge"}
         
         .listing-product-regional-original-delivery
           .listing-default__label 配送元の地域
@@ -85,6 +95,7 @@
             .listing-select-wrapper__box
               = f.select :delivery_area, Product.delivery_areas.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "delivery_area"}
 
         .listing-product-days-up-to-delivery
           .listing-default__label 配送までの日数
@@ -93,6 +104,7 @@
             .listing-select-wrapper__box
               = f.select :delivery_days, Product.delivery_days.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "delivery_days"}
 
     -# 取引価格＆利益計算
     .listing-content.clearfix
@@ -108,6 +120,7 @@
           .form-right-justified__box 
             %p.form-right-justified__box--react-text ￥
             = f.text_field :price, class: 'form-right-justified__box__entry', id: 'price-form', placeholder: '例） 300'
+        = render partial: 'error-messages', locals: {product: @product, column: "price"}
 
         .form-right-justified-sub
           = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
