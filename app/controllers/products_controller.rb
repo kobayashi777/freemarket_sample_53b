@@ -19,8 +19,8 @@ class ProductsController < ApplicationController
    end
 
    def create
-      @product = Product.new(product_params)
-      @product.save
+      @products = Product.new(product_params)
+      @products.save
       
       
       # # 必須項目が全て満たされていた場合
