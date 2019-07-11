@@ -10,8 +10,7 @@
       %span.listing-upload--require 必須
       %p.listing-upload__subtext 最大10枚までアップロードできます
       .listing-upload__wrapper
-        - @product.photos.each do |photo|
-          = render partial: 'products/image-box', locals: {photo: photo}
+        = render partial: 'products/image-box', collection: @product.photos, as: "photo"
 
         .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
           .listing-upload__drag-box--inner-text
