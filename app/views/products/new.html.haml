@@ -33,7 +33,6 @@
         = f.label "商品名", class: 'listing-default__label'
         %span.listing-default--require 必須
         = f.text_field :product_name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)'
-        -# TODO:エラー文の表示＆日本語化
         = render partial: 'error-messages', locals: {product: @product, column: "product_name"}
 
       .listing-product-description
@@ -51,7 +50,6 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              -# TODO:孫要素で飛んでればいいので一旦hogeで飛ばす？
               = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
