@@ -7,17 +7,11 @@ class ProductsController < ApplicationController
    def show
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
-    # with_attached_photos は .all と同義なので .find で細かな指定をする  
+    # with_attached_photos は .all と動作が同じなので .find で細かな指定をする  
    end
    
-   # TODO:画像投稿機能のS3設定と本番環境での分岐
-   # FIXME:他の項目でバリデーションかかっても画像だけ保存される問題 サーバー側で自動でバッチ処理走らせる？
    def new
       @product = Product.new
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-         @category_parent_array << parent.name
-      end
    end
 
    def create
