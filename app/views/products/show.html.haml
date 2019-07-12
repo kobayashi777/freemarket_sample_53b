@@ -15,53 +15,10 @@
           - @product.photos.each_with_index do |photo, i|
             %li.photo-up-piece
               = image_tag @product.photos[i].variant(resize:'300x380').processed
-
-              -#= @product.photos.each do |photo|
-              -#= image_tag(url_for(@product.photos))
-            -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-            -# %li.photo-up-piece
-            -#   = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
               = image_tag @product.photos[i].variant(resize:'60x60').processed
-
-          -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          -# %li.content-photo-down__piece
-          -#   = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
 
       %table.content--detail-table
         %tbody.table
@@ -79,32 +36,32 @@
             %th.table--section-left
               ブランド
             %th.table--section-right
-              = @product.brand  #突然 .brand.name がundefined：nameになる #speeddemon 前に何があったのか確認のため残す 以下同様
+              = @product.brand  #突然 .brand.name がundefined：nameになる 
           %tr.table--section
             %th.table--section-left
               商品状態
             %th.table--section-right
-              = @product.product_status #Ghost Rider
+              = @product.product_status 
           %tr.table--section
             %th.table--section-left
               配送料負担
             %th.table--section-right
-              = @product.delivery_charge #how much will you pay
+              = @product.delivery_charge 
           %tr.table--section
             %th.table--section-left
               配送方法
             %th.table--section-right
-              = @product.delivery_method #Aaaaa-Oh
+              = @product.delivery_method 
           %tr.table--section
             %th.table--section-left
               配送元
             %th.table--section-right
-              = @product.delivery_area #ちょっと何言ってるか分からないです
+              = @product.delivery_area 
           %tr.table--section
             %th.table--section-left
               配送日目安
             %th.table--section-right
-              = @product.delivery_days #てやんでい
+              = @product.delivery_days 
 
     .item-container1__item-price
       %span.item-container1__item-price-bold
@@ -116,12 +73,7 @@
     = link_to " 購入画面に進む", purchase_index_path,  class:"item-container1__item-buy-btn"
     .item-container1__item-description 
       %p.item-description-inner
-        -# This is description area//
-        -# This is description area//
-        -# This is description area//
-        -# This is description area//
-        -# This is description area//
-        -# This is description area//
+        -# This is description area⬇︎ 
         = @product.product_introduction
     .item-container1__item-other-btn.clearfix
       .link_btn_left
@@ -138,6 +90,7 @@
     In here,communicate each other.//
     In here,communicate each other.//
     In here,communicate each other.//
+    This is communication area.
   %ul.item-nav.clearfix
     %li.item-nav__link
       = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
