@@ -1,7 +1,7 @@
 .listing-wrapper
   = render 'shared/user-header'
 
-  = form_with model: @product, class: 'listing-inner-contents', id: "productForm" do |f|
+  = form_with model: @product, class: 'listing-inner-contents', id: "editForm" do |f|
     .listing-inner-contents__title 商品の情報を入力
 
     -# 商品画像提出
@@ -165,7 +165,7 @@
         = link_to '#', class:'subtext-link' do
           加盟店規約
         に同意したことになります。
-      = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
+      = f.submit '出品する', class: 'listing-product-submit-box__send-btn', id: 'edit-send-btn'
       = button_tag '#', class: 'listing-product-submit-box__return-btn' do
         もどる
       #delete-photos
