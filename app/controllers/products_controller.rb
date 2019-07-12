@@ -8,10 +8,29 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.with_attached_photos.find(params[:id])
+    # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
+    # with_attached_photos は .all と動作が同じなので .find で細かな指定をする  
   end
   
   def new
     @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    @product.save
+    
+    
+    # # 必須項目が全て満たされていた場合
+    # if @product.save!
+    # flash[:notice] = "出品が完了しました"
+    # redirect_to :root
+    # else
+    # 必須項目が不足していた場合
+    # flash[:alert] = "未入力項目があります"
+    # redirect_back(fallback_location: root_path)
+    # end
   end
 
   def create
