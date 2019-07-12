@@ -1,10 +1,35 @@
-.header-right-icon{
-  width:216px;
-  height:34px;
-  margin: 12px 0 0 auto;
-  display:flex;
-}//.header-right-icon
+@media screen and (min-width:765px) {
+  .header-right-icon{
+    width:216px;
+    height:34px;
+    margin: 12px 0 0 auto;
+    display:flex;
 
+  }//.header-right-icon
+  .header-right-icon_hidden{
+    width:216px;
+    height:34px;
+    margin: 12px 0 0 auto;
+    display:flex;
+    display: none;
+  }//.header-right-icon
+}
+@media screen and (max-width:765px) {
+  .header-right-icon{
+    width:216px;
+    height:34px;
+    margin: 12px 0 0 auto;
+    display:flex;
+    display: none;
+  }//.header-right-icon
+  .header-right-icon_hidden{
+    width:216px;
+    height:34px;
+    margin: 12px 90px 0 auto;
+    display:flex;
+    // display: none;
+  }//.header-right-icon
+}
 //newpage用
 .sign-up-button__red{
   width:112px;

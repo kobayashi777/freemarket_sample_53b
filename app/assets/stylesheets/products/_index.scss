@@ -35,7 +35,7 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-    color: red;
+    color:black;
   }
   .item-container{
     height:442px;
@@ -73,6 +73,10 @@
       width: 213px;
       height:190px;
       background-color: white;
+      &__image{
+        width:213px;
+        height:210px;
+      }
     }
     &_body{
       height:130px;
@@ -158,7 +162,7 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-    color: blue;
+    color:black;
   }
   .item-container{
     height:442px;
@@ -197,6 +201,10 @@
       width: 213px;
       height:190px;
       background-color: white;
+      &__image{
+        width:213px;
+        height:210px;
+      }
     }
     &_body{
       height:130px;
@@ -282,7 +290,7 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-    color: purple;
+    color:black;
   }
   .item-container{
     height:882px;
@@ -317,16 +325,20 @@
   .items-box{
     margin: 0 0 0 20px;
     width: 310px;
-    height:420px;
+    height:400px;
     &_photo{
       width: 300px;
       height:190px;
       background-color: white;
+      &__image{
+        width:300px;
+        height:240px;
+      }
     }
     &_body{
       width: 300px;
-      height:130px;
-      padding: 20px 16px ;
+      height:180px;
+      padding: 45px 16px 20px;
       background-color:white;
     }
     &-name{
@@ -361,9 +373,8 @@
     font-size: 10px;
   }
   .view-all{
-    padding: 20px 0 30px;
+    padding: 40px 0 0px;
     width: 99.5%;
-    padding: 0 0 30px;
     text-align: right;
     color: #0099e8;
     text-decoration: none;

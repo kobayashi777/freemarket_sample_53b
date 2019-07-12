@@ -4,13 +4,16 @@ class ProductsController < ApplicationController
   before_action :check_validation_create, only: :create
   def index
     @products = Product.all
+    @categories = Category.all
   end
 
   def show
+    @categories = Category.all
   end
   
   def new
     @product = Product.new
+    @categories = Category.all
   end
 
   def create
@@ -20,6 +23,7 @@ class ProductsController < ApplicationController
     else
       render 'products/new'
     end
+    @categories = Category.all
   end
 
   def edit
@@ -72,6 +76,7 @@ class ProductsController < ApplicationController
     @sales_fee = "#{(@product.price.to_i*0.1).round}"
     # 販売利益の初期値
     @sales_profit = "#{(@product.price.to_i*0.9).round}"
+
   end
   
   def update
@@ -85,6 +90,7 @@ class ProductsController < ApplicationController
     else
       redirect_back(fallback_location: edit_product_path)
     end
+    @categories = Category.all
   end
 
   def destroy

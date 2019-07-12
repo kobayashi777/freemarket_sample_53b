@@ -2,7 +2,7 @@
   - @products.order('created_at DESC').where(category_id:(219..377)).limit(4).each do |product|
     .items-box
       .items-box_photo
-        = product.product_introduction
+        = image_tag url_for(product.photos[0]), class:"items-box_photo__image"
       .items-box_body
         %h3.items-box-name
           = product.product_name

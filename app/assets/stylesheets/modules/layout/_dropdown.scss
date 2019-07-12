@@ -4,7 +4,7 @@
   height:60px;
 }
 .gnav:hover li a{
-  height: 2.5rem;
+  height: 3.2rem;
   overflow: visible;
 }
 .gnav li a{
@@ -13,7 +13,7 @@
   display: block;
   width: 224px;
   text-decoration: none;
-  line-height: 30px;
+  line-height: 50px;
   list-style-type : none;
   margin: 0;
   padding-left: 10px;
@@ -21,6 +21,7 @@
   background:white;
   height: 0;
   overflow: hidden;
+  font-size: 14px;
 }
 .gnav > li:hover > a{
   color:white;
@@ -44,7 +45,7 @@
   top: -57px;
   left:224px;
   width: 224px;
-  height: 537px;
+  height: 682px;
   background: white;
   margin-top:100px;
 }
@@ -67,12 +68,13 @@
   position: absolute;
   top: -105px;
   left:223px;
-  width: 300px;
+  width: 224px;
   // background:red;
   height: 0;
   overflow: hidden;
 }
 .gnav ul li ul{
-  // background:blue;
-  // height:600px;
+  background:white;
+  height:687px;
+  top: -105px;
 }
