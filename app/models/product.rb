@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :products_size, optional: true
 
   # バリデーション
-  validates :photos, length: { in: 1..10, message: "は1枚以上10枚以下で選択してください"}, on: :check_validation_create
+  validates :photos, length: { in: 1..10, message: "は1枚以上10枚以下で選択してください"}
   validates :product_name, length: { in: 1..40 }
   validates :product_introduction, length: { in: 1..1000 }
   validates :category_id, numericality: {message: 'を選択してください'}
