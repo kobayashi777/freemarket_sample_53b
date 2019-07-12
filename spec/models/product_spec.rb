@@ -3,9 +3,8 @@ require 'rails_helper'
 describe Product do
   let(:category) { create(:category) }
   let(:size) { create(:productsSize) }
-  let(:brand) { create(:brand) }
+  let(:brand) { create(:brand, category_id: category) }
   let(:user) { create(:user) }
-  let(:blob) { create(:blob) }
   
   describe '#create' do
     # 全てのインプットありの場合
