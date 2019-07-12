@@ -5,10 +5,9 @@ class ProductsController < ApplicationController
    end
 
    def show
-    @product = Product.find(params[:id])
-    #@userId = User.find(@product.exhibitor_id)
-    #binding.pry
-    #binding.pry
+    @product = Product.with_attached_photos.find(params[:id])
+    # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
+    # with_attached_photos は .all と同義なので .find で細かな指定をする  
    end
    
    # TODO:画像投稿機能のS3設定と本番環境での分岐
