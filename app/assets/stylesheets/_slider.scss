@@ -1,0 +1,110 @@
+// トップ画面の画像表示をスライドにする
+
+.slick-dots {
+  bottom: 20px;
+  left: 1px;
+  li button{
+    &::before{
+      height: 10px;
+      width: 10px;
+      background-color: rgb(116, 116, 116);
+      border-radius: 50%;
+    }
+  }
+}
+.slick-prev{
+  left: 50px;
+  height: 80px;
+  width: 80px;
+  background-image: image-url("hidari.png");
+  z-index: 100;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.slick-prev:before {
+  content: "<";
+  color: white;
+  font-size: 60px;
+  cursor: pointer;
+}
+
+.slick-next{
+  right: 50px;
+  height: 80px;
+  width: 80px;
+  background-image: image-url("hidari.png");
+  z-index: 100;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+.slick-next:before {
+  content: ">";
+  color: white;
+  font-size: 60px;
+  cursor: pointer;
+}
+
+.top_photo{
+  background-color:lightgray;
+  height:390px;
+  width:100%;
+
+}
+.top_photo_a{
+  position: relative;
+  height: 390px;
+  background-size:100% 100%;
+  background-image: url("/images/top画像.jpg");
+
+}
+.toppage_content_photo{
+  height:390px;
+  position: absolute;
+  top:0px;
+  right:280px;
+}
+.toppage_content_photo_camp{
+  height:390px;
+  text-align: center;
+  margin: 0 auto;
+  
+}
+
+.slick{
+  width:100%;
+  display: flex;
+}
+
+.photo_content{
+  font-size: 60px;
+  font-weight: bold;
+  margin-left: 250px;
+  margin-top: 40px;
+}
+.photo_content_introduce{
+  font-size: 16px;
+  margin-left: 260px;
+}
+
+.photo_content_icon{
+  padding-left: 230px;
+  display: flex;
+  width: 282px;
+  height: 68px;
+  margin-left:24px;
+  border-radius:7px;
+  margin-top:13px;
+    &__left{
+      border-radius:7px;
+      margin-top:13px;
+    }
+    &__right{
+      border-radius:7px;
+      margin-top:13px;
+      margin-left:10px;
+    }
+}
+

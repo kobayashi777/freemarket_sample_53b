@@ -1,3 +1,3 @@
-class [Model] < ActiveRecord::Base
+class Model < ActiveRecord::Base
   has_ancestry
 end

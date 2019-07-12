@@ -24,7 +24,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to registration_signup_index_path
     elsif session[:flag] == "signin" && @sns_credential.persisted? # ログイン画面からのリクエストかつ、snsでの登録がある場合
       sign_in_and_redirect @sns_credential.user, event: :authentication
-      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else # ログイン画面からのリクエストだが、snsでの登録がない場合
       session[:error] = "#{provider.capitalize}での登録情報はありません。他の方法でログインをお試しください。"
       redirect_to new_user_session_path

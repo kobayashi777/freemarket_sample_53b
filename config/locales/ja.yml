@@ -10,6 +10,7 @@ ja:
     models:
       user: "ユーザー"
       credit: "クレジット"
+      product: "商品"
     attributes:
       user:
         nickname: "ニックネーム"
@@ -28,6 +29,20 @@ ja:
       credit:
         card_number: "カード番号"
         security_code: "セキュリティコード"
+      # TODO:日本語化
+      product:
+        photos: "画像"
+        product_name: "商品名"
+        product_introduction: "商品説明"
+        category_id: "カテゴリー"
+        products_size_id: "サイズ"
+        product_status: "商品の状態"
+        delivery_charge: "配送料の負担"
+        delivery_method: "配送の方法"
+        delivery_area: "配送元の地域"
+        delivery_days: "配送までの日数"
+        
+        price: "価格"
   date:
     abbr_day_names:
     - 日

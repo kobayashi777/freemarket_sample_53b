@@ -4,22 +4,26 @@ class Product < ApplicationRecord
   belongs_to :purchaser, class_name: 'User', foreign_key: :purchaser_id, optional: true
   belongs_to :brand, optional: true
   belongs_to :category
-  belongs_to :products_size
+  belongs_to :products_size, optional: true
 
   # バリデーション
-  # validates :product_name, length: { minimum: 1, maximum: 40 }
-  # validates :product_introduction, { minimum: 1, maximum: 1000 }
-  validates :category_id, presence: true
-  validates :products_size_id, presence: true
-  # validates :brand_id
-  validates :product_status, presence: true
-  validates :delivery_charge, presence: true
-  validates :delivery_method, presence: true
-  validates :delivery_area, presence: true
-  validates :delivery_days, presence: true
+  validates :photos, length: { in: 1..10, message: "は1枚以上10枚以下で選択してください"}, on: :check_validation_create
+  validates :product_name, length: { in: 1..40 }
+  validates :product_introduction, length: { in: 1..1000 }
+  validates :category_id, numericality: {message: 'を選択してください'}
+  validates :products_size_id, numericality: {message: 'を選択してください'}, allow_nil: true
+  validates :product_status, presence: {
+    if: proc { |d| d.product_status == nil },
+    message: 'を選択してください' 
+  }
+  validates :delivery_charge, exclusion: {in: %w(---), message: 'を選択してください'}
+  validates :delivery_method, exclusion: {in: %w(---), message: 'を選択してください'}
+  validates :delivery_area, exclusion: {in: %w(---), message: 'を選択してください'}
+  validates :delivery_days, exclusion: {in: %w(---), message: 'を選択してください'}
   validates :price,  numericality: {only_integer: true,
                                     greater_than_or_equal_to: 300,
-                                    less_than_or_equal_to: 9999999 }
+                                    less_than_or_equal_to: 9999999,
+                                    message: 'は300以上9999999以下で入力してください' }
 
   enum delivery_charge: {
   "---":0,送料込み（出品者負担）:1,着払い（購入者負担）:2
