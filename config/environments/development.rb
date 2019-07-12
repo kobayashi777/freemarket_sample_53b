@@ -28,6 +28,7 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
+  # ローカルの画像アップロード先ここで決定 :local or :amazon
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
