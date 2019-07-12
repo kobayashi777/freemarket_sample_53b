@@ -1,7 +1,7 @@
 .listing-wrapper
   = render './shared/user-header'
 
-  = form_with model: @product, class: 'listing-inner-contents' do |f|
+  = form_with model: @product, class: 'listing-inner-contents', id: "productForm" do |f|
     .listing-inner-contents__title 商品の情報を入力
 
     -# 商品画像提出
@@ -10,20 +10,20 @@
       %span.listing-upload--require 必須
       %p.listing-upload__subtext 最大10枚までアップロードできます
       .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
-        -# TODO:画像プレビュー用
-        .pre-image-box
-          %img#img1.pre-image-main
-        .pre-image-box
-          %img#img2.pre-image-main
-        .pre-image-box
-          %img#img3.pre-image-main
-        
+      
 
         .listing-upload__drag-box--inner-text
           ドラッグ＆ドロップ
           %br
           またはクリックしてファイルをアップロード
       = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+      = render partial: 'error-messages', locals: {product: @product, column: "photos"}
+      - if @product.errors.any?
+        - unless @product.valid?
+          - if @product.errors.full_messages_for(:photos) == []
+            %ul
+              %li.has_error_text 画像を再選択してください
+      
 
     -# 商品名・商品説明
     .listing-content.clearfix
@@ -31,11 +31,13 @@
         = f.label "商品名", class: 'listing-default__label'
         %span.listing-default--require 必須
         = f.text_field :product_name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)'
+        = render partial: 'error-messages', locals: {product: @product, column: "product_name"}
 
       .listing-product-description
         = f.label '商品の説明', class: 'listing-default__label'
         %span.listing-default--require 必須
-        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field',  placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = render partial: 'error-messages', locals: {product: @product, column: "product_introduction"}
 
     -# 商品の詳細セレクトボックスフォーム
     .listing-content.clearfix
@@ -46,10 +48,15 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              -# TODO:孫要素で飛んでればいいので一旦hogeで飛ばす？
-              = f.select :hoge, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-        -# TODO:商品状態
+        = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
+        - if @product.errors.any?
+          - unless @product.valid?
+            - if @product.errors.full_messages_for(:category_id) == []
+              %ul
+                %li.has_error_text カテゴリーを再選択してください
+        = render partial: 'error-messages', locals: {product: @product, column: "products_size_id"}
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須
@@ -57,6 +64,7 @@
             .listing-select-wrapper__box
               = f.select :product_status, Product.product_statuses.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "product_status"}
 
 
 
@@ -72,26 +80,33 @@
           .listing-select-wrapper
             .listing-select-wrapper__box
 
-              = f.select :delivery_charge, Product.delivery_charges.keys, {}, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
+              = f.select :delivery_charge, options_for_select(Product.delivery_charges.keys, "---"), {}, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "delivery_charge"}
+        - if @product.errors.any?
+          - unless @product.valid?
+            - if @product.errors.full_messages_for(:delivery_method) != []
+              %ul
+                %li.has_error_text 配送料の負担を再選択してください
+        = render partial: 'error-messages', locals: {product: @product, column: "delivery_method"}
         
         .listing-product-regional-original-delivery
           .listing-default__label 配送元の地域
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              -# TODO:三浦: is not a validのため.keys.to_aを追加
               = f.select :delivery_area, Product.delivery_areas.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "delivery_area"}
 
         .listing-product-days-up-to-delivery
           .listing-default__label 配送までの日数
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              -# TODO:三浦: is not a validのため.keys.to_aを追加
               = f.select :delivery_days, Product.delivery_days.keys.to_a, {}, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "delivery_days"}
 
     -# 取引価格＆利益計算
     .listing-content.clearfix
@@ -107,6 +122,7 @@
           .form-right-justified__box 
             %p.form-right-justified__box--react-text ￥
             = f.text_field :price, class: 'form-right-justified__box__entry', id: 'price-form', placeholder: '例） 300'
+        = render partial: 'error-messages', locals: {product: @product, column: "price"}
 
         .form-right-justified-sub
           = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
@@ -135,9 +151,9 @@
         = link_to 'https://www.mercari.com/jp/seller_terms/', class:'subtext-link' do
           加盟店規約
         に同意したことになります。
-      = f.submit '出品する', class: 'listing-product-submit-box__send-btn'
-      -# TODO: 外部から直接アクセスなど前のページがなくて戻れない場合はトップに飛ぶよう分岐させる コントローラ側？
+      = f.submit '出品する', class: 'listing-product-submit-box__send-btn', id: 'product-send-btn'
       = link_to :back, class: 'listing-product-submit-box__return-btn' do
         もどる
+      #delete-photos
         
   = render './shared/user-footer'
