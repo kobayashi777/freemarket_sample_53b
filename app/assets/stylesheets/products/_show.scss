@@ -11,6 +11,7 @@
       font-size: 24px;
       word-wrap: break-word;
       line-height: 1.4;
+      font-weight: bold;
     }
     .item-container1__item-content {
       @include clearfix;
@@ -19,7 +20,7 @@
         float: left;
         width: 300px;
         min-height: 380px;
-        overflow: hidden;  /* ここに書くことで隠れる 遷移確認の為一時コメアウト */
+        overflow: hidden;  /* ここに書くことで隠れる */
         margin: 0 auto;
         background: $thin_gray;
         .content--photo-up {
@@ -95,6 +96,7 @@
       text-size-adjust: 100%;
       .item-container1__item-price-bold {
         margin: 0 16px 0 0;
+        font-weight: 600;
       }
       .item-container1__item-price-tax {
         font-size: 10px;

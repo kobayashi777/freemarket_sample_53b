@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
+
   def index
     @products = Product.all
     @categories = Category.all
@@ -9,11 +10,30 @@ class ProductsController < ApplicationController
 
   def show
     @categories = Category.all
+    @product = Product.with_attached_photos.find(params[:id])
+    # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
+    # with_attached_photos は .all と動作が同じなので .find で細かな指定をする  
   end
   
   def new
     @product = Product.new
     @categories = Category.all
+  end
+
+  def create
+    @product = Product.new(product_params)
+    @product.save
+    
+    
+    # # 必須項目が全て満たされていた場合
+    # if @product.save!
+    # flash[:notice] = "出品が完了しました"
+    # redirect_to :root
+    # else
+    # 必須項目が不足していた場合
+    # flash[:alert] = "未入力項目があります"
+    # redirect_back(fallback_location: root_path)
+    # end
   end
 
   def create
@@ -80,14 +100,17 @@ class ProductsController < ApplicationController
   end
   
   def update
+    session[:edit_errors] = nil
     product = Product.find(params[:id])
     if product.update(product_params) # updateが成功した場合
       # 編集ページで削除ボタンを押された写真のデータを削除する
       params[:delete_photos].split(",").each do |id|
         product.photos.find(id).purge
       end
-      redirect_to root_path
+      redirect_to product_path(product)
     else
+      product.valid?
+      session[:edit_errors] = product.errors
       redirect_back(fallback_location: edit_product_path)
     end
     @categories = Category.all
