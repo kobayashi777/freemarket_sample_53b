@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
+
   def index
     @products = Product.all
   end
@@ -75,14 +76,17 @@ class ProductsController < ApplicationController
   end
   
   def update
+    session[:edit_errors] = nil
     product = Product.find(params[:id])
     if product.update(product_params) # updateが成功した場合
       # 編集ページで削除ボタンを押された写真のデータを削除する
       params[:delete_photos].split(",").each do |id|
         product.photos.find(id).purge
       end
-      redirect_to root_path
+      redirect_to product_path(product)
     else
+      product.valid?
+      session[:edit_errors] = product.errors
       redirect_back(fallback_location: edit_product_path)
     end
   end

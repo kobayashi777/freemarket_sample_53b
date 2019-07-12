@@ -1,0 +1,5 @@
+- if session[:edit_errors]
+  - if errors = session[:edit_errors][column]
+    %ul
+      - errors.each do |error|
+        %li.has_error_text="#{jp}#{error}"
