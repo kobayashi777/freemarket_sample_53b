@@ -50,5 +50,9 @@ $(document).on('turbolinks:load', function() {
         $('.listing-upload').append(errorHtml);
       }
     });
+    $('#product-send-btn').on('click', function(e){
+      e.preventDefault();
+      $('#productForm').submit();
+    })
   });
 });
