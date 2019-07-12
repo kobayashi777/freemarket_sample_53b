@@ -48,6 +48,7 @@ $(document).on('turbolinks:load', function() {
                          </ul>`
         $('#upload-error').remove();
         $('.listing-upload').append(errorHtml);
+        $('html,body').scrollTop(0);
       }
     });
     $('#product-send-btn').on('click', function(e){
