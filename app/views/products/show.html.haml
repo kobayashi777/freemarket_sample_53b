@@ -8,13 +8,13 @@
 
   %section.item-container1
     %h1.item-container1__item-name 
-    = @product.product_name
+      = @product.product_name
     .item-container1__item-content.clearfix
       .content--photo
         %ul.content--photo-up
           - @product.photos.each_with_index do |photo, i|
             %li.photo-up-piece
-              = image_tag @product.photos[i].variant(resize:'300x380').processed  
+              = image_tag @product.photos[i].variant(resize:'300x380').processed
 
               -#= @product.photos.each do |photo|
               -#= image_tag(url_for(@product.photos))
@@ -41,7 +41,7 @@
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
-              = image_tag @product.photos[i].variant(resize:'120x60').processed
+              = image_tag @product.photos[i].variant(resize:'60x60').processed
 
           -#   = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
           -# %li.content-photo-down__piece
