@@ -144,7 +144,7 @@ class ProductsController < ApplicationController
 
   def check_validation_create
     @product = Product.new(product_params)
-    render '/products/new' unless @product.valid? 
+    render '/products/new' unless @product.valid?(:create)
   end
 
   private
