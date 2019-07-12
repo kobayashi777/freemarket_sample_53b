@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'get_delivery_method'
     end
   end
-  resources :users, only: [:show, :new, :edit, :create, :destroy]
+  resources :users, only: [:show, :new, :edit, :create, :destroy, :update]
 
   resources :login, only: :index
   resources :signup do
