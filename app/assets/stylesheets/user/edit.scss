@@ -1,11 +1,12 @@
 .wrapper1 {
   @include clearfix;
   width: 100%;
-  padding: 40px 210px 40px;
+  padding-left: 140px;
   margin: 0 auto 0;
   height: 100%;
   background: $thin_gray;
 }
+
 
   .profile-container {
     margin: 0 auto;
@@ -14,6 +15,9 @@
     border-style: solid;
     border-width: 0;
     float: right;
+    position: absolute;
+    right: 190px;
+    top:140px;
     h2.container__profile {
       font-size: 24px;
       padding: 8px 24px;
@@ -33,7 +37,7 @@
         // height: 60px;
         padding: 72px 16px 24px;
         border: 1px solid black;
-        background-image: url("/images/RED19515A006_TP_V4.jpg");
+        background-image: url("/images/user-bg.jpg");
         background-repeat: no-repeat;
         display: flex;
        
@@ -82,3 +86,4 @@
       }
     } 
   }
+

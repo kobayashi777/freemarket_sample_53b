@@ -6,7 +6,6 @@
     %h2.container__profile プロフィール
     = form_with model: @user, class: "edit_form" do |f|
       .container__name
-        -#.container__name--img
         = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "image-tag"
         = f.text_field :name, class: "edit_name"
       .container__text
