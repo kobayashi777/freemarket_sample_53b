@@ -38,4 +38,3 @@ end
 # wheneverの本番環境反映
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
-job_type :rbenv_rake, %q!eval "$(rbenv init -)"; cd :path && :environment_variable=:environment bundle exec rake :task --silent :output!
