@@ -8,4 +8,8 @@ class MypageController < ApplicationController
     @categories = Category.all
   end
 
+  def new
+    @categories = Category.all
+  end
+  
 end
