@@ -20,17 +20,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    
-    
-    # # 必須項目が全て満たされていた場合
-    # if @product.save!
-    # flash[:notice] = "出品が完了しました"
-    # redirect_to :root
-    # else
-    # 必須項目が不足していた場合
-    # flash[:alert] = "未入力項目があります"
-    # redirect_back(fallback_location: root_path)
-    # end
   end
 
   def create
