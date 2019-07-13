@@ -140,11 +140,11 @@
 
         .form-right-justified-sub
           = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
-          #sf-tag.form-right-justified-sub__fee="¥#{@sales_fee}"
+          #sf-tag.form-right-justified-sub__fee=converting_to_jpy(@sales_fee)
 
         .form-right-justified-main
           = f.label "販売利益", class: 'form-right-justified-main__label'
-          #sp-tag.form-right-justified-main__revenue="¥#{@sales_profit}"
+          #sp-tag.form-right-justified-main__revenue=converting_to_jpy(@sales_profit)
 
     -# 送信＆注意書き
     .listing-content.clearfix

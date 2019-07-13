@@ -10,6 +10,7 @@ class Users::SessionsController < Devise::SessionsController
     super
     session[:flag] = "signin" #signinページであることを示す目印
     session[:error] = nil #エラーメッセージの初期化
+    alert = nil
   end
 
   # POST /resource/sign_in

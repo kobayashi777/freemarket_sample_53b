@@ -12,27 +12,11 @@ class ProductsController < ApplicationController
     @categories = Category.all
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
-    # with_attached_photos は .all と動作が同じなので .find で細かな指定をする  
+    # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
   end
   
   def new
     @product = Product.new
-  end
-
-  def create
-    @product = Product.new(product_params)
-    @product.save
-    
-    
-    # # 必須項目が全て満たされていた場合
-    # if @product.save!
-    # flash[:notice] = "出品が完了しました"
-    # redirect_to :root
-    # else
-    # 必須項目が不足していた場合
-    # flash[:alert] = "未入力項目があります"
-    # redirect_back(fallback_location: root_path)
-    # end
   end
 
   def create
@@ -92,10 +76,9 @@ class ProductsController < ApplicationController
     end
     # 販売価格の表示
     # 販売手数料の初期値
-    @sales_fee = "#{(@product.price.to_i*0.1).round}"
+    @sales_fee = (@product.price.to_i*0.1).round
     # 販売利益の初期値
-    @sales_profit = "#{(@product.price.to_i*0.9).round}"
-
+    @sales_profit = (@product.price.to_i*0.9).round
   end
   
   def update
@@ -149,7 +132,7 @@ class ProductsController < ApplicationController
 
   def check_validation_create
     @product = Product.new(product_params)
-    render '/products/new' unless @product.valid? 
+    render '/products/new' unless @product.valid?(:create)
   end
 
   private
