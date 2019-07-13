@@ -7,7 +7,7 @@
     %div.content__main
       .content__main--item
       %span.content__main--item-image
-        = image_tag '/images/m37585938822_1.jpg', size: "64x64"
+        = image_tag @product.photos[0].variant(resize:'64x64').processed
       %p.content__main--item-name adidas アディダス Tシャツ
 
 
