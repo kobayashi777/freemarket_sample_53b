@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
-    # with_attached_photos は .all と動作が同じなので .find で細かな指定をする  
+    # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
   end
   
   def new
