@@ -6,7 +6,7 @@
   = render 'mypage/mypage-sidemenu'
   .profile-container
     %h2.container__profile プロフィール
-    = form_for @user, url:"/users/#{@user.id}" , method: :patch, html:{class: "edit_form"} do |f|
+    = form_for @user, url: user_path(current_user) , method: :patch, html:{class: "edit_form"} do |f|
       .container__name
         = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "image-tag"
         = f.text_field :nickname, value: "#{@user.nickname}" ,class: "edit_name"
