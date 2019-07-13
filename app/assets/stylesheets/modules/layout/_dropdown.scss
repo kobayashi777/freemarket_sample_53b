@@ -32,10 +32,12 @@
   color:black;
   background-color:rgb(225, 225, 225);
 }
-.gnav ul li :hover li{
+.gnav ul li a:hover li {
   height: 2.5rem;
   overflow: visible;
+  
 }
+
 .gnav li:hover ul{
   display: block;
 }
@@ -49,32 +51,36 @@
   background: white;
   margin-top:100px;
 }
+.gnav li ul{
+}
+.gnav ul li a{
+  line-height: 30px;
+  // background-color: aqua;
+}
+.gnav:hover li ul li a{
+  height: 1.9rem;
+  overflow: visible;
+  
+}
 
 //第三階層
 .gnav ul li ul a:hover{
   color:black;
   background-color:rgb(225, 225, 225);
+  height: 1.9rem;
 }
 .gnav ul li:hover ul{
-  height: 2.5rem;
   overflow: visible;
+  height: 687px;
 }
-.gnav li:hover ul{
-  display: block;
 
-}
 .gnav ul ul{
   display: none;
   position: absolute;
   top: -105px;
   left:223px;
   width: 224px;
-  // background:red;
   height: 0;
   overflow: hidden;
 }
-.gnav ul li ul{
-  background:white;
-  height:687px;
-  top: -105px;
-}
+
