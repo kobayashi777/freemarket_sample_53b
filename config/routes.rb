@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     end
   end
   resources :registration1, only: :show
-  resources :mypage, only:[:index, :show, :edit]
+  resources :mypage, only:[:index, :show, :edit, :new]
 
   resources :card, only: [:new, :show] do
     collection do
