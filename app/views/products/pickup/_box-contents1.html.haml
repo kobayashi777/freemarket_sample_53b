@@ -1,5 +1,5 @@
 .box-contents
-  - @products.order('created_at DESC').limit(4).each do |product|
+  - @products.order('created_at DESC').where(category_id:(1..218)).limit(4).each do |product|
     .items-box
       .items-box_photo
         = image_tag url_for(product.photos[0]), class:"items-box_photo__image"

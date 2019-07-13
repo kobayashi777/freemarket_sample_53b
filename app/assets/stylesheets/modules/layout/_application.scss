@@ -544,6 +544,7 @@
   }
 }//@media screen and (min-width:1060px) 
 @media screen and ( max-width:765px) {
+
   .header{
     height:100%;
     width:100%;
@@ -843,27 +844,65 @@
 .fab.fa-facebook-square.fa-2x{
   margin-left:20px;
 }
-
-.footer-button{
-  bottom: 32px;
-  right: 32px;
-  height:160px;
-  width:160px;
-  background:$red;
-  position: fixed;
-  border-radius: 50%;
-  text-decoration: none;
-  &__text{
-    height:22px;
+@media screen and(min-width:768px){
+  .footer-button{
+    bottom: 32px;
+    right: 32px;
+    height:160px;
     width:160px;
-    margin: 24px 0 0;
-    font-size: 22px;
+    background:$red;
+    position: fixed;
+    border-radius: 50%;
+    text-decoration: none;
+    &__text{
+      height:22px;
+      width:160px;
+      margin: 24px 0 0;
+      font-size: 22px;
+      color:white;
+      text-align: center;
+    }
+  }
+  .fas.fa-camera.fa-4x{
+    margin-top:10px;
+    margin-left:48px;
     color:white;
-    text-align: center;
+  }
+  .fas.fa-camera.fa-2x{
+    margin-top:10px;
+    margin-left:48px;
+    color:white;
+    display:none;
   }
 }
-.fas.fa-camera.fa-4x{
-  margin-top:10px;
-  margin-left:48px;
-  color:white;
+@media screen and(max-width:768px){
+  .footer-button{
+    bottom: 12px;
+    right: 12px;
+    height:80px;
+    width:80px;
+    background:$red;
+    position: fixed;
+    border-radius: 50%;
+    text-decoration: none;
+    &__text{
+      height:12px;
+      width:80px;
+      margin: 10px 0 0 0;
+      font-size: 17px;
+      color:white;
+      text-align: center;
+    }
+  }
+  .fas.fa-camera.fa-4x{
+    margin-top:10px;
+    margin-left:48px;
+    color:white;
+    display: none;
+  }
+  .fas.fa-camera.fa-2x{
+    margin-top:11px;
+    margin-left:25px;
+    color:white;
+  }
 }

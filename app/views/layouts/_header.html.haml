@@ -4,13 +4,22 @@
       .logo
         = link_to "/products" do
           = image_tag "/images/2019-06-23 17.04.26.png", size: "150x50"
-      .icon-hidden
-        = link_to "/" do
-          %i.far.fa-bell.fa-lg
-        = link_to "/" do
-          %i.fas.fa-check.fa-lg
-        = link_to "/mypage", class: "my-page__link" do
-          = image_tag "/images/member_photo_noimage_thumb_circle.png", size: "30x30", class:'icon-hidden__mypage'
+      -if user_signed_in?
+        .icon-hidden
+          = link_to "/" do
+            %i.far.fa-bell.fa-lg
+          = link_to "/" do
+            %i.fas.fa-check.fa-lg
+          = link_to "/mypage", class: "my-page__link" do
+            = image_tag "/images/member_photo_noimage_thumb_circle.png", size: "30x30", class:'icon-hidden__mypage'
+      -else
+        .header-right-icon_hidden
+          .sign-up-button__red
+            .sign-up-button__red__text
+              = link_to  "新規会員登録", signup_index_path, class: "sign-up-button__red__text__button"
+          .sign-in-button__blue
+            .sign-in-button__blue__text
+              = link_to  "ログイン", new_user_session_path, class: "sign-in-button__blue__text__button"
       .form
         = form_with id: "form", url:'/#', method: :get do |f|
           = f.text_field :search, class: "search", placeholder: ' 何かお探しですか？'
