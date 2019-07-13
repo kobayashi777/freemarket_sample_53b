@@ -7,16 +7,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.nickname = "#{user_params[:nickname]}"
-    @user.introduce = "#{user_params[:introduce]}"
-    if @user.save
-    # @user.update(nickname:user_params[:nickname],introduce:user_params[:introduce])
-      flash[:notice] = "変更しました。"
-      redirect_to "/users/#{@user.id}/edit"
+    if @user.update(user_params)
+      redirect_to "/users/#{@user.id}/edit", notice:"変更しました。"
     else 
-      # binding.pry
-      flash[:alert] = "失敗しました"
-      redirect_to "/users/#{@user.id}/edit"
+      redirect_to "/users/#{@user.id}/edit", alert:"変更に失敗しました。"
     end
   end
 

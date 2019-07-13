@@ -10,14 +10,13 @@
 
   .profile-container {
     margin: 0 auto;
+    margin-top: 40px;
     background-color: $white;
     width: 700px;
     border-style: solid;
     border-width: 0;
-    float: right;
     position: absolute;
     right: 190px;
-    top:140px;
     h2.container__profile {
       font-size: 24px;
       padding: 8px 24px;
