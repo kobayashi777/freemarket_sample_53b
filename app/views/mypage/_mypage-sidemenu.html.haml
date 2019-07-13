@@ -58,7 +58,7 @@
       設定
       %ul.l-side__list
         %li.l-side__list__link
-          = link_to "プロフィール", 'edit_user_path', class:"l-side__list__link__area__name"
+          = link_to "プロフィール", edit_user_path(current_user.id), class:"l-side__list__link__area__name"
           %i.fas.fa-angle-right
         %li.l-side__list__link
           = link_to "発送元・お届け先住所変更", "", class:"l-side__list__link__area__name"
