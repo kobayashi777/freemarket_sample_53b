@@ -89,9 +89,9 @@ class ProductsController < ApplicationController
     end
     # 販売価格の表示
     # 販売手数料の初期値
-    @sales_fee = "#{(@product.price.to_i*0.1).round}"
+    @sales_fee = (@product.price.to_i*0.1).round
     # 販売利益の初期値
-    @sales_profit = "#{(@product.price.to_i*0.9).round}"
+    @sales_profit = (@product.price.to_i*0.9).round
   end
   
   def update
