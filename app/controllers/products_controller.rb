@@ -5,9 +5,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @categories = Category.all
   end
 
   def show
+    @categories = Category.all
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
     # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
@@ -24,6 +26,7 @@ class ProductsController < ApplicationController
     else
       render 'products/new'
     end
+    @categories = Category.all
   end
 
   def edit
@@ -92,6 +95,7 @@ class ProductsController < ApplicationController
       session[:edit_errors] = product.errors
       redirect_back(fallback_location: edit_product_path)
     end
+    @categories = Category.all
   end
 
   def destroy
