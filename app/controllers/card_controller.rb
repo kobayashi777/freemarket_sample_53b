@@ -41,5 +41,4 @@ class CardController < ApplicationController
   def set_card
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
-
 end

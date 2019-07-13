@@ -15,7 +15,6 @@ class PurchaseController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
       @card_brand = card_brand
     end
-    
   end
 
   def pay
@@ -25,8 +24,8 @@ class PurchaseController < ApplicationController
     :amount => 135000, #支払金額を入力（itemテーブル等に紐づけても良い）
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
-  )
-  redirect_to action: 'done' #完了画面に移動
+    )
+    redirect_to action: 'done' #完了画面に移動
   end
 
   def done
@@ -34,7 +33,6 @@ class PurchaseController < ApplicationController
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
     @card_brand = card_brand
-
   end
 
 
@@ -54,6 +52,4 @@ class PurchaseController < ApplicationController
       @card_src = "discover.svg"
     end
   end
-
 end
-
