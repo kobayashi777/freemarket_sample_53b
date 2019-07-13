@@ -1,18 +1,18 @@
 = render 'layouts/header'
+= render 'layouts/flash'
+
 
 .wrapper1.clearfix
   = render 'mypage/mypage-sidemenu'
   .profile-container
     %h2.container__profile プロフィール
-    = form_with model: @user, class: "edit_form" do |f|
+    = form_for @user, url: user_path(current_user) , method: :patch, html:{class: "edit_form"} do |f|
       .container__name
-        -#.container__name--img
         = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "image-tag"
-        = f.text_field :name, class: "edit_name"
+        = f.text_field :nickname, value: "#{@user.nickname}" ,class: "edit_name"
       .container__text
-        = f.text_area :profile__text, class: "introduce", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+        = f.text_area :introduce, value: "#{@user.introduce}",class: "introduce", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
         .container__bottun
           = f.submit "変更する", class: 'change-profile-form__action-btn'
-          
 = render 'layouts/footer'
 = render 'layouts/footer-button'
