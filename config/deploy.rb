@@ -36,5 +36,5 @@ namespace :deploy do
 end
 
 # wheneverの本番環境反映
-set :whenever_command, "bundle exec whenever"
-require "whenever/capistrano"
+# set :whenever_command, "bundle exec whenever"
+# require "whenever/capistrano"
