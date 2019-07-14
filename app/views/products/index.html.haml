@@ -55,24 +55,30 @@
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             シャネル 新着アイテム
-        =render partial: 'products/box-contents',locals:{products:@products.where(brand_id:"1")}
+        =render partial: 'products/box-contents'
 
       .item-container
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             ルイ ヴィトン 新着アイテム
-        =render partial: 'products/box-contents',locals:{products:@products.where(brand_id:"2")}
+        =render partial: 'products/box-contents'
 
       .item-container
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             シュプリーム 新着アイテム
-        =render partial: 'products/box-contents',locals:{products:@products.where(brand_id:"3")}
+        =render partial: 'products/box-contents'
         
       .item-container
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             ナイキ 新着アイテム
-        =render partial: 'products/box-contents',locals:{products:@products.where(brand_id:"4")}
+        =render partial: 'products/box-contents'
 =render partial: 'layouts/footer'
 =render partial: 'layouts/footer-button'
+
+
+-# .item-containern に含まれていた ,locals:{products:@products.where(brand_id:"1")} はなくてもtop表示、詳細ページ遷移は問題なし。消してみる。
+  ,locals:{products:@products.where(brand_id:"2")}
+  ,locals:{products:@products.where(brand_id:"3")}
+  ,locals:{products:@products.where(brand_id:"4")}
