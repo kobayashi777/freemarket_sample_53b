@@ -7,6 +7,10 @@ crumb :mypage do
   parent :root, mypage_index_path
 end
 
+crumb :root2 do
+  link "エラーページ", root_path
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

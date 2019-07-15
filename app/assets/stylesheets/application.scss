@@ -28,11 +28,16 @@
 @import "user/layout";
 @import "user/edit";
 @import "user/show";
+@import "./modules/_flash.scss";
 
 //products
 @import "products/show";
 @import "products/new";
 @import "products/index";
+// トップページ画像のスライド
+@import "slick-theme"; 
+@import "slick";
+@import "slider";
 
 @import "_buy-confirmation";
 @import "./modules/flash";
@@ -69,3 +74,4 @@
  @import "./logout";
  @import "./payment-top";
  @import "./payment-input";
+ @import "./image-box";

@@ -32,6 +32,8 @@
 *.scss.map
 
 .DS_Store
+
 # *.lock
 vendor
+/.env
 

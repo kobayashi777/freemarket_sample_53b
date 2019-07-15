@@ -1,23 +1,38 @@
-%wrapper
-  .header
-    .header-inner
-      %ul.header-top
-        %li.logo
-          = link_to "/products" do
-            = image_tag "/images/2019-06-23 17.04.26.png", size: "150x50"
-        %li.form
-          = form_with id: "form", url:'/#', method: :get do |f|
-            = f.text_field :search, class: "search", placeholder: ' 何かお探しですか？'
-            .image-label#sbtn
-              =f.label  class: "submit" do
-                = f.button "", class:"fas fa-search fa-lg", value: "&#xf002;"
-                  
-      .header-bottom
-        .header-bottom__left
-          =render partial: 'layouts/dropdown'
-          =render partial: 'layouts/brand'
-        -if user_signed_in?
-          =render partial: 'layouts/header-bottom-right-mypage'
-        -else 
-          =render partial: 'layouts/header-bottom-right-newpage'
-        -# =render partial: 'layouts/header-bottom-right-otherpage'
+.header
+  .header-inner
+    .header-top
+      .logo
+        = link_to "/products" do
+          = image_tag "/images/2019-06-23 17.04.26.png", size: "150x50"
+      -if user_signed_in?
+        .icon-hidden
+          = link_to "/" do
+            %i.far.fa-bell.fa-lg
+          = link_to "/" do
+            %i.fas.fa-check.fa-lg
+          = link_to "/mypage", class: "my-page__link" do
+            = image_tag "/images/member_photo_noimage_thumb_circle.png", size: "30x30", class:'icon-hidden__mypage'
+      -else
+        .header-right-icon_hidden
+          .sign-up-button__red
+            .sign-up-button__red__text
+              = link_to  "新規会員登録", signup_index_path, class: "sign-up-button__red__text__button"
+          .sign-in-button__blue
+            .sign-in-button__blue__text
+              = link_to  "ログイン", new_user_session_path, class: "sign-in-button__blue__text__button"
+      .form
+        = form_with id: "form", url:'/#', method: :get do |f|
+          = f.text_field :search, class: "search", placeholder: ' 何かお探しですか？'
+          .image-label#sbtn
+            =f.label  class: "submit" do
+              = f.button "", class:"fas fa-search fa-lg", value: "&#xf002;"
+                
+    .header-bottom
+      .header-bottom__left
+        =render partial: 'layouts/dropdown'
+        =render partial: 'layouts/brand'
+      -if user_signed_in?
+        =render partial: 'layouts/header-bottom-right-mypage'
+      -else 
+        =render partial: 'layouts/header-bottom-right-newpage'
+      -# =render partial: 'layouts/header-bottom-right-otherpage'
