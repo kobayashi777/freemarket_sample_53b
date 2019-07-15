@@ -22,8 +22,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(@product)
     else
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       render 'products/new'
     end
     @categories = Category.all
@@ -89,10 +91,12 @@ class ProductsController < ApplicationController
       params[:delete_photos].split(",").each do |id|
         product.photos.find(id).purge
       end
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(product)
     else
       product.valid?
       session[:edit_errors] = product.errors
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_back(fallback_location: edit_product_path)
     end
     @categories = Category.all
