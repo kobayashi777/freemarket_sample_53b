@@ -63,7 +63,9 @@ $(document).on('turbolinks:load', function() {
     $('.preview-reset').on('click', function(){
       $('.image-box-new').remove();
       $('#photo_upload').val("");
-      $('.listing-upload__drag-box').show();
+      if ($('.image-box:visible').length != 10){
+        $('.listing-upload__drag-box').show();
+      }
     })
   })
 })
