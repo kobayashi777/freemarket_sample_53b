@@ -1,20 +1,22 @@
 .box-contents
   - @products.order('created_at DESC').where(category_id:(1..218)).limit(4).each do |product|
     .items-box
-      .items-box_photo
-        = image_tag url_for(product.photos[0]), class:"items-box_photo__image"
-      .items-box_body
-        %h3.items-box-name
-          = product.product_name
-        .items-box-num
-          .items-box-price
-            ¥ 
-            = product.price
-          .items-box-icon
-            %i.far.fa-heart
-            8
-        .items-box-tax
-          (税込)
+      = link_to product_path(product), method: :get do
+        -# product_path(params[:id]) はtop表示されない missing required keys: [:id]
+        .items-box_photo
+          = image_tag url_for(product.photos[0]), class:"items-box_photo__image"
+        .items-box_body
+          %h3.items-box-name
+            = product.product_name
+          .items-box-num
+            .items-box-price
+              ¥ 
+              = product.price
+            .items-box-icon
+              %i.far.fa-heart
+              8
+          .items-box-tax
+            (税込)
 .view-all
   %a{ href:'', class:"text-center__inner"}
     すべての商品を見る
