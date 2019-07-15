@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue404
 
   def after_sign_in_path_for(resource)
     products_path # ログイン後に遷移するpathを設定
@@ -9,6 +10,11 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     products_path # ログアウト後に遷移するpathを設定
   end
+
+  class Forbidden < ActionController::ActionControllerError
+  end
+  rescue_from Forbidden, with: :rescue403
+
 
   private
 
@@ -22,5 +28,15 @@ class ApplicationController < ActionController::Base
       # username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
       username == 'hoge' && password == '1234'
     end
+  end
+
+  def rescue404(e)#エラーメッセージ表示404
+    @exception = e
+    render template: 'mypage/new', status: 404
+  end
+
+  def rescue403(e)#エラーメッセージ表示403
+    @exception = e
+    render template: 'mypage/new', status: 403
   end
 end

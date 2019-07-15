@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
+  # get 'purchase/index'
+  # get 'purchase/done'
+
   get 'card/new'
   get 'card/show'
+
+  resources :purchase, only: [:index, :done, :update]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'

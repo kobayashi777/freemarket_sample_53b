@@ -1,6 +1,5 @@
 .buy-confirmation-all
   = render "shared/user-header" 
-
   .content
     .content-header
       %h 購入内容の確認    
@@ -9,7 +8,7 @@
       %span.content__main--item-image
         = image_tag @product.photos[0].variant(resize:'64x64').processed
       %p.content__main--item-name adidas アディダス Tシャツ
-
+      
 
     .payment-information-first
       .payment-information-first__upper
