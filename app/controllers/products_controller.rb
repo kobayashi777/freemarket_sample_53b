@@ -5,11 +5,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
   end
 
   def show
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
     # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @parents = Category.where(ancestry:nil)
     # 編集する商品を選択
     @product = Product.find(params[:id])
     # 登録されている商品の孫カテゴリーのレコードを取得
