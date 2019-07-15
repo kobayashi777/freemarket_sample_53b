@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :registration1, only: [:index, :show, :new]
   resources :registration2, only: [:index, :show, :new]
   resources :mypage, only:[:index, :show]
+  resources :items, only:[:index, :show, :destroy]
 end
