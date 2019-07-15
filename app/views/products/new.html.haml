@@ -9,20 +9,19 @@
       = f.label '出品画像', class: 'listing-upload__label'
       %span.listing-upload--require 必須
       %p.listing-upload__subtext 最大10枚までアップロードできます
-      .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
-      
+      .listing-upload__wrapper
+        .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
 
-        .listing-upload__drag-box--inner-text
-          ドラッグ＆ドロップ
-          %br
-          またはクリックしてファイルをアップロード
-      = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+          .listing-upload__drag-box--inner-text
+            クリックしてファイルをアップロード
+        = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+      .preview-reset リセットアップロード
       = render partial: 'error-messages', locals: {product: @product, column: "photos"}
       - if @product.errors.any?
         - unless @product.valid?
           - if @product.errors.full_messages_for(:photos) == []
             %ul
-              %li.has_error_text 画像を再選択してください
+            %li.has_error_text 画像を再選択してください
       
 
     -# 商品名・商品説明
@@ -155,5 +154,6 @@
       = link_to :back, class: 'listing-product-submit-box__return-btn' do
         もどる
       #delete-photos
+      #upload-photos
         
   = render './shared/user-footer'

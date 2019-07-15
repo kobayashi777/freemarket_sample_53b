@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
       $('.listing-upload__drag-box').hide();
     } 
     //写真の削除ボタンが押された時
-    $('.image-box__bottom--delete').on('click', function(){
+    $('.listing-upload__wrapper').on('click', '.image-box__bottom--delete', function(){
       //削除ボタンの押された写真の表示を消す
       $(this).parents('.image-box').hide();
       count_images = $('.image-box:visible').length;
@@ -15,10 +15,6 @@ $(document).on('turbolinks:load', function() {
       if (count_images < 10){
         $('.listing-upload__drag-box').show();
       }
-    });
-    //アップロードされた写真の枚数を数える
-    $('#photo_upload').change(function(e){
-      uploadedPhotosLength = e.target.files.length;
     });
     //送信ボタンが押された時、一度submitを止め、データの成形と写真に対するバリデーションを行う
     $('#edit-send-btn').on('click', function(e){
@@ -32,28 +28,7 @@ $(document).on('turbolinks:load', function() {
       $("#delete-photos").append(
         $('<input type="hidden" name="delete_photos">').val(deletePhotoIds)
       ); 
-      //初期の写真のidを取得する
-      var initialPhotoIds = [];
-      $('.image-box').each(function(index, photo){
-        initialPhotoIds.push($(photo).data('photo'));
-      });
-      //画面に表示されている写真とアップロードされた写真の枚数の合計を数える
-      var sumPhotos = initialPhotoIds.length - deletePhotoIds.length + uploadedPhotosLength;
-      //合計写真枚数が1枚以上10枚以下を確認しバリデーション
-      if (1 <= sumPhotos && sumPhotos <= 10) {
-        $('#editForm').submit();
-      } else {
-        var errorHtml = `<ul id= 'upload-error'>
-                          <li class= 'has_error_text'>画像は合計1枚以上10枚以下で選択してください</li>
-                         </ul>`
-        $('#upload-error').remove();
-        $('.listing-upload').append(errorHtml);
-        $('html,body').scrollTop(0);
-      }
+      $('#editForm').submit();
     });
-    $('#product-send-btn').on('click', function(e){
-      e.preventDefault();
-      $('#productForm').submit();
-    })
   });
 });

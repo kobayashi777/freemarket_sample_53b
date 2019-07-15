@@ -11,25 +11,15 @@
     align-items: center;
     &--image{
       margin: 0 auto;
+      object-fit: contain;
     }
   }
   &__bottom{
     height: 46px;
-    &--edit{
-      @include link_default();
-      width: 55px;
-      text-align: center;
-      line-height: 44px;
-      display: inline-block;
-      &:hover{
-        background-color: rgb(249, 249, 249);
-        opacity: 0.7;
-      }
-    }
     &--delete{
       @include link_default();
       border-left: 1px solid rgb(238, 238, 238);
-      width: 55px;
+      width: 116px;
       text-align: center;
       line-height: 44px;
       display: inline-block;
@@ -39,4 +29,18 @@
       }
     }
   }
+}
+
+.image-box-new{
+  width: 116px;
+  border: 1px solid #eee;
+  vertical-align: top;
+  background-color: $thin_gray;
+  height: 162px;
+  margin: 0 10px 10px 0;
+}
+
+.preview-reset{
+  @include link_default();
+  cursor: pointer;
 }
