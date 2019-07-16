@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.with_attached_photos
-    @products = Product.all
     @parents = Category.where(ancestry:nil)
   end
 
@@ -21,7 +20,9 @@ class ProductsController < ApplicationController
   end
 
   def create
+    #binding.pry
     @product = Product.new(product_params)
+    binding.pry
     if @product.save
       ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(@product)
@@ -160,7 +161,7 @@ class ProductsController < ApplicationController
       size_added_data = primitive_data.merge(products_size_id: nil)
     end
     # ブランドの入力があるものとないものとで条件分岐し、最終系のハッシュを作成
-    if params[:brand] != "" && params[:brand] != nil
+    if params[:brand] != "" && (params[:brand] != nil)
       size_added_data.merge(brand_id: Brand.find_or_create_by(name: "#{params[:brand]}", category_id: "#{params[:category_id]}").id)
     else
       size_added_data.merge(brand_id: nil)

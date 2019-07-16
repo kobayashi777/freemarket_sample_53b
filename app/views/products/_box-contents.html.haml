@@ -1,5 +1,5 @@
 .box-contents
-  - @products.order('created_at DESC').limit(4).each do |product|
+  - @products.order('created_at DESC').where(brand_id:(117..120)).limit(4).each do |product|
     .items-box
       = link_to product_path(product), method: :get do
         -# product_path(params[:id]), method: :get はtop表示されない. missing required keys: [:id]
