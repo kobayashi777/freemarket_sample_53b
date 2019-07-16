@@ -1,0 +1,32 @@
+.error-container{
+  width:100%;
+  height:492px;
+  background-color:$thin_gray;
+
+  &__inner{
+    width:1020px;
+    height:452px;
+    margin:40px auto;
+    padding-bottom: 40px;
+    display: flex;
+ 
+  }
+}
+.error-side{
+  width:280px;
+  height:239px;
+  margin-right:40px;
+  background-color: red;
+}
+.error-main{
+  width:700px;
+  height:452px;
+  background-color: white;
+}
+.error-main__inner{
+  width:700px;
+  height:452px;
+  padding:80px 160px;
+  // background-color: red;
+}
+

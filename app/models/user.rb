@@ -29,8 +29,10 @@ class User < ApplicationRecord
   VALID_ADDRESS_NUMBER_REGEX =        /\A[0-9]{3}-[0-9]{4}\z/
   validates :nickname,                presence: true, length: {maximum: 20}
   validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password,                presence: true, length: {minimum: 6, maximum: 128}
-  validates :password_confirmation,   presence: true, length: {minimum: 6, maximum: 128}
+  validates :password,                presence: true, length: {minimum: 6, maximum: 128},on: :save_to_session_before_phone
+  validates :password_confirmation,   presence: true, length: {minimum: 6, maximum: 128},on: :save_to_session_before_phone
+  validates :password,                length: {minimum: 6, maximum: 128},on: :update,allow_blank: true
+  validates :password_confirmation,   length: {minimum: 6, maximum: 128},on: :update,allow_blank: true
   validates :last_name,               presence: true
   validates :first_name,              presence: true
   validates :last_name_kana,          presence: true
@@ -49,3 +51,4 @@ class User < ApplicationRecord
   validates :address_block,           presence: true
   validates :address_phone_number,    allow_blank: true, format: { with: VALID_PHONE_REGEX }
 end
+

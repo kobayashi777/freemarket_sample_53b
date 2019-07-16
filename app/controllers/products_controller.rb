@@ -4,12 +4,13 @@ class ProductsController < ApplicationController
   before_action :check_validation_create, only: :create
 
   def index
+    @products = Product.with_attached_photos
     @products = Product.all
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
   end
 
   def show
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
     # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
@@ -22,14 +23,17 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(@product)
     else
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       render 'products/new'
     end
     @categories = Category.all
   end
 
   def edit
+    @parents = Category.where(ancestry:nil)
     # 編集する商品を選択
     @product = Product.find(params[:id])
     # 登録されている商品の孫カテゴリーのレコードを取得
@@ -89,10 +93,12 @@ class ProductsController < ApplicationController
       params[:delete_photos].split(",").each do |id|
         product.photos.find(id).purge
       end
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(product)
     else
       product.valid?
       session[:edit_errors] = product.errors
+      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_back(fallback_location: edit_product_path)
     end
     @categories = Category.all

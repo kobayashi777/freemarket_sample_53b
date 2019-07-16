@@ -14,10 +14,9 @@
 
         .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
           .listing-upload__drag-box--inner-text
-            ドラッグ＆ドロップ
-            %br
-            またはクリックしてファイルをアップロード
+            クリックしてファイルをアップロード
         = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+      .preview-reset リセットアップロード
 
     -# 商品名・商品説明
     .listing-content.clearfix

@@ -36,7 +36,7 @@
             %th.table--section-left
               ブランド
             %th.table--section-right
-              = @product.brand.name  #突然 .brand.name がundefined：nameになる 
+              = @product.brand&.name  #突然 .brand.name がundefined：nameになる 
           %tr.table--section
             %th.table--section-left
               商品状態
