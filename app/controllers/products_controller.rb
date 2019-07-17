@@ -20,9 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    #binding.pry
     @product = Product.new(product_params)
-    binding.pry
     if @product.save
       ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(@product)
