@@ -5,7 +5,11 @@
         -# product_path(params[:id]), method: :get はtop表示されない. missing required keys: [:id]
         .items-box_photo
           = image_tag product.photos[0].variant(resize:'213x210',auto_orient: true).processed
-          -#= image_tag url_for(product.photos[0]).variant(auto_orient: true), class:"items-box_photo__image" 
+          -if product.purchaser_id.present?
+          .items-box_photo__sold
+            .items-box_photo__sold__inner
+              SOLD
+        -else 
         .items-box_body
           %h3.items-box-name
             = product.product_name
@@ -18,6 +22,25 @@
               8
           .items-box-tax
             (税込)
+      .items-box_photo
+        = image_tag url_for(product.photos[0]), class:"items-box_photo__image"
+        -if product.purchaser_id.present?
+          .items-box_photo__sold
+            .items-box_photo__sold__inner
+              SOLD
+        -else
+      .items-box_body
+        %h3.items-box-name
+          = product.product_name
+        .items-box-num
+          .items-box-price
+            ¥ 
+            = product.price
+          .items-box-icon
+            %i.far.fa-heart
+            8
+        .items-box-tax
+          (税込)
 .view-all
   %a{ href:'', class:"text-center__inner"}
     すべての商品を見る

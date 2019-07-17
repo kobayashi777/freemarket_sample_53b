@@ -3,22 +3,25 @@
   .top_photo
     %div.slick
       %li.top_photo_a
-        %div.photo_content 
-          スマホでかんたん
-          %br フリマアプリ
-        %div.photo_content_hidden
-          スマホで
-          %br かんたん
-          フリマアプリ
-        %div.photo_content_introduce 
-          メルカリはスマホカメラからすぐに出品できる 
-          %br 購入時も安心な独自システムのアプリです
-        %div.photo_content_icon
-          .photo_content_icon__left
-            = link_to image_tag "/images/appstore.icon.png", size: "133x42", href:"https://apps.apple.com/jp/app/id667861049?l=ja"
-          .photo_content_icon__right
-            = link_to image_tag "/images/googleplay.icon.png", size: "133x42", href:"https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
-        = image_tag "/images/簡単アプリ.png",class:"toppage_content_photo"
+        .top_photo__inner
+          .top_photo__inner_left
+            %div.photo_content 
+              スマホでかんたん
+              %br フリマアプリ
+            %div.photo_content_hidden
+              スマホで
+              %br かんたん
+              フリマアプリ
+            %div.photo_content_introduce 
+              メルカリはスマホカメラからすぐに出品できる 
+              %br 購入時も安心な独自システムのアプリです
+            %div.photo_content_icon
+              .photo_content_icon__left
+                = link_to image_tag "/images/appstore.icon.png", size: "133x42", href:"https://apps.apple.com/jp/app/id667861049?l=ja"
+              .photo_content_icon__right
+                = link_to image_tag "/images/googleplay.icon.png", size: "133x42", href:"https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+          .top_photo__inner_right
+            = image_tag "/images/簡単アプリ.png",class:"toppage_content_photo"
       %li.toppage-photo_b
         = image_tag "/images/キャンプ特集.png",class:"toppage_content_photo_camp"
 
@@ -37,8 +40,6 @@
           = link_to '#', class:"text-center__inner" do
             メンズ 新着アイテム
         =render partial: 'products/pickup/box-contents2'
-        -# =render partial: 'products/box-contents', locals:{products:@products.where(category_id:"2")}
-
       .item-container
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
@@ -51,7 +52,6 @@
           = link_to '#', class:"text-center__inner" do
             コスメ・香水・美容 新着アイテム
         =render partial: 'products/pickup/box-contents4'
-        -# =render partial: 'products/box-contents',locals:{products:@products.where(category_id:"4")}
 
       .pickup-head
         ピックアップブランド
