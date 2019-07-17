@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  before_action :dropdown
   protect_from_forgery with: :exception
   rescue_from ActiveRecord::RecordNotFound, with: :rescue404
-
   def after_sign_in_path_for(resource)
     products_path # ログイン後に遷移するpathを設定
   end
@@ -14,8 +14,10 @@ class ApplicationController < ActionController::Base
   class Forbidden < ActionController::ActionControllerError
   end
   rescue_from Forbidden, with: :rescue403
-
-
+  
+  def dropdown
+    @parents = Category.where(ancestry:nil)
+  end
   private
 
   def production?
@@ -30,13 +32,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def rescue404(e)#エラーメッセージ表示404
-    @exception = e
-    render template: 'mypage/new', status: 404
-  end
+  # def rescue404(e)#エラーメッセージ表示404
+  #   @exception = e
+  #   render template: 'mypage/new', status: 404
+  # end
 
-  def rescue403(e)#エラーメッセージ表示403
-    @exception = e
-    render template: 'mypage/new', status: 403
-  end
+  # def rescue403(e)#エラーメッセージ表示403
+  #   @exception = e
+  #   render template: 'mypage/new', status: 403
+  # end
+
 end

@@ -6,19 +6,22 @@
     %div.content__main
       .content__main--item
       %span.content__main--item-image
-        = image_tag @product.photos[0].variant(resize:'64x64').processed
-      %p.content__main--item-name adidas アディダス Tシャツ
-      
+        = image_tag @product.photos[0].variant(resize:'100x100').processed
+      %p.content__main--item-name
+        = @products.product_name
 
     .payment-information-first
       .payment-information-first__upper
-        %span.payment-information-first__upper--item-price  ¥135,000
+        %span.payment-information-first__upper--item-price
+          =converting_to_jpy(@products_price)
+          
         %span.payment-information-first__upper--item-shipping 送料込み
       %button.payment-information-first__upper--point{type: "submit"} ポイントはありません
 
       .payment-information-second
         %ul.payment-information-second__middle--payment_amount 支払い金額
-        %ul.payment-information-second__middle--payment_price ¥680
+        %ul.payment-information-second__middle--payment_price
+          =converting_to_jpy(@products_price)
       = form_tag(action: :pay, method: :post) do
         %button.payment-information-second__middle--payment_decide 購入する
 

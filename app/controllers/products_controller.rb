@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.with_attached_photos
     @products = Product.all
-    @parents = Category.where(ancestry:nil)
+    # @parents = Category.where(ancestry:nil)
+
+    @category = Category.all
+    @parents = @category.where(ancestry:nil)
+
   end
 
   def show
