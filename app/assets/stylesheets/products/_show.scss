@@ -28,14 +28,15 @@
           @include clearfix;
           background: $much_thin_gray;
           height: 300px;
-          width: 300px;
+          width: 3000px;
+          // border-collapse: collapse;
           //overflow: hidden;   /* ここにこれらを書いても写真は隠れない 記録として残す */
           position: relative;
           .photo-up-piece {
-            float:left;
+            
             height: 300px;
             width:300px;
-
+            float:left;
             //overflow: hidden;   /* ここにこれらを書いても写真は隠れない
             //display: flex;          記録として残す */
           }
