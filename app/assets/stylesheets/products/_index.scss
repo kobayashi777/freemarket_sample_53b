@@ -97,12 +97,19 @@
     }//&-num
     &-price{
       font-size: 15px;
+      color: #333;
     }//&-price
     &-icon{
       font-size: 15px;
       font-weight: 400;
       color: #333;
-    }//&-icon
+    }
+    &-icon{
+      color: #333;
+    }
+    &-tax{
+      color: #333;
+    }
   }//.items-box
   .items-box_photo__sold{
     width: 0;

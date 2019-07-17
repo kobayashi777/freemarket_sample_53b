@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :check_validation_create, only: :create
 
   def index
+    @products = Product.with_attached_photos
     @products = Product.all
     # @parents = Category.where(ancestry:nil)
 
