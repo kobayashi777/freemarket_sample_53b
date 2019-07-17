@@ -15,10 +15,16 @@
           - @product.photos.each_with_index do |photo, i|
             %li.photo-up-piece
               = image_tag @product.photos[i].variant(resize:'300x380').processed
+              -if @product.purchaser_id.present?
+                .content--photo_sold
+                  .content--photo_sold__inner
+                    SOLD
+              -else
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
               = image_tag @product.photos[i].variant(resize:'60x60').processed
+        
 
       %table.content--detail-table
         %tbody.table
@@ -70,7 +76,12 @@
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee
         = @product.delivery_charge
-    = link_to " 購入画面に進む", purchase_index_path,  class:"item-container1__item-buy-btn"
+      -if @product.purchaser_id.present?
+        .item-container1__item-buy-btn__sold
+          売り切れました
+      -else
+        = link_to " 購入画面に進む", purchase_path,  class:"item-container1__item-buy-btn"
+
     .item-container1__item-description 
       %p.item-description-inner
         -# This is description area⬇︎ 
