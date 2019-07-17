@@ -73,31 +73,41 @@
 |delivery_area|integer|null: false, default: 0|
 |price|string|null: false|
 |delivery_days|integer|null: false, default: 0|
-|exhibitor_id|references|foreign_key: true|
-|purchaser_id|references|foreign_key: true|
-|delivery_method|integer|null: false, default: 0|
+|exhibitor_id|integer|foreign_key: true, limit: 8|
+|purchaser_id|integer|foreign_key: true, limit: 8|
+|delivery_method|string|null: false|
 |trading_state|integer|null: false, default: 0|
-|created_at|timestamp|null: false|
-|updated_at|timestamp|null: false|
 
 ### Association
-- has_many :products_photos, dependent::destroy
-- belongs_to :user
-- belongs_to :brand
+- has_many_attached :photos
+- belongs_to :exhibitor, class_name: 'User', foreign_key: :exhibitor_id, optional: true
+- belongs_to :purchaser, class_name: 'User', foreign_key: :purchaser_id, optional: true
+- belongs_to :brand, optional: true
 - belongs_to :category
-- belongs_to :product_size
+- belongs_to :products_size, optional: true
+
 ***
-## products_photos table
+## active_storage_blobs table
 
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|foreign_key: true|
-|photo|references|foreign_key: true|
-|created_at|timestamp|null: false|
-|updates_at|timestamp|null: false|
+|key|string|null: false, index: true, unique: true|
+|filename|string|null: false|
+|content_type|string|null: false|
+|metadata|text|--|
+|byte_size|bigint|null: false|
+|checksum|string|null: false|
 
-### Association
-- belongs_to :product
+***
+## active_storage_attachments table
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true, unique: true|
+|record_type|string|null: false, index: true, unique: true|
+|record_id|references|null: false, polymorphic: true, index: true, unique: true|
+|blob_id|references|foreign_key: true|
+
 ***
 ## products_sizes table
 
