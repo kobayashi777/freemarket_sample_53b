@@ -6,10 +6,10 @@
         .items-box_photo
           = image_tag product.photos[0].variant(resize:'213x210',auto_orient: true).processed
           -if product.purchaser_id.present?
-          .items-box_photo__sold
-            .items-box_photo__sold__inner
-              SOLD
-        -else 
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD
+          -else 
         .items-box_body
           %h3.items-box-name
             = product.product_name
