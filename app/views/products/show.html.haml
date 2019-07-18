@@ -7,17 +7,17 @@
   %section.item-container1
     %h1.item-container1__item-name 
       = @product.product_name
+    -if @product.purchaser_id.present?
+      .content--photo_sold
+        .content--photo_sold__inner
+          SOLD
     .item-container1__item-content.clearfix
       .content--photo
         %ul.content--photo-up
           - @product.photos.each_with_index do |photo, i|
             %li.photo-up-piece
               = image_tag @product.photos[i].variant(resize:'300x300',auto_orient: true).processed
-              -if @product.purchaser_id.present?
-                .content--photo_sold
-                  .content--photo_sold__inner
-                    SOLD
-              -else
+
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
