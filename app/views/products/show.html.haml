@@ -69,7 +69,7 @@
     .item-container1__item-price
       %span.item-container1__item-price-bold
         ¥
-        = @product.price
+        = number_with_delimiter(@product.price)
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee
         = @product.delivery_charge
