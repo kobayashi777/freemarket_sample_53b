@@ -1,0 +1,11 @@
+= render "layouts/header"
+.user-logout_body
+  .user-logout-sidebar
+    = render "mypage/mypage-sidemenu"
+  .user-logout-main
+    = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user-logout-main__btn'
+.user-footer-button
+  = render "layouts/footer-button"
+.user-logout-footer
+  = render "layouts/footer"
+

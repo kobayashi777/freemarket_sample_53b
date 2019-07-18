@@ -1,0 +1,17 @@
+%ul.gnav
+  %li{class:"init-bottom", href:'/products'}
+    .category
+      .category__icon
+        %i.fas.fa-list-ul
+      .category__search カテゴリーから探す
+  - @parents.each do |parent|
+    %li
+      = link_to "#{parent.name}",'#',class:"catemain"
+      %ul
+        - parent.children.each do |child|
+          %li
+            = link_to "#{child.name}", '#', class:"catesub"
+            %ul
+              - child.children.each do |grandchild|
+                %li
+                  = link_to "#{grandchild.name}", '#', class:"catesubsub"

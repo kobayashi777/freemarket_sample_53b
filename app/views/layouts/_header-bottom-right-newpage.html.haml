@@ -1,0 +1,10 @@
+- if user_signed_in?
+
+- else
+  .header-right-icon
+    .sign-up-button__red
+      .sign-up-button__red__text
+        = link_to  "新規会員登録", signup_index_path, class: "sign-up-button__red__text__button"
+    .sign-in-button__blue
+      .sign-in-button__blue__text
+        = link_to  "ログイン", new_user_session_path, class: "sign-in-button__blue__text__button"

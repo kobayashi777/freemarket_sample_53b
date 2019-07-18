@@ -4,13 +4,17 @@
     .auth-main__title 新規会員登録
     .auth-main__box
       .auth-main__inner
-        = link_to '#', class: 'auth-main__inner--mail-btn' do
+        = link_to registration_signup_index_path(:email_signup => "yes"), class: 'auth-main__inner--mail-btn', data: {"turbolinks"=> false} do
           %i.far.fa-envelope.auth-main__inner--mailer-icon
           メールアドレスで登録
-        = button_tag '#', class: 'auth-main__inner--facebook-btn' do
+        = link_to user_facebook_omniauth_authorize_path, class: 'auth-main__inner--facebook-btn', method: :post do
           %i.fab.fa-facebook-square.auth-main__inner--facebook-icon
           Facebookで登録
-        = button_tag '#', class: 'auth-main__inner--google-btn' do
+        = link_to user_google_oauth2_omniauth_authorize_path, class: 'auth-main__inner--google-btn', method: :post do
           %i.fab.fa-google.auth-main__inner--google-icon
           Googleで登録
+        - if session[:error] != nil
+          %ul
+            %li.has_error_text="#{session[:error]}"    
   = render 'shared/user-footer'
+  

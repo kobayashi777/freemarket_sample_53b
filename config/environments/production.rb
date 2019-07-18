@@ -9,9 +9,7 @@ Rails.application.configure do
 
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  config.assets.compile = false
-
-  config.active_storage.service = :local
+  config.assets.compile = false#本番環境ではtrueにする
 
   config.log_level = :debug
 
@@ -32,5 +30,8 @@ Rails.application.configure do
   end
 
   config.active_record.dump_schema_after_migration = false
+  
   config.require_master_key = true
+
+  config.active_storage.service = :amazon
 end

@@ -1,0 +1,173 @@
+.listing-wrapper
+  = render 'shared/user-header'
+
+  = form_with model: @product, class: 'listing-inner-contents', id: "editForm" do |f|
+    .listing-inner-contents__title 商品の情報を入力
+
+    -# 商品画像提出
+    .listing-upload
+      = f.label '出品画像', class: 'listing-upload__label'
+      %span.listing-upload--require 必須
+      %p.listing-upload__subtext 最大10枚までアップロードできます
+      .listing-upload__wrapper
+        = render partial: 'products/image-box', collection: @product.photos, as: "photo"
+
+        .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
+          .listing-upload__drag-box--inner-text
+            クリックしてファイルをアップロード
+        = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
+      .preview-reset リセットアップロード
+
+    -# 商品名・商品説明
+    .listing-content.clearfix
+      .listing-product-name
+        = f.label "商品名", class: 'listing-default__label'
+        %span.listing-default--require 必須
+        = f.text_field :product_name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)', value: "#{@product.product_name}"
+        = render partial: 'edit-error-messages', locals: {jp: "商品名", column: "product_name"}
+
+      .listing-product-description
+        = f.label '商品の説明', class: 'listing-default__label'
+        %span.listing-default--require 必須
+        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: "#{@product.product_introduction}"
+        = render partial: 'edit-error-messages', locals: {jp: "商品の説明", column: "product_introduction"}
+
+    -# 商品の詳細セレクトボックスフォーム
+    .listing-content.clearfix
+      .listing-sub-head 商品の詳細
+      .listing-form-box
+        .listing-product-detail__category
+          = f.label 'カテゴリー', class: 'listing-default__label'
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = select_tag :category, options_for_select(@category_parents_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id]}]}, @selected_parent_category.name), {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+          .listing-select-wrapper__added#children_wrapper
+            .listing-select-wrapper__box
+              = select_tag :category, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+          .listing-select-wrapper__added#grandchildren_wrapper
+            .listing-select-wrapper__box
+              = select_tag :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              = render partial: 'edit-error-messages', locals: {jp: "カテゴリー", column: "category_id"}
+          - if @selected_size
+            .listing-product-detail__size#size_wrapper
+              = f.label 'サイズ', class: 'listing-default__label'
+              %span.listing-default--require 必須
+              .listing-select-wrapper
+                .listing-select-wrapper__box
+                  = select_tag :products_size_id, options_for_select(@size_siblings_array.map{|c|[c[:size], c[:id], {'data-category'=>c[:id]}]}, @selected_size.id), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+                  %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+                  = render partial: 'edit-error-messages', locals: {jp: "サイズ", column: "products_size_id"}
+          - if @product.brand
+            .listing-product-detail__size#brand_wrapper
+              = f.label 'ブランド', class: 'listing-default__label'
+              %span.listing-default--option 任意
+              %input{name: 'brand', type: 'text', class: 'listing-default__form', placeholder: '例) シャネル', value: "#{@product.brand.name}"}
+          - else
+            .listing-product-detail__size#brand_wrapper
+              = f.label 'ブランド', class: 'listing-default__label'
+              %span.listing-default--option 任意
+              %input{name: 'brand', type: 'text', class: 'listing-default__form', placeholder: '例) シャネル'}
+        .listing-product-status
+          = f.label '商品の状態', class: 'listing-default__label'
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :product_status, options_for_select(Product.product_statuses.keys, @product.product_status), { include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'edit-error-messages', locals: {jp: "商品の状態", column: "product_status"}
+
+    -# 商品の配送について
+    .listing-content.clearfix
+      .listing-sub-head 配送について
+      = link_to '#', class: 'listing-product-help' do
+        ?
+      .listing-form-box
+        .listing-product-delivery-charge-burden
+          = f.label '配送料の負担', class: 'listing-default__label' 
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :delivery_charge, options_for_select(Product.delivery_charges.keys, @product.delivery_charge), {}, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'edit-error-messages', locals: {jp: "配送料の負担", column: "delivery_charge"}
+        .listing-product-delivery-method#delivery_method-parent
+          = f.label '配送の方法', class: 'listing-default__label' 
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = select_tag :delivery_method, options_for_select(@delivery_method_array, @product.delivery_method), {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'edit-error-messages', locals: {jp: "配送の方法", column: "delivery_method"}
+        
+        .listing-product-regional-original-delivery
+          .listing-default__label 配送元の地域
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :delivery_area, options_for_select(Product.delivery_areas.keys, @product.delivery_area), {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'edit-error-messages', locals: {jp: "配送元の地域", column: "delivery_area"}
+
+        .listing-product-days-up-to-delivery
+          .listing-default__label 配送までの日数
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :delivery_days, options_for_select(Product.delivery_days.keys, @product.delivery_days), {}, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'edit-error-messages', locals: {jp: "配送までの日数", column: "delivery_days"}
+
+    -# 取引価格＆利益計算
+    .listing-content.clearfix
+      .listing-sub-head 販売価格(300〜9,999,999)
+      = link_to '#', class: 'listing-product-help' do
+        ?
+      .listing-form-box
+      
+        .form-right-justified
+          .form-right-justified--left
+            = f.label "価格", class: 'form-right-justified--left__label'
+            %span.listing-default--require--price 必須
+          .form-right-justified__box 
+            %p.form-right-justified__box--react-text ￥
+            = f.text_field :price, class: 'form-right-justified__box__entry', id: 'price-form', placeholder: '例） 300', value: "#{@product.price}"
+        = render partial: 'edit-error-messages', locals: {jp: "価格", column: "price"}
+
+        .form-right-justified-sub
+          = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
+          #sf-tag.form-right-justified-sub__fee=converting_to_jpy(@sales_fee)
+
+        .form-right-justified-main
+          = f.label "販売利益", class: 'form-right-justified-main__label'
+          #sp-tag.form-right-justified-main__revenue=converting_to_jpy(@sales_profit)
+
+    -# 送信＆注意書き
+    .listing-content.clearfix
+      %p.listing-product-submit-box__text 
+        = link_to '#', class:'subtext-link' do
+          禁止されている出品
+        、
+        =link_to '#', class:'subtext-link' do
+          行為
+        を必ずご確認ください。
+      %p.listing-product-submit-box__text
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        = link_to '#', class:'subtext-link' do
+          偽ブランドの販売
+        は犯罪であり処罰される可能性があります。
+      %p.listing-product-submit-box__text
+        また、出品をもちまして
+        = link_to '#', class:'subtext-link' do
+          加盟店規約
+        に同意したことになります。
+      = f.submit '出品する', class: 'listing-product-submit-box__send-btn', id: 'edit-send-btn'
+      = button_tag '#', class: 'listing-product-submit-box__return-btn' do
+        もどる
+      #delete-photos
+
+  = render 'shared/user-footer'
+
