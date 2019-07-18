@@ -69,7 +69,7 @@
     .item-container1__item-price
       %span.item-container1__item-price-bold
         ¥
-        = @product.price
+        = number_with_delimiter(@product.price)
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee
         = @product.delivery_charge
@@ -114,7 +114,7 @@
               .items-box-num
                 .items-box-price
                   ¥
-                  = product_other.price
+                  = number_with_delimiter(product_other.price)
                 .items-box-icon
                   %i.far.fa-heart
                   8
@@ -133,7 +133,7 @@
             .items-box-num
               .items-box-price
                 ￥
-                = other_category.price
+                = number_with_delimiter(other_category.price)
               .items-box-icon
                 %i.far.fa-heart
                 8
