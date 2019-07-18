@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
+  before_action :check_user_id, only: :edit
 
   def index
     @products = Product.with_attached_photos
@@ -16,6 +17,8 @@ class ProductsController < ApplicationController
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
     # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
+    @product_other = Product.where(exhibitor_id: @product.exhibitor_id).where.not(id:@product.id)
+    @other_category = Product.where(category_id: @product.category_id).where.not(id:@product.id)
   end
   
   def new
@@ -25,10 +28,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(@product)
     else
-      ActiveStorage::Blob.unattached.find_each(&:purge)
       render 'products/new'
     end
     @categories = Category.all
@@ -167,5 +168,10 @@ class ProductsController < ApplicationController
     else
       size_added_data.merge(brand_id: nil)
     end
+  end
+
+  def check_user_id
+    product = Product.find(params[:id])
+    redirect_to root_path unless current_user&.id == product.exhibitor.id
   end
 end
