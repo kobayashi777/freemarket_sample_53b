@@ -1,5 +1,6 @@
 class MypageController < ApplicationController
 
+
   def index
     @categories = Category.all
   end
@@ -12,4 +13,9 @@ class MypageController < ApplicationController
     @categories = Category.all
   end
   
+  def exhibit
+    @products = Product.all
+  end
+
+
 end

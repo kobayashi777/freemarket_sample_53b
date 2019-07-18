@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
     $('.slick').slick({
-      // autoplay:true,
+      autoplay:true,
       speed: 1000,
       dots:true,
       pauseOnHover: true,
