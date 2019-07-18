@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
+  # before_action user.sign_in, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
 
