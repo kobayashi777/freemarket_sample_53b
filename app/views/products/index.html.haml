@@ -59,30 +59,30 @@
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             シャネル 新着アイテム
-        =render partial: 'products/box-contents'
+        =render partial: 'products/box-contents' #brand_id: 121, category_id: 4 のものが表示される
 
       .item-container
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             ルイ ヴィトン 新着アイテム
-        =render partial: 'products/box-contents'
+        =render partial: 'products/box-contents6'
 
       .item-container
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             シュプリーム 新着アイテム
-        =render partial: 'products/box-contents'
+        =render partial: 'products/box-contents7'
         
       .item-container
         %h3.text-center
           = link_to '#', class:"text-center__inner" do
             ナイキ 新着アイテム
-        =render partial: 'products/box-contents'
+        =render partial: 'products/box-contents8'
 =render partial: 'layouts/footer'
 =render partial: 'layouts/footer-button'
 
 
--# .item-containern に含まれていた ,locals:{products:@products.where(brand_id:"1")} はなくてもtop表示、詳細ページ遷移は問題なし。消してみる。
+-# .item-containern に含まれていた ,locals:{products:@products.where(brand_id:"1")} 
   ,locals:{products:@products.where(brand_id:"2")}
   ,locals:{products:@products.where(brand_id:"3")}
   ,locals:{products:@products.where(brand_id:"4")}

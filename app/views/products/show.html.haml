@@ -1,7 +1,5 @@
 %script{src: 'product_show_photo', type: 'text/html'}
 
-/* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
-
 .wrapper3
 
   = render 'layouts/header'
@@ -14,7 +12,7 @@
         %ul.content--photo-up
           - @product.photos.each_with_index do |photo, i|
             %li.photo-up-piece
-              = image_tag @product.photos[i].variant(resize:'300x300').processed
+              = image_tag @product.photos[i].variant(resize:'300x300',auto_orient: true).processed
               -if @product.purchaser_id.present?
                 .content--photo_sold
                   .content--photo_sold__inner
@@ -23,8 +21,7 @@
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
-              = image_tag @product.photos[i].variant(resize:'60x60').processed
-        
+              = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
 
       %table.content--detail-table
         %tbody.table
@@ -42,7 +39,7 @@
             %th.table--section-left
               ブランド
             %th.table--section-right
-              = @product.brand&.name  #突然 .brand.name がundefined：nameになる 
+              = @product.brand&.name   
           %tr.table--section
             %th.table--section-left
               商品状態
@@ -94,14 +91,6 @@
         = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
 
   .item-comment-area
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    This is communication area.
   %ul.item-nav.clearfix
     %li.item-nav__link
       = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
@@ -128,8 +117,7 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            -# .items-box-tax   本番では税は非表示 以下同じ箇所も同様
-            -#   (税込)           何かの時に記録として残す
+
         .item-others--seller_product_box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
@@ -142,8 +130,7 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            -# .items-box-tax
-            -#   (税込)
+
         .item-others--seller_product_box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
@@ -156,8 +143,7 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            -# .items-box-tax
-            -#   (税込)
+ 
 
     %section.item-others--product
       %h2.item-others--product__category-name 同カテゴリーその他の商品
@@ -175,8 +161,7 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            -# .items-box-tax
-            -#   (税込)
+
         .item-others--product__content-product-box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
@@ -189,8 +174,7 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            -# .items-box-tax
-            -#   (税込)
+
         .item-others--product__content-product-box
           .items-box_photo
             = link_to image_tag "https://static.mercdn.net/thumb/photos/m80174371277_1.jpg", href:"", size: "210x200"
@@ -203,6 +187,5 @@
               .items-box-icon
                 %i.far.fa-heart
                 8
-            -# .items-box-tax
 
 = render 'layouts/footer'
