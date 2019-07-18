@@ -87,14 +87,14 @@ ActiveRecord::Schema.define(version: 2019_07_11_012830) do
     t.bigint "brand_id"
     t.integer "product_status", default: 0, null: false
     t.integer "delivery_charge", default: 0, null: false
-    t.integer "delivery_area", default: 0, null: false, unsigned: true
+    t.integer "delivery_area", default: 0, null: false
     t.string "price", null: false
     t.integer "delivery_days", default: 0, null: false
     t.string "delivery_method", default: "0", null: false
     t.integer "trading_state", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "exhibitor_id", null: false, unsigned: true
+    t.integer "exhibitor_id", null: false
     t.integer "purchaser_id"
     t.index ["brand_id"], name: "fk_rails_f3b4d49caa"
     t.index ["category_id"], name: "fk_rails_fb915499a4"
