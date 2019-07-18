@@ -96,12 +96,12 @@ class ProductsController < ApplicationController
       params[:delete_photos].split(",").each do |id|
         product.photos.find(id).purge
       end
-      ActiveStorage::Blob.unattached.find_each(&:purge)
+      # ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(product)
     else
       product.valid?
       session[:edit_errors] = product.errors
-      ActiveStorage::Blob.unattached.find_each(&:purge)
+      # ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_back(fallback_location: edit_product_path)
     end
     @categories = Category.all
