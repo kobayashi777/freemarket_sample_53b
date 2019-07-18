@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
+  before_action :check_user_id, only: :edit
 
   def index
     @products = Product.with_attached_photos
@@ -167,5 +168,10 @@ class ProductsController < ApplicationController
     else
       size_added_data.merge(brand_id: nil)
     end
+  end
+
+  def check_user_id
+    product = Product.find(params[:id])
+    redirect_to root_path unless current_user.id == product.exhibitor.id
   end
 end

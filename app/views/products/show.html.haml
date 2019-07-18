@@ -17,7 +17,6 @@
           - @product.photos.each_with_index do |photo, i|
             %li.photo-up-piece
               = image_tag @product.photos[i].variant(resize:'300x300',auto_orient: true).processed
-
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
