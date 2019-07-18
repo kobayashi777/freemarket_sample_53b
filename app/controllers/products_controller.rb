@@ -26,10 +26,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      # ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(@product)
     else
-      # ActiveStorage::Blob.unattached.find_each(&:purge)
       render 'products/new'
     end
     @categories = Category.all

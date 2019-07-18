@@ -1,5 +1,5 @@
 class MypageController < ApplicationController
-
+  before_action :authenticate_user!
 
   def index
     @categories = Category.all
@@ -16,6 +16,5 @@ class MypageController < ApplicationController
   def exhibit
     @products = Product.all
   end
-
 
 end
