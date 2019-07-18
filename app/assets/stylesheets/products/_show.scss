@@ -29,36 +29,17 @@
           background: $much_thin_gray;
           height: 300px;
           width: 3000px;
-          // border-collapse: collapse;
+          border-collapse: collapse;
           //overflow: hidden;   /* ここにこれらを書いても写真は隠れない 記録として残す */
           position: relative;
           .photo-up-piece {
-            
             height: 300px;
             width:300px;
             float:left;
             //overflow: hidden;   /* ここにこれらを書いても写真は隠れない
             //display: flex;          記録として残す */
           }
-          .content--photo_sold{
-            width: 0;
-            height: 0;
-            border-top: 60px solid #ea352d ;
-            border-right: 60px solid transparent;
-            border-bottom: 60px solid transparent;
-            border-left: 60px solid #ea352d ;
-            z-index:100;
-            position: relative;
-            top:-230px;
-            &__inner{
-              transform: rotate(-45deg);
-              font-size: 28px;
-              margin:-35px 0px 0px -55px;
-              color: #fff;
-              letter-spacing: 2px;
-              font-weight: 600;
-            }
-          }//.content--photo_sold
+
         }
         .content--photo-down {
           @include clearfix;
@@ -314,3 +295,22 @@
 body {
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
+.content--photo_sold{
+  width: 0;
+  height: 0;
+  border-top: 60px solid #ea352d ;
+  border-right: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid #ea352d ;
+  z-index:100;
+  position: absolute;;
+  top:213px;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 28px;
+    margin:-35px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}//.content--photo_sold
