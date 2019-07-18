@@ -4,11 +4,11 @@
   = render 'layouts/header'
   = render 'layouts/notifications'
   %section.item-container1
-    %h1.item-container1__item-name bruhbruhbruh
+    %h1.item-container1__item-name Tシャツ
     .item-container1__item-content.clearfix
       .content--photo
-        .content--photo_up photo up
-        .content--photo_down photo down
+        .content--photo_up
+        .content--photo_down
         %ul.content--photo-up
           -#.photo_up
           %li.photo-up-piece
@@ -69,31 +69,34 @@
         %tbody.table
           %tr.table--section
             %th.table--section-left 出品者
-            %th.table--section-right aikon several
+            %th.table--section-right exhibitor
           %tr.table--section
             %th.table--section-left カテゴリー
-            %th.table--section-right kate
+            %th.table--section-right
+              %pメンズ
+              %pトップス
+              %pTシャツ/カットソー(半袖/袖なし)
           %tr.table--section
             %th.table--section-left ブランド
-            %th.table--section-right speeddemon
+            %th.table--section-right brand
           %tr.table--section
             %th.table--section-left 商品状態
-            %th.table--section-right Ghost Rider
+            %th.table--section-right やや傷や汚れあり
           %tr.table--section
             %th.table--section-left 配送料負担
-            %th.table--section-right how much will you pay
+            %th.table--section-right 送料込み(出品者負担)
           %tr.table--section
             %th.table--section-left 配送方法
-            %th.table--section-right Aaaaa-Oh
+            %th.table--section-right らくらくメルカリ便
           %tr.table--section
             %th.table--section-left 配送元
-            %th.table--section-right ちょっと何言ってるか分からないです
+            %th.table--section-right 東京都
           %tr.table--section
             %th.table--section-left 配送日目安
-            %th.table--section-right てやんでい
+            %th.table--section-right 1~2日で発送
 
     .item-container1__item-price
-      %span.item-container1__item-price-bold  $1000
+      %span.item-container1__item-price-bold  ¥1000
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee 送料込み
     
