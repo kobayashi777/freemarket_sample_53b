@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  # get 'purchase/index'
-  # get 'purchase/done'
-
+  post '/purchase/:id/pay' => 'purchase#pay'
+  get '/purchase/:id/done' => 'purchase#done'
   get 'card/new'
   get 'card/show'
 
-  resources :purchase, only: [:index, :done, :update]
+  resources :purchase, only: [:show, :done]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
@@ -41,7 +40,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchase, only: [:index] do
+  resources :purchase, only: [:show] do
     collection do
       get 'index', to: 'purchase#index'
       post 'pay', to: 'purchase#pay'
