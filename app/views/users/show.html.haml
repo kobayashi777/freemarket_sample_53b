@@ -15,14 +15,24 @@
               %span 本人確認書類のアップデートについて
               %i.fa.fa-chevron-right
           .container__body--group
-            %label お名前
-            %p @user.name_kannji
+            %label お名前 
+            %p
+              = @user.last_name
+              = @user.first_name
           .container__body--group
             %label お名前カナ
-            %p @user.name_kana
+            %p 
+              = @user.last_name_kana
+              = @user.first_name_kana
           .container__body--group
             %label 生年月日
-            %p @user.birthday
+            %div.user_birthday
+              = @user.birthdate_year
+              .p /
+              = @user.birthdate_month 
+              .p /
+              = @user.birthdate_day
+
           .container__body--group
             %label{for: "zip_code"} 郵便番号
             %span.form-arbitrary 任意
@@ -31,8 +41,7 @@
             %label{for: "prefecture"} 都道府県
             %span.form-arbitrary 任意
             .group-select_wrap
-              %select{name: "prefecture", class: "select-default"}
-                %option{value: '--'} --
+              = f.select :prefecture, User.address_prefectures.keys.to_a,{include_blank: "---"},{class: "select-default"}
               %i.fa.fa-chevron-down.arrow-bottom
           .container__body--group
             %label{for: "city"} 市区町村
