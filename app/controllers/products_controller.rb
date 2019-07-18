@@ -172,6 +172,6 @@ class ProductsController < ApplicationController
 
   def check_user_id
     product = Product.find(params[:id])
-    redirect_to root_path unless current_user.id == product.exhibitor.id
+    redirect_to root_path unless current_user&.id == product.exhibitor.id
   end
 end
