@@ -66,7 +66,7 @@
 |product_name|string|null: false, index: true|
 |product_introduction|text|null: false|
 |category_id|integer|foreign_key: true, limit: 8|
-|product_size_id|integer|foreign_key: true, limit: 8|
+|products_size_id|integer|foreign_key: true, limit: 8|
 |brand_id|integer|foreign_key: true, limit: 8|
 |product_status|integer|null: false, default: 0|
 |delivery_charge|integer|null: false, default: 0|
