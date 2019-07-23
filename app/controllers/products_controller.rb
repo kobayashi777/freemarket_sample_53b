@@ -188,7 +188,8 @@ class ProductsController < ApplicationController
   end
 
   def delete_objects(key_array)
-    s3 = Aws::S3::Client.new(profile: nagisa, region: ap-northeast-1)
+    region='ap-northeast-1'
+    s3 = Aws::S3::Client.new(region: region)
     s3.delete_objects(
       bucket: 'mercari-tech',
       delete: {
