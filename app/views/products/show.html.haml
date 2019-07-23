@@ -112,6 +112,7 @@
           .item-others--seller_product_box
             .items-box_photo
               = image_tag product_other.photos[0].variant(resize:'210x200',auto_orient: true).processed
+              -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
             .items-box_body
               %h3.items-box-name
                 = product_other.product_name
@@ -131,6 +132,7 @@
         .item-others--product__content-product-box
           .items-box_photo
             = link_to image_tag other_category.photos[0].variant(resize:'210x200',auto_orient: true).processed
+            -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
           .items-box_body
             %h3.items-box-name
               = other_category.product_name

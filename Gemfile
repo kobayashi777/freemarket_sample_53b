@@ -75,3 +75,4 @@ gem "aws-sdk-s3", require: false
 gem 'mini_magick'
 gem 'pry-byebug'
 gem 'whenever', require: false
+gem 'aws-sdk', '~> 3'

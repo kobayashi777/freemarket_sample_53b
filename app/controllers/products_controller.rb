@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  require 'aws-sdk'
+  require 'json'
+
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
@@ -93,11 +96,20 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     if product.update(product_params) # updateが成功した場合
       # 編集ページで削除ボタンを押された写真のデータを削除する
-      params[:delete_photos].split(",").each do |id|
-        product.photos.find(id).purge
+      if Rails.env.production?
+        delete_key_array=[]
+        params[:delete_photos].split(",").each do |id|
+          key_hash={key: "#{product.photos.find(id).blob.key}"}
+          delete_key_array<<key_hash
+        end
+        del_objects(delete_key_array)
+      else
+        params[:delete_photos].split(",").each do |id|
+          product.photos.find(id).purge
+        end
       end
-      # ActiveStorage::Blob.unattached.find_each(&:purge)
-      redirect_to product_path(product)
+        # ActiveStorage::Blob.unattached.find_each(&:purge)
+        redirect_to product_path(product)
     else
       product.valid?
       session[:edit_errors] = product.errors
@@ -173,5 +185,16 @@ class ProductsController < ApplicationController
   def check_user_id
     product = Product.find(params[:id])
     redirect_to root_path unless current_user&.id == product.exhibitor.id
+  end
+
+  def del_objects(key_array)
+    region='ap-northeast-1'
+    s3 = Aws::S3::Client.new(region: region, access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key))
+    s3.delete_objects(
+      bucket: 'mercari-tech',
+      delete: {
+        objects: "#{key_array}"
+      }
+    )
   end
 end
