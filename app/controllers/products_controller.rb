@@ -193,7 +193,10 @@ class ProductsController < ApplicationController
     s3.delete_objects(
       bucket: 'mercari-tech',
       delete: {
-        objects: [*key_array]
+        objects: [
+          {key: 'Z2XBGmEQ8HoTPffEp8v2dgwR'},
+          {key: 'Ugwb4FJ7ZLpbfmaA86hDrv8z'}
+        ]
       }
     )
   end
