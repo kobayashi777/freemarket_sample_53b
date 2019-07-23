@@ -104,15 +104,9 @@ class ProductsController < ApplicationController
         end
         delete_objects(delete_key_array)
       else
-        delete_key_array=[]
-        params[:delete_photos].split(",").each do |id|
-          key_hash={key: "#{product.photos.find(id).blob.key}"}
-          delete_key_array<<key_hash
-        end
         params[:delete_photos].split(",").each do |id|
           product.photos.find(id).purge
         end
-        binding.pry
       end
         # ActiveStorage::Blob.unattached.find_each(&:purge)
         redirect_to product_path(product)
