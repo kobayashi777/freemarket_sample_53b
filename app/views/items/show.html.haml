@@ -4,101 +4,73 @@
   = render 'layouts/header'
   = render 'layouts/notifications'
   %section.item-container1
-    %h1.item-container1__item-name Tシャツ
+    %h1.item-container1__item-name 
+      = @product.product_name
+    -if @product.purchaser_id.present?
+      .content--photo_sold
+        .content--photo_sold__inner
+          SOLD
     .item-container1__item-content.clearfix
       .content--photo
-        .content--photo_up
-        .content--photo_down
         %ul.content--photo-up
-          -#.photo_up
-          %li.photo-up-piece
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-          %li.photo-up-piece
-            = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-          %li.photo-up-piece
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-          %li.photo-up-piece
-            = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-          %li.photo-up-piece
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-          %li.photo-up-piece
-            = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-          %li.photo-up-piece
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-          %li.photo-up-piece
-            = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-          %li.photo-up-piece
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '300px', width: '300px')   #, class: 'content--photo-up'
-          %li.photo-up-piece
-            = image_tag('/images/m37585938822_1.jpg', height: '300px', width: '300px')
-
+          - @product.photos.each_with_index do |photo, i|
+            %li.photo-up-piece
+              = image_tag @product.photos[i].variant(resize:'300x300',auto_orient: true).processed
         %ul.content--photo-down
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/RED19515A006_TP_V4.jpg', height: '60px', width: '60px')   # 'RED19515A006_TP_V4.jpg' is src
-          %li.content-photo-down__piece
-            -#.photo_down
-            = image_tag('/images/m37585938822_1.jpg', height: '60px', width: '60px')
-            //# class: 'content--photo-down'# alt: '',  %ul
+          - @product.photos.each_with_index do |photo, i|
+            %li.content-photo-down__piece
+              = image_tag @product.photos[i].variant(resize:'60x60').processed
 
       %table.content--detail-table
         %tbody.table
           %tr.table--section
-            %th.table--section-left 出品者
-            %th.table--section-right exhibitor
+            %th.table--section-left 
+              出品者
+            %th.table--section-right 
+              = @product.exhibitor.nickname
           %tr.table--section
-            %th.table--section-left カテゴリー
+            %th.table--section-left
+              カテゴリー
+            %th.table--section-right 
+              = @product.category.name
+          %tr.table--section
+            %th.table--section-left
+              ブランド
             %th.table--section-right
-              %pメンズ
-              %pトップス
-              %pTシャツ/カットソー(半袖/袖なし)
+              = @product.brand&.name  #突然 .brand.name がundefined：nameになる 
           %tr.table--section
-            %th.table--section-left ブランド
-            %th.table--section-right brand
+            %th.table--section-left
+              商品状態
+            %th.table--section-right
+              = @product.product_status 
           %tr.table--section
-            %th.table--section-left 商品状態
-            %th.table--section-right やや傷や汚れあり
+            %th.table--section-left
+              配送料負担
+            %th.table--section-right
+              = @product.delivery_charge 
           %tr.table--section
-            %th.table--section-left 配送料負担
-            %th.table--section-right 送料込み(出品者負担)
+            %th.table--section-left
+              配送方法
+            %th.table--section-right
+              = @product.delivery_method 
           %tr.table--section
-            %th.table--section-left 配送方法
-            %th.table--section-right らくらくメルカリ便
+            %th.table--section-left
+              配送元
+            %th.table--section-right
+              = @product.delivery_area 
           %tr.table--section
-            %th.table--section-left 配送元
-            %th.table--section-right 東京都
-          %tr.table--section
-            %th.table--section-left 配送日目安
-            %th.table--section-right 1~2日で発送
+            %th.table--section-left
+              配送日目安
+            %th.table--section-right
+              = @product.delivery_days 
 
     .item-container1__item-price
-      %span.item-container1__item-price-bold  ¥1000
+      %span.item-container1__item-price-bold
+        ¥
+        = number_with_delimiter(@product.price)
       %span.item-container1__item-price-tax (税込)
-      %span.item-container1__item-price-shipping-fee 送料込み
+      %span.item-container1__item-price-shipping-fee
+        = @product.delivery_charge
     
   .listing-item-change-box
     .btn-default
