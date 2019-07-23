@@ -97,12 +97,15 @@ class ProductsController < ApplicationController
     if product.update(product_params) # updateが成功した場合
       # 編集ページで削除ボタンを押された写真のデータを削除する
       if Rails.env.production?
-        delete_key_array=[]
+        # delete_key_array=[]
+        # params[:delete_photos].split(",").each do |id|
+        #   key_hash={key: "#{product.photos.find(id).blob.key}"}
+        #   delete_key_array<<key_hash
+        # end
+        # del_objects(delete_key_array)
         params[:delete_photos].split(",").each do |id|
-          key_hash={key: "#{product.photos.find(id).blob.key}"}
-          delete_key_array<<key_hash
+          product.photos.find(id).detach
         end
-        del_objects(delete_key_array)
       else
         params[:delete_photos].split(",").each do |id|
           product.photos.find(id).purge
@@ -187,17 +190,17 @@ class ProductsController < ApplicationController
     redirect_to root_path unless current_user&.id == product.exhibitor.id
   end
 
-  def del_objects(key_array)
-    region='ap-northeast-1'
-    s3 = Aws::S3::Client.new(region: region, access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key))
-    s3.delete_objects({
-      bucket: 'mercari-tech',
-      delete: {
-        objects: [
-          {key: 'Z2XBGmEQ8HoTPffEp8v2dgwR'},
-          {key: 'Ugwb4FJ7ZLpbfmaA86hDrv8z'}
-        ]
-      }
-    })
-  end
+  # def del_objects(key_array)
+  #   region='ap-northeast-1'
+  #   s3 = Aws::S3::Client.new(region: region, access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key))
+  #   s3.delete_objects({
+  #     bucket: 'mercari-tech',
+  #     delete: {
+  #       objects: [
+  #         {key: 'Z2XBGmEQ8HoTPffEp8v2dgwR'},
+  #         {key: 'Ugwb4FJ7ZLpbfmaA86hDrv8z'}
+  #       ]
+  #     }
+  #   })
+  # end
 end
