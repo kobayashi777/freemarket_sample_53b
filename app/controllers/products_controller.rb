@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  require 'aws-sdk-s3'
+  require 'aws-sdk'
   require 'json'
 
   before_action :authenticate_user!, only: [:new, :edit]
@@ -102,7 +102,7 @@ class ProductsController < ApplicationController
           key_hash={key: "#{product.photos.find(id).blob.key}"}
           delete_key_array<<key_hash
         end
-        delete_objects(delete_key_array)
+        del_objects(delete_key_array)
       else
         params[:delete_photos].split(",").each do |id|
           product.photos.find(id).purge
@@ -187,13 +187,13 @@ class ProductsController < ApplicationController
     redirect_to root_path unless current_user&.id == product.exhibitor.id
   end
 
-  def delete_objects(key_array)
+  def del_objects(key_array)
     region='ap-northeast-1'
     s3 = Aws::S3::Client.new(region: region, access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key))
     s3.delete_objects(
       bucket: 'mercari-tech',
       delete: {
-        objects: key_array
+        objects: "#{key_array}"
       }
     )
   end
