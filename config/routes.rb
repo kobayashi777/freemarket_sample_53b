@@ -53,5 +53,5 @@ Rails.application.routes.draw do
   end
   
 
-  get '*anything' => 'mypage#new'
+  # get '*anything' => 'mypage#new'
 end
