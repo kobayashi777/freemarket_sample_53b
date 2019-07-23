@@ -104,11 +104,11 @@ class ProductsController < ApplicationController
         # end
         # del_objects(delete_key_array)
         params[:delete_photos].split(",").each do |id|
-          product.photos.find(id).detach
+          ActiveStorage::Attachment.find(id).delete
         end
       else
         params[:delete_photos].split(",").each do |id|
-          product.photos.find(id).purge
+          ActiveStorage::Attachment.find(id).delete
         end
       end
         # ActiveStorage::Blob.unattached.find_each(&:purge)
