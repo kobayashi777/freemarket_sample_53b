@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   require 'aws-sdk'
   require 'json'
 
+  include PickBrand
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
@@ -9,10 +10,10 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.with_attached_photos
-    # @parents = Category.where(ancestry:nil)
-
-    @category = Category.all
-    @parents = @category.where(ancestry:nil)
+    @chanels = pick_brand("シャネル")
+    @vuittons = pick_brand("ルイ ヴィトン")
+    @supremes = pick_brand("シュプリーム")
+    @nikes = pick_brand("ナイキ")
   end
 
   def show
