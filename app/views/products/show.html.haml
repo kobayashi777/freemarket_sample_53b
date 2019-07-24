@@ -81,7 +81,7 @@
     .item-container1__item-description 
       %p.item-description-inner
         -# This is description area⬇︎ 
-        = @product.product_introduction
+        = simple_format(@product.product_introduction, align: "left")
     .item-container1__item-other-btn.clearfix
       .link_btn_left
         %button.item-other-btn-left いいね！
