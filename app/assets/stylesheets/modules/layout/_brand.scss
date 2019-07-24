@@ -2,10 +2,12 @@
 .gnav-brand{
   height:60px;
   width: 90px;
+  z-index:10;
 }
 .gnav-brand:hover li a{
   height: 2.5rem;
   overflow: visible;
+  z-index:10;
 }
 .gnav-brand li a{
   position: relative;
@@ -22,8 +24,10 @@
   background:white;
   height: 0;
   overflow: hidden;
+  z-index:10;
 }
 .gnav-brand > li:hover > a{
   color:white;
   background-color: $red;
+  z-index:10;
 }

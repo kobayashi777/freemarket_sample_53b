@@ -11,6 +11,7 @@ class MypageController < ApplicationController
 
   def new
     @categories = Category.all
+    @products = Product.with_attached_photos
   end
   
   def exhibit

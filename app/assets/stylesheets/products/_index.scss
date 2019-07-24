@@ -68,6 +68,7 @@
     &_photo{
       width: 213px;
       height:190px;
+      text-align: center;
       background-color: white;
       &__image{
         width:213px;
@@ -217,6 +218,7 @@
     &_photo{
       width: 213px;
       height:190px;
+      text-align: center;
       background-color: white;
       &__image{
         width:213px;
@@ -260,7 +262,7 @@
     border-right: 60px solid transparent;
     border-bottom: 60px solid transparent;
     border-left: 60px solid #ea352d ;
-    z-index:100;
+    z-index:10;
     position: relative;
     top:-320px;
     &__inner{
@@ -360,6 +362,7 @@
       height:190px;
       width: 40vw;
       height: 40vh;
+      text-align: center;
       background-color: white;
       &__image{
         width: 40vw;
