@@ -13,11 +13,27 @@
     .mypage-exhibit-content__inner--right 
       = link_to "売却済",'#' 
       -# 下記のリンク先は後ほど変更。
-  = link_to "https://www.mercari.com/jp/"  do
-    .mypage-exhibit-content__product
-      - @products.each do |product|
+  -# = link_to "https://www.mercari.com/jp/"  do
+  -#   .mypage-exhibit-content__product
+  -#     - @products.each do |product|
+  -#       .mypage-exhibit-content__product--image
+  -#         = image_tag product.photos[0].variant(resize: "44x44", auto_orient: true)
+  -#       .wrap_mypage-exhibit-content__product1
+  -#         .mypage-exhibit-content__product--name  
+  -#           = product.product_name
+  -#         .wrap-mypage-exhibit-content__product2
+  -#           .mypage-exhibit-content__product--heart
+  -#             %i.far.fa-heart
+  -#           .mypage-exhibit-content__product--comment 
+  -#             %i.far.fa-comment-alt
+  -#           .mypage-exhibit-content__product--mark 出品中
+  -#     .mypage-exhibit-content__product--icon
+  -#       %i.fas.fa-chevron-right
+  - @products.each do |product|
+    = link_to item_path(product)  do
+      .mypage-exhibit-content__product
         .mypage-exhibit-content__product--image
-          = image_tag product.product_introduction,size: "44x44"
+          = image_tag product.photos[0].variant(resize: "44x44", auto_orient: true)
         .wrap_mypage-exhibit-content__product1
           .mypage-exhibit-content__product--name  
             = product.product_name
@@ -27,8 +43,8 @@
             .mypage-exhibit-content__product--comment 
               %i.far.fa-comment-alt
             .mypage-exhibit-content__product--mark 出品中
-      .mypage-exhibit-content__product--icon
-        %i.fas.fa-chevron-right
+          .mypage-exhibit-content__product--icon
+            %i.fas.fa-chevron-right
 
 .mypage-exhibit-footer-button
   = render "layouts/footer-button"

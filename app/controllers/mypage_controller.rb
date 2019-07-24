@@ -2,19 +2,20 @@ class MypageController < ApplicationController
 
 
   def index
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
   end
 
   def show
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
   end
 
   def new
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
   end
   
   def exhibit
-    @products = Product.all
+    @parents = Category.where(ancestry:nil)
+    @products = Product.where(exhibitor_id: current_user.id).order('created_at DESC').limit(18)
   end
 
 
