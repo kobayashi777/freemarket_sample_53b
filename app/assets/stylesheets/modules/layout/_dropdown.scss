@@ -2,10 +2,12 @@
 // 第一階層
 .gnav{
   height:60px;
+  
 }
 .gnav:hover li a{
   height: 3.2rem;
   overflow: visible;
+  z-index:100;
 }
 .gnav li a{
   position: relative;
@@ -22,24 +24,29 @@
   height: 0;
   overflow: hidden;
   font-size: 14px;
+  
 }
 .gnav > li:hover > a{
   color:white;
   background-color:$red;
+  
 }
 //第二階層
 .gnav ul li a:hover{
   color:black;
   background-color:rgb(225, 225, 225);
+  
 }
 .gnav ul li a:hover li {
   height: 2.5rem;
   overflow: visible;
+ 
   
 }
 
 .gnav li:hover ul{
   display: block;
+  
 }
 .gnav ul{
   display: none;
@@ -51,8 +58,7 @@
   background: white;
   margin-top:100px;
 }
-.gnav li ul{
-}
+
 .gnav ul li a{
   line-height: 30px;
   // background-color: aqua;
@@ -82,5 +88,6 @@
   width: 224px;
   height: 0;
   overflow: hidden;
+  
 }
 
