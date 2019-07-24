@@ -1,3 +1,4 @@
 .notification
   - flash.each do |key, value|
-    = content_tag :div, value, class: key
+    - if value == "変更しました。" || value == "変更に失敗しました。"
+      = content_tag :div, value, class: key
