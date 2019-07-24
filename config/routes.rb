@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :mypage, only:[:index, :show, :edit, :new] do
     collection do
       get 'exhibit'
+      get 'purchaser'
     end
   end
 

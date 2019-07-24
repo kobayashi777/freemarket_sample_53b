@@ -15,7 +15,12 @@ class MypageController < ApplicationController
   
   def exhibit
     @parents = Category.where(ancestry:nil)
-    @products = Product.where(exhibitor_id: current_user.id).order('created_at DESC').limit(18)
+    @products = Product.where(exhibitor_id: current_user.id, purchaser_id: nil).order('created_at DESC').limit(18)
+  end
+
+  def purchaser
+    @parents = Category.where(ancestry:nil)
+    @products = Product.where(exhibitor_id: current_user.id).where.not(purchaser_id: nil).order('created_at DESC').limit(18)
   end
 
 
