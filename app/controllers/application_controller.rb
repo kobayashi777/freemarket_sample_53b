@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
   rescue_from Forbidden, with: :rescue403
   
+
   def dropdown
     @parents = Category.where(ancestry:nil)
   end

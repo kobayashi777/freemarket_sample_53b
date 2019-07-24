@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
     @vuittons = pick_brand("ルイ ヴィトン")
     @supremes = pick_brand("シュプリーム")
     @nikes = pick_brand("ナイキ")
+    @category = Category.all
+    @parents = @category.where(ancestry:nil)
   end
 
   def show
