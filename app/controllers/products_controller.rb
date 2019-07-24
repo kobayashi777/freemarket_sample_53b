@@ -20,8 +20,8 @@ class ProductsController < ApplicationController
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
     # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
-    @product_other = Product.where(exhibitor_id: @product.exhibitor_id).where.not(id:@product.id)
-    @other_category = Product.where(category_id: @product.category_id).where.not(id:@product.id)
+    @product_other = Product.where(exhibitor_id: @product.exhibitor_id).where.not(id:@product.id).order('created_at DESC').limit(12)
+    @other_category = Product.where(category_id: @product.category_id).where.not(id:@product.id).order('created_at DESC').limit(12)
   end
   
   def new

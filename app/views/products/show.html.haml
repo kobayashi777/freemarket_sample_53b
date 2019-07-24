@@ -105,8 +105,8 @@
       .item-others--seller_product.clearfix
         - @product_other.each_with_index do |product_other, i|
           .item-others--seller_product_box
-            .items-box_photo
-              = image_tag product_other.photos[0].variant(resize:'210x200',auto_orient: true).processed
+            .items-box_photo.item-box__image
+              = image_tag product_other.photos[0].variant(resize:'220x220',auto_orient: true).processed, class: "item-box__image--inner"
               -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
             .items-box_body
               %h3.items-box-name
