@@ -84,7 +84,9 @@
         = simple_format(@product.product_introduction, align: "left")
     .item-container1__item-other-btn.clearfix
       .link_btn_left
-        %button.item-other-btn-left いいね！
+        %button.item-other-btn-left 
+          いいね！
+          = rand(30) + 1
       .link_btn_right
         %i.fa.fa-lock
         = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
