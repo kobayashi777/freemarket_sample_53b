@@ -22,7 +22,7 @@
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
-              = image_tag @product.photos[i].variant(resize:'60x60').processed
+              = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
 
       %table.content--detail-table
         %tbody.table
