@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     end
   end
   resources :registration1, only: :show
+  resources :items, only:[:index, :show, :destroy]
   resources :mypage, only:[:index, :show, :edit, :new] do
     collection do
       get 'exhibit'
