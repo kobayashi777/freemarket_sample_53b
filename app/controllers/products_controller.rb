@@ -1,12 +1,21 @@
 class ProductsController < ApplicationController
+  require 'aws-sdk'
+  require 'json'
+
+  include PickBrand
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_category, only: [:new, :create]
   before_action :check_validation_create, only: :create
+  before_action :check_user_id, only: :edit
 
   def index
     @products = Product.with_attached_photos
-    @products = Product.all
-    @parents = Category.where(ancestry:nil)
+    @chanels = pick_brand("シャネル")
+    @vuittons = pick_brand("ルイ ヴィトン")
+    @supremes = pick_brand("シュプリーム")
+    @nikes = pick_brand("ナイキ")
+    @category = Category.all
+    @parents = @category.where(ancestry:nil)
   end
 
   def show
@@ -14,6 +23,8 @@ class ProductsController < ApplicationController
     @product = Product.with_attached_photos.find(params[:id])
     # with_attached_photos は Active Storage の n+1 問題を解決してくれるメソッド
     # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
+    @product_other = Product.where(exhibitor_id: @product.exhibitor_id).where.not(id:@product.id).order('created_at DESC').limit(12)
+    @other_category = Product.where(category_id: @product.category_id).where.not(id:@product.id).order('created_at DESC').limit(12)
   end
   
   def new
@@ -23,10 +34,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_to product_path(@product)
     else
-      ActiveStorage::Blob.unattached.find_each(&:purge)
       render 'products/new'
     end
     @categories = Category.all
@@ -90,15 +99,27 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     if product.update(product_params) # updateが成功した場合
       # 編集ページで削除ボタンを押された写真のデータを削除する
-      params[:delete_photos].split(",").each do |id|
-        product.photos.find(id).purge
+      if Rails.env.production?
+        # delete_key_array=[]
+        # params[:delete_photos].split(",").each do |id|
+        #   key_hash={key: "#{product.photos.find(id).blob.key}"}
+        #   delete_key_array<<key_hash
+        # end
+        # del_objects(delete_key_array)
+        params[:delete_photos].split(",").each do |id|
+          ActiveStorage::Attachment.find(id).delete
+        end
+      else
+        params[:delete_photos].split(",").each do |id|
+          ActiveStorage::Attachment.find(id).delete
+        end
       end
-      ActiveStorage::Blob.unattached.find_each(&:purge)
-      redirect_to product_path(product)
+        # ActiveStorage::Blob.unattached.find_each(&:purge)
+        redirect_to product_path(product)
     else
       product.valid?
       session[:edit_errors] = product.errors
-      ActiveStorage::Blob.unattached.find_each(&:purge)
+      # ActiveStorage::Blob.unattached.find_each(&:purge)
       redirect_back(fallback_location: edit_product_path)
     end
     @categories = Category.all
@@ -160,10 +181,29 @@ class ProductsController < ApplicationController
       size_added_data = primitive_data.merge(products_size_id: nil)
     end
     # ブランドの入力があるものとないものとで条件分岐し、最終系のハッシュを作成
-    if params[:brand] != "" && params[:brand] != nil
+    if params[:brand] != "" && (params[:brand] != nil)
       size_added_data.merge(brand_id: Brand.find_or_create_by(name: "#{params[:brand]}", category_id: "#{params[:category_id]}").id)
     else
       size_added_data.merge(brand_id: nil)
     end
   end
+
+  def check_user_id
+    product = Product.find(params[:id])
+    redirect_to root_path unless current_user&.id == product.exhibitor.id
+  end
+
+  # def del_objects(key_array)
+  #   region='ap-northeast-1'
+  #   s3 = Aws::S3::Client.new(region: region, access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key))
+  #   s3.delete_objects({
+  #     bucket: 'mercari-tech',
+  #     delete: {
+  #       objects: [
+  #         {key: 'Z2XBGmEQ8HoTPffEp8v2dgwR'},
+  #         {key: 'Ugwb4FJ7ZLpbfmaA86hDrv8z'}
+  #       ]
+  #     }
+  #   })
+  # end
 end

@@ -18,9 +18,6 @@
   .pick-up-category{
   padding:40px 0;
   }//.pick-up-category
-  .pick-up-main{
-
-  }//.pick-up-main
   .pickup-head{
     height:39px;
     font-size: 28px;
@@ -68,6 +65,7 @@
     &_photo{
       width: 213px;
       height:190px;
+      text-align: center;
       background-color: white;
       &__image{
         width:213px;
@@ -111,7 +109,25 @@
       color: #333;
     }
   }//.items-box
-
+  .items-box_photo__sold{
+    width: 0;
+    height: 0;
+    border-top: 60px solid #ea352d ;
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid #ea352d ;
+    z-index:100;
+    position: relative;
+    top:-320px;
+    &__inner{
+      transform: rotate(-45deg);
+      font-size: 28px;
+      margin:-35px 0px 0px -55px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }//&__inner
+  }//.items-box_photo__sold
   .far.fa-heart{
     color:gray;
   }//.far.fa-heart
@@ -199,6 +215,7 @@
     &_photo{
       width: 213px;
       height:190px;
+      text-align: center;
       background-color: white;
       &__image{
         width:213px;
@@ -235,7 +252,25 @@
       color: #333;
     }//&-icon
   }//.items-box
-
+  .items-box_photo__sold{
+    width: 0;
+    height: 0;
+    border-top: 60px solid #ea352d ;
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid #ea352d ;
+    z-index:10;
+    position: relative;
+    top:-320px;
+    &__inner{
+      transform: rotate(-45deg);
+      font-size: 28px;
+      margin:-35px 0px 0px -55px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }//&__inner
+  }//.items-box_photo__sold
   .far.fa-heart{
     color:gray;
   }//.far.fa-heart
@@ -324,6 +359,7 @@
       height:190px;
       width: 40vw;
       height: 40vh;
+      text-align: center;
       background-color: white;
       &__image{
         width: 40vw;
@@ -369,6 +405,25 @@
       color: #333;
     }//&-icon
   }//.items-box
+  .items-box_photo__sold{
+    width: 0;
+    height: 0;
+    border-top: 60px solid #ea352d ;
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid #ea352d ;
+    z-index:100;
+    position: relative;
+    top:-305px;
+    &__inner{
+      transform: rotate(-45deg);
+      font-size: 28px;
+      margin:-35px 0px 0px -55px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }//&__inner
+  }//.items-box_photo__sold
   .far.fa-heart{
     color:gray;
   }//.far.fa-heart

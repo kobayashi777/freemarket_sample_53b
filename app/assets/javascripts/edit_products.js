@@ -28,7 +28,23 @@ $(document).on('turbolinks:load', function() {
       $("#delete-photos").append(
         $('<input type="hidden" name="delete_photos">').val(deletePhotoIds)
       ); 
-      $('#editForm').submit();
+      //表示されているの写真の枚数を取得する
+      var visiblePhotosLength = $('.image-box:visible').length;
+      //アップロードされた写真の枚数を取得する
+      var uploadedPhotosLength = $('.image-box-new').length;
+      //画面に表示されている写真とアップロードされた写真の枚数の合計を数える
+      var sumPhotos = visiblePhotosLength + uploadedPhotosLength;
+      //合計写真枚数が1枚以上10枚以下を確認しバリデーション
+      if (1 <= sumPhotos && sumPhotos <= 10) {
+        $('#editForm').submit();
+      } else {
+        var errorHtml = `<ul id= 'upload-error'>
+                          <li class= 'has_error_text'>画像は合計1枚以上10枚以下で選択してください</li>
+                         </ul>`
+        $('#upload-error').remove();
+        $('.listing-upload').append(errorHtml);
+        $('html,body').scrollTop(0);
+      }
     });
   });
 });

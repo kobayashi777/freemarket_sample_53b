@@ -1,0 +1,93 @@
+
+.wrapper3
+  = render 'layouts/header'
+  %section.item-container1
+    %h1.item-container1__item-name 
+      = @product.product_name
+    .item-container1__item-content.clearfix
+      .content--photo
+        %ul.content--photo-up
+          - @product.photos.each_with_index do |photo, i|
+            %li.photo-up-piece
+              = image_tag @product.photos[i].variant(resize:'300x300',auto_orient: true).processed
+        %ul.content--photo-down
+          - @product.photos.each_with_index do |photo, i|
+            %li.content-photo-down__piece
+              = image_tag @product.photos[i].variant(resize:'60x60').processed
+
+      %table.content--detail-table
+        %tbody.table
+          %tr.table--section
+            %th.table--section-left 
+              出品者
+            %th.table--section-right 
+              = @product.exhibitor.nickname
+          %tr.table--section
+            %th.table--section-left
+              カテゴリー
+            %th.table--section-right 
+              = @product.category
+          %tr.table--section
+            %th.table--section-left
+              ブランド
+            %th.table--section-right
+              = @product.brand&.name
+          %tr.table--section
+            %th.table--section-left
+              商品状態
+            %th.table--section-right
+              = @product.product_status 
+          %tr.table--section
+            %th.table--section-left
+              配送料負担
+            %th.table--section-right
+              = @product.delivery_charge 
+          %tr.table--section
+            %th.table--section-left
+              配送方法
+            %th.table--section-right
+              = @product.delivery_method 
+          %tr.table--section
+            %th.table--section-left
+              配送元
+            %th.table--section-right
+              = @product.delivery_area 
+          %tr.table--section
+            %th.table--section-left
+              配送日目安
+            %th.table--section-right
+              = @product.delivery_days 
+
+    .item-container1__item-price
+      %span.item-container1__item-price-bold
+        ¥
+        = number_with_delimiter(@product.price)
+      %span.item-container1__item-price-tax (税込)
+      %span.item-container1__item-price-shipping-fee
+        = @product.delivery_charge
+    
+  .listing-item-change-box
+    .btn-default
+      .btn-default__item-box__edit
+        商品を編集
+      .btn-default__p
+        or
+      .btn-gray
+        .item-box__stop
+          出品を一旦停止する
+        .item-box__delete
+          この商品を削除する
+        .overlay
+        .modalWindow
+          .modal-body
+            .modal-head
+              %p確認
+            .modal-fooder
+              %p削除すると二度と復活できません。
+              %p削除する代わりに停止することもできます。
+              %p本当に削除しますか？
+          .modal-btn
+            .modal-btn-cancel
+              キャンセル
+            = link_to '削除する', item_path, method: :delete, class: "modal-btn-submit"
+= render 'layouts/footer'
