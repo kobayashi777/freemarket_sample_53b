@@ -13,10 +13,8 @@
 .mypage-exhibit-content{
   width: 700px;
   height: 230px;
-  // float: right;
-  position: absolute;
-  right: 220px;
-  top: 138px;
+  float: left;
+  margin: 40px 0 0 40px;
   &__head{
     font-weight: bold;
     padding: 0 12px;
@@ -42,6 +40,12 @@
       @include inner-font;
       background-color: lightgrey;
 
+    }
+    &--link{
+      color: #333;
+    }
+    &--link:visited{
+      color: #333;
     }
   
   }

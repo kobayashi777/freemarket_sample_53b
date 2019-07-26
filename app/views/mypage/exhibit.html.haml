@@ -1,50 +1,35 @@
-.mypage-exhibit-header
-  = render "layouts/header"
-.mypage-exhibit-sidebar
+:css
+  .l-side>ul>a:nth-child(6)>li{
+    background-color: #eee !important;
+    font-weight: 600;
+  }
+= render "layouts/header"
+
+.wrapper
   = render "mypage/mypage-sidemenu"
 
-.mypage-exhibit-content
-  %h2.mypage-exhibit-content__head 出品した商品
-  .mypage-exhibit-content__inner
-    .mypage-exhibit-content__inner--left 
-      = link_to "出品中", exhibit_mypage_index_path
-    .mypage-exhibit-content__inner--center 
-      = link_to "取引中",'#' 
-    .mypage-exhibit-content__inner--right 
-      = link_to "売却済", purchaser_mypage_index_path
-      -# 下記のリンク先は後ほど変更。
-  -# = link_to "https://www.mercari.com/jp/"  do
-  -#   .mypage-exhibit-content__product
-  -#     - @products.each do |product|
-  -#       .mypage-exhibit-content__product--image
-  -#         = image_tag product.photos[0].variant(resize: "44x44", auto_orient: true)
-  -#       .wrap_mypage-exhibit-content__product1
-  -#         .mypage-exhibit-content__product--name  
-  -#           = product.product_name
-  -#         .wrap-mypage-exhibit-content__product2
-  -#           .mypage-exhibit-content__product--heart
-  -#             %i.far.fa-heart
-  -#           .mypage-exhibit-content__product--comment 
-  -#             %i.far.fa-comment-alt
-  -#           .mypage-exhibit-content__product--mark 出品中
-  -#     .mypage-exhibit-content__product--icon
-  -#       %i.fas.fa-chevron-right
-  - @products.each do |product|
-    = link_to product_path(product)  do
-      .mypage-exhibit-content__product
-        .mypage-exhibit-content__product--image
-          = image_tag product.photos[0].variant(resize: "44x44", auto_orient: true)
-        .wrap_mypage-exhibit-content__product1
-          .mypage-exhibit-content__product--name  
-            = product.product_name
-          .wrap-mypage-exhibit-content__product2
-            .mypage-exhibit-content__product--heart
-              %i.far.fa-heart
-            .mypage-exhibit-content__product--comment 
-              %i.far.fa-comment-alt
-            .mypage-exhibit-content__product--mark 出品中
-          .mypage-exhibit-content__product--icon
-            %i.fas.fa-chevron-right
+  .mypage-exhibit-content
+    %h2.mypage-exhibit-content__head 出品した商品
+    .mypage-exhibit-content__inner
+      .mypage-exhibit-content__inner--left 
+        = link_to "出品中", exhibit_mypage_index_path, class: "mypage-exhibit-content__inner--link"
+      .mypage-exhibit-content__inner--center 
+        = link_to "取引中",'#', class: "mypage-exhibit-content__inner--link"
+      .mypage-exhibit-content__inner--right 
+        = link_to "売却済", purchaser_mypage_index_path, class: "mypage-exhibit-content__inner--link"
+
+    - @products.each do |product|
+      = link_to item_path(product), class: "mypage-exhibit-content__inner--link" do
+        .mypage-exhibit-content__product
+          .mypage-exhibit-content__product--image
+            = image_tag product.photos[0].variant(resize: "44x44", auto_orient: true)
+          .wrap_mypage-exhibit-content__product1
+            .mypage-exhibit-content__product--name  
+              = product.product_name
+            .wrap-mypage-exhibit-content__product2
+              .mypage-exhibit-content__product--mark 出品中
+            .mypage-exhibit-content__product--icon
+              %i.fas.fa-chevron-right
 
 .mypage-exhibit-footer-button
   = render "layouts/footer-button"
