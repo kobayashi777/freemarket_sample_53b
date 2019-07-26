@@ -1,15 +1,9 @@
 
 .wrapper3
-
   = render 'layouts/header'
-  = render 'layouts/notifications'
   %section.item-container1
     %h1.item-container1__item-name 
       = @product.product_name
-    -if @product.purchaser_id.present?
-      .content--photo_sold
-        .content--photo_sold__inner
-          SOLD
     .item-container1__item-content.clearfix
       .content--photo
         %ul.content--photo-up
@@ -32,12 +26,12 @@
             %th.table--section-left
               カテゴリー
             %th.table--section-right 
-              = @product.category.name
+              = @product.category
           %tr.table--section
             %th.table--section-left
               ブランド
             %th.table--section-right
-              = @product.brand&.name  #突然 .brand.name がundefined：nameになる 
+              = @product.brand&.name
           %tr.table--section
             %th.table--section-left
               商品状態
