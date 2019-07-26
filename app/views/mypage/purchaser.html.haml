@@ -1,9 +1,21 @@
 :css
-  .l-side>ul>a:nth-child(6)>li{
+  .mypage-exhibit-content__inner--left{
+    background-color: lightgrey;
+    border-top: none;
+  }
+  .mypage-exhibit-content__inner--right{
+    border-top:2px solid #ea352d;
+    background: #fafafa;
+  }
+  .mypage-exhibit-content__product--mark{
+    background-color: red;
+  }
+  .l-side>ul>a:nth-child(8)>li{
     background-color: #eee !important;
     font-weight: 600;
   }
-= render "layouts/header"
+.mypage-exhibit-header
+  = render "layouts/header"
 
 .wrapper
   = render "mypage/mypage-sidemenu"
@@ -27,7 +39,7 @@
             .mypage-exhibit-content__product--name  
               = product.product_name
             .wrap-mypage-exhibit-content__product2
-              .mypage-exhibit-content__product--mark 出品中
+              .mypage-exhibit-content__product--mark 売却済
             .mypage-exhibit-content__product--icon
               %i.fas.fa-chevron-right
 

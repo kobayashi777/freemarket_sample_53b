@@ -2,11 +2,11 @@ class MypageController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
   end
 
   def show
-    @categories = Category.all
+    @parents = Category.where(ancestry:nil)
   end
 
   def new
@@ -15,7 +15,13 @@ class MypageController < ApplicationController
   end
   
   def exhibit
-    @products = Product.all
+    @parents = Category.where(ancestry:nil)
+    @products = Product.where(exhibitor_id: current_user.id, purchaser_id: nil).order('created_at DESC').limit(18)
+  end
+
+  def purchaser
+    @parents = Category.where(ancestry:nil)
+    @products = Product.where(exhibitor_id: current_user.id).where.not(purchaser_id: nil).order('created_at DESC').limit(18)
   end
 
 end

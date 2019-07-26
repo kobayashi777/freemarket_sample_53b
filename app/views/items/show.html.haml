@@ -13,7 +13,7 @@
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
-              = image_tag @product.photos[i].variant(resize:'60x60').processed
+              = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
 
       %table.content--detail-table
         %tbody.table
@@ -26,7 +26,7 @@
             %th.table--section-left
               カテゴリー
             %th.table--section-right 
-              = @product.category
+              = @product.category.name
           %tr.table--section
             %th.table--section-left
               ブランド
@@ -68,7 +68,7 @@
     
   .listing-item-change-box
     .btn-default
-      .btn-default__item-box__edit
+      = link_to edit_product_path(@product), class: "btn-default__item-box__edit" do
         商品を編集
       .btn-default__p
         or

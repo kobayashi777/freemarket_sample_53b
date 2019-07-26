@@ -13,10 +13,8 @@
 .mypage-exhibit-content{
   width: 700px;
   height: 230px;
-  // float: right;
-  position: absolute;
-  right: 220px;
-  top: 138px;
+  float: left;
+  margin: 40px 0 0 40px;
   &__head{
     font-weight: bold;
     padding: 0 12px;
@@ -43,11 +41,19 @@
       background-color: lightgrey;
 
     }
+    &--link{
+      color: #333;
+    }
+    &--link:visited{
+      color: #333;
+    }
   
   }
 
   &__product{
     cursor: pointer;
+    position: relative;
+    border-top: 2px solid $thin_gray;
 
     .wrap-mypage-exhibit-content__product2{
       display: flex;
@@ -59,7 +65,7 @@
     background: #fafafa;
     padding:7px;
     &--image{
-
+      width: 44px;
     }
     &--name{
       line-height: 3px;
@@ -88,7 +94,7 @@
     font-size: 20px;
     position: absolute;
     right: 50px;
-    top: 161px;
+    top: 20px;
     
     }
   }
