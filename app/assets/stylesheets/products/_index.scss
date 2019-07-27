@@ -18,9 +18,6 @@
   .pick-up-category{
   padding:40px 0;
   }//.pick-up-category
-  .pick-up-main{
-
-  }//.pick-up-main
   .pickup-head{
     height:39px;
     font-size: 28px;
@@ -68,6 +65,7 @@
     &_photo{
       width: 213px;
       height:190px;
+      text-align: center;
       background-color: white;
       &__image{
         width:213px;
@@ -217,6 +215,7 @@
     &_photo{
       width: 213px;
       height:190px;
+      text-align: center;
       background-color: white;
       &__image{
         width:213px;
@@ -260,7 +259,7 @@
     border-right: 60px solid transparent;
     border-bottom: 60px solid transparent;
     border-left: 60px solid #ea352d ;
-    z-index:100;
+    z-index:10;
     position: relative;
     top:-320px;
     &__inner{
@@ -360,6 +359,7 @@
       height:190px;
       width: 40vw;
       height: 40vh;
+      text-align: center;
       background-color: white;
       &__image{
         width: 40vw;
@@ -414,7 +414,7 @@
     border-left: 60px solid #ea352d ;
     z-index:100;
     position: relative;
-    top:-340px;
+    top:-305px;
     &__inner{
       transform: rotate(-45deg);
       font-size: 28px;

@@ -22,7 +22,7 @@
         %ul.content--photo-down
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
-              = image_tag @product.photos[i].variant(resize:'60x60').processed
+              = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
 
       %table.content--detail-table
         %tbody.table
@@ -78,23 +78,16 @@
     .item-container1__item-description 
       %p.item-description-inner
         -# This is description area⬇︎ 
-        = @product.product_introduction
+        = simple_format(@product.product_introduction, align: "left")
     .item-container1__item-other-btn.clearfix
       .link_btn_left
-        %button.item-other-btn-left いいね！
+        %button.item-other-btn-left 
+          いいね！
+          = rand(30) + 1
       .link_btn_right
         %i.fa.fa-lock
         = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
 
-  .item-comment-area
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    In here,communicate each other.//
-    This is communication area.
   %ul.item-nav.clearfix
     %li.item-nav__link
       = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
@@ -109,38 +102,40 @@
       %h2.item-others--seller_name 出品者のその他の商品
       .item-others--seller_product.clearfix
         - @product_other.each_with_index do |product_other, i|
-          .item-others--seller_product_box
-            .items-box_photo
-              = image_tag product_other.photos[0].variant(resize:'210x200',auto_orient: true).processed
-              -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
-            .items-box_body
-              %h3.items-box-name
-                = product_other.product_name
-              .items-box-num
-                .items-box-price
-                  ¥
-                  = number_with_delimiter(product_other.price)
-                .items-box-icon
-                  %i.far.fa-heart
-                  8
+          = link_to product_path(product_other) do
+            .item-others--seller_product_box
+              .items-box_photo.item-box__image
+                = image_tag product_other.photos[0].variant(resize:'220x220',auto_orient: true).processed, class: "item-box__image--inner"
+                -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
+              .items-box_body
+                %h3.items-box-name
+                  = product_other.product_name
+                .items-box-num
+                  .items-box-price
+                    ¥
+                    = number_with_delimiter(product_other.price)
+                  .items-box-icon
+                    %i.far.fa-heart
+                    8
  
 
     %section.item-others--product
       %h2.item-others--product__category-name 同カテゴリーその他の商品
       .item-others--product__content
       - @other_category.each_with_index do |other_category, i|
-        .item-others--product__content-product-box
-          .items-box_photo
-            = link_to image_tag other_category.photos[0].variant(resize:'210x200',auto_orient: true).processed
-            -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
-          .items-box_body
-            %h3.items-box-name
-              = other_category.product_name
-            .items-box-num
-              .items-box-price
-                ￥
-                = number_with_delimiter(other_category.price)
-              .items-box-icon
-                %i.far.fa-heart
-                8
+        = link_to product_path(other_category) do
+          .item-others--product__content-product-box
+            .items-box_photo.item-box__image
+              = image_tag other_category.photos[0].variant(resize:'220x220',auto_orient: true).processed, class: "item-box__image--inner"
+              -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
+            .items-box_body
+              %h3.items-box-name
+                = other_category.product_name
+              .items-box-num
+                .items-box-price
+                  ￥
+                  = number_with_delimiter(other_category.price)
+                .items-box-icon
+                  %i.far.fa-heart
+                  8
 = render 'layouts/footer'

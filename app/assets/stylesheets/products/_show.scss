@@ -36,6 +36,7 @@
             height: 300px;
             width:300px;
             float:left;
+           
             //overflow: hidden;   /* ここにこれらを書いても写真は隠れない
             //display: flex;          記録として残す */
           }
@@ -239,10 +240,9 @@
         width: 700px;
         padding: 0;
         .item-others--seller_product_box {
-          margin: 0 13px 20px 0;
+          margin: 0 13px 40px 0;
           width: 220px;
           height: 330px;
-          border: 1px solid gray; /* これは境界確認用の設定です */
           float: left;
           //display: inline;  効果なしであることを記録するため記す
           .item-others--seller_product_box--figure {
@@ -250,7 +250,6 @@
             width: 220px;
             overflow: hidden;
             position: relative;
-            border-bottom: 1px dashed gray; /* これは境界確認用の設定です */
           }
           .item-others-seller_product_box--name {
             height: 110px;
@@ -276,13 +275,11 @@
       .item-others--product__content-product-box {
         margin: 0 13px 20px 0;
         width: 220px;
-        border: 1px solid gray; /* これは境界確認用の設定です */
         float: left;
         .item-others--product-box--figure {
           height: 220px;
           overflow: hidden;
           position: relative;
-          border-bottom: 1px dashed gray; /* これは境界確認用の設定です */
         }
         .item-others-product-box--name {
           height: 110px;
@@ -302,7 +299,7 @@ body {
   border-right: 60px solid transparent;
   border-bottom: 60px solid transparent;
   border-left: 60px solid #ea352d ;
-  z-index:100;
+  z-index:1;
   position: absolute;;
   top:213px;
   &__inner{
@@ -314,3 +311,14 @@ body {
     font-weight: 600;
   }
 }//.content--photo_sold
+
+.item-box__image{
+  width: 220px !important;
+  height: 220px !important;
+  align-items: center;
+  display: flex;
+  &--inner{
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}

@@ -1,4 +1,5 @@
 .notification-destroy
   .notice-destroy
     - flash.each do |key, value|
-      = content_tag :div, value, class: key
+      - if value == "出品した商品を削除しました"
+        = content_tag :div, value, class: "key"
