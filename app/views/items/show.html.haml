@@ -14,7 +14,6 @@
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
               = image_tag @product.photos[i].variant(resize:'60x60').processed
-
       %table.content--detail-table
         %tbody.table
           %tr.table--section
