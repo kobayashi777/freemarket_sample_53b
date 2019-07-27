@@ -14,7 +14,7 @@
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
               = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
-
+              
       %table.content--detail-table
         %tbody.table
           %tr.table--section
@@ -26,7 +26,7 @@
             %th.table--section-left
               カテゴリー
             %th.table--section-right 
-              = @product.category.name
+              = @product.category
           %tr.table--section
             %th.table--section-left
               ブランド
