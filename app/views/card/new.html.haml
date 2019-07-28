@@ -38,6 +38,6 @@
             %br
             .forth-main-wrapper__form
               .forth-main-wrapper__form--label セキュリティコード
-              = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc", class: 'forth-main-wrapper__form--input'
-              #card_token
+              = text_field_tag "cvc", "", class: "cvc forth-main-wrapper__form--input", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+              -# #card_token
               = submit_tag "追加する", id: "token_submit", class: 'forth-main-wrapper__form--btn'
