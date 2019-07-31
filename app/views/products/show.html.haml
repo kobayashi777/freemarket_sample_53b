@@ -1,5 +1,7 @@
 %script{src: 'product_show_photo', type: 'text/html'}
 
+/* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
+
 .wrapper3
 
   = render 'layouts/header'
@@ -38,7 +40,7 @@
             %th.table--section-left
               ブランド
             %th.table--section-right
-              = @product.brand&.name   
+              = @product.brand&.name  #突然 .brand.name がundefined：nameになる 
           %tr.table--section
             %th.table--section-left
               商品状態
@@ -72,12 +74,7 @@
       %span.item-container1__item-price-tax (税込)
       %span.item-container1__item-price-shipping-fee
         = @product.delivery_charge
-      -if @product.purchaser_id.present?
-        .item-container1__item-buy-btn__sold
-          売り切れました
-      -else
-        = link_to " 購入画面に進む", purchase_path,  class:"item-container1__item-buy-btn"
-
+    = link_to " 購入画面に進む", purchase_path,  class:"item-container1__item-buy-btn"
     .item-container1__item-description 
       %p.item-description-inner
         -# This is description area⬇︎ 
@@ -91,7 +88,6 @@
         %i.fa.fa-lock
         = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
 
-  .item-comment-area
   %ul.item-nav.clearfix
     %li.item-nav__link
       = link_to '< Preview product', root_path, class: 'item-nav__link-prev'

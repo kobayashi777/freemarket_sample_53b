@@ -1,7 +1,14 @@
+:css
+  .l-side>ul>a:nth-child(1)>li{
+    background-color: #eee !important;
+    font-weight: 600;
+  }
 .body
   =render partial: 'layouts/header'
   - breadcrumb :mypage
   =render partial: 'layouts/bread-crumbs'
+  = render 'layouts/notifications'
+
   .wrapper
     = render partial: "mypage/mypage-sidemenu"
     .mypage-wrapper
@@ -9,7 +16,8 @@
         .my-page-right-content__top
           .my-page-right-content__top__content
             = image_tag "/images/member_photo_noimage_thumb.png"
-            %p.username username
+            %p.username
+              = current_user.nickname
             %span 評価
             %span.num 0
             %span 出品数
@@ -25,21 +33,21 @@
             .message
               .message__text 事務局から個別メッセージ「ログイン通知」
               %i.far.fa-clock
-              %span.message__text-time 2時間前
+              %span.message__text-time 2 時間前
             %i.fas.fa-angle-right
           %li.my-page-right-content__main__column
             = image_tag "/images/mercari_profile.png"
             .message
               .message__text 明日、5%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
               %i.far.fa-clock
-              %span.message__text-time 2時間前
+              %span.message__text-time 2 時間前
             %i.fas.fa-angle-right
           %li.my-page-right-content__main__column
             = image_tag "/images/mercari_profile.png"
             .message
               .message__text 事務局から個別メッセージ「ログイン通知」
               %i.far.fa-clock
-              %span.message__text-time 2時間前
+              %span.message__text-time 2 時間前
             %i.fas.fa-angle-right
           %li.my-page-right-content__main__column
             = image_tag "/images/mercari_profile.png"
