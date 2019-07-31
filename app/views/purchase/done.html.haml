@@ -14,7 +14,7 @@
     .content__main_box
       .content__main_wait
         .content__main_wait--item
-          = image_tag @product.photos[0].variant(resize:'200x200').processed,class:"content__main_wait--item-image"
+          = image_tag @product.photos[0].variant(resize:'200x200',auto_orient: true).processed,class:"content__main_wait--item-image"
           .content__main_wait--item-name
             = @products.product_name
 

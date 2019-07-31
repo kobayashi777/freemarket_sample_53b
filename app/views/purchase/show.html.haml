@@ -6,7 +6,7 @@
     %div.content__main
       .content__main--item
       %span.content__main--item-image
-        = image_tag @product.photos[0].variant(resize:'100x100').processed
+        = image_tag @product.photos[0].variant(resize:'100x100',auto_orient: true).processed
       %p.content__main--item-name
         = @products.product_name
 
