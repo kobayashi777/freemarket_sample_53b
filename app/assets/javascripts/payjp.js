@@ -1,12 +1,9 @@
 $(document).on('turbolinks:load', function() {
-  
-  document.addEventListener(
-    "DOMContentLoaded", e => {
       if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
+       
         Payjp.setPublicKey("pk_test_e193823c96fbee56ff8c70f6"); //ここに公開鍵を直書き
         let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得されます
-          $("charge-form").on("click",'token_submit', function(e) {
-        // btn.addEventListener("click", e => { //ボタンが押されたときに作動します
+          $('#token_submit').on("click", function(e) {
           e.preventDefault(); //ボタンを一旦無効化します
           let card = {
             number: document.getElementById("card_number").value,
@@ -17,7 +14,7 @@ $(document).on('turbolinks:load', function() {
           var exp_month = document.getElementById("exp_month").value
           var number = document.getElementById("card_number").value
           Payjp.createToken(card, (status, response) => {
-
+          console.log
             if (status === 200) { //成功した場合
               $("#card_number").removeAttr("name");
               $("#cvc").removeAttr("name");
@@ -34,8 +31,5 @@ $(document).on('turbolinks:load', function() {
             }
           });
         });
-      }
-    },
-    false
-  );
-});
+      }//if (document.getElementById("#token_submit") != null)
+}); //$(document).on('turbolinks:load', function() 

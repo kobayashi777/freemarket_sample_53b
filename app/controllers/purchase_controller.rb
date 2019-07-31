@@ -1,5 +1,6 @@
 class PurchaseController < ApplicationController
   require 'payjp'
+  before_action :authenticate_user!, only: [:show]
 
   def show
     card = Card.where(user_id: current_user.id).first

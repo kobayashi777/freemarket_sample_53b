@@ -12,14 +12,13 @@ class CardController < ApplicationController
     # Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
     Payjp.api_key = "sk_test_8a22f3d6cc423679a2d3e948"
     if params['payjp-token'].blank?
-      
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
       card: params['payjp-token'],)
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id:customer.default_card)
       if @card.save
-        redirect_to controller: 'purchase', action: 'show'
+        redirect_to purchase_path(session[:product_id])
       else
         redirect_to action: "pay"
       end
