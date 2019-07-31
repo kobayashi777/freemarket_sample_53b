@@ -25,6 +25,8 @@ class ProductsController < ApplicationController
     # with_attached_photos は .all と動作が同じなので .find で細かな指定をする
     @product_other = Product.where(exhibitor_id: @product.exhibitor_id).where.not(id:@product.id).order('created_at DESC').limit(12)
     @other_category = Product.where(category_id: @product.category_id).where.not(id:@product.id).order('created_at DESC').limit(12)
+    session[:product_id] = params[:id]
+
   end
   
   def new

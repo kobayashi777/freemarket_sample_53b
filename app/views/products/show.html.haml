@@ -9,10 +9,6 @@
   %section.item-container1
     %h1.item-container1__item-name 
       = @product.product_name
-    -if @product.purchaser_id.present?
-      .content--photo_sold
-        .content--photo_sold__inner
-          SOLD
     .item-container1__item-content.clearfix
       .content--photo
         %ul.content--photo-up
@@ -23,6 +19,10 @@
           - @product.photos.each_with_index do |photo, i|
             %li.content-photo-down__piece
               = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
+          -if @product.purchaser_id.present?
+            .content--photo_sold
+              .content--photo_sold__inner
+                SOLD
 
       %table.content--detail-table
         %tbody.table
@@ -117,7 +117,6 @@
                   .items-box-icon
                     %i.far.fa-heart
                     8
- 
 
     %section.item-others--product
       %h2.item-others--product__category-name 同カテゴリーその他の商品

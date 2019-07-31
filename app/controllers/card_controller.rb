@@ -10,7 +10,6 @@ class CardController < ApplicationController
   def pay #payjpとCardのデータベース作成を実施します。
     
     Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
-    
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -18,7 +17,7 @@ class CardController < ApplicationController
       card: params['payjp-token'],)
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id:customer.default_card)
       if @card.save
-        redirect_to controller: 'purchase', action: 'index'
+        redirect_to purchase_path(session[:product_id])
       else
         redirect_to action: "pay"
       end
